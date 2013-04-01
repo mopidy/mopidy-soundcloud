@@ -1,7 +1,7 @@
 from __future__ import unicode_literals
 
 import re
-from setuptools import setup
+from setuptools import setup, find_packages
 
 
 def get_version(filename):
@@ -9,6 +9,7 @@ def get_version(filename):
     metadata = dict(re.findall("__([a-z]+)__ = '([^']+)'", content))
     return metadata['version']
 
+print(find_packages(exclude=['tests', 'tests.*']))
 
 setup(
     name='Mopidy-SoundCloud',
@@ -19,7 +20,7 @@ setup(
     author_email='dz0ny@shortmail.com',
     description='SoundCloud extension for Mopidy',
     long_description=open('README.rst').read(),
-    packages=['mopidy_soundcloud'],
+    packages=find_packages(exclude=['tests', 'tests.*']),
     zip_safe=False,
     include_package_data=True,
     install_requires=[
