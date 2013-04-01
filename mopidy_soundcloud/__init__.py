@@ -2,6 +2,7 @@ from __future__ import unicode_literals
 
 from mopidy import ext
 from mopidy.exceptions import ExtensionError
+from mopidy.utils import config
 
 __doc__ = """A extension for playing music from SoundCloud.
 
@@ -26,7 +27,7 @@ requests
 - :attr:`mopidy.settings.explore_pages`
 """
 
-__version__ = '1.0.5'
+__version__ = '1.0.8'
 
 
 class SoundCloudExtension(ext.Extension):
@@ -36,11 +37,18 @@ class SoundCloudExtension(ext.Extension):
 
     def get_default_config(self):
         return """[ext.soundcloud]
-        enabled = True
-        auth_token = False
-        explore = "pop/Easy Listening,rock/Indie,electronic/Ambient"
-        explore_pages = 1
+            enabled = True
+            auth_token = False
+            explore = "pop/Easy Listening,rock/Indie,electronic/Ambient"
+            explore_pages = 1
         """
+
+    def get_config_schema(self):
+        schema = config.ExtensionConfigSchema()
+        schema['explore'] = config.String()
+        schema['explore_pages'] = config.Integer()
+        schema['auth_token'] = config.String(required=True, secret=True)
+        return schema
 
     def validate_config(self, config):
         if not config.getboolean('soundcloud', 'enabled'):
