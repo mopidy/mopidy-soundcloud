@@ -13,12 +13,12 @@ def get_version(filename):
 setup(
     name='Mopidy-SoundCloud',
     version=get_version('mopidy_soundcloud/__init__.py'),
-    url='http://github.com/dz0ny/mopidy_soundcloud/',
+    url='http://github.com/dz0ny/mopidy-soundcloud/',
     license='MIT',
     author='dz0ny',
     author_email='dz0ny@shortmail.com',
     description='SoundCloud extension for Mopidy',
-    long_description=open('README.md').read(),
+    long_description=open('README.rst').read(),
     packages=['mopidy_soundcloud'],
     zip_safe=False,
     include_package_data=True,
@@ -35,7 +35,7 @@ setup(
     classifiers=[
         'Environment :: No Input/Output (Daemon)',
         'Intended Audience :: End Users/Desktop',
-        'License :: OSI Approved :: Apache Software License',
+        'License :: OSI Approved :: MIT License',
         'Operating System :: OS Independent',
         'Programming Language :: Python :: 2',
         'Topic :: Multimedia :: Sound/Audio :: Players',

@@ -1,5 +1,5 @@
 Mopidy-SoundCloud
-================
+=================
 
 Mopidy http://www.mopidy.com/ extension for playing music from
 SoundCloud http://www.soundcloud.com

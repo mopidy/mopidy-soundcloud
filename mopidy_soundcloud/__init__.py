@@ -1,9 +1,7 @@
 from __future__ import unicode_literals
 
-import mopidy
 from mopidy import ext
 from mopidy.exceptions import ExtensionError
-from .actor import SoundCloudBackend
 
 __doc__ = """A extension for playing music from SoundCloud.
 
@@ -23,11 +21,11 @@ requests
 
 **Settings:**
 
-- :attr:`mopidy.settings.SOUNDCLOUD_AUTH_TOKEN`
-- :attr:`mopidy.settings.SOUNDCLOUD_EXPLORE`
+- :attr:`mopidy.settings.auth_token`
+- :attr:`mopidy.settings.explore`
 """
 
-__version__ = '1.0'
+__version__ = '1.0.0'
 
 
 class SoundCloudExtension(ext.Extension):
@@ -36,13 +34,16 @@ class SoundCloudExtension(ext.Extension):
     version = __version__
 
     def get_default_config(self):
-        return """[soundcloud]
+        return """[ext.soundcloud]
+        enabled = True
         auth_key = False
         explore = "pop,indie"
         """
 
     def validate_config(self, config):
-        if not config.get('auth_token', False):
+        if not config.getboolean('soundcloud', 'enabled'):
+            return
+        if not config.get('soundcloud', 'auth_token'):
             raise ExtensionError("In order to use SoundCloud extension you\
              must provide auth_token, for more information referrer to \
              https://github.com/dz0ny/mopidy-soundcloud/")
@@ -54,4 +55,5 @@ class SoundCloudExtension(ext.Extension):
             raise ExtensionError('Library requests not found', e)
 
     def get_backend_classes(self):
+        from .actor import SoundCloudBackend
         return [SoundCloudBackend]
