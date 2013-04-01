@@ -23,9 +23,10 @@ requests
 
 - :attr:`mopidy.settings.auth_token`
 - :attr:`mopidy.settings.explore`
+- :attr:`mopidy.settings.explore_pages`
 """
 
-__version__ = '1.0.0'
+__version__ = '1.0.5'
 
 
 class SoundCloudExtension(ext.Extension):
@@ -36,8 +37,9 @@ class SoundCloudExtension(ext.Extension):
     def get_default_config(self):
         return """[ext.soundcloud]
         enabled = True
-        auth_key = False
-        explore = "pop,indie"
+        auth_token = False
+        explore = "pop/Easy Listening,rock/Indie,electronic/Ambient"
+        explore_pages = 1
         """
 
     def validate_config(self, config):

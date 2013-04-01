@@ -9,8 +9,6 @@ def get_version(filename):
     metadata = dict(re.findall("__([a-z]+)__ = '([^']+)'", content))
     return metadata['version']
 
-print(find_packages(exclude=['tests', 'tests.*']))
-
 setup(
     name='Mopidy-SoundCloud',
     version=get_version('mopidy_soundcloud/__init__.py'),

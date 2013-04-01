@@ -19,7 +19,7 @@ class SoundCloudBackend(pykka.ThreadingActor, base.Backend):
     def __init__(self, audio):
         super(SoundCloudBackend, self).__init__()
 
-        self.sc_api = SoundCloudClient(settings.SOUNDCLOUD_AUTH_TOKEN)
+        self.sc_api = SoundCloudClient(settings.get('soundcloud', 'auth_token'))
         self.library = SoundCloudLibraryProvider(backend=self)
         self.playback = SoundCloudPlaybackProvider(audio=audio, backend=self)
         self.playlists = SoundCloudPlaylistsProvider(backend=self)

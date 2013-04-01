@@ -119,11 +119,11 @@ class SoundCloudClient(object):
             return
 
     @cache()
-    def get_explore_category(self, category, section):
+    def get_explore_category(self, category, section, pages=1):
         logger.debug("get_explore_category %s %s" % (category, section))
         # Most liked by category in explore section
         tracks = []
-        for sid in xrange(0, 2):
+        for sid in xrange(0, int(pages) + 1):
             stream = self._get('explore/sounds/category/%s?offset=%s' % (
                 category.lower(), sid * 20))
             for data in stream.get('collection'):

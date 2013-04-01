@@ -46,13 +46,14 @@ class SoundCloudPlaylistsProvider(base.BasePlaylistsProvider):
 
     def create_explore_playlist(self, uri, streamable=False):
         uri = uri.replace('soundcloud:exp-', '')
+        pages = settings.get('soundcloud', 'explore_pages')
         (category, section) = uri.split(';')
         logger.debug('Fetching Explore playlist %s from SoundCloud' % section)
         return Playlist(
             uri='soundcloud:exp-%s' % uri,
             name='Explore %s on SoundCloud' % section,
             tracks=self.backend.sc_api.get_explore_category(
-                category, section) if streamable else []
+                category, section, pages) if streamable else []
         )
 
     def create_user_liked_playlist(self, streamable=False):
