@@ -3,9 +3,7 @@ from __future__ import unicode_literals
 import logging
 import pykka
 
-from mopidy import settings
 from mopidy.backends import base
-
 
 from .library import SoundCloudLibraryProvider
 from .playlists import SoundCloudPlaylistsProvider
@@ -16,10 +14,10 @@ logger = logging.getLogger('mopidy.backends.soundcloud')
 
 class SoundCloudBackend(pykka.ThreadingActor, base.Backend):
 
-    def __init__(self, audio):
+    def __init__(self, config, audio):
         super(SoundCloudBackend, self).__init__()
-
-        self.sc_api = SoundCloudClient(settings.get('soundcloud', 'auth_token'))
+        self.config = config
+        self.sc_api = SoundCloudClient(config['soundcloud']['auth_token'])
         self.library = SoundCloudLibraryProvider(backend=self)
         self.playback = SoundCloudPlaybackProvider(audio=audio, backend=self)
         self.playlists = SoundCloudPlaylistsProvider(backend=self)

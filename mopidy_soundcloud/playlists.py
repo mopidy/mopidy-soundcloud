@@ -2,7 +2,6 @@ from __future__ import unicode_literals
 
 import logging
 
-from mopidy import settings
 from mopidy.backends import base, listener
 from mopidy.models import Playlist
 
@@ -13,6 +12,7 @@ class SoundCloudPlaylistsProvider(base.BasePlaylistsProvider):
 
     def __init__(self, *args, **kwargs):
         super(SoundCloudPlaylistsProvider, self).__init__(*args, **kwargs)
+        self.config = self.backend.config
         self._playlists = []
         self.refresh()
 
@@ -46,7 +46,7 @@ class SoundCloudPlaylistsProvider(base.BasePlaylistsProvider):
 
     def create_explore_playlist(self, uri, streamable=False):
         uri = uri.replace('soundcloud:exp-', '')
-        pages = settings.get('soundcloud', 'explore_pages')
+        pages = self.config['soundcloud']['explore_pages']
         (category, section) = uri.split(';')
         logger.debug('Fetching Explore playlist %s from SoundCloud' % section)
         return Playlist(
@@ -86,7 +86,7 @@ class SoundCloudPlaylistsProvider(base.BasePlaylistsProvider):
             )
             self._playlists.append(scset)
 
-        for cat in settings.SOUNDCLOUD_EXPLORE:
+        for cat in self.config['soundcloud']['explore']:
             exp = self.create_explore_playlist(cat.replace('/', ';'))
             self._playlists.append(exp)
         logger.info('Loaded %d SoundCloud playlist(s)', len(self._playlists))

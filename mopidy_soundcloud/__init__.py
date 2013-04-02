@@ -2,7 +2,22 @@ from __future__ import unicode_literals
 
 from mopidy import ext
 from mopidy.exceptions import ExtensionError
-from mopidy.utils import config
+from mopidy.utils import config, formatting
+
+
+default_config = """
+[soundcloud]
+enabled = True
+
+# Your SoundCloud auth token, you can get yours at http://www.mopidy.com/authenticate
+auth_token = 
+
+# Extra playlists from http://www.soundcloud.com/explore
+explore = pop/Easy Listening, rock/Indie, electronic/Ambient
+
+# Number of pages (which roughly translates to hours) to fetch
+explore_pages = 1
+"""
 
 __doc__ = """A extension for playing music from SoundCloud.
 
@@ -20,32 +35,28 @@ https://github.com/dz0ny/mopidy-soundcloud/issues
 
 requests
 
-**Settings:**
+**Default config**
 
-- :attr:`mopidy.settings.auth_token`
-- :attr:`mopidy.settings.explore`
-- :attr:`mopidy.settings.explore_pages`
-"""
+.. code-block:: ini
 
-__version__ = '1.0.8'
+%(config)s
+""" % {'config': formatting.indent(default_config)}
+
+__version__ = '1.0.9'
 
 
 class SoundCloudExtension(ext.Extension):
 
-    name = 'Mopidy-SoundCloud'
+    dist_name = 'Mopidy-SoundCloud'
+    ext_name = 'soundcloud'
     version = __version__
 
     def get_default_config(self):
-        return """[ext.soundcloud]
-            enabled = True
-            auth_token = False
-            explore = "pop/Easy Listening,rock/Indie,electronic/Ambient"
-            explore_pages = 1
-        """
+        return default_config
 
     def get_config_schema(self):
         schema = config.ExtensionConfigSchema()
-        schema['explore'] = config.String()
+        schema['explore'] = config.List()
         schema['explore_pages'] = config.Integer()
         schema['auth_token'] = config.String(required=True, secret=True)
         return schema

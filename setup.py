@@ -27,7 +27,7 @@ setup(
         'requests',
     ],
     entry_points={
-        b'mopidy.extension': [
+        b'mopidy.ext': [
             'soundcloud = mopidy_soundcloud:SoundCloudExtension',
         ],
     },
