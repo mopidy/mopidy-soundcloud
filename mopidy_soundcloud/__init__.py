@@ -42,7 +42,7 @@ requests
 %(config)s
 """ % {'config': formatting.indent(default_config)}
 
-__version__ = '1.0.9'
+__version__ = '1.0.10'
 
 
 class SoundCloudExtension(ext.Extension):
@@ -56,9 +56,9 @@ class SoundCloudExtension(ext.Extension):
 
     def get_config_schema(self):
         schema = config.ExtensionConfigSchema()
-        schema['explore'] = config.List()
-        schema['explore_pages'] = config.Integer()
-        schema['auth_token'] = config.String(required=True, secret=True)
+        schema['explore'] = config.List(required=False)
+        schema['explore_pages'] = config.Integer(required=False)
+        schema['auth_token'] = config.String(secret=True)
         return schema
 
     def validate_config(self, config):
