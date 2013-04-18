@@ -211,6 +211,7 @@ class SoundCloudClient(object):
                 artist_kwargs[b'name'] = data.get('user').get('username')
 
             album_kwargs[b'name'] = 'SoundCloud'
+            #album_kwargs[b'url'] = data.get('permalink_url')
 
         if 'date' in data:
             track_kwargs[b'date'] = data['date']
