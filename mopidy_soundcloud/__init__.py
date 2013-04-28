@@ -21,13 +21,9 @@ https://github.com/dz0ny/mopidy-soundcloud/issues
 
 requests
 
-**Default config**
-
-.. code-block:: ini
-
 """
 
-__version__ = '1.0.13'
+__version__ = '1.0.14'
 
 
 class SoundCloudExtension(ext.Extension):
