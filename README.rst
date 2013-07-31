@@ -20,7 +20,7 @@ Usage
 #. Add the authentication token to the ``mopidy.conf`` config file::
 
     [soundcloud]
-    auth_key = 1-1111-1111111
+    auth_token = 1-1111-1111111
 
 #. Extra playlists from http://www.soundcloud.com/explore can be retrieved by
    setting the ``soundcloud/explore`` config value. For example, if you want
@@ -28,7 +28,7 @@ Usage
    would be "jazz%2Bblues/Smooth Jazz". Example config::
 
     [soundcloud]
-    auth_key = 1-1111-1111111
+    auth_token = 1-1111-1111111
     explore = electronic/Ambient, pop/New Wave, rock/Indie
 
 
