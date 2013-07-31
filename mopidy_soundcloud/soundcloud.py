@@ -57,15 +57,19 @@ class SoundCloudClient(object):
         self.http_client = requests.Session()
         self.http_client.headers.update({'Authorization': 'OAuth %s' % token})
         self.user = self.get_user()
-        logger.debug('User id for username %s is %s' % (
-            self.user.get('username'), self.user.get('id')))
+        try:
+            logger.debug('User id for username %s is %s' % (
+                self.user.get('username'), self.user.get('id')))
+        except Exception as e:
+            logger.error('SoundCloud Authentication error: %s. Check your auth_token!' % e)
+
 
     @cache()
     def get_user(self):
         try:
             return self._get('me.json')
         except Exception as e:
-            logger.error('SoundCloud Authentication error: %s' % e)
+            logger.error('SoundCloud error: %s' % e)
 
     # Private
 
