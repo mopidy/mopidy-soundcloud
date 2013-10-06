@@ -1,6 +1,7 @@
 from __future__ import unicode_literals
 
 import re
+
 from setuptools import setup, find_packages
 
 
@@ -8,6 +9,7 @@ def get_version(filename):
     content = open(filename).read()
     metadata = dict(re.findall("__([a-z]+)__ = '([^']+)'", content))
     return metadata['version']
+
 
 setup(
     name='Mopidy-SoundCloud',
@@ -23,7 +25,8 @@ setup(
     include_package_data=True,
     install_requires=[
         'setuptools',
-        'Mopidy',
+        'Mopidy >= 0.14',
+        'Pykka >= 1.1',
         'requests',
     ],
     entry_points={
