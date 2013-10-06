@@ -35,7 +35,7 @@ Usage
 Project resources
 -----------------
 
-- `Source code <https://github.com/dz0ny/mopidy-soundcloud>`_
+- `Source code <https://github.com/mopidy/mopidy-soundcloud>`_
 - `Issue tracker <https://github.com/mopidy/mopidy-soundcloud/issues>`_
 - `Download development snapshot
-  <https://github.com/dz0ny/mopidy-soundcloud/tarball/develop#egg=mopidy-soundcloud-dev>`_
+  <https://github.com/mopidy/mopidy-soundcloud/tarball/master#egg=Mopidy-SoundCloud-dev>`_

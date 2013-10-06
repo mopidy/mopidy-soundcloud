@@ -14,7 +14,7 @@ def get_version(filename):
 setup(
     name='Mopidy-SoundCloud',
     version=get_version('mopidy_soundcloud/__init__.py'),
-    url='http://github.com/dz0ny/mopidy-soundcloud/',
+    url='https://github.com/mopidy/mopidy-soundcloud',
     license='MIT',
     author='dz0ny',
     author_email='dz0ny@shortmail.com',
