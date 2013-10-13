@@ -61,8 +61,8 @@ class SoundCloudClient(object):
             logger.debug('User id for username %s is %s' % (
                 self.user.get('username'), self.user.get('id')))
         except Exception as e:
-            logger.error('SoundCloud Authentication error: %s. Check your auth_token!' % e)
-
+            logger.error(
+                'Authentication error: %s. Check your auth_token!' % e)
 
     @cache()
     def get_user(self):
@@ -118,7 +118,8 @@ class SoundCloudClient(object):
     def get_track(self, id, streamable=False):
         try:
             # TODO better way to handle deleted tracks
-            return self.parse_track(self._get('tracks/%s.json' % id), streamable)
+            return self.parse_track(
+                self._get('tracks/%s.json' % id), streamable)
         except Exception:
             return
 

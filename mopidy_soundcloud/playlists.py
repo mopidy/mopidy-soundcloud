@@ -23,9 +23,9 @@ class SoundCloudPlaylistsProvider(base.BasePlaylistsProvider):
         pass  # TODO
 
     def lookup_get_tracks(self, uri):
-        # TODO: Figure out why some sort of internal cache is used for retrieving
-        # track-list on mobile clients. If you wan't this to work with mobile
-        # clients change defaults to streamable=True
+        # TODO: Figure out why some sort of internal cache is used for
+        # retrieving track-list on mobile clients. If you want this to work
+        # with mobile clients change defaults to streamable=True
         if 'soundcloud:exp-' in uri:
             return self.create_explore_playlist(uri, True)
         elif 'soundcloud:user-liked' in uri:
@@ -62,7 +62,8 @@ class SoundCloudPlaylistsProvider(base.BasePlaylistsProvider):
         return Playlist(
             uri='soundcloud:user-liked',
             name="%s's liked on SoundCloud" % username,
-            tracks=self.backend.sc_api.get_user_favorites() if streamable else []
+            tracks=
+                self.backend.sc_api.get_user_favorites() if streamable else []
         )
 
     def create_user_stream_playlist(self, streamable=False):
