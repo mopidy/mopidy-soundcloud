@@ -17,7 +17,7 @@ setup(
     url='https://github.com/mopidy/mopidy-soundcloud',
     license='MIT',
     author='dz0ny',
-    author_email='dz0ny@shortmail.com',
+    author_email='dz0ny@ubuntu.si',
     description='SoundCloud extension for Mopidy',
     long_description=open('README.rst').read(),
     packages=find_packages(exclude=['tests', 'tests.*']),
