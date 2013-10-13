@@ -116,11 +116,21 @@ class SoundCloudClient(object):
 
     @cache(ctl=100)
     def get_track(self, id, streamable=False):
+
         try:
             # TODO better way to handle deleted tracks
             return self.parse_track(self._get('tracks/%s.json' % id), streamable)
         except Exception:
             return
+
+    def parse_track_uri(self, track):
+
+        if hasattr(track, "uri"):
+            track = track.uri
+
+        id = track.split(';')[1]
+        logger.info('Getting info for track %s with id %s' % (track, id))
+        return id
 
     @cache()
     def get_explore_category(self, category, section, pages=1):
