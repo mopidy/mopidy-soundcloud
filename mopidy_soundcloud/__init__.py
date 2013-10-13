@@ -49,7 +49,7 @@ class SoundCloudExtension(ext.Extension):
         if not config.get('soundcloud', 'auth_token'):
             raise ExtensionError("In order to use SoundCloud extension you\
              must provide auth_token, for more information referrer to \
-             https://github.com/dz0ny/mopidy-soundcloud/")
+             https://github.com/mopidy/mopidy-soundcloud/")
 
     def validate_environment(self):
         try:
