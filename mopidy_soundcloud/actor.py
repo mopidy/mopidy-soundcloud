@@ -28,7 +28,6 @@ class SoundCloudBackend(pykka.ThreadingActor, base.Backend):
 class SoundCloudPlaybackProvider(base.BasePlaybackProvider):
 
     def play(self, track):
-        id = track.uri.split(';')[1]
-        logger.info('Getting info for track %s with id %s' % (track.uri, id))
+        id = self.backend.sc_api.parse_track_uri(track)
         track = self.backend.sc_api.get_track(id, True)
         return super(SoundCloudPlaybackProvider, self).play(track)
