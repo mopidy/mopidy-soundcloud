@@ -30,7 +30,7 @@ class cache(object):
                 value, last_update = self.cache[args]
                 age = now - last_update
                 if (self._call_count >= self.ctrl
-                    or age > self.ttl):
+                        or age > self.ttl):
                     self._call_count = 1
                     raise AttributeError
 
@@ -185,7 +185,6 @@ class SoundCloudClient(object):
         except RequestException as e:
             raise logger.error('Request %s, failed with error %s' % (
                 url, e))
-
 
     def sanitize_tracks(self, tracks):
         return filter(None, tracks)

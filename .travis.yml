@@ -11,7 +11,7 @@ before_script:
   - "rm $VIRTUAL_ENV/lib/python$TRAVIS_PYTHON_VERSION/no-global-site-packages.txt"
 
 script:
-  - "flake8 $(find . -iname '*.py')"
+  - "flake8 $(find mopidy_soundcloud -iname '*.py')"
   - "nosetests --with-coverage --cover-package=mopidy_soundcloud"
 
 after_success:

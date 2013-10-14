@@ -36,4 +36,5 @@ class ApiTest(unittest.TestCase):
     def test_resolves_stream_Track(self):
 
         track = self.api.get_track('38720262', True)
-        self.assertEquals(track.uri, 'https://api.soundcloud.com/tracks/38720262/stream?client_id=93e33e327fd8a9b77becd179652272e2')
+        self.assertEquals(track.uri, 'https://api.soundcloud.com/tracks/38720262/stream?client_id=93e33e327fd8a9b77becd179652272e2'
+)
