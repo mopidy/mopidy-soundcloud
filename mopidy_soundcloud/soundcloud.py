@@ -2,14 +2,13 @@
 # -*- coding: utf-8 -*-
 
 from __future__ import unicode_literals
-
 import logging
-import requests
 import time
+from urllib import quote_plus
 
+import requests
 from requests.exceptions import RequestException
 from mopidy.models import Track, Artist, Album
-from urllib import quote_plus
 
 logger = logging.getLogger('mopidy.backends.soundcloud.client')
 
@@ -31,7 +30,7 @@ class cache(object):
                 value, last_update = self.cache[args]
                 age = now - last_update
                 if (self._call_count >= self.ctrl
-                        or age > self.ttl):
+                    or age > self.ttl):
                     self._call_count = 1
                     raise AttributeError
 
@@ -45,11 +44,11 @@ class cache(object):
 
             except TypeError:
                 return self.func(*args)
+
         return _memoized
 
 
 class SoundCloudClient(object):
-
     CLIENT_ID = '93e33e327fd8a9b77becd179652272e2'
 
     def __init__(self, token):
@@ -114,7 +113,6 @@ class SoundCloudClient(object):
 
     # Public
 
-    @cache(ctl=100)
     def get_track(self, id, streamable=False):
 
         try:
@@ -122,7 +120,7 @@ class SoundCloudClient(object):
             return self.parse_track(
                 self._get('tracks/%s.json' % id), streamable)
         except Exception:
-            return
+            return Track()
 
     def parse_track_uri(self, track):
 
@@ -185,21 +183,22 @@ class SoundCloudClient(object):
         try:
             return req.json()
         except RequestException as e:
-            logger.error('Request %s, failed with error %s' % (
+            raise logger.error('Request %s, failed with error %s' % (
                 url, e))
+
 
     def sanitize_tracks(self, tracks):
         return filter(None, tracks)
 
     def parse_track(self, data, remote_url=False, is_search=False):
         if not data:
-            return
+            return []
         if not data['streamable']:
-            return
+            return []
         if not data['kind'] == 'track':
-            return
+            return []
         if not self.can_be_streamed(data['stream_url']):
-            return
+            return []
 
         # NOTE kwargs dict keys must be bytestrings to work on Python < 2.6.5
         # See https://github.com/mopidy/mopidy/issues/302 for details.
