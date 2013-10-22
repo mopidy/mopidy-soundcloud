@@ -26,15 +26,18 @@ class ApiTest(unittest.TestCase):
     def test_resolves_emptyTrack(self):
 
         track = self.api.get_track('s38720262')
+        self.assertIsInstance(track, Track)
         self.assertEquals(track.uri, None)
 
     def test_resolves_Track(self):
 
         track = self.api.get_track('38720262')
+        self.assertIsInstance(track, Track)
         self.assertEquals(track.uri, 'soundcloud:song;38720262')
 
     def test_resolves_stream_Track(self):
 
         track = self.api.get_track('38720262', True)
+        self.assertIsInstance(track, Track)
         self.assertEquals(track.uri, 'https://api.soundcloud.com/tracks/38720262/stream?client_id=93e33e327fd8a9b77becd179652272e2'
 )
