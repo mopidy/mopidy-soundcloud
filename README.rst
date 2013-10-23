@@ -73,3 +73,9 @@ Changelog
 =========
 
 TODO: Write one
+
+
+.. image:: https://d2weczhvl823v0.cloudfront.net/mopidy/mopidy-soundcloud/trend.png
+   :alt: Bitdeli badge
+   :target: https://bitdeli.com/free
+
