@@ -17,7 +17,10 @@ Mopidy-SoundCloud
 .. image:: https://coveralls.io/repos/mopidy/mopidy-soundcloud/badge.png?branch=master
    :target: https://coveralls.io/r/mopidy/mopidy-soundcloud?branch=master
    :alt: Test coverage
-
+   
+.. image:: https://d2weczhvl823v0.cloudfront.net/mopidy/mopidy-soundcloud/trend.png
+   :alt: Bitdeli badge
+   :target: https://bitdeli.com/free
 
 `Mopidy <http://www.mopidy.com/>`_ extension for playing music from
 `SoundCloud <http://www.soundcloud.com>`_.
