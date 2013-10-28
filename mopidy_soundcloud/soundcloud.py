@@ -1,6 +1,3 @@
-#!/usr/local/bin/python
-# -*- coding: utf-8 -*-
-
 from __future__ import unicode_literals
 import logging
 import time
