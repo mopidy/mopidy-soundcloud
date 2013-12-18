@@ -7,7 +7,7 @@ from mopidy_soundcloud.soundcloud import SoundCloudClient
 
 
 class ApiTest(unittest.TestCase):
-    ## using this user http://maildrop.cc/inbox/mopidytestuser
+    # using this user http://maildrop.cc/inbox/mopidytestuser
     api = SoundCloudClient("1-35204-61921957-55796ebef403996")
 
     def test_resolves_string(self):
@@ -39,5 +39,8 @@ class ApiTest(unittest.TestCase):
 
         track = self.api.get_track('38720262', True)
         self.assertIsInstance(track, Track)
-        self.assertEquals(track.uri, 'https://api.soundcloud.com/tracks/38720262/stream?client_id=93e33e327fd8a9b77becd179652272e2'
-)
+        self.assertEquals(
+            track.uri,
+            'https://api.soundcloud.com/tracks/'
+            '38720262/stream?client_id=93e33e327fd8a9b77becd179652272e2'
+        )

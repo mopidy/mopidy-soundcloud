@@ -5,6 +5,7 @@ import unittest
 
 from mopidy_soundcloud.soundcloud import cache
 
+
 class CacheTest(unittest.TestCase):
 
     def test_decorator(self):
@@ -14,7 +15,6 @@ class CacheTest(unittest.TestCase):
         func()
         self.assertEquals(func.called, True)
         self.assertEquals(decorated_func._call_count, 1)
-
 
     def test_set_default_cache(self):
 
