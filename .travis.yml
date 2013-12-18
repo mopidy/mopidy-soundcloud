@@ -17,6 +17,10 @@ script:
 after_success:
   - "coveralls"
 
+branches:
+   except:
+     - debian
+
 notifications:
   irc:
     channels:
