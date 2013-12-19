@@ -60,12 +60,8 @@ class SoundCloudClient(object):
             logger.error(
                 'Authentication error: %s. Check your auth_token!' % e)
 
-    @cache()
     def get_user(self):
-        try:
-            return self._get('me.json')
-        except Exception as e:
-            logger.error('SoundCloud error: %s' % e)
+        return self._get('me.json')
 
     # Private
 
