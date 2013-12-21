@@ -3,11 +3,11 @@ Mopidy-SoundCloud
 *****************
 
 .. image:: https://pypip.in/v/Mopidy-SoundCloud/badge.png
-    :target: https://crate.io/packages/Mopidy-SoundCloud/
+    :target: https://pypi.python.org/pypi/Mopidy-SoundCloud/
     :alt: Latest PyPI version
 
 .. image:: https://pypip.in/d/Mopidy-SoundCloud/badge.png
-    :target: https://crate.io/packages/Mopidy-SoundCloud/
+    :target: https://pypi.python.org/pypi/Mopidy-SoundCloud/
     :alt: Number of PyPI downloads
 
 .. image:: https://travis-ci.org/mopidy/mopidy-soundcloud.png?branch=master
