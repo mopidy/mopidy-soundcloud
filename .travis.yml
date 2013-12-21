@@ -29,3 +29,12 @@ notifications:
     on_failure: change
     use_notice: true
     skip_join: true
+
+deploy:
+  provider: pypi
+  user: janez.troha
+  password:
+    secure: JCJ8yvOeytrzODupwDLfUIVV8fAJVq7Bm09B0vo4YhWEn90XUhBk2A3s/+nSaEZ9rAgbAerddsyCGFV6K9svzP5h1+6PLbU+s775JfjU/KqyJxaJmRdrVp33Cvadukuq8mV8d+z+tTI6acK/Wq9XpmYLRFVH4TX829TN1fzox8U=
+  on:
+    tags: true
+    repo: mopidy/mopidy-soundcloud

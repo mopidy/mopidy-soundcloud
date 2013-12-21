@@ -6,7 +6,8 @@ from mopidy import ext, config
 from mopidy.exceptions import ExtensionError
 
 
-__version__ = '1.0.16'
+__version__ = '1.0.17'
+__url__ = 'https://github.com/mopidy/mopidy-soundcloud'
 
 
 class SoundCloudExtension(ext.Extension):
