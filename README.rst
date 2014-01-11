@@ -68,4 +68,30 @@ Project resources
 Changelog
 =========
 
-TODO: Write one
+v1.0.18 (UNRELEASED)
+--------------------
+
+- Nothing yet
+
+v1.0.17 (2013-12-21)
+--------------------
+
+- Don't cache the user request.
+
+- Require Requests >= 2.0. (Fixes #3)
+
+v1.0.16 (2013-10-22)
+--------------------
+
+- Require Mopidy >= 0.14.
+
+- Fix crash when SoundCloud returns 404 on track lookup. (Fixes #7)
+
+- Add some tests.
+
+v1.0.15 (2013-07-31)
+--------------------
+
+- Import code from old repo.
+
+- Handle authentication errors without crashing. (Fixes #3 and #4)
