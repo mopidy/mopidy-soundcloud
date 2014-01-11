@@ -18,10 +18,6 @@ Mopidy-SoundCloud
    :target: https://coveralls.io/r/mopidy/mopidy-soundcloud?branch=master
    :alt: Test coverage
 
-.. image:: https://sourcegraph.com/api/repos/github.com/mopidy/mopidy-soundcloud/counters/views.png
-   :alt: Total views
-   :target: https://sourcegraph.com/github.com/mopidy/mopidy-soundcloud
-
 `Mopidy <http://www.mopidy.com/>`_ extension for playing music from
 `SoundCloud <http://www.soundcloud.com>`_.
 
