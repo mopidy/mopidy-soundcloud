@@ -68,7 +68,7 @@ Project resources
 Changelog
 =========
 
-v1.0.18 (UNRELEASED)
+v1.0.18 (2014-01-11)
 --------------------
 
 - Use proper logger namespaced to ``mopidy_soundcloud`` instead of ``mopidy``.
