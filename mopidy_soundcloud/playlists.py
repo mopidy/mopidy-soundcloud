@@ -5,7 +5,7 @@ import logging
 from mopidy.backends import base, listener
 from mopidy.models import Playlist
 
-logger = logging.getLogger('mopidy.backends.soundcloud.playlists')
+logger = logging.getLogger(__name__)
 
 
 class SoundCloudPlaylistsProvider(base.BasePlaylistsProvider):

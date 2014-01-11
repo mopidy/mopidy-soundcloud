@@ -5,7 +5,7 @@ import logging
 from mopidy.backends import base
 from mopidy.models import SearchResult
 
-logger = logging.getLogger('mopidy.backends.soundcloud')
+logger = logging.getLogger(__name__)
 
 
 class SoundCloudLibraryProvider(base.BaseLibraryProvider):

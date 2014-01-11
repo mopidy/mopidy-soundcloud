@@ -71,7 +71,7 @@ Changelog
 v1.0.18 (UNRELEASED)
 --------------------
 
-- Nothing yet
+- Use proper logger namespaced to ``mopidy_soundcloud`` instead of ``mopidy``.
 
 v1.0.17 (2013-12-21)
 --------------------

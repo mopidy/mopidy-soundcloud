@@ -9,7 +9,7 @@ from .library import SoundCloudLibraryProvider
 from .playlists import SoundCloudPlaylistsProvider
 from .soundcloud import SoundCloudClient
 
-logger = logging.getLogger('mopidy.backends.soundcloud')
+logger = logging.getLogger(__name__)
 
 
 class SoundCloudBackend(pykka.ThreadingActor, base.Backend):

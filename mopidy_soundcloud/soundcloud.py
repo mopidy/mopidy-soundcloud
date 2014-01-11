@@ -7,7 +7,7 @@ import requests
 from requests.exceptions import RequestException
 from mopidy.models import Track, Artist, Album
 
-logger = logging.getLogger('mopidy.backends.soundcloud.client')
+logger = logging.getLogger(__name__)
 
 
 class cache(object):
