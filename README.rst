@@ -73,6 +73,9 @@ v1.0.18 (UNRELEASED)
 
 - Use proper logger namespaced to ``mopidy_soundcloud`` instead of ``mopidy``.
 
+- Fix wrong use of ``raise`` when the SoundCloud API doesn't respond as
+  expected.
+
 v1.0.17 (2013-12-21)
 --------------------
 

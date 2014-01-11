@@ -169,15 +169,9 @@ class SoundCloudClient(object):
         url = 'https://api.soundcloud.com/%s' % url
 
         logger.debug('Requesting %s' % url)
-        req = self.http_client.get(url)
-        if req.status_code != 200:
-            raise logger.error('Request %s, failed with status code %s' % (
-                url, req.status_code))
-        try:
-            return req.json()
-        except RequestException as e:
-            raise logger.error('Request %s, failed with error %s' % (
-                url, e))
+        res = self.http_client.get(url)
+        res.raise_for_status()
+        return res.json()
 
     def sanitize_tracks(self, tracks):
         return filter(None, tracks)
