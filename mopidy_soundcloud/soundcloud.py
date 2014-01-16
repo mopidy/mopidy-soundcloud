@@ -4,7 +4,6 @@ import time
 from urllib import quote_plus
 
 import requests
-from requests.exceptions import RequestException
 from mopidy.models import Track, Artist, Album
 
 logger = logging.getLogger(__name__)
