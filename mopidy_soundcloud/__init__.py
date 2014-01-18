@@ -31,9 +31,10 @@ class SoundCloudExtension(ext.Extension):
         if not config.getboolean('soundcloud', 'enabled'):
             return
         if not config.get('soundcloud', 'auth_token'):
-            raise ExtensionError("In order to use SoundCloud extension you\
-             must provide auth_token, for more information referrer to \
-             https://github.com/mopidy/mopidy-soundcloud/")
+            raise ExtensionError(
+                'In order to use SoundCloud extension you must provide an '
+                'auth token. For more information referrer to '
+                'https://github.com/mopidy/mopidy-soundcloud/')
 
     def get_backend_classes(self):
         from .actor import SoundCloudBackend
