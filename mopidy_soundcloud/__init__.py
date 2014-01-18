@@ -35,12 +35,6 @@ class SoundCloudExtension(ext.Extension):
              must provide auth_token, for more information referrer to \
              https://github.com/mopidy/mopidy-soundcloud/")
 
-    def validate_environment(self):
-        try:
-            import requests  # noqa
-        except ImportError as e:
-            raise ExtensionError('Library requests not found', e)
-
     def get_backend_classes(self):
         from .actor import SoundCloudBackend
         return [SoundCloudBackend]
