@@ -2,13 +2,13 @@ from __future__ import unicode_literals
 
 import logging
 
-from mopidy.backends import base
+from mopidy import backend
 from mopidy.models import SearchResult
 
 logger = logging.getLogger(__name__)
 
 
-class SoundCloudLibraryProvider(base.BaseLibraryProvider):
+class SoundCloudLibraryProvider(backend.LibraryProvider):
     def __init__(self, *args, **kwargs):
         super(SoundCloudLibraryProvider, self).__init__(*args, **kwargs)
 

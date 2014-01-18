@@ -2,13 +2,13 @@ from __future__ import unicode_literals
 
 import logging
 
-from mopidy.backends import base, listener
+from mopidy import backend
 from mopidy.models import Playlist
 
 logger = logging.getLogger(__name__)
 
 
-class SoundCloudPlaylistsProvider(base.BasePlaylistsProvider):
+class SoundCloudPlaylistsProvider(backend.PlaylistsProvider):
 
     def __init__(self, *args, **kwargs):
         super(SoundCloudPlaylistsProvider, self).__init__(*args, **kwargs)
@@ -91,7 +91,7 @@ class SoundCloudPlaylistsProvider(base.BasePlaylistsProvider):
             exp = self.create_explore_playlist(cat.replace('/', ';'))
             self._playlists.append(exp)
         logger.info('Loaded %d SoundCloud playlist(s)', len(self._playlists))
-        listener.BackendListener.send('playlists_loaded')
+        backend.BackendListener.send('playlists_loaded')
 
     def save(self, playlist):
         pass  # TODO
