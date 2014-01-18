@@ -36,6 +36,6 @@ class SoundCloudExtension(ext.Extension):
                 'auth token. For more information referrer to '
                 'https://github.com/mopidy/mopidy-soundcloud/')
 
-    def get_backend_classes(self):
+    def setup(self, registry):
         from .actor import SoundCloudBackend
-        return [SoundCloudBackend]
+        registry.add('backend', SoundCloudBackend)
