@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 import logging
 import pykka
 
-from mopidy.backends import base
+from mopidy import backend
 
 from .library import SoundCloudLibraryProvider
 from .playlists import SoundCloudPlaylistsProvider
@@ -12,7 +12,7 @@ from .soundcloud import SoundCloudClient
 logger = logging.getLogger(__name__)
 
 
-class SoundCloudBackend(pykka.ThreadingActor, base.Backend):
+class SoundCloudBackend(pykka.ThreadingActor, backend.Backend):
 
     def __init__(self, config, audio):
         super(SoundCloudBackend, self).__init__()
@@ -25,7 +25,7 @@ class SoundCloudBackend(pykka.ThreadingActor, base.Backend):
         self.uri_schemes = ['soundcloud']
 
 
-class SoundCloudPlaybackProvider(base.BasePlaybackProvider):
+class SoundCloudPlaybackProvider(backend.PlaybackProvider):
 
     def play(self, track):
         id = self.backend.sc_api.parse_track_uri(track)
