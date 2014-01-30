@@ -33,7 +33,10 @@ class ApiTest(unittest.TestCase):
 
         track = self.api.get_track('38720262')
         self.assertIsInstance(track, Track)
-        self.assertEquals(track.uri, 'soundcloud:song/Burial + Four Tet - Nova.38720262')
+        self.assertEquals(
+            track.uri,
+            'soundcloud:song/Burial + Four Tet - Nova.38720262'
+        )
 
     def test_resolves_stream_Track(self):
 
