@@ -11,13 +11,13 @@ class ApiTest(unittest.TestCase):
     api = SoundCloudClient("1-35204-61921957-55796ebef403996")
 
     def test_resolves_string(self):
-        id = self.api.parse_track_uri("soundcloud:song;38720262")
+        id = self.api.parse_track_uri("soundcloud:song.38720262")
         self.assertEquals(id, "38720262")
 
     def test_resolves_object(self):
 
         trackc = {}
-        trackc[b'uri'] = 'soundcloud:song;38720262'
+        trackc[b'uri'] = 'soundcloud:song.38720262'
         track = Track(**trackc)
 
         id = self.api.parse_track_uri(track)
@@ -33,7 +33,7 @@ class ApiTest(unittest.TestCase):
 
         track = self.api.get_track('38720262')
         self.assertIsInstance(track, Track)
-        self.assertEquals(track.uri, 'soundcloud:song;38720262')
+        self.assertEquals(track.uri, 'soundcloud:song/Burial + Four Tet - Nova.38720262')
 
     def test_resolves_stream_Track(self):
 

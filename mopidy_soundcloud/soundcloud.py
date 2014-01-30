@@ -25,7 +25,7 @@ class cache(object):
             try:
                 value, last_update = self.cache[args]
                 age = now - last_update
-                if (self._call_count >= self.ctrl
+                if (self._call_count >= self.ctl
                         or age > self.ttl):
                     self._call_count = 1
                     raise AttributeError
@@ -51,18 +51,11 @@ class SoundCloudClient(object):
         super(SoundCloudClient, self).__init__()
         self.http_client = requests.Session()
         self.http_client.headers.update({'Authorization': 'OAuth %s' % token})
-        self.user = self.get_user()
-        try:
-            logger.debug('User id for username %s is %s' % (
-                self.user.get('username'), self.user.get('id')))
-        except Exception as e:
-            logger.error(
-                'Authentication error: %s. Check your auth_token!' % e)
 
-    def get_user(self):
+    @property
+    @cache()
+    def user(self):
         return self._get('me.json')
-
-    # Private
 
     @cache()
     def get_user_stream(self):
@@ -87,41 +80,45 @@ class SoundCloudClient(object):
 
         return self.sanitize_tracks(tracks)
 
-    @cache()
-    def get_sets(self):
-        playlists = self._get('users/%s/playlists.json' % self.user.get('id'))
-        tplaylists = []
-        for playlist in playlists:
-            name = '%s on SoundCloud' % playlist.get('title')
-            uri = playlist.get('permalink')
-            tracks = self.parse_results(playlist.get('tracks'))
-            logger.debug('Fetched set %s with id %s' % (name, uri))
-            tplaylists.append((name, uri, tracks))
-        return tplaylists
+    def get_sets(self, qset_id=None):
+        sets = self._get('users/%s/playlists.json' % self.user.get('id'))
+        playable_sets = []
+        for playlist in sets:
+            name = playlist.get('title')
+            set_id = str(playlist.get('id'))
+            tracks = playlist.get('tracks')
+            logger.debug(
+                'Fetched set %s with id %s (%d tracks)' % (
+                    name, set_id, len(tracks)
+                )
+            )
+            if qset_id == set_id:
+                return tracks
+            playable_sets.append((name, set_id, tracks))
+        return playable_sets
 
     def get_user_favorites(self):
         favorites = self._get('users/%s/favorites.json' % self.user.get('id'))
         return self.parse_results(favorites)
 
     # Public
-
-    def get_track(self, id, streamable=False):
-
+    @cache()
+    def get_track(self, track_id, streamable=False):
+        logger.info('Getting info for track with id %s' % track_id)
         try:
-            # TODO better way to handle deleted tracks
             return self.parse_track(
-                self._get('tracks/%s.json' % id), streamable)
+                self._get('tracks/%s.json' % track_id),
+                streamable
+            )
         except Exception:
+            logger.info('Song %s was removed' % track_id)
             return Track()
 
     def parse_track_uri(self, track):
-
+        logger.info('Parsing track %s' % (track))
         if hasattr(track, "uri"):
             track = track.uri
-
-        id = track.split(';')[1]
-        logger.info('Getting info for track %s with id %s' % (track, id))
-        return id
+        return track.split('.')[-1]
 
     @cache()
     def get_explore_category(self, category, section, pages=1):
@@ -175,14 +172,19 @@ class SoundCloudClient(object):
     def sanitize_tracks(self, tracks):
         return filter(None, tracks)
 
-    def parse_track(self, data, remote_url=False, is_search=False):
+    @cache()
+    def parse_track(self, data, remote_url=False):
         if not data:
+            logger.info('%s is malformed' % data)
             return []
         if not data['streamable']:
+            logger.info('%s is not streamable' % data.get('title'))
             return []
         if not data['kind'] == 'track':
+            logger.info('%s is not track' % data.get('title'))
             return []
         if not self.can_be_streamed(data['stream_url']):
+            logger.info('%s can not be streamed' % data.get('title'))
             return []
 
         # NOTE kwargs dict keys must be bytestrings to work on Python < 2.6.5
@@ -218,7 +220,9 @@ class SoundCloudClient(object):
         if remote_url:
             track_kwargs[b'uri'] = self.get_streamble_url(data['stream_url'])
         else:
-            track_kwargs[b'uri'] = 'soundcloud:song;%s' % data['id']
+            track_kwargs[b'uri'] = 'soundcloud:song/%s.%s' % (
+                data.get('title'), data.get('id')
+            )
 
         track_kwargs[b'length'] = int(data.get('duration', 0))
 
@@ -242,6 +246,7 @@ class SoundCloudClient(object):
         track = Track(**track_kwargs)
         return track
 
+    @cache()
     def can_be_streamed(self, url):
         req = self.http_client.head(self.get_streamble_url(url))
         return req.status_code == 302

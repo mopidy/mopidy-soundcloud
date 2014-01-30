@@ -26,13 +26,23 @@ class ApiTest(unittest.TestCase):
     def test_add_folder(self):
         self.assertEquals(
             self.library.new_folder('Test', ['test']),
-            Ref(name=u'Test', type=u'directory', uri=u'soundcloud:directory:test')
+            Ref(name=u'Test', type=u'directory',
+                uri=b'soundcloud:directory:test')
         )
 
     def test_default_folders(self):
         self.assertEquals(
             self.library.browse('soundcloud:directory'),
-            [Ref(name=u'Explore', type=u'directory', uri=u'soundcloud:directory:explore'),
-            Ref(name=u'Stream', type=u'directory', uri=u'soundcloud:directory:stream'),
-            Ref(name=u'Following', type=u'directory', uri=u'soundcloud:directory:following')]
+            [
+                Ref(name=u'Explore', type=u'directory',
+                    uri=b'soundcloud:directory:explore'),
+                Ref(name=u'Following', type=u'directory',
+                    uri=b'soundcloud:directory:following'),
+                Ref(name=u'Liked', type=u'directory',
+                    uri=b'soundcloud:directory:liked'),
+                Ref(name=u'Sets', type=u'directory',
+                    uri=b'soundcloud:directory:sets'),
+                Ref(name=u'Stream', type=u'directory',
+                    uri=b'soundcloud:directory:stream')
+            ]
         )
