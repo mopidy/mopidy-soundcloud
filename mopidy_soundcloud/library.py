@@ -2,6 +2,7 @@ from __future__ import unicode_literals
 import collections
 
 import logging
+import re
 import urllib
 
 from mopidy import backend, models
@@ -44,9 +45,8 @@ class SoundCloudLibraryProvider(backend.LibraryProvider):
             sets_vfs[set_id] = lset
         return sets_vfs.values()
 
-    def show_set(self, urn):
+    def show_set(self, set_id):
         set_vfs = collections.OrderedDict()
-        set_id = urn.split('/')[-1]
         for track in self.backend.remote.get_sets(set_id):
             ttrack = self.backend.remote.parse_track(track)
             if isinstance(ttrack, Track):
@@ -56,16 +56,17 @@ class SoundCloudLibraryProvider(backend.LibraryProvider):
                 )
         return set_vfs.values()
 
+
+
     def browse(self, uri):
         if not self.vfs.get(uri):
-            uri_type = uri.split(':')[-1]
-            logger.info('uri_type %s' % uri_type)
-
+            (req_type, res_id) = re.match(r'.*:(\w*)(?:/(\d*))?', uri).groups()
             # Sets
-            if 'sets/' in uri_type:
-                return self.show_set(uri)
-            if uri_type == 'sets':
-                return self.list_sets()
+            if 'sets' == req_type:
+                if res_id:
+                    return self.show_set(res_id)
+                else:
+                    return self.list_sets()
 
         # root directory
         return self.vfs.get(uri, {}).values()

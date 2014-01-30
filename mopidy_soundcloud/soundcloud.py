@@ -104,7 +104,7 @@ class SoundCloudClient(object):
     # Public
     @cache()
     def get_track(self, track_id, streamable=False):
-        logger.info('Getting info for track with id %s' % track_id)
+        logger.debug('Getting info for track with id %s' % track_id)
         try:
             return self.parse_track(
                 self._get('tracks/%s.json' % track_id),
@@ -115,7 +115,7 @@ class SoundCloudClient(object):
             return Track()
 
     def parse_track_uri(self, track):
-        logger.info('Parsing track %s' % (track))
+        logger.debug('Parsing track %s' % (track))
         if hasattr(track, "uri"):
             track = track.uri
         return track.split('.')[-1]
