@@ -47,8 +47,10 @@ class cache(object):
 class SoundCloudClient(object):
     CLIENT_ID = '93e33e327fd8a9b77becd179652272e2'
 
-    def __init__(self, token):
+    def __init__(self, config):
         super(SoundCloudClient, self).__init__()
+        token = config['soundcloud']['auth_token']
+        explore_songs = ['soundcloud']['explore_songs']
         self.http_client = requests.Session()
         self.http_client.headers.update({'Authorization': 'OAuth %s' % token})
 
@@ -79,6 +81,22 @@ class SoundCloudClient(object):
                     pass
 
         return self.sanitize_tracks(tracks)
+
+    def get_explore(self, query_explore_id=None):
+        explore = self._get('/explore/v2')
+        if query_explore_id:
+            urn = explore.get('categories').get('music')[int(query_explore_id)]
+            web_tracks = self._get(
+                'explore/%s?tag=%s&limit=%s&offset=0&linked_partitioning=1' %
+                (urn, quote_plus(explore.get('tag')), self.explore_songs),
+                'api-web'
+            )
+            tracks = []
+            for track in web_tracks.get('tracks'):
+                tracks.append(self.get_track(track.get('id')))
+            return tracks
+
+        return explore.get('categories').get('music')
 
     def get_followings(self, query_user_id=None):
 
@@ -137,20 +155,6 @@ class SoundCloudClient(object):
         return track.split('.')[-1]
 
     @cache()
-    def get_explore_category(self, category, section, pages=1):
-        logger.debug("get_explore_category %s %s" % (category, section))
-        # Most liked by category in explore section
-        tracks = []
-        for sid in xrange(0, int(pages) + 1):
-            stream = self._get('explore/sounds/category/%s?offset=%s' % (
-                category.lower(), sid * 20))
-            for data in stream.get('collection'):
-                if data.get('name') == section:
-                    for track in data.get('tracks'):
-                        tracks.append(self.get_track(track.get('id')))
-        return self.sanitize_tracks(tracks)
-
-    @cache()
     def search(self, query):
         'SoundCloud API only supports basic query no artist,'
         'album queries are possible'
@@ -170,17 +174,15 @@ class SoundCloudClient(object):
             tracks.append(self.parse_track(track))
         return self.sanitize_tracks(tracks)
 
-    def _get(self, url):
-
-        # TODO: Optimize
+    def _get(self, url, endpoint='api'):
         if '?' in url:
             url = '%s&client_id=%s' % (url, self.CLIENT_ID)
         else:
             url = '%s?client_id=%s' % (url, self.CLIENT_ID)
 
-        url = 'https://api.soundcloud.com/%s' % url
+        url = 'https://%s.soundcloud.com/%s' % (endpoint, url)
 
-        logger.debug('Requesting %s' % url)
+        logger.info('Requesting %s' % url)
         res = self.http_client.get(url)
         res.raise_for_status()
         return res.json()

@@ -53,6 +53,17 @@ class SoundCloudLibraryProvider(backend.LibraryProvider):
             sets_vfs[user_id] = sets_list
         return sets_vfs.values()
 
+    def list_explore(self):
+        sets_vfs = collections.OrderedDict()
+        for eid, name in enumerate(self.backend.remote.get_explore()):
+            sets_list = self.new_folder(
+                urllib.unquote_plus(name),
+                ['explore', str(eid)]
+            )
+            logger.debug('Adding explore category %s to vfs' % sets_list.name)
+            sets_vfs[str(eid)] = sets_list
+        return sets_vfs.values()
+
     def tracklist_to_vfs(self, track_list):
         vfs_list = collections.OrderedDict()
         for temp_track in track_list:
@@ -68,6 +79,7 @@ class SoundCloudLibraryProvider(backend.LibraryProvider):
     def browse(self, uri):
         if not self.vfs.get(uri):
             (req_type, res_id) = re.match(r'.*:(\w*)(?:/(\d*))?', uri).groups()
+            print(req_type, res_id)
             # Sets
             if 'sets' == req_type:
                 if res_id:
@@ -84,6 +96,14 @@ class SoundCloudLibraryProvider(backend.LibraryProvider):
                     )
                 else:
                     return self.list_user_follows()
+            # Explore
+            if 'explore' == req_type:
+                if res_id:
+                    return self.tracklist_to_vfs(
+                        self.backend.remote.get_explore(res_id, )
+                    )
+                else:
+                    return self.list_explore()
             # Liked
             if 'liked' == req_type:
                 return self.tracklist_to_vfs(
