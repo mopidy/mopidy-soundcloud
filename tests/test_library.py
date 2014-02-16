@@ -30,10 +30,8 @@ class ApiTest(unittest.TestCase):
         )
 
     def test_only_resolves_soundcloud_uris(self):
-        self.assertEquals(
-            self.library.search({'uri': 'http://www.youtube.com/watch?v=wD6H6Yhluo8'}),
-            None
-        )
+        self.assertIsNone(self.library.search(
+            {'uri': 'http://www.youtube.com/watch?v=wD6H6Yhluo8'}))
 
     def test_default_folders(self):
         self.assertEquals(
