@@ -59,6 +59,13 @@ Project resources
 Changelog
 =========
 
+v1.2.0 (2014-02-17)
+-------------------
+
+- Deprecated explore and explore_pages settings
+- Extension is now using virtual filesystem to represent SoundCloud (Browse, Files  option in your client...)
+- Added ability to show tracks from users you follow
+
 v1.1.0 (2014-01-20)
 -------------------
 

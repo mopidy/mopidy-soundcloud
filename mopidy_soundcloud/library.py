@@ -14,6 +14,11 @@ logger = logging.getLogger(__name__)
 
 class SoundCloudLibraryProvider(backend.LibraryProvider):
 
+    root_directory = models.Ref.directory(
+        uri='soundcloud:directory',
+        name='SoundCloud'
+    )
+
     def __init__(self, *args, **kwargs):
         super(SoundCloudLibraryProvider, self).__init__(*args, **kwargs)
         self.vfs = {'soundcloud:directory': collections.OrderedDict()}
@@ -22,11 +27,6 @@ class SoundCloudLibraryProvider(backend.LibraryProvider):
         self.add_to_vfs(self.new_folder('Liked', ['liked']))
         self.add_to_vfs(self.new_folder('Sets', ['sets']))
         self.add_to_vfs(self.new_folder('Stream', ['stream']))
-
-    root_directory = models.Ref.directory(
-        uri=b'soundcloud:directory',
-        name='SoundCloud'
-    )
 
     def new_folder(self, name, path):
         return models.Ref.directory(
@@ -128,11 +128,11 @@ class SoundCloudLibraryProvider(backend.LibraryProvider):
         for (field, val) in query.iteritems():
 
             # TODO: Devise method for searching SoundCloud via artists
-            if field == "album" and query['album'] == "SoundCloud":
+            if field == 'album' and query['album'] == 'SoundCloud':
                 return SearchResult(
                     uri='soundcloud:search',
                     tracks=self.backend.remote.search(query['artist']) or [])
-            elif field == "any":
+            elif field == 'any':
                 return SearchResult(
                     uri='soundcloud:search',
                     tracks=self.backend.remote.search(val[0]) or [])
@@ -144,8 +144,8 @@ class SoundCloudLibraryProvider(backend.LibraryProvider):
             track_id = self.backend.remote.parse_track_uri(uri)
             return [self.backend.remote.get_track(track_id)]
         except Exception as error:
-            logger.error(u'Failed to lookup %s: %s', uri, error)
+            logger.error('Failed to lookup %s: %s', uri, error)
             return []
 
     def generate_uri(self, path):
-        return b'soundcloud:directory:%s' % urllib.quote('/'.join(path))
+        return 'soundcloud:directory:%s' % urllib.quote('/'.join(path))
