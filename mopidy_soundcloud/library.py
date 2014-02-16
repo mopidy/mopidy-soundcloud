@@ -40,23 +40,30 @@ class SoundCloudLibraryProvider(backend.LibraryProvider):
     def list_sets(self):
         sets_vfs = collections.OrderedDict()
         for (name, set_id, tracks) in self.backend.remote.get_sets():
-            lset = self.new_folder(name, ['sets', set_id])
-            logger.debug('Adding set %s to vfs' % lset.name)
-            sets_vfs[set_id] = lset
+            sets_list = self.new_folder(name, ['sets', set_id])
+            logger.debug('Adding set %s to vfs' % sets_list.name)
+            sets_vfs[set_id] = sets_list
         return sets_vfs.values()
 
-    def show_set(self, set_id):
-        set_vfs = collections.OrderedDict()
-        for track in self.backend.remote.get_sets(set_id):
-            ttrack = self.backend.remote.parse_track(track)
-            if isinstance(ttrack, Track):
-                set_vfs[track.get('id')] = models.Ref.track(
-                    uri=ttrack.uri,
-                    name=ttrack.name
+    def list_user_follows(self):
+        sets_vfs = collections.OrderedDict()
+        for (name, user_id) in self.backend.remote.get_followings():
+            sets_list = self.new_folder(name, ['following', user_id])
+            logger.debug('Adding set %s to vfs' % sets_list.name)
+            sets_vfs[user_id] = sets_list
+        return sets_vfs.values()
+
+    def tracklist_to_vfs(self, track_list):
+        vfs_list = collections.OrderedDict()
+        for temp_track in track_list:
+            if not isinstance(temp_track, Track):
+                temp_track = self.backend.remote.parse_track(temp_track)
+            if hasattr(temp_track, 'uri'):
+                vfs_list[temp_track.name] = models.Ref.track(
+                    uri=temp_track.uri,
+                    name=temp_track.name
                 )
-        return set_vfs.values()
-
-
+        return vfs_list.values()
 
     def browse(self, uri):
         if not self.vfs.get(uri):
@@ -64,9 +71,29 @@ class SoundCloudLibraryProvider(backend.LibraryProvider):
             # Sets
             if 'sets' == req_type:
                 if res_id:
-                    return self.show_set(res_id)
+                    return self.tracklist_to_vfs(
+                        self.backend.remote.get_sets(res_id)
+                    )
                 else:
                     return self.list_sets()
+            # Following
+            if 'following' == req_type:
+                if res_id:
+                    return self.tracklist_to_vfs(
+                        self.backend.remote.get_followings(res_id)
+                    )
+                else:
+                    return self.list_user_follows()
+            # Liked
+            if 'liked' == req_type:
+                return self.tracklist_to_vfs(
+                    self.backend.remote.get_user_liked()
+                )
+            # User stream
+            if 'stream' == req_type:
+                return self.tracklist_to_vfs(
+                    self.backend.remote.get_user_stream(res_id)
+                )
 
         # root directory
         return self.vfs.get(uri, {}).values()

@@ -80,26 +80,42 @@ class SoundCloudClient(object):
 
         return self.sanitize_tracks(tracks)
 
-    def get_sets(self, qset_id=None):
-        sets = self._get('users/%s/playlists.json' % self.user.get('id'))
+    def get_followings(self, query_user_id=None):
+
+        if query_user_id:
+            return self._get('users/%s/tracks.json' % query_user_id)
+
+        users = []
+        for playlist in self._get('me/followings.json?limit=1000'):
+            name = playlist.get('username')
+            user_id = str(playlist.get('id'))
+            logger.info(
+                'Fetched user %s with id %s' % (
+                    name, user_id
+                )
+            )
+
+            users.append((name, user_id))
+        return users
+
+    def get_sets(self, query_set_id=None):
         playable_sets = []
-        for playlist in sets:
+        for playlist in self._get('me/playlists.json?limit=1000'):
             name = playlist.get('title')
             set_id = str(playlist.get('id'))
             tracks = playlist.get('tracks')
-            logger.debug(
+            logger.info(
                 'Fetched set %s with id %s (%d tracks)' % (
                     name, set_id, len(tracks)
                 )
             )
-            if qset_id == set_id:
+            if query_set_id == set_id:
                 return tracks
             playable_sets.append((name, set_id, tracks))
         return playable_sets
 
-    def get_user_favorites(self):
-        favorites = self._get('users/%s/favorites.json' % self.user.get('id'))
-        return self.parse_results(favorites)
+    def get_user_liked(self):
+        return self.parse_results(self._get('me/favorites.json?limit=1000'))
 
     # Public
     @cache()
