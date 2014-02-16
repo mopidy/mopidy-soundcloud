@@ -6,7 +6,7 @@ from mopidy import ext, config
 from mopidy.exceptions import ExtensionError
 
 
-__version__ = '1.1.0'
+__version__ = '1.2.0'
 __url__ = 'https://github.com/mopidy/mopidy-soundcloud'
 
 
@@ -22,9 +22,10 @@ class SoundCloudExtension(ext.Extension):
 
     def get_config_schema(self):
         schema = super(SoundCloudExtension, self).get_config_schema()
-        schema['explore'] = config.List()
-        schema['explore_pages'] = config.Integer()
+        schema['explore_songs'] = config.Integer()
         schema['auth_token'] = config.Secret()
+        schema['explore'] = config.Deprecated()
+        schema['explore_pages'] = config.Deprecated()
         return schema
 
     def validate_config(self, config):

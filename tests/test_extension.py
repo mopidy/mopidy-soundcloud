@@ -21,5 +21,4 @@ class ExtensionTest(unittest.TestCase):
         schema = ext.get_config_schema()
 
         self.assertIn('auth_token', schema)
-        self.assertIn('explore', schema)
-        self.assertIn('explore_pages', schema)
+        self.assertIn('explore_songs', schema)
