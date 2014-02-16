@@ -59,14 +59,31 @@ Project resources
 Changelog
 =========
 
-v1.2.0 (2014-02-17)
+v1.2.0 (2014-02-16)
 -------------------
 
-- Deprecated explore and explore_pages settings
-- Extension is now using virtual filesystem to represent SoundCloud (Browse, Files  option in your client...)
-- Added ability to show tracks from users you follow
-- Searching SoundCloud for music via search method
-- Resolving SoundCloud uris via search method
+- Deprecated ``explore`` and ``explore_pages`` config values.
+
+- Extension is now using Mopidy's virtual filesystem to expose music from your
+  SoundCloud account instead of fake playlists. See the "Browse" or "Files"
+  option in your MPD client.
+
+  In the virtual file system you can browse:
+
+  - The "Stream" with tracks from the users you follow.
+
+  - All "Explore" sections.
+
+  - Your followers and their shared tracks.
+
+  - Your liked tracks.
+
+  - Your sets.
+
+- Add search support.
+
+- Add support for looking up music by SoundCloud URLs through searching for the
+  URL as a file name.
 
 v1.1.0 (2014-01-20)
 -------------------
