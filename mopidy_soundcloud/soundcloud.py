@@ -193,13 +193,15 @@ class SoundCloudClient(object):
         if not data:
             return []
         if not data['streamable']:
-            logger.info('\'%s\' can\'t be streamed from SoundCloud' % data.get('title'))
+            logger.info(
+                "'%s' can't be streamed from SoundCloud" % data.get('title'))
             return []
         if not data['kind'] == 'track':
-            logger.debug('%s is not track' % data.get('title'))
+            logger.debug("'%s' is not a track" % data.get('title'))
             return []
         if not self.can_be_streamed(data['stream_url']):
-            logger.info('\'%s\' can\'t be streamed from SoundCloud' % data.get('title'))
+            logger.info(
+                "'%s' can't be streamed from SoundCloud" % data.get('title'))
             return []
 
         # NOTE kwargs dict keys must be bytestrings to work on Python < 2.6.5
