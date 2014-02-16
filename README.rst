@@ -53,7 +53,7 @@ Project resources
 - `Source code <https://github.com/mopidy/mopidy-soundcloud>`_
 - `Issue tracker <https://github.com/mopidy/mopidy-soundcloud/issues>`_
 - `Download development snapshot
-  <https://github.com/mopidy/mopidy-soundcloud/tarball/master#egg=Mopidy-SoundCloud-dev>`_
+  <https://github.com/mopidy/mopidy-soundcloud/archive/master.tar.gz#egg=Mopidy-SoundCloud-dev>`_
 
 
 Changelog
