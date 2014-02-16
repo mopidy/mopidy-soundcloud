@@ -4,10 +4,10 @@ import collections
 import logging
 import re
 import urllib
+from urlparse import urlparse
 
 from mopidy import backend, models
 from mopidy.models import SearchResult, Track
-
 
 logger = logging.getLogger(__name__)
 
@@ -124,11 +124,13 @@ class SoundCloudLibraryProvider(backend.LibraryProvider):
 
         if 'uri' in query:
             search_query = ''.join(query['uri'])
-            logger.info('Resolving SoundCloud for \'%s\'', search_query)
-            return SearchResult(
-                uri='soundcloud:search',
-                tracks=self.backend.remote.resolve_url(search_query)
-            )
+            url = urlparse(search_query)
+            if 'soundcloud.com' in url.netloc:
+                logger.info('Resolving SoundCloud for \'%s\'', search_query)
+                return SearchResult(
+                    uri='soundcloud:search',
+                    tracks=self.backend.remote.resolve_url(search_query)
+                )
         else:
             search_query = ' '.join(query.values()[0])
             logger.info('Searching SoundCloud for \'%s\'', search_query)
