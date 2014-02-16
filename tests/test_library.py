@@ -3,21 +3,17 @@ from __future__ import unicode_literals
 import unittest
 from mopidy.models import Ref
 import pykka
-from mopidy_soundcloud import actor
+from mopidy_soundcloud import actor, SoundCloudExtension
 from mopidy_soundcloud.library import SoundCloudLibraryProvider
 
 
 class ApiTest(unittest.TestCase):
 
-    config = {
-        'soundcloud': {
-            'auth_token': '1-35204-61921957-55796ebef403996',
-            },
-        }
-
     def setUp(self):
+        config = SoundCloudExtension().get_config_schema()
+        config['auth_token'] = '1-35204-61921957-55796ebef403996'
         self.backend = actor.SoundCloudBackend.start(
-            config=self.config, audio=None).proxy()
+            config={'soundcloud': config}, audio=None).proxy()
         self.library = SoundCloudLibraryProvider(backend=self.backend)
 
     def tearDown(self):

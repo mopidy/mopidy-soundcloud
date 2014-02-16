@@ -49,8 +49,8 @@ class SoundCloudClient(object):
 
     def __init__(self, config):
         super(SoundCloudClient, self).__init__()
-        token = config['soundcloud']['auth_token']
-        explore_songs = ['soundcloud']['explore_songs']
+        token = config['auth_token']
+        self.explore_songs = config['explore_songs']
         self.http_client = requests.Session()
         self.http_client.headers.update({'Authorization': 'OAuth %s' % token})
 
@@ -182,7 +182,7 @@ class SoundCloudClient(object):
 
         url = 'https://%s.soundcloud.com/%s' % (endpoint, url)
 
-        logger.info('Requesting %s' % url)
+        logger.debug('Requesting %s' % url)
         res = self.http_client.get(url)
         res.raise_for_status()
         return res.json()

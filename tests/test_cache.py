@@ -20,9 +20,9 @@ class CacheTest(unittest.TestCase):
 
         @cache()
         def returnstring():
-            return "ok"
+            return 'ok'
 
-        self.assertEquals(returnstring(), "ok")
+        self.assertEquals(returnstring(), 'ok')
 
     def test_set_ttl_cache(self):
 

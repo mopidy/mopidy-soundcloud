@@ -45,16 +45,7 @@ Configuration
 
     [soundcloud]
     auth_token = 1-1111-1111111
-
-#. Extra playlists from http://www.soundcloud.com/explore can be retrieved by
-   setting the ``soundcloud/explore`` config value. For example, if you want
-   Smooth Jazz from https://soundcloud.com/explore/jazz%2Bblues your entry
-   would be "jazz%2Bblues/Smooth Jazz". Example config::
-
-    [soundcloud]
-    auth_token = 1-1111-1111111
-    explore = electronic/Ambient, pop/New Wave, rock/Indie
-
+    explore_songs = 25
 
 Project resources
 =================
