@@ -68,17 +68,13 @@ class SoundCloudClient(object):
         for sid in xrange(0, 2):
             stream = self._get('e1/me/stream.json?offset=%s' % sid * 5)
             for data in stream.get('collection'):
-                try:
-                    kind = data.get('type')
-                    # multiple types of track with same data
-                    if 'track' in kind:
-                        tracks.append(self.parse_track(data.get('track')))
-                    if kind == 'playlist':
-                        tracks.extend(self.parse_results(
-                            data.get('playlist').get('tracks')))
-                except Exception:
-                    # Type not supported or SC changed API
-                    pass
+                kind = data.get('type')
+                # multiple types of track with same data
+                if 'track' in kind:
+                    tracks.append(self.parse_track(data.get('track')))
+                if kind == 'playlist':
+                    tracks.extend(self.parse_results(
+                        data.get('playlist').get('tracks')))
 
         return self.sanitize_tracks(tracks)
 

@@ -43,6 +43,50 @@ class ApiTest(unittest.TestCase):
             'soundcloud:song/Burial + Four Tet - Nova.38720262'
         )
 
+    def test_resolves_http_url(self):
+
+        track = self.api.resolve_url(
+            'https://soundcloud.com/swedensfinestmusicblog/'
+            'robert-parker-brooklyn-brigde'
+        )[0]
+        self.assertIsInstance(track, Track)
+        self.assertEquals(
+            track.uri,
+            'soundcloud:song/Robert Parker - Brooklyn Brigde.135101951'
+        )
+
+    def test_get_user_liked(self):
+
+        tracks = self.api.get_user_liked()
+        self.assertIsInstance(tracks, list)
+
+    def test_get_user_stream(self):
+
+        tracks = self.api.get_user_stream()
+        self.assertIsInstance(tracks, list)
+
+    def test_get_explore(self):
+
+        tracks = self.api.get_explore()
+        self.assertIsInstance(tracks, list)
+        self.assertEquals(tracks[0], 'Popular+Music')
+
+    def test_get_explore_popular_music(self):
+
+        tracks = self.api.get_explore('1')
+        self.assertIsInstance(tracks, list)
+        self.assertIsInstance(tracks[0], Track)
+
+    def test_get_followings(self):
+
+        tracks = self.api.get_followings()
+        self.assertIsInstance(tracks, list)
+
+    def test_get_sets(self):
+
+        tracks = self.api.get_sets()
+        self.assertIsInstance(tracks, list)
+
     def test_resolves_stream_Track(self):
 
         track = self.api.get_track('38720262', True)

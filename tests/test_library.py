@@ -12,8 +12,11 @@ class ApiTest(unittest.TestCase):
     def setUp(self):
         config = SoundCloudExtension().get_config_schema()
         config['auth_token'] = '1-35204-61921957-55796ebef403996'
+        # using this user http://maildrop.cc/inbox/mopidytestuser
         self.backend = actor.SoundCloudBackend.start(
-            config={'soundcloud': config}, audio=None).proxy()
+            config={'soundcloud': config},
+            audio=None
+        ).proxy()
         self.library = SoundCloudLibraryProvider(backend=self.backend)
 
     def tearDown(self):
