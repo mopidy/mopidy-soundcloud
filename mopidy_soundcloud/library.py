@@ -122,12 +122,21 @@ class SoundCloudLibraryProvider(backend.LibraryProvider):
 
         if not query:
             return
-        search_query = ' '.join(query.values()[0])
-        logger.info('Searching SoundCloud for \'%s\'', search_query)
-        return SearchResult(
-            uri='soundcloud:search',
-            tracks=self.backend.remote.search(search_query)
-        )
+
+        if 'uri' in query:
+            search_query = ''.join(query['uri'])
+            logger.info('Resolving SoundCloud for \'%s\'', search_query)
+            return SearchResult(
+                uri='soundcloud:search',
+                tracks=self.backend.remote.resolve_url(search_query)
+            )
+        else:
+            search_query = ' '.join(query.values()[0])
+            logger.info('Searching SoundCloud for \'%s\'', search_query)
+            return SearchResult(
+                uri='soundcloud:search',
+                tracks=self.backend.remote.search(search_query)
+            )
 
     def lookup(self, uri):
         try:

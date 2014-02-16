@@ -171,6 +171,9 @@ class SoundCloudClient(object):
             tracks.append(self.parse_track(track))
         return self.sanitize_tracks(tracks)
 
+    def resolve_url(self, uri):
+        return self.parse_results([self._get('resolve.json?url=%s' % uri)])
+
     def _get(self, url, endpoint='api'):
         if '?' in url:
             url = '%s&client_id=%s' % (url, self.CLIENT_ID)
