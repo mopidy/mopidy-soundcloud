@@ -7,7 +7,6 @@ from mopidy_soundcloud import SoundCloudExtension
 from mopidy_soundcloud.soundcloud import SoundCloudClient
 
 
-
 class ApiTest(unittest.TestCase):
 
     def setUp(self):
