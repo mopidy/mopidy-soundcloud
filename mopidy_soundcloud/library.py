@@ -112,32 +112,22 @@ class SoundCloudLibraryProvider(backend.LibraryProvider):
             # User stream
             if 'stream' == req_type:
                 return self.tracklist_to_vfs(
-                    self.backend.remote.get_user_stream(res_id)
+                    self.backend.remote.get_user_stream()
                 )
 
         # root directory
         return self.vfs.get(uri, {}).values()
 
-    def find_exact(self, **query):
-        return self.search(**query)
+    def search(self, query=None, uris=None):
 
-    def search(self, **query):
         if not query:
             return
-
-        for (field, val) in query.iteritems():
-
-            # TODO: Devise method for searching SoundCloud via artists
-            if field == 'album' and query['album'] == 'SoundCloud':
-                return SearchResult(
-                    uri='soundcloud:search',
-                    tracks=self.backend.remote.search(query['artist']) or [])
-            elif field == 'any':
-                return SearchResult(
-                    uri='soundcloud:search',
-                    tracks=self.backend.remote.search(val[0]) or [])
-            else:
-                return []
+        search_query = ' '.join(query.values()[0])
+        logger.info('Searching SoundCloud for \'%s\'', search_query)
+        return SearchResult(
+            uri='soundcloud:search',
+            tracks=self.backend.remote.search(search_query)
+        )
 
     def lookup(self, uri):
         try:

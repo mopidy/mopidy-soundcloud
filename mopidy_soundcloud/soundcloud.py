@@ -154,18 +154,15 @@ class SoundCloudClient(object):
             track = track.uri
         return track.split('.')[-1]
 
-    @cache()
     def search(self, query):
-        'SoundCloud API only supports basic query no artist,'
-        'album queries are possible'
-        # TODO: add genre filter
-        res = self._get(
-            'tracks.json?q=%s&filter=streamable&order=hotness' %
-            quote_plus(query))
 
+        search_results = self._get(
+            'tracks.json?q=%s&filter=streamable&order=hotness&limit=10' %
+            quote_plus(query)
+        )
         tracks = []
-        for track in res:
-            tracks.append(self.parse_track(track, False, True))
+        for track in search_results:
+            tracks.append(self.parse_track(track, False))
         return self.sanitize_tracks(tracks)
 
     def parse_results(self, res):
