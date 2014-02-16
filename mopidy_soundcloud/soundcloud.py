@@ -2,6 +2,7 @@ from __future__ import unicode_literals
 import logging
 import time
 from urllib import quote_plus
+import collections
 
 import requests
 from mopidy.models import Track, Artist, Album
@@ -73,8 +74,9 @@ class SoundCloudClient(object):
                 if 'track' in kind:
                     tracks.append(self.parse_track(data.get('track')))
                 if kind == 'playlist':
-                    tracks.extend(self.parse_results(
-                        data.get('playlist').get('tracks')))
+                    playlist = data.get('playlist').get('tracks')
+                    if isinstance(playlist, collections.Iterable):
+                        tracks.extend(self.parse_results())
 
         return self.sanitize_tracks(tracks)
 
