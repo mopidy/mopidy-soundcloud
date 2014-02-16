@@ -79,7 +79,6 @@ class SoundCloudLibraryProvider(backend.LibraryProvider):
     def browse(self, uri):
         if not self.vfs.get(uri):
             (req_type, res_id) = re.match(r'.*:(\w*)(?:/(\d*))?', uri).groups()
-            print(req_type, res_id)
             # Sets
             if 'sets' == req_type:
                 if res_id:

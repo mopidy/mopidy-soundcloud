@@ -103,7 +103,7 @@ class SoundCloudClient(object):
         for playlist in self._get('me/followings.json?limit=1000'):
             name = playlist.get('username')
             user_id = str(playlist.get('id'))
-            logger.info(
+            logger.debug(
                 'Fetched user %s with id %s' % (
                     name, user_id
                 )
@@ -118,7 +118,7 @@ class SoundCloudClient(object):
             name = playlist.get('title')
             set_id = str(playlist.get('id'))
             tracks = playlist.get('tracks')
-            logger.info(
+            logger.debug(
                 'Fetched set %s with id %s (%d tracks)' % (
                     name, set_id, len(tracks)
                 )
@@ -189,16 +189,15 @@ class SoundCloudClient(object):
     @cache()
     def parse_track(self, data, remote_url=False):
         if not data:
-            logger.info('%s is malformed' % data)
             return []
         if not data['streamable']:
-            logger.info('%s is not streamable' % data.get('title'))
+            logger.info('\'%s\' can\'t be streamed from SoundCloud' % data.get('title'))
             return []
         if not data['kind'] == 'track':
-            logger.info('%s is not track' % data.get('title'))
+            logger.debug('%s is not track' % data.get('title'))
             return []
         if not self.can_be_streamed(data['stream_url']):
-            logger.info('%s can not be streamed' % data.get('title'))
+            logger.info('\'%s\' can\'t be streamed from SoundCloud' % data.get('title'))
             return []
 
         # NOTE kwargs dict keys must be bytestrings to work on Python < 2.6.5
