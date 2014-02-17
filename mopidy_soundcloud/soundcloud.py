@@ -194,14 +194,11 @@ class SoundCloudClient(object):
             return []
         if not data['streamable']:
             logger.info(
-                "'%s' can't be streamed from SoundCloud" % data.get('title'))
+                "'%s' can't be streamed from SoundCloud" % data.get('title')
+            )
             return []
         if not data['kind'] == 'track':
-            logger.debug("'%s' is not a track" % data.get('title'))
-            return []
-        if not self.can_be_streamed(data['stream_url']):
-            logger.info(
-                "'%s' can't be streamed from SoundCloud" % data.get('title'))
+            logger.debug('%s is not track' % data.get('title'))
             return []
 
         # NOTE kwargs dict keys must be bytestrings to work on Python < 2.6.5
@@ -229,12 +226,16 @@ class SoundCloudClient(object):
                 artist_kwargs[b'name'] = data.get('user').get('username')
 
             album_kwargs[b'name'] = 'SoundCloud'
-            #album_kwargs[b'url'] = data.get('permalink_url')
 
         if 'date' in data:
             track_kwargs[b'date'] = data['date']
 
         if remote_url:
+            if not self.can_be_streamed(data['stream_url']):
+                logger.info(
+                    "'%s' can't be streamed from SoundCloud" % data.get('title')
+                )
+                return []
             track_kwargs[b'uri'] = self.get_streamble_url(data['stream_url'])
         else:
             track_kwargs[b'uri'] = 'soundcloud:song/%s.%s' % (
@@ -242,6 +243,7 @@ class SoundCloudClient(object):
             )
 
         track_kwargs[b'length'] = int(data.get('duration', 0))
+        track_kwargs[b'comment'] = data.get('permalink_url', '')
 
         if artist_kwargs:
             artist = Artist(**artist_kwargs)
