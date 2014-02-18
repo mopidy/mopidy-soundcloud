@@ -233,8 +233,8 @@ class SoundCloudClient(object):
         if remote_url:
             if not self.can_be_streamed(data['stream_url']):
                 logger.info(
-                    "'%s' can't be streamed from SoundCloud" % data.get('title')
-                )
+                    "'%s' can't be streamed from SoundCloud" %
+                    data.get('title'))
                 return []
             track_kwargs[b'uri'] = self.get_streamble_url(data['stream_url'])
         else:
