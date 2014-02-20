@@ -89,8 +89,10 @@ class ApiTest(unittest.TestCase):
 
     def test_safe_url(self):
 
-        self.assertEquals('Barsuk Records', self.api.safe_url('"@"Barsuk      Records'))
-        self.assertEquals('_Barsuk Records', self.api.safe_url('_Barsuk \'Records\''))
+        self.assertEquals('Barsuk Records',
+                          self.api.safe_url('"@"Barsuk      Records'))
+        self.assertEquals('_Barsuk Records',
+                          self.api.safe_url('_Barsuk \'Records\''))
 
     def test_resolves_stream_Track(self):
 
