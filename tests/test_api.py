@@ -40,7 +40,7 @@ class ApiTest(unittest.TestCase):
         self.assertIsInstance(track, Track)
         self.assertEquals(
             track.uri,
-            'soundcloud:song/Burial + Four Tet - Nova.38720262'
+            'soundcloud:song/Burial Four Tet - Nova.38720262'
         )
 
     def test_resolves_http_url(self):
@@ -86,6 +86,11 @@ class ApiTest(unittest.TestCase):
 
         tracks = self.api.get_sets()
         self.assertIsInstance(tracks, list)
+
+    def test_safe_url(self):
+
+        self.assertEquals('Barsuk Records', self.api.safe_url('"@"Barsuk      Records'))
+        self.assertEquals('_Barsuk Records', self.api.safe_url('_Barsuk \'Records\''))
 
     def test_resolves_stream_Track(self):
 
