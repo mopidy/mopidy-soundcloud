@@ -59,6 +59,11 @@ Project resources
 Changelog
 =========
 
+v1.2.1 (2014-02-21)
+-------------------
+
+- Properly escape unsafe chars in URIs.
+
 v1.2.0 (2014-02-16)
 -------------------
 
