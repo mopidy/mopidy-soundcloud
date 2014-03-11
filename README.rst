@@ -32,6 +32,12 @@ Install by running::
 Or, if available, install the Debian/Ubuntu package from `apt.mopidy.com
 <http://apt.mopidy.com/>`_.
 
+If you're having trouble with audio playback from SoundCloud, make sure you
+have the "ugly" plugin set from GStreamer installed for MP3 support. The
+package is typically named ``gstreamer0.10-plugins-ugly`` or similar, depending
+on OS and distribution. The package isn't a strict requirement for Mopidy's
+core, so you may be missing it.
+
 
 Configuration
 =============
