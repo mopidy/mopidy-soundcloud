@@ -90,7 +90,7 @@ class SoundCloudClient(object):
             web_tracks = self._get(
                 'explore/%s?tag=%s&limit=%s&offset=0&linked_partitioning=1' %
                 (urn, quote_plus(explore.get('tag')), self.explore_songs),
-                'api-web'
+                'api-v2'
             )
             tracks = []
             for track in web_tracks.get('tracks'):
