@@ -24,6 +24,7 @@ class SoundCloudLibraryProvider(backend.LibraryProvider):
         self.vfs = {'soundcloud:directory': collections.OrderedDict()}
         self.add_to_vfs(self.new_folder('Explore', ['explore']))
         self.add_to_vfs(self.new_folder('Following', ['following']))
+        self.add_to_vfs(self.new_folder('Groups', ['groups']))
         self.add_to_vfs(self.new_folder('Liked', ['liked']))
         self.add_to_vfs(self.new_folder('Sets', ['sets']))
         self.add_to_vfs(self.new_folder('Stream', ['stream']))
@@ -64,6 +65,17 @@ class SoundCloudLibraryProvider(backend.LibraryProvider):
             sets_vfs[str(eid)] = sets_list
         return sets_vfs.values()
 
+    def list_groups(self):
+        groups_vfs = collections.OrderedDict()
+        for group in self.backend.remote.get_groups():
+            g_list = self.new_folder(
+                urllib.unquote_plus(group.get('name')),
+                ['groups', str(group.get('id'))]
+            )
+            logger.info('Adding group %s to vfs' % g_list.name)
+            groups_vfs[str(group.get('id'))] = g_list
+        return groups_vfs.values()
+
     def tracklist_to_vfs(self, track_list):
         vfs_list = collections.OrderedDict()
         for temp_track in track_list:
@@ -99,10 +111,18 @@ class SoundCloudLibraryProvider(backend.LibraryProvider):
             if 'explore' == req_type:
                 if res_id:
                     return self.tracklist_to_vfs(
-                        self.backend.remote.get_explore(res_id, )
+                        self.backend.remote.get_explore(res_id)
                     )
                 else:
                     return self.list_explore()
+            # Groups
+            if 'groups' == req_type:
+                if res_id:
+                    return self.tracklist_to_vfs(
+                        self.backend.remote.get_groups(res_id)
+                    )
+                else:
+                    return self.list_groups()
             # Liked
             if 'liked' == req_type:
                 return self.tracklist_to_vfs(
