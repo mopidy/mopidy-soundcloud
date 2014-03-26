@@ -65,6 +65,11 @@ Project resources
 Changelog
 =========
 
+v1.2.2 (2014-03-26)
+-------------------
+
+- Update Soundcloud API endpoint
+
 v1.2.1 (2014-02-21)
 -------------------
 
