@@ -1,19 +1,44 @@
 from __future__ import unicode_literals
 import collections
-
 import logging
 import re
+import string
 import urllib
 from urlparse import urlparse
+import unicodedata
 
 from mopidy import backend, models
 from mopidy.models import SearchResult, Track
 
+
 logger = logging.getLogger(__name__)
 
 
-class SoundCloudLibraryProvider(backend.LibraryProvider):
+def safe_url(uri):
+    valid_chars = "-_.() %s%s" % (string.ascii_letters, string.digits)
+    safe_uri = unicodedata.normalize(
+        'NFKD',
+        unicode(uri)
+    ).encode('ASCII', 'ignore')
+    return re.sub(
+        '\s+',
+        ' ',
+        ''.join(c for c in safe_uri if c in valid_chars)
+    ).strip()
 
+
+def generate_uri(path):
+    return 'soundcloud:directory:%s' % urllib.quote('/'.join(path))
+
+
+def new_folder(name, path):
+    return models.Ref.directory(
+        uri=generate_uri(path),
+        name=safe_url(name)
+    )
+
+
+class SoundCloudLibraryProvider(backend.LibraryProvider):
     root_directory = models.Ref.directory(
         uri='soundcloud:directory',
         name='SoundCloud'
@@ -22,18 +47,12 @@ class SoundCloudLibraryProvider(backend.LibraryProvider):
     def __init__(self, *args, **kwargs):
         super(SoundCloudLibraryProvider, self).__init__(*args, **kwargs)
         self.vfs = {'soundcloud:directory': collections.OrderedDict()}
-        self.add_to_vfs(self.new_folder('Explore', ['explore']))
-        self.add_to_vfs(self.new_folder('Following', ['following']))
-        self.add_to_vfs(self.new_folder('Groups', ['groups']))
-        self.add_to_vfs(self.new_folder('Liked', ['liked']))
-        self.add_to_vfs(self.new_folder('Sets', ['sets']))
-        self.add_to_vfs(self.new_folder('Stream', ['stream']))
-
-    def new_folder(self, name, path):
-        return models.Ref.directory(
-            uri=self.generate_uri(path),
-            name=name
-        )
+        self.add_to_vfs(new_folder('Explore', ['explore']))
+        self.add_to_vfs(new_folder('Following', ['following']))
+        self.add_to_vfs(new_folder('Groups', ['groups']))
+        self.add_to_vfs(new_folder('Liked', ['liked']))
+        self.add_to_vfs(new_folder('Sets', ['sets']))
+        self.add_to_vfs(new_folder('Stream', ['stream']))
 
     def add_to_vfs(self, _model):
         self.vfs['soundcloud:directory'][_model.uri] = _model
@@ -41,7 +60,7 @@ class SoundCloudLibraryProvider(backend.LibraryProvider):
     def list_sets(self):
         sets_vfs = collections.OrderedDict()
         for (name, set_id, tracks) in self.backend.remote.get_sets():
-            sets_list = self.new_folder(name, ['sets', set_id])
+            sets_list = new_folder(name, ['sets', set_id])
             logger.debug('Adding set %s to vfs' % sets_list.name)
             sets_vfs[set_id] = sets_list
         return sets_vfs.values()
@@ -49,7 +68,7 @@ class SoundCloudLibraryProvider(backend.LibraryProvider):
     def list_user_follows(self):
         sets_vfs = collections.OrderedDict()
         for (name, user_id) in self.backend.remote.get_followings():
-            sets_list = self.new_folder(name, ['following', user_id])
+            sets_list = new_folder(name, ['following', user_id])
             logger.debug('Adding set %s to vfs' % sets_list.name)
             sets_vfs[user_id] = sets_list
         return sets_vfs.values()
@@ -57,8 +76,8 @@ class SoundCloudLibraryProvider(backend.LibraryProvider):
     def list_explore(self):
         sets_vfs = collections.OrderedDict()
         for eid, name in enumerate(self.backend.remote.get_explore()):
-            sets_list = self.new_folder(
-                urllib.unquote_plus(name),
+            sets_list = new_folder(
+                name,
                 ['explore', str(eid)]
             )
             logger.debug('Adding explore category %s to vfs' % sets_list.name)
@@ -68,11 +87,11 @@ class SoundCloudLibraryProvider(backend.LibraryProvider):
     def list_groups(self):
         groups_vfs = collections.OrderedDict()
         for group in self.backend.remote.get_groups():
-            g_list = self.new_folder(
-                urllib.unquote_plus(group.get('name')),
+            g_list = new_folder(
+                group.get('name'),
                 ['groups', str(group.get('id'))]
             )
-            logger.info('Adding group %s to vfs' % g_list.name)
+            logger.debug('Adding group %s to vfs' % g_list.name)
             groups_vfs[str(group.get('id'))] = g_list
         return groups_vfs.values()
 
@@ -166,6 +185,3 @@ class SoundCloudLibraryProvider(backend.LibraryProvider):
         except Exception as error:
             logger.error('Failed to lookup %s: %s', uri, error)
             return []
-
-    def generate_uri(self, path):
-        return 'soundcloud:directory:%s' % urllib.quote('/'.join(path))
