@@ -99,6 +99,19 @@ class SoundCloudClient(object):
 
         return explore.get('categories').get('music')
 
+    def get_groups(self, query_group_id=None):
+
+        if query_group_id:
+            web_tracks = self._get('groups/%d/tracks.json' % int(
+                query_group_id))
+            tracks = []
+            for track in web_tracks:
+                if 'track' in track.get('kind'):
+                    tracks.append(self.parse_track(track))
+            return tracks
+        else:
+            return self._get('me/groups.json')
+
     def get_followings(self, query_user_id=None):
 
         if query_user_id:

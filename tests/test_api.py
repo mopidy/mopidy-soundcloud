@@ -87,6 +87,16 @@ class ApiTest(unittest.TestCase):
         tracks = self.api.get_sets()
         self.assertIsInstance(tracks, list)
 
+    def test_get_groups(self):
+
+        tracks = self.api.get_groups()
+        self.assertIsInstance(tracks, list)
+
+    def test_get_group_tracks(self):
+
+        tracks = self.api.get_groups(136)
+        self.assertIsInstance(tracks[0], Track)
+
     def test_safe_url(self):
 
         self.assertEquals('Barsuk Records',

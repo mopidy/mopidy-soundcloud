@@ -1,14 +1,17 @@
+# coding=utf-8
 from __future__ import unicode_literals
 
 import unittest
+
 from mopidy.models import Ref
 import pykka
+
 from mopidy_soundcloud import actor, SoundCloudExtension
-from mopidy_soundcloud.library import SoundCloudLibraryProvider
+from mopidy_soundcloud.library import SoundCloudLibraryProvider, new_folder, \
+    safe_url
 
 
 class ApiTest(unittest.TestCase):
-
     def setUp(self):
         config = SoundCloudExtension().get_config_schema()
         config['auth_token'] = '1-35204-61921957-55796ebef403996'
@@ -24,7 +27,7 @@ class ApiTest(unittest.TestCase):
 
     def test_add_folder(self):
         self.assertEquals(
-            self.library.new_folder('Test', ['test']),
+            new_folder('Test', ['test']),
             Ref(name='Test', type='directory',
                 uri='soundcloud:directory:test')
         )
@@ -32,6 +35,14 @@ class ApiTest(unittest.TestCase):
     def test_only_resolves_soundcloud_uris(self):
         self.assertIsNone(self.library.search(
             {'uri': 'http://www.youtube.com/watch?v=wD6H6Yhluo8'}))
+
+    def test_returns_url_safe_string(self):
+        self.assertEquals(
+            safe_url('Alternative/Indie/rock/pop '),
+            'AlternativeIndierockpop')
+        self.assertEquals(
+            safe_url('D∃∃P Hau⑀ iNDiE DᴬNCE | №➊ ²⁰¹⁴'),
+            'DP Hau iNDiE DANCE No 2014')
 
     def test_default_folders(self):
         self.assertEquals(
@@ -41,6 +52,8 @@ class ApiTest(unittest.TestCase):
                     uri='soundcloud:directory:explore'),
                 Ref(name='Following', type='directory',
                     uri='soundcloud:directory:following'),
+                Ref(name='Groups', type='directory',
+                    uri='soundcloud:directory:groups'),
                 Ref(name='Liked', type='directory',
                     uri='soundcloud:directory:liked'),
                 Ref(name='Sets', type='directory',
