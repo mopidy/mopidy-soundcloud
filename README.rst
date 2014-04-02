@@ -65,6 +65,11 @@ Project resources
 Changelog
 =========
 
+v1.2.3 (2014-04-02)
+-------------------
+
+- Add support for playing music from groups
+
 v1.2.2 (2014-03-26)
 -------------------
 
