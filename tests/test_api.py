@@ -46,13 +46,12 @@ class ApiTest(unittest.TestCase):
     def test_resolves_http_url(self):
 
         track = self.api.resolve_url(
-            'https://soundcloud.com/swedensfinestmusicblog/'
-            'robert-parker-brooklyn-brigde'
+            'https://soundcloud.com/bbc-radio-4/m-w-cloud'
         )[0]
         self.assertIsInstance(track, Track)
         self.assertEquals(
             track.uri,
-            'soundcloud:song/Robert Parker - Brooklyn Brigde.135101951'
+            'soundcloud:song/That Mitchell and Webb Sound The Cloud.122889665'
         )
 
     def test_get_user_liked(self):
