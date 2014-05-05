@@ -2,9 +2,10 @@
 *.pyc
 *.swp
 .coverage
+.idea
+.tox
 MANIFEST
 build/
-dist/
-.tox
-.idea
 cover
+dist/
+xunit-*.xml
