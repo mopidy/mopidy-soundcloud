@@ -130,7 +130,12 @@ class SoundCloudClient(object):
             users.append((name, user_id))
         return users
 
-    def get_sets(self, query_set_id=None):
+    @cache()
+    def get_set(self, set_id):
+        playlist = self._get('playlists/%s.json' % set_id)
+        return playlist.get('tracks', [])
+
+    def get_sets(self):
         playable_sets = []
         for playlist in self._get('me/playlists.json?limit=1000'):
             name = playlist.get('title')
@@ -141,13 +146,24 @@ class SoundCloudClient(object):
                     name, set_id, len(tracks)
                 )
             )
-            if query_set_id == set_id:
-                return tracks
             playable_sets.append((name, set_id, tracks))
         return playable_sets
 
     def get_user_liked(self):
-        return self.parse_results(self._get('me/favorites.json?limit=1000'))
+        # Note: As with get_user_stream, this API call is undocumented.
+        likes = []
+        liked = self._get('e1/me/likes.json?limit=1000')
+        for data in liked:
+
+            track = data['track']
+            if track:
+                likes.append(self.parse_track(track))
+
+            pl = data['playlist']
+            if pl:
+                likes.append((pl['title'], str(pl['id'])))
+
+        return likes
 
     # Public
     @cache()
