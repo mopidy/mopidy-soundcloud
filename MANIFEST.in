@@ -5,5 +5,6 @@ include LICENSE
 include MANIFEST.in
 include README.rst
 include mopidy_soundcloud/ext.conf
+include tox.ini
 
 recursive-include tests *.py
