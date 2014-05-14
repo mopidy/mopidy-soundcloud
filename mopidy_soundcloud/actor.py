@@ -20,7 +20,7 @@ class SoundCloudBackend(pykka.ThreadingActor, backend.Backend):
         self.library = SoundCloudLibraryProvider(backend=self)
         self.playback = SoundCloudPlaybackProvider(audio=audio, backend=self)
 
-        self.uri_schemes = ['soundcloud']
+        self.uri_schemes = ['soundcloud', 'sc']
 
 
 class SoundCloudPlaybackProvider(backend.PlaybackProvider):

@@ -7,8 +7,8 @@ from mopidy.models import Ref
 import pykka
 
 from mopidy_soundcloud import actor, SoundCloudExtension
-from mopidy_soundcloud.library import SoundCloudLibraryProvider, new_folder, \
-    safe_url
+from mopidy_soundcloud.soundcloud import safe_url
+from mopidy_soundcloud.library import SoundCloudLibraryProvider, new_folder
 
 
 class ApiTest(unittest.TestCase):
@@ -39,10 +39,10 @@ class ApiTest(unittest.TestCase):
     def test_returns_url_safe_string(self):
         self.assertEquals(
             safe_url('Alternative/Indie/rock/pop '),
-            'AlternativeIndierockpop')
+            'Alternative%2FIndie%2Frock%2Fpop+')
         self.assertEquals(
             safe_url('D∃∃P Hau⑀ iNDiE DᴬNCE | №➊ ²⁰¹⁴'),
-            'DP Hau iNDiE DANCE No 2014')
+            'DP+Hau+iNDiE+DANCE+%7C+No+2014')
 
     def test_default_folders(self):
         self.assertEquals(

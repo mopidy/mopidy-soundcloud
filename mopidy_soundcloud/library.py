@@ -2,29 +2,15 @@ from __future__ import unicode_literals
 import collections
 import logging
 import re
-import string
 import urllib
 from urlparse import urlparse
-import unicodedata
 
 from mopidy import backend, models
 from mopidy.models import SearchResult, Track
+from mopidy_soundcloud.soundcloud import safe_url
 
 
 logger = logging.getLogger(__name__)
-
-
-def safe_url(uri):
-    valid_chars = "-_.() %s%s" % (string.ascii_letters, string.digits)
-    safe_uri = unicodedata.normalize(
-        'NFKD',
-        unicode(uri)
-    ).encode('ASCII', 'ignore')
-    return re.sub(
-        '\s+',
-        ' ',
-        ''.join(c for c in safe_uri if c in valid_chars)
-    ).strip()
 
 
 def generate_uri(path):
@@ -192,9 +178,13 @@ class SoundCloudLibraryProvider(backend.LibraryProvider):
             )
 
     def lookup(self, uri):
-        try:
-            track_id = self.backend.remote.parse_track_uri(uri)
-            return [self.backend.remote.get_track(track_id)]
-        except Exception as error:
-            logger.error('Failed to lookup %s: %s', uri, error)
-            return []
+        if 'sc:' in uri:
+            uri = uri.replace('sc:', '')
+            return self.backend.remote.resolve_url(uri)
+        else:
+            try:
+                track_id = self.backend.remote.parse_track_uri(uri)
+                return [self.backend.remote.get_track(track_id)]
+            except Exception as error:
+                logger.error('Failed to lookup %s: %s', uri, error)
+                return []

@@ -65,6 +65,14 @@ Project resources
 Changelog
 =========
 
+v1.2.4 (2014-05-15)
+-------------------
+
+- Add support for adding track by url
+- Fix search parsing
+- Support for adding playlists from liked section
+- Fix for track parsing and empty artists field
+
 v1.2.3 (2014-04-02)
 -------------------
 
