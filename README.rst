@@ -65,6 +65,11 @@ Project resources
 Changelog
 =========
 
+v1.2.5 (2014-06-24)
+-------------------
+
+- Add support for new explore api
+
 v1.2.4 (2014-05-15)
 -------------------
 

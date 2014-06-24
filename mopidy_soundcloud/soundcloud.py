@@ -105,12 +105,12 @@ class SoundCloudClient(object):
         return self.sanitize_tracks(tracks)
 
     def get_explore(self, query_explore_id=None):
-        explore = self._get('/explore/v2')
+        explore = self._get('explore/categories', 'api-v2').get('music')
         if query_explore_id:
-            urn = explore.get('categories').get('music')[int(query_explore_id)]
+            urn = explore[int(query_explore_id)]
             web_tracks = self._get(
                 'explore/%s?tag=%s&limit=%s&offset=0&linked_partitioning=1' %
-                (urn, quote_plus(explore.get('tag')), self.explore_songs),
+                (urn, 'out-of-experiment', self.explore_songs),
                 'api-v2'
             )
             tracks = []
@@ -118,7 +118,7 @@ class SoundCloudClient(object):
                 tracks.append(self.get_track(track.get('id')))
             return tracks
 
-        return explore.get('categories').get('music')
+        return explore
 
     def get_groups(self, query_group_id=None):
 
@@ -233,7 +233,7 @@ class SoundCloudClient(object):
 
         url = 'https://%s.soundcloud.com/%s' % (endpoint, url)
 
-        logger.info('Requesting %s' % url)
+        logger.debug('Requesting %s' % url)
         res = self.http_client.get(url)
         res.raise_for_status()
         return res.json()
@@ -307,7 +307,6 @@ class SoundCloudClient(object):
             track_kwargs[b'album'] = album
 
         track = Track(**track_kwargs)
-        print track
         return track
 
     @cache()
