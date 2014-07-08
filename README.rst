@@ -25,12 +25,25 @@ Mopidy-SoundCloud
 Installation
 ============
 
-Install by running::
+Debian/Ubuntu/Raspbian: Install the ``mopidy-soundcloud`` package from
+`apt.mopidy.com <http://apt.mopidy.com/>`_::
+
+    sudo apt-get install mopidy-soundcloud
+
+Arch Linux: Install the ``mopidy-soundcloud`` package from
+`AUR <https://aur.archlinux.org/packages/mopidy-soundcloud/>`_::
+
+    sudo yaourt -S mopidy-soundcloud
+
+OS X: Install the ``mopidy-soundcloud`` package from the
+`mopidy/mopidy <https://github.com/mopidy/homebrew-mopidy>`_ Homebrew tap::
+
+    brew install mopidy-soundcloud
+
+Else: Install the dependencies listed above yourself, and then install the
+package from PyPI::
 
     pip install Mopidy-SoundCloud
-
-Or, if available, install the Debian/Ubuntu package from `apt.mopidy.com
-<http://apt.mopidy.com/>`_.
 
 If you're having trouble with audio playback from SoundCloud, make sure you
 have the "ugly" plugin set from GStreamer installed for MP3 support. The
