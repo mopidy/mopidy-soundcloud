@@ -8,7 +8,8 @@ import pykka
 
 from mopidy_soundcloud import actor, SoundCloudExtension
 from mopidy_soundcloud.soundcloud import safe_url
-from mopidy_soundcloud.library import SoundCloudLibraryProvider, new_folder
+from mopidy_soundcloud.library import SoundCloudLibraryProvider, new_folder, \
+    simplify_search_query
 
 
 class ApiTest(unittest.TestCase):
@@ -30,6 +31,35 @@ class ApiTest(unittest.TestCase):
             new_folder('Test', ['test']),
             Ref(name='Test', type='directory',
                 uri='soundcloud:directory:test')
+        )
+
+    def test_mpc_search(self):
+        self.assertEquals(
+            simplify_search_query({u'any': [u'explosions in the sky']}),
+            'explosions in the sky'
+        )
+
+    def test_moped_search(self):
+        self.assertEquals(
+            simplify_search_query(
+                {
+                    u'track_name': [u'explosions in the sky'],
+                    u'any': [u'explosions in the sky']
+                }
+            ),
+            'explosions in the sky explosions in the sky'
+        )
+
+    def test_simple_search(self):
+        self.assertEquals(
+            simplify_search_query('explosions in the sky'),
+            'explosions in the sky'
+        )
+
+    def test_aria_search(self):
+        self.assertEquals(
+            simplify_search_query(['explosions', 'in the sky']),
+            'explosions in the sky'
         )
 
     def test_only_resolves_soundcloud_uris(self):

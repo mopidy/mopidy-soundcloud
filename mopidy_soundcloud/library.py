@@ -24,6 +24,22 @@ def new_folder(name, path):
     )
 
 
+def simplify_search_query(query):
+
+    if isinstance(query, dict):
+        r = []
+        for v in query.values():
+            if isinstance(v, list):
+                r.extend(v)
+            else:
+                r.append(v)
+        return ' '.join(r)
+    if isinstance(query, list):
+        return ' '.join(query)
+    else:
+        return query
+
+
 class SoundCloudLibraryProvider(backend.LibraryProvider):
     root_directory = models.Ref.directory(
         uri='soundcloud:directory',
@@ -170,7 +186,7 @@ class SoundCloudLibraryProvider(backend.LibraryProvider):
                     tracks=self.backend.remote.resolve_url(search_query)
                 )
         else:
-            search_query = query.values()[0]
+            search_query = simplify_search_query(query)
             logger.info('Searching SoundCloud for \'%s\'', search_query)
             return SearchResult(
                 uri='soundcloud:search',
