@@ -1,5 +1,6 @@
 from __future__ import unicode_literals
 import logging
+from multiprocessing import Pool
 import re
 import string
 import time
@@ -8,7 +9,6 @@ import collections
 import unicodedata
 
 import requests
-
 from mopidy.models import Track, Artist, Album
 
 
@@ -100,7 +100,7 @@ class SoundCloudClient(object):
                 if kind == 'playlist':
                     playlist = data.get('playlist').get('tracks')
                     if isinstance(playlist, collections.Iterable):
-                        tracks.extend(self.parse_results())
+                        tracks.extend(self.parse_results(playlist))
 
         return self.sanitize_tracks(tracks)
 
@@ -113,11 +113,8 @@ class SoundCloudClient(object):
                 (urn, 'out-of-experiment', self.explore_songs),
                 'api-v2'
             )
-            tracks = []
-            for track in web_tracks.get('tracks'):
-                tracks.append(self.get_track(track.get('id')))
-            return tracks
-
+            track_ids = map(lambda x: x.get('id'), web_tracks.get('tracks'))
+            return self.resolve_tracks(track_ids)
         return explore
 
     def get_groups(self, query_group_id=None):
@@ -316,3 +313,19 @@ class SoundCloudClient(object):
 
     def get_streamble_url(self, url):
         return '%s?client_id=%s' % (url, self.CLIENT_ID)
+
+    def resolve_tracks(self, track_ids):
+        """Resolve tracks concurrently emulating browser
+        See http://stackoverflow.com/a/14768266
+
+        :param track_ids:list of track ids
+        :return:list `Track`
+        """
+        pool = Pool(processes=6)
+        # use self because class methods can't be serialized
+        tracks = pool.map(self, track_ids)
+        pool.close()
+        return tracks
+
+    def __call__(self, track_id):
+        return self.get_track(track_id)
