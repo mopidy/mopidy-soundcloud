@@ -208,8 +208,8 @@ class SoundCloudClient(object):
     def search(self, query):
 
         search_results = self._get(
-            'tracks.json?q=%s&filter=streamable&order=hotness&limit=10' %
-            quote_plus(query)
+            'tracks.json?q=%s&filter=streamable&order=hotness&limit=%d' %
+            quote_plus(query, self.explore_songs)
         )
         tracks = []
         for track in search_results:
