@@ -140,7 +140,7 @@ class SoundCloudClient(object):
             return self._get('users/%s/tracks.json' % query_user_id)
 
         users = []
-        for playlist in self._get('me/followings.json?limit=1000'):
+        for playlist in self._get('me/followings.json?limit=60'):
             name = playlist.get('username')
             user_id = str(playlist.get('id'))
             logger.debug(
