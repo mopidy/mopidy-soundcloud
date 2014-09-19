@@ -104,8 +104,12 @@ class SoundCloudClient(object):
 
         return self.sanitize_tracks(tracks)
 
+    @cache()
+    def get_explore_categories(self):
+        return self._get('explore/categories', 'api-v2').get('music')
+
     def get_explore(self, query_explore_id=None):
-        explore = self._get('explore/categories', 'api-v2').get('music')
+        explore = self.get_explore_categories()
         if query_explore_id:
             urn = explore[int(query_explore_id)]
             web_tracks = self._get(
