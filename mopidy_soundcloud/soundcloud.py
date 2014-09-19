@@ -1,6 +1,6 @@
 from __future__ import unicode_literals
 import logging
-from multiprocessing import Pool
+from multiprocessing.pool import ThreadPool
 import re
 import string
 import time
@@ -320,16 +320,14 @@ class SoundCloudClient(object):
 
     def resolve_tracks(self, track_ids):
         """Resolve tracks concurrently emulating browser
-        See http://stackoverflow.com/a/14768266
 
         :param track_ids:list of track ids
         :return:list `Track`
         """
-        pool = Pool(processes=6)
-        # use self because class methods can't be serialized
-        tracks = pool.map(self, track_ids)
+        pool = ThreadPool(processes=6)
+        tracks = pool.map(self.resolve_track, track_ids)
         pool.close()
         return tracks
 
-    def __call__(self, track_id):
+    def resolve_track(self, track_id):
         return self.get_track(track_id)
