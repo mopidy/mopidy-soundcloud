@@ -1,7 +1,7 @@
 from __future__ import unicode_literals
 
 import unittest
-
+import mock
 from mopidy.models import Track
 
 from mopidy_soundcloud import SoundCloudExtension
@@ -18,6 +18,14 @@ class ApiTest(unittest.TestCase):
     def test_resolves_string(self):
         id = self.api.parse_track_uri('soundcloud:song.38720262')
         self.assertEquals(id, '38720262')
+
+    def test_responds_with_error(self):
+        with mock.patch('mopidy_soundcloud.soundcloud.logger.error') as d:
+            config = SoundCloudExtension().get_config_schema()
+            config['auth_token'] = '1-fake-token'
+            SoundCloudClient(config)
+            d.assert_called_once_with('Invalid "auth_token" used for '
+                                      'SoundCloud authentication!')
 
     def test_resolves_object(self):
         trackc = {}
