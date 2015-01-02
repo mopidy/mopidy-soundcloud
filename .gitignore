@@ -9,3 +9,4 @@ build/
 cover
 dist/
 xunit-*.xml
+cover-*.xml

@@ -1,0 +1,29 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Authorization: [!!python/unicode 'OAuth 1-fake-token']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.4.3 CPython/2.7.8 Linux/3.16.0-28-generic]
+    method: GET
+    uri: https://api.soundcloud.com:443/me.json?client_id=93e33e327fd8a9b77becd179652272e2
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAAFIAAAAA//8DAEXPbOkBAAAA
+    headers:
+      access-control-allow-headers: ['Accept, Authorization, Content-Type, Origin']
+      access-control-allow-methods: ['GET, PUT, POST, DELETE']
+      access-control-allow-origin: ['*']
+      access-control-expose-headers: [Date]
+      cache-control: [no-cache]
+      content-encoding: [gzip]
+      content-length: ['27']
+      content-type: [text/html; charset=utf-8]
+      date: ['Fri, 02 Jan 2015 16:59:28 GMT']
+      server: [am/2]
+      www-authenticate: ['OAuth realm="SoundCloud", error="invalid_token"']
+    status: {code: 401, message: Unauthorized}
+version: 1

@@ -1,0 +1,32 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Authorization: [!!python/unicode 'OAuth 1-35204-61921957-55796ebef403996']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.4.3 CPython/2.7.8 Linux/3.16.0-28-generic]
+    method: GET
+    uri: https://api-v2.soundcloud.com:443/explore/categories?client_id=93e33e327fd8a9b77becd179652272e2
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAAExRwU7DMAz9l0qcOi4cOHBjK2gghqp1Ege0Q5ZaxVpqV07CtCH+nTjdOk5+fkme
+        n19+ChNb5OLhs6h5iM5I+ZiJWZHrjnnvUzOPHgm8wgX30B4TeKIAEgxSDxRS/wZGCKlL8B0Ovry5
+        uy9rdhjQ6rs1OOyQKfPNgIIhmnSqUo1FIAuKBpag15vAcgzg3Ki4AftF7Lg7FttZ0Sc79r/pVSaS
+        aZc8kQn4DeWa7V6pfoejwYUzPl0zLm8RKYjOrsw4uQIYyiVHnxv0VkOoJPbZ8Nzk5au48wEG3d6B
+        DcJXRNnAMzsdujTSWhYoR9/KoKrry8uMF2pxcvlqTifNMFmnVFcQss0VEvbGXWVqNGPNUrVwJ+lb
+        dN2LbB1JBdfJ9VyrGXL4XWf09DyuSamC3DZM3SF9BIhyHN056UlsmruRc0wJDLlM+3ywuLbY/v4B
+        AAD//wMAP61+EEwCAAA=
+    headers:
+      cache-control: ['private, max-age=0']
+      content-encoding: [gzip]
+      content-length: ['356']
+      content-type: [application/json]
+      date: ['Fri, 02 Jan 2015 17:03:44 GMT']
+      server: [am/2]
+      set-cookie: [_session_auth_key="iuo9QNN6oaPVa3gj9XyKTHZtsxE="]
+      vary: [Origin]
+    status: {code: 200, message: OK}
+version: 1

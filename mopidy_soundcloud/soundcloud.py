@@ -68,7 +68,7 @@ class SoundCloudClient(object):
     def __init__(self, config):
         super(SoundCloudClient, self).__init__()
         token = config['auth_token']
-        self.explore_songs = config['explore_songs']
+        self.explore_songs = config.get('explore_songs', 10)
         self.http_client = requests.Session()
         self.http_client.headers.update({'Authorization': 'OAuth %s' % token})
 
@@ -113,10 +113,13 @@ class SoundCloudClient(object):
     def get_explore(self, query_explore_id=None):
         explore = self.get_explore_categories()
         if query_explore_id:
-            urn = explore[int(query_explore_id)]
-            web_tracks = self._get(
-                'explore/%s?tag=%s&limit=%s&offset=0&linked_partitioning=1' % (
-                    urn, 'out-of-experiment', self.explore_songs), 'api-v2')
+
+            url = 'explore/{urn}?limit={limit}&offset=0&linked_partitioning=1'\
+                .format(
+                    urn=explore[int(query_explore_id)],
+                    limit=self.explore_songs
+                )
+            web_tracks = self._get(url, 'api-v2')
             track_ids = map(lambda x: x.get('id'), web_tracks.get('tracks'))
             return self.resolve_tracks(track_ids)
         return explore
@@ -316,7 +319,7 @@ class SoundCloudClient(object):
         :param track_ids:list of track ids
         :return:list `Track`
         """
-        pool = ThreadPool(processes=6)
+        pool = ThreadPool(processes=16)
         tracks = pool.map(self.resolve_track, track_ids)
         pool.close()
         return tracks

@@ -1,0 +1,58 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Authorization: [!!python/unicode 'OAuth 1-35204-61921957-55796ebef403996']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.4.3 CPython/2.7.8 Linux/3.16.0-28-generic]
+    method: GET
+    uri: https://api.soundcloud.com:443/e1/me/stream.json?offset=0e1/me/stream.json?offset=0e1/me/stream.json?offset=0e1/me/stream.json?offset=0e1/me/stream.json?offset=0&client_id=93e33e327fd8a9b77becd179652272e2
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAAATBwQqAIAwA0H/ZOVxehehDIkJsoqFOdDtF/957L0QVHXSlQREcJJE+HaLv2UzW
+        dofCepvAFcliJZwyyFfzTG57yTXLZldYIHApFCRzA3ec3w8AAP//AwCP9XBDVwAAAA==
+    headers:
+      access-control-allow-headers: ['Accept, Authorization, Content-Type, Origin']
+      access-control-allow-methods: ['GET, PUT, POST, DELETE']
+      access-control-allow-origin: ['*']
+      access-control-expose-headers: [Date]
+      cache-control: ['private, max-age=0']
+      content-encoding: [gzip]
+      content-length: ['106']
+      content-type: [application/json]
+      date: ['Fri, 02 Jan 2015 17:03:54 GMT']
+      server: [am/2]
+      set-cookie: [_session_auth_key="iuo9QNN6oaPVa3gj9XyKTHZtsxE="]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Authorization: [!!python/unicode 'OAuth 1-35204-61921957-55796ebef403996']
+      Connection: [keep-alive]
+      Cookie: [_session_auth_key="iuo9QNN6oaPVa3gj9XyKTHZtsxE="]
+      User-Agent: [python-requests/2.4.3 CPython/2.7.8 Linux/3.16.0-28-generic]
+    method: GET
+    uri: https://api.soundcloud.com:443/e1/me/stream.json?offset=1e1/me/stream.json?offset=1e1/me/stream.json?offset=1e1/me/stream.json?offset=1e1/me/stream.json?offset=1&client_id=93e33e327fd8a9b77becd179652272e2
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAAATBwQqAIAwA0H/ZOVxehehDIkJsoqFOdDtF/957L0QVHXSlQREcJJE+HaLv2UzW
+        dofCepvAFcliJZwyyFfzTG57yTXLZldYIHApFCRzA3ec3w8AAP//AwCP9XBDVwAAAA==
+    headers:
+      access-control-allow-headers: ['Accept, Authorization, Content-Type, Origin']
+      access-control-allow-methods: ['GET, PUT, POST, DELETE']
+      access-control-allow-origin: ['*']
+      access-control-expose-headers: [Date]
+      cache-control: ['private, max-age=0, must-revalidate']
+      content-encoding: [gzip]
+      content-length: ['106']
+      content-type: [application/json]
+      date: ['Fri, 02 Jan 2015 17:03:54 GMT']
+      server: [am/2]
+    status: {code: 200, message: OK}
+version: 1

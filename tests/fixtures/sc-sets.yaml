@@ -1,0 +1,29 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Authorization: [!!python/unicode 'OAuth 1-35204-61921957-55796ebef403996']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.4.3 CPython/2.7.8 Linux/3.16.0-28-generic]
+    method: GET
+    uri: https://api.soundcloud.com:443/me/playlists.json?limit=1000&client_id=93e33e327fd8a9b77becd179652272e2
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAEA4uOBQApu0wNAgAAAA==
+    headers:
+      access-control-allow-headers: ['Accept, Authorization, Content-Type, Origin']
+      access-control-allow-methods: ['GET, PUT, POST, DELETE']
+      access-control-allow-origin: ['*']
+      access-control-expose-headers: [Date]
+      cache-control: ['private, max-age=0, must-revalidate']
+      content-encoding: [gzip]
+      content-length: ['22']
+      content-type: [application/json; charset=utf-8]
+      date: ['Fri, 02 Jan 2015 17:03:54 GMT']
+      etag: ['"d751713988987e9331980363e24189ce"']
+      server: [am/2]
+    status: {code: 200, message: OK}
+version: 1

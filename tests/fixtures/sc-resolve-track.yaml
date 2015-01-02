@@ -1,0 +1,42 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Authorization: [!!python/unicode 'OAuth 1-35204-61921957-55796ebef403996']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.4.3 CPython/2.7.8 Linux/3.16.0-28-generic]
+    method: GET
+    uri: https://api.soundcloud.com:443/tracks/38720262.json?client_id=93e33e327fd8a9b77becd179652272e2
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAEA5VUTY+bMBD9K8jXhYCBkMBtK7WnVXup1CMawCHeGJvaJlF2tf+9Yz5SNtVq1SgX
+        DzPjN2/e8ys5cdmQglgN9Yn4hOMh2e/iKM5in9SagWVNCRZT4ojGYZSE0daLoiKlRZx6DxH+sGww
+        TJeuNk2i7Xbvk2bQYLmS2G2bZinFXqrrmLRQCUYKqwfmE2OxO3Y+cMnNkTXYSGnecgmirJW0mF4a
+        /oIpNKVZmma5TwQYW3aq4QeOBSOqbRhR/DtUSVbQ/IbKHEFz2WJWP1SC19jfQlsKbtw8eOqZ7kBw
+        ecJjNWgOIjioQQeW2UCqM2CKschBt0bNuoo1jYuU1RULQQjMa9RFCgVjnBQHEAYH7AddH8GwctCC
+        FHIQwg1QMTFyNZ1vOZZbR80UbZnUjhoHeYqTLyNA78H7hhC9n8x6gfd9AtkwU2veT4S7mukSCd3c
+        QzPBEMfc0O26tNd+Pp/YFWluJdhhuZMbXU/JZ94wtcZf9d0Ccu5aXhno+1iH+zveBxtAwqYBb4s+
+        KNyB20fXJw45r5kckSKvAarhaE2gGerrPAoEScDco7W9KcIQer4xapBNLdTQbFBj4ahkEy4ixpZO
+        nKR4HbW96HOW/fjpvQ4WAcyFM4cL5yO3/ygwDSkqMPNoVMR5QaObAj9F6wCYcEKFvW+CnBgf58Qx
+        70ZcQYQzWNCrbMcKpxuDlDRyJGRKMYGzKk33eZJnSZDTtt/GgQDdss1z35K32cS9gGvl9FEjrbgW
+        dO5o7gOccWXOrou2F++sLv8YaviBvUDbi9KntcAucGZOFKu+bqjLu6F+v5ziYff8+DXh57Lb9Ojy
+        xat3dZ9LJJw87ui/Hz7fZrtd9tfdCysJTX0yU4IvjFniaZTn+GV+65YozZLIJ2At1Ef3BhqE+H8q
+        DlfFDqdCm7i35/Hp6ccv8vYHpzK+98cFAAA=
+    headers:
+      access-control-allow-headers: ['Accept, Authorization, Content-Type, Origin']
+      access-control-allow-methods: ['GET, PUT, POST, DELETE']
+      access-control-allow-origin: ['*']
+      access-control-expose-headers: [Date]
+      cache-control: ['private, max-age=0, must-revalidate']
+      content-encoding: [gzip]
+      content-length: ['710']
+      content-type: [application/json; charset=utf-8]
+      date: ['Fri, 02 Jan 2015 17:00:39 GMT']
+      etag: ['"c886ffe06e6e5b3f18e77d4ea5a539dc"']
+      server: [am/2]
+      set-cookie: [_session_auth_key="iuo9QNN6oaPVa3gj9XyKTHZtsxE="]
+    status: {code: 200, message: OK}
+version: 1

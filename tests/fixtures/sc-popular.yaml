@@ -1,0 +1,579 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Authorization: [!!python/unicode 'OAuth 1-35204-61921957-55796ebef403996']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.4.3 CPython/2.7.8 Linux/3.16.0-28-generic]
+    method: GET
+    uri: https://api-v2.soundcloud.com:443/explore/categories?client_id=93e33e327fd8a9b77becd179652272e2
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAAExRwU7DMAz9l0qcOi4cOHBjK2gghqp1Ege0Q5ZaxVpqV07CtCH+nTjdOk5+fkme
+        n19+ChNb5OLhs6h5iM5I+ZiJWZHrjnnvUzOPHgm8wgX30B4TeKIAEgxSDxRS/wZGCKlL8B0Ovry5
+        uy9rdhjQ6rs1OOyQKfPNgIIhmnSqUo1FIAuKBpag15vAcgzg3Ki4AftF7Lg7FttZ0Sc79r/pVSaS
+        aZc8kQn4DeWa7V6pfoejwYUzPl0zLm8RKYjOrsw4uQIYyiVHnxv0VkOoJPbZ8Nzk5au48wEG3d6B
+        DcJXRNnAMzsdujTSWhYoR9/KoKrry8uMF2pxcvlqTifNMFmnVFcQss0VEvbGXWVqNGPNUrVwJ+lb
+        dN2LbB1JBdfJ9VyrGXL4XWf09DyuSamC3DZM3SF9BIhyHN056UlsmruRc0wJDLlM+3ywuLbY/v4B
+        AAD//wMAP61+EEwCAAA=
+    headers:
+      cache-control: ['private, max-age=0']
+      content-encoding: [gzip]
+      content-length: ['356']
+      content-type: [application/json]
+      date: ['Fri, 02 Jan 2015 17:19:37 GMT']
+      server: [am/2]
+      set-cookie: [_session_auth_key="iuo9QNN6oaPVa3gj9XyKTHZtsxE="]
+      vary: [Origin]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Authorization: [!!python/unicode 'OAuth 1-35204-61921957-55796ebef403996']
+      Connection: [keep-alive]
+      Cookie: [_session_auth_key="iuo9QNN6oaPVa3gj9XyKTHZtsxE="]
+      User-Agent: [python-requests/2.4.3 CPython/2.7.8 Linux/3.16.0-28-generic]
+    method: GET
+    uri: https://api-v2.soundcloud.com:443/explore/Alternative+Rock?limit=10&offset=0&linked_partitioning=1&client_id=93e33e327fd8a9b77becd179652272e2
+  response:
+    body:
+      string: !!binary |
+        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
+        AP//AwC7AEBWjlwAAA==
+    headers:
+      cache-control: ['public, max-age=60']
+      content-encoding: [gzip]
+      content-length: ['5599']
+      content-type: [application/json]
+      date: ['Fri, 02 Jan 2015 17:19:38 GMT']
+      server: [am/2]
+      vary: [Origin]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Authorization: [!!python/unicode 'OAuth 1-35204-61921957-55796ebef403996']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.4.3 CPython/2.7.8 Linux/3.16.0-28-generic]
+    method: GET
+    uri: https://api.soundcloud.com:443/tracks/170703457.json?client_id=93e33e327fd8a9b77becd179652272e2
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAEA51V247bNhD9FYJPLWpZki+SV28G0ssC202QbtGXAMJYGllcU6RKUnadIP/eoW5w
+        jBZtsvDa1nBmPOfMnOEnfhKq5Bl3BooTX3BBD3EapdF6s00XvDAIDsscHPmsongTxlEYbVm0y6Ik
+        2yTsh4j+KK6zaHIfvNmk8Xa9W/CyM+CEVjxbJclDGlEy3TSoHBwk8syZDhfcOkpPqSuhhK2xpEza
+        iKNQIPNCK0fuuRUfySWOkjTZrakmCdbljS5FJShgKmsVrlYsfqDis006l2VrMEIdyavtDlIUlN/B
+        MZfCekD01KJpQAp1okf/IVTQgjkFVBDIoAH7Z4cGSgzgLMBpYwODjfiLIq0jbppbMNgcsCy9JT9c
+        KR9ISX6lviipobdPsNvOFDVYzDsjeaY6KT2sA8qewuF59nHCecIG6xGV8YTtpUOjiOAzsve6b93o
+        x596GOwdwWAB+8kDYb/OQNh3+xEJe++RfO9LRFsY0Q7d4i+1sIxerdEHAnNlzZVVcKa+OGRP75jV
+        6rigd/bIftm/YU6znhIm3JJlbz6oD+qlxslmGTAiRJVMV8y6q0TLLsLVTBMDSBxScUS4swv2LBSy
+        R1XU7BmEtAF67hmNZ0dugvys7lRJjkDZ+n/pAkPYWYOSxgHtkj06dgH/m1WnPIBXLByrtGG2M7gk
+        qAPLCpqZUYMSqRUTwb0QcndtZ8sJrzSDRyKbckxuwppi+n4WJerbVh7aZjobs+dXBHNva2jA63tj
+        CTQ6Q69nJRCApldg0649BlGg8hX7CQtILrXzY0kKPPcK6oygs9q51mZhCK1Y9swVUnflkkQY9hht
+        OOuccnr98uxTr/9ZwuNu6M++lMqkBsrWaiv85Ngxy8At/803621FozDNW8/+P0s32viNsk6z7WaW
+        7n+i8GXZcCyWks9SHlrRE0D477D/S+VwBgfmJtJTJ+KlVWVRqp61wcUGfuOtd6vkgbZkkH48R7tD
+        IMEccfnaHvnncRe2Eq4H2qm0xjpFyyYe7ZOSeFaBtLQCv73s8OsWFqnsos3pdlAvcEY/XHe4L1/g
+        fv39cV9UL+mP9fPPebNsaZ1O2+8u7n+MWjisTcow7cVvyDGF+qbf0byJknjnb59x6070p9tkRS0Y
+        2acrwU4nD9vIX3TD3TQZV/FqwcE5KGp/ZVkq8is1Fd5E+zo1qdZfCvunp7d/8M9/A1D87Dh5BwAA
+    headers:
+      access-control-allow-headers: ['Accept, Authorization, Content-Type, Origin']
+      access-control-allow-methods: ['GET, PUT, POST, DELETE']
+      access-control-allow-origin: ['*']
+      access-control-expose-headers: [Date]
+      cache-control: ['private, max-age=0, must-revalidate']
+      content-encoding: [gzip]
+      content-length: ['912']
+      content-type: [application/json; charset=utf-8]
+      date: ['Fri, 02 Jan 2015 17:19:38 GMT']
+      etag: ['"7c52b4eaedea7f96c5ad520d99716a45"']
+      server: [am/2]
+      set-cookie: [_session_auth_key="iuo9QNN6oaPVa3gj9XyKTHZtsxE="]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Authorization: [!!python/unicode 'OAuth 1-35204-61921957-55796ebef403996']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.4.3 CPython/2.7.8 Linux/3.16.0-28-generic]
+    method: GET
+    uri: https://api.soundcloud.com:443/tracks/170437996.json?client_id=93e33e327fd8a9b77becd179652272e2
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAEA5VVXa+bOBD9K8ivGwImEBLebnelqlKrrlaVrrq6EhrAATfGdm2TKK3633cMIeVm
+        +xndh9zx8fHMmTOTz+TIZUMK4gzUR7IiHP+heZxu8v1+uyK1YeBYU4JDTBLTNKJxFG+COC+ybRHn
+        wR8xfvDeYJkp/eV0s8G/Dd5tBgOOK0mKJE2yNEE21fdMOqgEI4UzA1sR65AfuQ9cctuxBqmU4S2X
+        IMpaSYfw0vJPCEl3WRJv6YoIsK7sVcMPHPFjWlkU0yhOApoVWVpkyS0t24HhskWUHirBa6R30JaC
+        W1/QE3kQjhmJaZ5Y8I+qj08keCEGZgMNAmoWPBEenEG64NyBCy5qCFrlEFShLJIfg4o7JAhOjEuL
+        4Dk8yoacTwQf1Mz0ILg84os89GyhZwuRLUS2kCLGOhS6XwrD+oo1jY+U1QVvghCIa9RZCgVjnBQH
+        EBY11IOpO7CsHIxAZOectkUUcTdIZtegtWBrlD5qqwhENfSRUNaFXIauY6HkbedCpiPe7PZ5QndJ
+        7hMSUDExNlQOQizecNz57pG/rpkgtmXS+NBCTIzOwFfBoxfw0Qv4HgV8qZwvhNnacD35w6s0PSih
+        90wvrvL+6e2HOuK5YYJhjaSY8hn9WrqLvkWO7IJOabGZg89mgnFr6vn7iTdMTRpNh5Xu57Mre3lh
+        YO5jPdqwuw82gE2ZaG5+PShstPdVrze+Il4z6TP2vQvR1J2zoWE4KKfR54PheDZ3CzRfWzXIphZq
+        aMZ+jTXa6DaOyOnHjBSfxzH9OmnXGR4Pn/ttsnEFOOPT5avAf4/2LsvS5/n/ecIxTyK6DWhabJIi
+        2d3m6ac5+xxsNKeG7Df3L9yJ5rwr9VmecAIHZoEf3UzXFsVp5CjNBLEhLh8aZ9uM0j0NWx33DEIB
+        pmXrD7olX657SQu4VLjfcKMMEhuES2TcVwc4YfP8/pknaR7VxeM/Sjb63jyDcWdljguab9QwYcYi
+        4v0mjXOa5KGozEfDFkWsyBlOzHvrju38TJF3h3/7ff32w54+vCn7tcalN6+Vu3u/4LRo2ke+fffS
+        xVm+i78uollSDF3VxHVr52iy3WW3tT8HM5QfnIO68z8GFrP7zTmIFrd9igonza/Ih9ev3z6SL/8B
+        eQBtr9QGAAA=
+    headers:
+      access-control-allow-headers: ['Accept, Authorization, Content-Type, Origin']
+      access-control-allow-methods: ['GET, PUT, POST, DELETE']
+      access-control-allow-origin: ['*']
+      access-control-expose-headers: [Date]
+      cache-control: ['private, max-age=0, must-revalidate']
+      content-encoding: [gzip]
+      content-length: ['863']
+      content-type: [application/json; charset=utf-8]
+      date: ['Fri, 02 Jan 2015 17:19:38 GMT']
+      etag: ['"1da67a79619ce66a4b2cb813b646db5c"']
+      server: [am/2]
+      set-cookie: [_session_auth_key="iuo9QNN6oaPVa3gj9XyKTHZtsxE="]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Authorization: [!!python/unicode 'OAuth 1-35204-61921957-55796ebef403996']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.4.3 CPython/2.7.8 Linux/3.16.0-28-generic]
+    method: GET
+    uri: https://api.soundcloud.com:443/tracks/172570926.json?client_id=93e33e327fd8a9b77becd179652272e2
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAEA5VV247TMBD9lcivtM1l02STt2pBCIn7cpHQSpGTTBNTxw6206is+HfGuW23gIA+
+        tePj8ZkzZ6b35MBESVJiFC0OZEUY/vDjYBt7SRCtSKGAGigzahATeH7o+p7rx44fpl6SbrfOEw8/
+        eK/ToDJ7OQi9rRfFK1J2ihomBYaCMNjaZLJpQBiacyCpUR2siDaYHlPvmWC6hhIzScUqJijPCikM
+        wjPNviPkKomSOIqCFeFUm6yRJdszvDDTCtwgcPwk9a9TP1lo6ZoqJipEtV3OWYH5Da0yzrQt6I7s
+        uAElkOcRnPeyONwRRLSgGsqZOCCkQJp8XTBzWgd4pA0K0pxXAE0OZWkjWX7CC5RzxJWyF1zSIU7S
+        PeUai207VdRUQ9YpTlLRcW6LyYEPwo2/F4xhxso0RisQysp0RtdWMkLIjeXo3CBH+zLoQrF2VJ68
+        USUox9Tg3Dx1PzFx4u5TlNdQ7jg1KEid2pg2dd1WbrRxd13VacME6FsjFdwJe6rxuO/7zZ4WkEt5
+        2GAf3R4oKrHAH5CmZwY1HUCfYafgIecIwmxMYN8rRZs/p7JvPn5io6koc1rV34ZbWOqonaDNopMC
+        DijwLNtg6syc2iVygBP6qcKOd1bQUV2mVTF/P7IS5HmD8raZz6bs2QmJXcYaNGt9GSwpOmJ8Y3H1
+        XqK5rPl6erQ1sAKEZWyNs0br10avFeA0HYdp6BTDs7kNtGUbLTtRFlx25aDDUKPGmZxmFnPaWSTp
+        /TDLyzhOcz6cPbb4hc5TglFWsvv4/OPthxevn90Ogv9u8jzXu7aT512ngbdM3l+JWybanfhh8mXq
+        RvWHmtEFF+X+SpYeqaHq7JL1K/M3GlUqxaDRCNFru6uiILyOkjBZQ3K84uGaU1XB5mtbkR/TFms5
+        PeW4DXEBdQI75U/xPT1iF+26mud53hNnj/+VsXuxUagyvVSHsxS/4T9ixgKSMIi9MI7XQWuotz0r
+        YGU9BdZgF9n6R2rcvuP1t1fNl9cf3n7Nmk2L63FebBf3/sFu7rgRbf8uZIu3V/72YRPOanorMgmJ
+        e1nPUT+KUObpD2IOhlcrQo2hRW3/NjSS+89ZcM9uW4YSp83u6N3Ll28+kx8/AShGE5b9BgAA
+    headers:
+      access-control-allow-headers: ['Accept, Authorization, Content-Type, Origin']
+      access-control-allow-methods: ['GET, PUT, POST, DELETE']
+      access-control-allow-origin: ['*']
+      access-control-expose-headers: [Date]
+      cache-control: ['private, max-age=0, must-revalidate']
+      content-encoding: [gzip]
+      content-length: ['852']
+      content-type: [application/json; charset=utf-8]
+      date: ['Fri, 02 Jan 2015 17:19:38 GMT']
+      etag: ['"afae57b7f16e6013976ff05ce8d23fa4"']
+      server: [am/2]
+      set-cookie: [_session_auth_key="iuo9QNN6oaPVa3gj9XyKTHZtsxE="]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Authorization: [!!python/unicode 'OAuth 1-35204-61921957-55796ebef403996']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.4.3 CPython/2.7.8 Linux/3.16.0-28-generic]
+    method: GET
+    uri: https://api.soundcloud.com:443/tracks/173263597.json?client_id=93e33e327fd8a9b77becd179652272e2
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAEA5VU2W7bMBD8FYGvta3bh95SIE2LHi6StEWBAAIlrWVWFCmQlF0nyL93qcNxnKKH
+        4Qeb3F3Ozs7sA6mYKEhCjKJ5RSaE4R9/EQbzMF4tJiRXQA0UKTUYE3h+5PqeGwSOFyTxPAmXzisP
+        P5jXalBpn+zFK0yekKJV1DApSBIEkRd4WE3WNQhDMw4kMaqFCdEG62PtDRNMb6HAUlKxkgnK01wK
+        g+GpZvcYEkVLf+7PJ4RTbdJaFmzDML6DFbuej18nQFhxEgdHWHpLFRMlRjVtxlmO5Q0tU860beiO
+        3L69dD6vb97dvlt/urkjzh254AaUQOA7cK5lXt0RzGlA1ZQzUWFSBgJ2koPIYaqYNBrvtUGe6tO+
+        oM6gKOxJmh0wi3KOcYXcCy5pd06SDeUaKWhalW+phrRVHCO3xjQ6cV1mWgF6RpuGwwyZc2nrUp61
+        tfsCwVRjjxxcVqzCcB5HkR/hY5xmwLuZiJbzk3cMM3YA/WkJQtkBXK2/Y85wRV4/NelcD00WoHPF
+        mn6klpX+AUFrm/9R6oOjIJeqQDCWFAUcsK3xoU5hqTk0x5MKDjjbEsluLYQeD9MqH3/vWAGyp6W/
+        zJp6vBuqpwegChWG0jy+iOIQZos69p+OCopTQEEfxbWROFIrgroJbS8sB2HB2knhXMut0VMFqOpd
+        J8pWMbwbZ0MbNtOyFUXOZVt00+na0+7RO1jTeoIkD4OnRlsMhusunyurpKKUm4NszdbyZyMGcq8u
+        Pl056zfO9/WX27c3Fu5LD6A10QOhtWa4SoLo6IG/QrcPWeQ9Qqx+lPuJJFGRZx2fwaU7aqg6yehE
+        7M80slSIXsFdiJ7iyvB9bxl584U3XWhRqfspp6qE2Y+mJI/DNmk4PWS4lXAPtAInhdO0SNMN3eEU
+        7dYYDTS68+TxP8N9aSHsmiqzl6o6KfKbDvqYrgVvhRsp9oL59FDt5b46aWFC9nQHVmJn1fbP+Hi/
+        WlyKLz+X3levTutZg4tq3CVnef8gOLdfQnZ858TFcRCHT9tnJBQ38sCldex4ilbCJTus6vEwXiI/
+        xtB8axe4RnT/aQf3JNtClGg4uxcvPnxYfyOPvwAWJ2mziAYAAA==
+    headers:
+      access-control-allow-headers: ['Accept, Authorization, Content-Type, Origin']
+      access-control-allow-methods: ['GET, PUT, POST, DELETE']
+      access-control-allow-origin: ['*']
+      access-control-expose-headers: [Date]
+      cache-control: ['private, max-age=0, must-revalidate']
+      content-encoding: [gzip]
+      content-length: ['835']
+      content-type: [application/json; charset=utf-8]
+      date: ['Fri, 02 Jan 2015 17:19:38 GMT']
+      etag: ['"f9f43353692c61f586759a81c789f79f"']
+      server: [am/2]
+      set-cookie: [_session_auth_key="iuo9QNN6oaPVa3gj9XyKTHZtsxE="]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Authorization: [!!python/unicode 'OAuth 1-35204-61921957-55796ebef403996']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.4.3 CPython/2.7.8 Linux/3.16.0-28-generic]
+    method: GET
+    uri: https://api.soundcloud.com:443/tracks/157945262.json?client_id=93e33e327fd8a9b77becd179652272e2
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAEA5VV247bNhD9FZYveahlXSxZa71t0wBpsWgX3aB9CSDQ0thiTZEqL1a9Qf69Q9Hy
+        ep0gbRcwsBzODM+cmTP6RA9ctrSiVrPmQBeU4yEtyk1eZOtsQRsNzEJbM4s+WZLmcVLGyYakabVK
+        q/yOfJ/gH8Y5A7qegpPV3SrPVumCtk4zy5XEjGV+lySYTvU9SMu2AmhltYMFNRYfwOQ7LrnpoMVc
+        SvM9l0zUjZIW3WvDn9ElKzeYebOgghlb96rlO47+E64iTtI4yUiaVWlSJekFl+mY5nKPXoPbCt5g
+        esv2teDGV4SnAXTPBJcHPIJsBRgTGQGA9ijFe2ORgv4aMfRbaFtvqbcnjGJCoF+rRikUm+y02jFh
+        sLjB6aZjBmqnBXp21g5VHO9B8qUz8SOwjt/37Bkp8lVtQUwUSifEVazl1tNFf3AnItVIlCSXIEyl
+        /d29sKAlsn0E8puaOjmHvQtFkadQlIcKptF8CK2hH/VH6X8/ngsgtuOGTPNAdkqTnQYgzFZkHMel
+        7UCzIygJ1oJZYj996C8wEia2rieP797cv/+JKGc91O/m3PyDk2Aq8qryYPQuoZyb62D010+Dsnx3
+        qojpmbZI5ZLbQN7TgLPQne8vHErWe07wrEEA0h8OU0m1PQ3+PM8YOh3ghBO2R/bcxCWauNFNCDry
+        FlRoX2jLduhpFf49Z69PwDSOJ6rj8iKOp7QdrcoXS8twWDLU1Px0jez2k7D6YeXB8wbkBBYnKkIN
+        dNZEGlBYx0kWTnPE5GfI4BCxgS+NcrJthHKt70Q8FWjii3wxp5clrT4FWb8o8yz66fa1BLDB0VWH
+        zynOjH7ocLpe2u8xfynFPE6TOF2TtKhWSZVtLlL8V/weDsKfYWL6izhfC+i27i8wsyOzTF8FecZ4
+        ujRIVysnsoKLifz+2uT5Zl0UeSQOTVkeIsH0HpZ/Dnv6+bzZcM5OW9yQuJKcxM2B223aeDt2xHb6
+        BTYrfl4nV4/j299GHH9t8eCoj0ofrvJ8pYjgE6q4y9clbu4iGtblX8P+qooFHbFrftxuso2vKHl8
+        OP7+8+757du/2/d1vxxwbc777ybuPwxfHBanb+INd4iyQBnMC3OmFD8PZzZxX5vZmhZ5cfluzEb/
+        EWDWsqbzXxOD4P6nMuKraI9Qofb8Kr9/ePj1D/r5H0foVmgWBwAA
+    headers:
+      access-control-allow-headers: ['Accept, Authorization, Content-Type, Origin']
+      access-control-allow-methods: ['GET, PUT, POST, DELETE']
+      access-control-allow-origin: ['*']
+      access-control-expose-headers: [Date]
+      cache-control: ['private, max-age=0, must-revalidate']
+      content-encoding: [gzip]
+      content-length: ['894']
+      content-type: [application/json; charset=utf-8]
+      date: ['Fri, 02 Jan 2015 17:19:38 GMT']
+      etag: ['"3a2806d130e1fcdc7ba3f5f3559b2102"']
+      server: [am/2]
+      set-cookie: [_session_auth_key="iuo9QNN6oaPVa3gj9XyKTHZtsxE="]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Authorization: [!!python/unicode 'OAuth 1-35204-61921957-55796ebef403996']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.4.3 CPython/2.7.8 Linux/3.16.0-28-generic]
+    method: GET
+    uri: https://api.soundcloud.com:443/tracks/180099816.json?client_id=93e33e327fd8a9b77becd179652272e2
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAEA5VUS2+bQBD+K2gvOdQ2LME2cIsUtYdGqtpLL5HQAmPYetml+7DjRvnvneXhOlaq
+        phYHM8zjm5lvvmey57ImObGaVXuyIBxfaBpFWZbSzYJUGpiFumAWfeKIJiGNw2gd0CSPkzyJgg8R
+        /jDOGdCFD463lKZpvCC108xyJTFftk3pFpOprgNpWSmA5FY7WBBjMT2m3nHJTQs1ZlKaN1wyUVRK
+        WnQvDP+FLhndxHGMkAQztuhUzXcc/QdU6zCi+AQxzdfbfJ2eUZmWaS4b9OpdKXiF6S1rCsGN7+eR
+        7DRAUKujFIrVjyR4JBKOQecMr/CtYo1yAgJgOJwWHUEiFBlIZS1mbVmH+XrQHRNc7jFh40yLJmNx
+        at1lm9CVUNfeUpQndGRCoN9cePTcMWFwIr3TVcsMFE4L9Gyt7fMwLLldiVO4HxEtayW489UFK0EM
+        c5dOiItoy62fMvnoO7yfOsSABqT29jthQUtc0AGCb2pY/RzyaeyiBlNp3o8rJHOK4OZ+qH0T7JQO
+        hvm1oCF/lO9CKlmH1UesGgRgo/PrwMDCnvqzZQ8nXH6DKJ3HPEZxo6v5/4HXoMZBjR/Lvpu/TdmL
+        E27v2tYhs9prY81wM2OaMwWxx26gftff+mnzCqRH7Be4RJ621iw1IPUPA3Wd5tPKDO6M9XxllJN1
+        JZSrV8j+cOjRhOcDw5z+cEj+PBze+Xamoxy+vabYxIApcBwn+TzSwiP8+3FE6zze5DQ5H8c/0fry
+        JpxAYfIz1V9z86rHPwjZgVmmL5z9VDhdGRxJLYeBjC5miSJC4yjeRGm6We5dlGRPS8F0A6sffUNe
+        Jn3pBTuVqFMoDU7iBdPJvmMHXJkXkvmI5qO8KI6130YaTmfLtD0qvb8IeQPv6DMARo2MM5rE6VKo
+        LP5pLwAvyJEdwLPnKtvxVffia5zyEp5spm6LbtWjUs3qcRX3Di6Fo+z4PV2NKUmiNcrvLDfz9KIF
+        mQaHYmZma0bXZ6WebbfoyqxFEfT6bRDbf/I8vIj2AFFCKq+Ddw8PX76Tl9+iD6WChgYAAA==
+    headers:
+      access-control-allow-headers: ['Accept, Authorization, Content-Type, Origin']
+      access-control-allow-methods: ['GET, PUT, POST, DELETE']
+      access-control-allow-origin: ['*']
+      access-control-expose-headers: [Date]
+      cache-control: ['private, max-age=0, must-revalidate']
+      content-encoding: [gzip]
+      content-length: ['793']
+      content-type: [application/json; charset=utf-8]
+      date: ['Fri, 02 Jan 2015 17:19:38 GMT']
+      etag: ['"38831204ed9ab3ebf49b380963c41d63"']
+      server: [am/2]
+      set-cookie: [_session_auth_key="iuo9QNN6oaPVa3gj9XyKTHZtsxE="]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Authorization: [!!python/unicode 'OAuth 1-35204-61921957-55796ebef403996']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.4.3 CPython/2.7.8 Linux/3.16.0-28-generic]
+    method: GET
+    uri: https://api.soundcloud.com:443/tracks/172322693.json?client_id=93e33e327fd8a9b77becd179652272e2
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAEA5VVy67bRgz9FUGbLmpZb/tau/SRLhq0aG6AooABgdJQ9tSjGWEedtUg/x6OZPn6
+        ug2aemVxSA7PIQ/nY3jikoVVaDW0p3AVcvpIt1meZZtdvgpbjWCR1WDJJ0vSIk6TOC2DLKnKrCrT
+        4NuEfhTnDOp6Cs7zfFekFMucBsuVpIRPxWa7oWyq71FaaASGldUOV6GxlJ9yd1xyc0RGqZTmBy5B
+        1K2Sltxrw/8mlzwrN2VaJKtQgLF1rxjvOAVMdZVxksZJFqRFVWRV8nSryxxBc3kgr8E1greU38Kh
+        Ftx4RD8aqyQHGezDZ8GHAfUYPAs14D4kR/rsQXB5Is8WNHZOkNVY4qS/x4B9g4x5S92M5AvC+zF1
+        kULBZA+rDoQhuIPT7REM1k4L8jxaO5gqjrl1Es0ahkHgmliKEWMQjetjpqJRuahDFJE9YmSgx5iz
+        XZ6XRbIrc7pIQINi4l46Ie7usNx6osPv3BgoGfAP/hIKOKDU3v5GWNSSenTG4L2a2r+EfH+Dy9C0
+        mg9zI8NMsmAalaDTqieu7kn7xgQMG2eDqXTi9AcV/KFc8JaKDz4cMXim4vfhei/3ckF+uVzWHbTY
+        KHWakJtrSuPboLqOtxw8nTNKSRmo8rcg27FRfwXvsVWaeVAaBRKxYTWTMBVZ23G4WU440iQdCK/z
+        6Gc3bnS7/D9zhmpuzHzYDP1yds1ejwj60dbTmB4fjQxoEuY0t3nuFM2TH7sLnD0i3qL0FfuBiWjo
+        j9ZEGklI50kHTnM6W4iCga+NcpK1Qjk2UTVhNPFNrpTTyzCsPs4yvinxqvHp8PVYf4lt73rl+nWP
+        p078Q360Fkh+myApq7yoshf5/ScGfxFBuJZK2W+iu5MIKeQB+pfqhjNY0Hehk7rStSHemJxYm11M
+        RHsrTcrtJt2VZdQ3I8M0EqAPuP5zOISfrittEDA2tBppGTlJvUuv9g7O1Fe/uhZlL8vi7vKvrDt+
+        WS6g7UXp012OfwEw+0wIElq1yfZpm0bZBWy+uUOw8mOGfuYesl1e0fHLzz/9VoodT9kz1P16oF25
+        7LiHuK+YwHhejr6Nj7yVRVYQectWXPikdX6lkra0Waz5tnx5Lhbjlt4UsBbao39EDFX3P/UR30X7
+        EhUp0O/rN+/e/fp7+OkzkzBI/AwHAAA=
+    headers:
+      access-control-allow-headers: ['Accept, Authorization, Content-Type, Origin']
+      access-control-allow-methods: ['GET, PUT, POST, DELETE']
+      access-control-allow-origin: ['*']
+      access-control-expose-headers: [Date]
+      cache-control: ['private, max-age=0, must-revalidate']
+      content-encoding: [gzip]
+      content-length: ['878']
+      content-type: [application/json; charset=utf-8]
+      date: ['Fri, 02 Jan 2015 17:19:38 GMT']
+      etag: ['"17967c5ed84d3b941bef99c44c95e9a3"']
+      server: [am/2]
+      set-cookie: [_session_auth_key="iuo9QNN6oaPVa3gj9XyKTHZtsxE="]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Authorization: [!!python/unicode 'OAuth 1-35204-61921957-55796ebef403996']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.4.3 CPython/2.7.8 Linux/3.16.0-28-generic]
+    method: GET
+    uri: https://api.soundcloud.com:443/tracks/166785347.json?client_id=93e33e327fd8a9b77becd179652272e2
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAEA5VVyY7bOBD9FYbXsUwtlhfdMgmCBAgSYNDBXAwIlEjLjClSISl71EH+fYraWu2k
+        ZzF8sIuviq+2x+/4IhTDGXaGlhe8wgL+RNvtbp8mm90Kl4ZTx1lOHWDiMNqQ8EDCPYrSLNlk4Rb9
+        FsIH/FrLTe6dE/CN9skKs9ZQJ7TCWZxE8T6GYLquuXK0kBxnzrR8ha2D8BD6JJSwZ84gkjaiEorK
+        vNTKATy34hEgaZpCWKAkqXV5rZk4CcD3rFISRiSMUbTN0jALdzMre6ZGqApQTVtIUUJ4R6tcCuvz
+        OWIqHTcKaF45Mrq8HDFiJYsB1nBTUynUxZOjUga6dUGhu6AESq0R3ALIOihPvcyH1wVnzFvyogNX
+        8AQc0zclNe3tOINwFlJvWlOeqeV5ayQgz841GSG2pgbiy7VwZHmVpAWXfYFVK+XC2wnnyzlYK66M
+        L+frp7x8ygMEv1lQZ9yWRjRDg/AnfkMWCiU5Oj7BoBqQNVL6tkJTCkgrJB5axS36J8bIR6SyaGsE
+        XYfIyGrwhO/bN29j8sFKqhj6g5faMPsKHdVRfWlGpNOtQQzmwmbTHb4DQAXqvwYQ6RHeZ6Tw/Hhh
+        Lnmh9aX3ecLM5+4mHPT/peMObmwL/tKxUDC8laH1SwDbaCfWJ0Eeku5d9eGooBVDGxWt55YZLjlM
+        wdTBfg9z1zWz5cI7WIEKprT1vR0aLawpp99Xwbgepmg4LJp6Ohuj5x2n5t5Ww36d742MwtgOYeZF
+        PGnYBb8wdZP4HAQMpmfspzuAbT07GxgOAnDtFxi2Y5xnCwNNG7G2ulWshA6yvlZ9jpbMMgMxvXzg
+        7HsvP7OCjNLUn/28kcM8jL5DRfE7YPS5db/rrq/1T0KxIVFM4gTFCYhctglnofhXzp6EJSM1CD7r
+        w936Ps/0aejAhV6po2aB9+UR0dpCbZjqKzNAbACaGsVRnOzSQxIwuf/LhoGkpuLrr02Ff4xy20ja
+        FSDboJStgv5Eo/1Er9A7r6twfy81k5gtLvda8xJZ4nn/UvFAnG7aXBZxfpHEgOmzCA/hJtrF2zBo
+        vj0Wu2+LLFb4Rq/cz9ZdtNuzkmwfuvfho7ymgn3J63UDaj4J753ff5g0Mii2799d7fbbw3aT+mdr
+        1OqpqOEK9L+vJ6iYnazR/pBGm/lJm8xJ6F8o6hwtz/6ps0Dxfy4DWXh7nhrWzb8krz9+/Pwn/vE3
+        DcQHabEHAAA=
+    headers:
+      access-control-allow-headers: ['Accept, Authorization, Content-Type, Origin']
+      access-control-allow-methods: ['GET, PUT, POST, DELETE']
+      access-control-allow-origin: ['*']
+      access-control-expose-headers: [Date]
+      cache-control: ['private, max-age=0, must-revalidate']
+      content-encoding: [gzip]
+      content-length: ['920']
+      content-type: [application/json; charset=utf-8]
+      date: ['Fri, 02 Jan 2015 17:19:38 GMT']
+      etag: ['"32eed85c2543f08cb8eef0618e2399e7"']
+      server: [am/2]
+      set-cookie: [_session_auth_key="iuo9QNN6oaPVa3gj9XyKTHZtsxE="]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Authorization: [!!python/unicode 'OAuth 1-35204-61921957-55796ebef403996']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.4.3 CPython/2.7.8 Linux/3.16.0-28-generic]
+    method: GET
+    uri: https://api.soundcloud.com:443/tracks/172120478.json?client_id=93e33e327fd8a9b77becd179652272e2
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAEA5VUa4sTMRT9KyUf/GLbedZ2BhZREQQFUUFhEYbMJG1jM8mQR5cq/ndP5lFnlxW1
+        LLR7cx/nnnvu/UFOQjFSEmdocyJLIvBPsk2TNM63uyVpDKeOs4o6+KRxkkdJHCX5InlWZmmZbxZP
+        Y3wQ5y03VR+cptmuKIolYd5QJ7RCwk2WxTGy6bblytFaclI64/mSWIf8yL0XStgjZ0iljTgIRWXV
+        aOXgXlnxHS7pNk6LZJcviaTWVa1mYi8Q0OPaRHGCv0WalJttudldcdkjNUId4NX5WooG+R09VFLY
+        0NFX8kI6bhRwnvnio25OXwk8Om5aKoU6weWsRcMtjNaBi3aOnbc1ZyxYqvoCVyol/Ji+U1LT3k7K
+        PZUWbXbeNEdqeeWNhOfRua6MIuG84nZNu07yNciJvI2orH0bKb1qPVvhS2oHq2BFWmS77S5Onnt9
+        kz+h7iZJJH31GhUlrbnsyVdeylkxJ1xgerAeuDKB6dAlgsY38nnqj3HbGNENEwssDGkVba8pDJcc
+        TUwZe81U7tJdLSd+wbQO4NOHWkNhYU0z/T4LxvVAwvBYd+30NmavLpwajBtiW5LJ1kIKRwgp+W1i
+        FJynM7nsNaYWpkrFfh/wY3AqoA2DWUFUR2dXhkOo515n3ohxFBazoJ1YW+0Va6T2rJ9G35+NruuA
+        nEHmpPwxrMlV6eMO9Y/31XOiDmI1egwdyCRvf1sf0TJ2LI3SfJFmZQ4551ct/xVwAAC8Iy7UvAr5
+        vu4e9DkDSc+AZmbegRqRrC14YapnZXCxK+x9EmMh0ywtVl4f+ea0ktQc+PpbdyA/x5PQSXqpcVqw
+        zF5hOBhgfyr29Iw9D6s/bci0c7PiqP0HqNF1Lalxd9qcZlGPQB58esxxkRWbeFvEq/qCa9TMMC/J
+        HT3zIKMH2e7uEVC82b+8/bC7ZZ/c66pdd7gu03V4EPcPmoqGsxJm9YCpZ7t4A3lP52QiEGd05A5n
+        zU7WZJuD2fG+TsYMvtQ52hzD1bUA95+Cj2bRAaHGSoVD9+Ldu/dfyM9fmFC20j0GAAA=
+    headers:
+      access-control-allow-headers: ['Accept, Authorization, Content-Type, Origin']
+      access-control-allow-methods: ['GET, PUT, POST, DELETE']
+      access-control-allow-origin: ['*']
+      access-control-expose-headers: [Date]
+      cache-control: ['private, max-age=0, must-revalidate']
+      content-encoding: [gzip]
+      content-length: ['791']
+      content-type: [application/json; charset=utf-8]
+      date: ['Fri, 02 Jan 2015 17:19:38 GMT']
+      etag: ['"b972a18ac1d4f79b31cdad19c3bc5e8e"']
+      server: [am/2]
+      set-cookie: [_session_auth_key="iuo9QNN6oaPVa3gj9XyKTHZtsxE="]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Authorization: [!!python/unicode 'OAuth 1-35204-61921957-55796ebef403996']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.4.3 CPython/2.7.8 Linux/3.16.0-28-generic]
+    method: GET
+    uri: https://api.soundcloud.com:443/tracks/164767462.json?client_id=93e33e327fd8a9b77becd179652272e2
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAEA1xTTW/bMAz9K4IuOSyNv9Kk823YUBQYCgy97BLAkCUmJiJLBiWn8PrnR9ltltWA
+        AZuiyPceH9/kGZ2RtYyk9FmuJfJPsdvud/vtrlxLTaAimEZFzinzYpvlD1l5L8qqru7rci++5Pzw
+        vTEANelyVT7sqnK/XUszkoronaz5Yl7lXM33PbioWguyjjTCWobI9bn2ER2GDgyX8oQndMo22rvI
+        6U3AP5xS3W+3+yLnMlaF2PTe4BH5wjuuosyqQhS7uvha5w9XXKFThO7EWcPYWtRcP6pTYzEkRgf5
+        zUYgxzgvIF68Ph8kZwxAvbLozjMw4tQElKXob6FD34IxKdK0E2cqaznP+FdnvZrjsj4qG5jlMJLu
+        VIBmJCtrN1qbWLRgZ8mW/2tOxJj0WaIncJT0ucGZKCwp8hEXcAaCJhwWteUj+V6snrw14nkST76H
+        9Uqoi0JuaUEUeVYWwjvxg6FGfsULaE8mbA7uF8EdfwKJ2IFQth17Eb0g0JAUWs0NVwIdz81FO9Wi
+        i3Gosyz0iiKz22DMvv/+mZo/T6n1wTHehatT/ZUXgQUW5IPmbL8mTsM1coaJB3/i0YxJgEUNDKQ/
+        vi9owN8K2g79x9l79WYCRZ9jPbuq+xw0iie49Lja7+jZBcklr+qSOKAGlxCnQd+xR7sY7gjY95fZ
+        tiMhnyU5AuuhBtwEPzqjrR/Nhp2fzRxDdt0urpm2RtZv89b9W5z3lZwP/zejZllfFZ3RBPkXAAD/
+        /5WVy5KCMBBFf8ViLa8QIbijZqlVLl1OZUZx8AGY4Dgs/PfppokGyprHNqSTm9t9D1RNnjov2Oy1
+        VJMFfXoaEYhuABFhcz6b8/gekV+FoxDtG31w8T0fZH/3aJyB4XuHYmH+GqmsAnSpCD0NFm3KziDa
+        ol1EShSkLIxY6hZncdqX7lGq3dbb1zvn1sOmPsr2DaAFmLiU0KawX8/lJ7QQoWLCZ9JsXf6jWj/v
+        YwUjfa3Uwap7Ipr2kGqRslSIJHCVrOK8tVRPcYq2OFKj065DC7Ii23yFB6GS9vXk1UAug55R3R8G
+        zCdmYcPGXnEeB1w8aGVMBLr2/gE0tVllfNb9DAjfZjVKoqkjm0a+fyDVNQj8ZwJ8qxpVVpAxJGm2
+        XK7Wzu0b9S5Rp50GAAA=
+    headers:
+      access-control-allow-headers: ['Accept, Authorization, Content-Type, Origin']
+      access-control-allow-methods: ['GET, PUT, POST, DELETE']
+      access-control-allow-origin: ['*']
+      access-control-expose-headers: [Date]
+      cache-control: ['private, max-age=0, must-revalidate']
+      content-encoding: [gzip]
+      content-length: ['869']
+      content-type: [application/json; charset=utf-8]
+      date: ['Fri, 02 Jan 2015 17:19:38 GMT']
+      etag: ['"66dbb4584916e51f1a18d35581065139"']
+      server: [am/2]
+      set-cookie: [_session_auth_key="iuo9QNN6oaPVa3gj9XyKTHZtsxE="]
+    status: {code: 200, message: OK}
+version: 1

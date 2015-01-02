@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 
 import unittest
 
-from mopidy.models import Ref
+
 import pykka
 
 from mopidy_soundcloud import actor, SoundCloudExtension
@@ -27,6 +27,10 @@ class ApiTest(unittest.TestCase):
         pykka.ActorRegistry.stop_all()
 
     def test_add_folder(self):
+        try:
+            from mopidy.models import Ref
+        except ImportError as e:
+            self.skipTest(e.message)
         self.assertEquals(
             new_folder('Test', ['test']),
             Ref(name='Test', type='directory',
@@ -75,6 +79,10 @@ class ApiTest(unittest.TestCase):
             'DP+Hau+iNDiE+DANCE+%7C+No+2014')
 
     def test_default_folders(self):
+        try:
+            from mopidy.models import Ref
+        except ImportError as e:
+            self.skipTest(e.message)
         self.assertEquals(
             self.library.browse('soundcloud:directory'),
             [

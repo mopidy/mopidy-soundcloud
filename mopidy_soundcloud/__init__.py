@@ -28,7 +28,7 @@ class SoundCloudExtension(ext.Extension):
         schema['explore_pages'] = config.Deprecated()
         return schema
 
-    def validate_config(self, config):
+    def validate_config(self, config):  # no_coverage
         if not config.getboolean('soundcloud', 'enabled'):
             return
         if not config.get('soundcloud', 'auth_token'):
