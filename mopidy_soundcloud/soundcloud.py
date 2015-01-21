@@ -181,7 +181,7 @@ class SoundCloudClient(object):
                 parsed_track = self.parse_track(track)
 
                 if parsed_track:
-                    likes.append(parse_track)
+                    likes.append(parsed_track)
 
             pl = data['playlist']
             if pl:
