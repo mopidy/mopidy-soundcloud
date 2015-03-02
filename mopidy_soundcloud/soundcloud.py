@@ -89,20 +89,18 @@ class SoundCloudClient(object):
     @cache()
     def get_user_stream(self):
         # User timeline like playlist which uses undocumented api
-        # https://api.soundcloud.com/e1/me/stream.json?offset=0
-        # returns five elements per request
+        # https://api.soundcloud.com/e1/me/stream.json?limit=100
         tracks = []
-        for sid in xrange(0, 2):
-            stream = self._get('e1/me/stream.json?offset=%s' % sid * 5)
-            for data in stream.get('collection'):
-                kind = data.get('type')
-                # multiple types of track with same data
-                if 'track' in kind:
-                    tracks.append(self.parse_track(data.get('track')))
-                if kind == 'playlist':
-                    playlist = data.get('playlist').get('tracks')
-                    if isinstance(playlist, collections.Iterable):
-                        tracks.extend(self.parse_results(playlist))
+        stream = self._get('e1/me/stream.json?limit=100')
+        for data in stream.get('collection'):
+            kind = data.get('type')
+            # multiple types of track with same data
+            if 'track' in kind:
+                tracks.append(self.parse_track(data.get('track')))
+            if kind == 'playlist':
+                playlist_id = data.get('playlist').get('id')
+                for track in self.get_set(playlist_id):
+                    tracks.append(self.parse_track(track))
 
         return self.sanitize_tracks(tracks)
 
