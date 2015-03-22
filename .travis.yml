@@ -1,7 +1,7 @@
 language: python
 
 python:
-  - "2.7"
+  - "2.7_with_system_site_packages"
 
 env:
   - TOX_ENV=py27
@@ -10,8 +10,8 @@ env:
 install:
   - "wget -O - http://apt.mopidy.com/mopidy.gpg | sudo apt-key add -"
   - "sudo wget -O /etc/apt/sources.list.d/mopidy.list http://apt.mopidy.com/mopidy.list"
-  - "sudo apt-get update -qf --force-yes || true"
-  - "sudo apt-get install -qf --force-yes mopidy-soundcloud"
+  - "sudo apt-get update || true"
+  - "sudo apt-get install mopidy"
   - "sudo pip install tox"
 
 script:
