@@ -10,7 +10,7 @@ Mopidy-SoundCloud
     :target: https://pypi.python.org/pypi/Mopidy-SoundCloud/
     :alt: Number of PyPI downloads
 
-.. image:: https://img.shields.io/travis/mopidy/mopidy-soundcloud/master.png?style=flat
+.. image:: https://img.shields.io/travis/mopidy/mopidy-soundcloud/master.svg?style=flat
     :target: https://travis-ci.org/mopidy/mopidy-soundcloud
     :alt: Travis CI build status
 
