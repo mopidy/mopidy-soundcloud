@@ -27,11 +27,10 @@ class SoundCloudBackend(pykka.ThreadingActor, backend.Backend):
 
 class SoundCloudPlaybackProvider(backend.PlaybackProvider):
 
-    def play(self, track):
-
-        track_id = self.backend.remote.parse_track_uri(track)
+    def translate_uri(self, uri):
+        track_id = self.backend.remote.parse_track_uri(uri)
         track = self.backend.remote.get_track(track_id, True)
         if hasattr(track, 'uri'):
-            return super(SoundCloudPlaybackProvider, self).play(track)
+            return track.uri
         else:
             return None
