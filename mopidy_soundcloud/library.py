@@ -1,4 +1,5 @@
 from __future__ import unicode_literals
+
 import collections
 import logging
 import re
@@ -7,6 +8,7 @@ from urlparse import urlparse
 
 from mopidy import backend, models
 from mopidy.models import SearchResult, Track
+
 from mopidy_soundcloud.soundcloud import safe_url
 
 

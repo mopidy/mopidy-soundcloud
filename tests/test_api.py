@@ -3,8 +3,10 @@ from __future__ import unicode_literals
 import unittest
 
 import mock
-import vcr
+
 from mopidy.models import Track
+
+import vcr
 
 from mopidy_soundcloud import SoundCloudExtension
 from mopidy_soundcloud.soundcloud import SoundCloudClient, readable_url

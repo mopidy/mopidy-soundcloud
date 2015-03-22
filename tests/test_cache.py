@@ -1,7 +1,8 @@
 from __future__ import unicode_literals
-from mock import Mock
 
 import unittest
+
+from mock import Mock
 
 from mopidy_soundcloud.soundcloud import cache
 

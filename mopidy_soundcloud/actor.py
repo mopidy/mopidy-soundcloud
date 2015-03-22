@@ -1,12 +1,14 @@
 from __future__ import unicode_literals
 
 import logging
-import pykka
 
 from mopidy import backend
 
+import pykka
+
 from .library import SoundCloudLibraryProvider
 from .soundcloud import SoundCloudClient
+
 
 logger = logging.getLogger(__name__)
 

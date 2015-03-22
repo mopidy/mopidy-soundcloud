@@ -3,13 +3,12 @@ from __future__ import unicode_literals
 
 import unittest
 
-
 import pykka
 
-from mopidy_soundcloud import actor, SoundCloudExtension
+from mopidy_soundcloud import SoundCloudExtension, actor
+from mopidy_soundcloud.library import (
+    SoundCloudLibraryProvider, new_folder, simplify_search_query)
 from mopidy_soundcloud.soundcloud import safe_url
-from mopidy_soundcloud.library import SoundCloudLibraryProvider, new_folder, \
-    simplify_search_query
 
 
 class ApiTest(unittest.TestCase):

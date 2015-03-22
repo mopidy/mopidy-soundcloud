@@ -1,15 +1,17 @@
 from __future__ import unicode_literals
+
+import collections
 import logging
-from multiprocessing.pool import ThreadPool
+import re
 import string
 import time
-from urllib import quote_plus
-import collections
 import unicodedata
+from multiprocessing.pool import ThreadPool
+from urllib import quote_plus
 
-import re
+from mopidy.models import Album, Artist, Track
+
 import requests
-from mopidy.models import Track, Artist, Album
 
 
 logger = logging.getLogger(__name__)
