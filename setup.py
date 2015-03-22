@@ -29,12 +29,6 @@ setup(
         'Pykka >= 1.1',
         'requests >= 2.0.0',
     ],
-    test_suite='nose.collector',
-    tests_require=[
-        'nose',
-        'mock >= 1.0',
-        'vcrpy',
-    ],
     entry_points={
         'mopidy.ext': [
             'soundcloud = mopidy_soundcloud:SoundCloudExtension',
