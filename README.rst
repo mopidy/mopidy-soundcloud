@@ -87,6 +87,8 @@ v2.0.0 (UNRELEASED)
 
 - Update to work with new playback API in Mopidy 1.0.
 
+- Update to work with new backend search API in Mopidy 1.0.
+
 
 v1.2.5 (2014-06-24)
 -------------------

@@ -173,7 +173,8 @@ class SoundCloudLibraryProvider(backend.LibraryProvider):
         # root directory
         return self.vfs.get(uri, {}).values()
 
-    def search(self, query=None, uris=None):
+    def search(self, query=None, uris=None, exact=False):
+        # TODO Support exact search
 
         if not query:
             return
