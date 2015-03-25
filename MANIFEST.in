@@ -8,3 +8,4 @@ include mopidy_soundcloud/ext.conf
 include tox.ini
 
 recursive-include tests *.py
+recursive-include tests *.yaml
