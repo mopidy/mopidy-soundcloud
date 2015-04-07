@@ -5,13 +5,6 @@ language: python
 python:
   - "2.7_with_system_site_packages"
 
-addons:
-  apt:
-    sources:
-      - mopidy-stable
-    packages:
-      - mopidy
-
 env:
   - TOX_ENV=py27
   - TOX_ENV=flake8
