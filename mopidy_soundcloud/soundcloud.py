@@ -76,6 +76,8 @@ class SoundCloudClient(object):
 
         try:
             self._get('me.json')
+        except requests.exceptions.ConnectionError as err:
+            logger.error('A Connection error occurred: %s', err)
         except Exception as err:
             if err.response.status_code == 401:
                 logger.error('Invalid "auth_token" used for SoundCloud '
