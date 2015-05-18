@@ -183,14 +183,14 @@ class SoundCloudLibraryProvider(backend.LibraryProvider):
             search_query = ''.join(query['uri'])
             url = urlparse(search_query)
             if 'soundcloud.com' in url.netloc:
-                logger.info('Resolving SoundCloud for \'%s\'', search_query)
+                logger.info('Resolving SoundCloud for: %s', search_query)
                 return SearchResult(
                     uri='soundcloud:search',
                     tracks=self.backend.remote.resolve_url(search_query)
                 )
         else:
             search_query = simplify_search_query(query)
-            logger.info('Searching SoundCloud for \'%s\'', search_query)
+            logger.info('Searching SoundCloud for: %s', search_query)
             return SearchResult(
                 uri='soundcloud:search',
                 tracks=self.backend.remote.search(search_query)
