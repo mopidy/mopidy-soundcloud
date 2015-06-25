@@ -79,6 +79,12 @@ Project resources
 Changelog
 =========
 
+v2.0.1 (unreleased)
+-------------------
+
+- Fix Unicode escape sequences in SoundCloud search queries by encoding as
+  UTF-8. (Fixes #42, PR #55)
+
 v2.0.0 (2015-03-25)
 -------------------
 
