@@ -204,9 +204,11 @@ class SoundCloudLibraryProvider(backend.LibraryProvider):
         try:
             track_id = self.backend.remote.parse_track_uri(uri)
             track = self.backend.remote.get_track(track_id)
-            if track.uri:
-                return [track]
-            logger.debug('lookup: no track found for id %s' % (track_id,))
+            if not track.uri:
+                logger.info(
+                    'Failed to lookup %s: SoundCloud track not found' % uri)
+                return []
+            return [track]
         except Exception as error:
             logger.error('Failed to lookup %s: %s', uri, error)
-        return []
+            return []
