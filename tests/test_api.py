@@ -44,10 +44,9 @@ class ApiTest(unittest.TestCase):
         self.assertEquals(id, '38720262')
 
     @vcr.use_cassette('tests/fixtures/sc-resolve-track-none.yaml')
-    def test_resolves_emptyTrack(self):
+    def test_resolves_unknown_track_to_none(self):
         track = self.api.get_track('s38720262')
-        self.assertIsInstance(track, Track)
-        self.assertEquals(track.uri, None)
+        self.assertIsNone(track)
 
     @vcr.use_cassette('tests/fixtures/sc-resolve-track.yaml')
     def test_resolves_Track(self):

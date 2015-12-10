@@ -196,8 +196,7 @@ class SoundCloudClient(object):
             return self.parse_track(self._get('tracks/%s.json' % track_id),
                                     streamable)
         except Exception:
-            logger.info('Song %s was removed' % track_id)
-            return Track()
+            return None
 
     def parse_track_uri(self, track):
         logger.debug('Parsing track %s' % (track))
@@ -322,9 +321,7 @@ class SoundCloudClient(object):
         :return:list `Track`
         """
         pool = ThreadPool(processes=16)
-        tracks = pool.map(self.resolve_track, track_ids)
+        tracks = pool.map(self.get_track, track_ids)
         pool.close()
+        tracks = [t for t in tracks if t is not None]
         return tracks
-
-    def resolve_track(self, track_id):
-        return self.get_track(track_id)
