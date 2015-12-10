@@ -117,7 +117,7 @@ class ApiTest(unittest.TestCase):
                           readable_url('_Barsuk \'Records\''))
 
     @vcr.use_cassette('tests/fixtures/sc-resolve-track-id.yaml')
-    def test_resolves_stream_Track(self):
+    def test_resolves_stream_track(self):
         track = self.api.get_track('38720262', True)
         self.assertIsInstance(track, Track)
         self.assertEquals(

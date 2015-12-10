@@ -115,7 +115,6 @@ class SoundCloudClient(object):
     def get_explore(self, query_explore_id=None):
         explore = self.get_explore_categories()
         if query_explore_id:
-
             url = 'explore/{urn}?limit={limit}&offset=0&linked_partitioning=1'\
                 .format(
                     urn=explore[int(query_explore_id)],
