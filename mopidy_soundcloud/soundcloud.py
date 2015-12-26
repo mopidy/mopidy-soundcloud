@@ -71,13 +71,9 @@ class cache(object):
 
 class SoundCloudClient(object):
     CLIENT_ID = '93e33e327fd8a9b77becd179652272e2'
-    # client = sClient(client_id=CLIENT_ID,
-    #                 username='apulido@free.fr',
-    #                 password='x35voei')
-    
-
     def __init__(self, config):
         super(SoundCloudClient, self).__init__()
+        global token
         token = config['auth_token']
         self.explore_songs = config['explore_songs']
         self.http_client = requests.Session()
@@ -175,9 +171,8 @@ class SoundCloudClient(object):
         return playable_sets
 
     def get_user_liked(self):
-        # Note: As with get_user_stream, this API call is undocumented.
         likes = []
-        liked = self._get('me/favorites?oauth_token=1-35204-15497394-b6d96b7ce510758&limit=200')   # This API call does not contain liked paylist, couldn't find how to get them in the v1 API. favorites.json also works, and the limit of the limit is 200 songs...
+        liked = self._get('me/favorites?oauth_token=%s&limit=200' % token)   # This API call does not contain liked paylist, couldn't find how to get them in the v1 API. favorites.json also works, and the limit of the limit is 200 songs...
         for track in liked:
             
             if self.parse_track(track) is not None:
