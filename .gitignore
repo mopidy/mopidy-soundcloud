@@ -1,12 +1,13 @@
 *.egg-info
 *.pyc
 *.swp
+.cache/
 .coverage
 .idea
 .tox
 MANIFEST
 build/
 cover
+cover-*.xml
 dist/
 xunit-*.xml
-cover-*.xml
