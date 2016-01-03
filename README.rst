@@ -77,7 +77,7 @@ Project resources
 Changelog
 =========
 
-v2.0.2 (UNRELEASED)
+v2.0.2 (2016-01-03)
 -------------------
 
 - Handle HTTP connection errors without a response. (PR #61)
