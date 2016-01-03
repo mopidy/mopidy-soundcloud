@@ -80,6 +80,8 @@ Changelog
 v2.0.2 (UNRELEASED)
 -------------------
 
+- Handle HTTP connection errors without a response. (PR #61)
+
 - Ignore tracks without an URI. (Related to mopidy#1340, PR #62)
 
 v2.0.1 (2015-10-06)
