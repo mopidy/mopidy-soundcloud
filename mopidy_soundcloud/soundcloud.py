@@ -1,33 +1,38 @@
 from __future__ import unicode_literals
-
-import collections
 import logging
 import re
 import string
 import time
-import unicodedata
-from multiprocessing.pool import ThreadPool
 from urllib import quote_plus
-
-from mopidy.models import Album, Artist, Track
+import collections
+import unicodedata
 
 import requests
+
+from mopidy.models import Track, Artist, Album
 
 
 logger = logging.getLogger(__name__)
 
 
 def safe_url(uri):
-    return quote_plus(
-        unicodedata.normalize('NFKD', unicode(uri)).encode('ASCII', 'ignore'))
+    return quote_plus(unicodedata.normalize(
+        'NFKD',
+        unicode(uri)
+    ).encode('ASCII', 'ignore'))
 
 
 def readable_url(uri):
     valid_chars = "-_.() %s%s" % (string.ascii_letters, string.digits)
-    safe_uri = unicodedata.normalize('NFKD', unicode(uri)).encode('ASCII',
-                                                                  'ignore')
-    return re.sub('\s+', ' ',
-                  ''.join(c for c in safe_uri if c in valid_chars)).strip()
+    safe_uri = unicodedata.normalize(
+        'NFKD',
+        unicode(uri)
+    ).encode('ASCII', 'ignore')
+    return re.sub(
+        '\s+',
+        ' ',
+        ''.join(c for c in safe_uri if c in valid_chars)
+    ).strip()
 
 
 class cache(object):
@@ -66,22 +71,13 @@ class cache(object):
 
 class SoundCloudClient(object):
     CLIENT_ID = '93e33e327fd8a9b77becd179652272e2'
-
     def __init__(self, config):
         super(SoundCloudClient, self).__init__()
+        global token
         token = config['auth_token']
-        self.explore_songs = config.get('explore_songs', 10)
+        self.explore_songs = config['explore_songs']
         self.http_client = requests.Session()
         self.http_client.headers.update({'Authorization': 'OAuth %s' % token})
-
-        try:
-            self._get('me.json')
-        except Exception as err:
-            if err.response is not None and err.response.status_code == 401:
-                logger.error('Invalid "auth_token" used for SoundCloud '
-                             'authentication!')
-            else:
-                raise
 
     @property
     @cache()
@@ -104,32 +100,31 @@ class SoundCloudClient(object):
                 if kind == 'playlist':
                     playlist = data.get('playlist').get('tracks')
                     if isinstance(playlist, collections.Iterable):
-                        tracks.extend(self.parse_results(playlist))
-
+                        tracks.extend(self.parse_results())
+        print(self.sanitize_tracks(tracks))
         return self.sanitize_tracks(tracks)
 
-    @cache()
-    def get_explore_categories(self):
-        return self._get('explore/categories', 'api-v2').get('music')
-
     def get_explore(self, query_explore_id=None):
-        explore = self.get_explore_categories()
+        explore = self._get('explore/categories', 'api-v2').get('music')
         if query_explore_id:
-            url = 'explore/{urn}?limit={limit}&offset=0&linked_partitioning=1'\
-                .format(
-                    urn=explore[int(query_explore_id)],
-                    limit=self.explore_songs
-                )
-            web_tracks = self._get(url, 'api-v2')
-            track_ids = map(lambda x: x.get('id'), web_tracks.get('tracks'))
-            return self.resolve_tracks(track_ids)
+            urn = explore[int(query_explore_id)]
+            web_tracks = self._get(
+                'explore/%s?tag=%s&limit=%s&offset=0&linked_partitioning=1' %
+                (urn, 'out-of-experiment', self.explore_songs),
+                'api-v2'
+            )
+            tracks = []
+            for track in web_tracks.get('tracks'):
+                tracks.append(self.get_track(track.get('id')))
+            return tracks
+
         return explore
 
     def get_groups(self, query_group_id=None):
 
         if query_group_id:
-            web_tracks = self._get(
-                'groups/%d/tracks.json' % int(query_group_id))
+            web_tracks = self._get('groups/%d/tracks.json' % int(
+                query_group_id))
             tracks = []
             for track in web_tracks:
                 if 'track' in track.get('kind'):
@@ -144,12 +139,14 @@ class SoundCloudClient(object):
             return self._get('users/%s/tracks.json' % query_user_id)
 
         users = []
-        for playlist in self._get('me/followings.json?limit=60'):
+        for playlist in self._get('me/followings.json?limit=1000'):
             name = playlist.get('username')
             user_id = str(playlist.get('id'))
-            logger.debug('Fetched user %s with id %s' % (
-                name, user_id
-            ))
+            logger.debug(
+                'Fetched user %s with id %s' % (
+                    name, user_id
+                )
+            )
 
             users.append((name, user_id))
         return users
@@ -165,25 +162,21 @@ class SoundCloudClient(object):
             name = playlist.get('title')
             set_id = str(playlist.get('id'))
             tracks = playlist.get('tracks')
-            logger.debug('Fetched set %s with id %s (%d tracks)' % (
-                name, set_id, len(tracks)
-            ))
+            logger.debug(
+                'Fetched set %s with id %s (%d tracks)' % (
+                    name, set_id, len(tracks)
+                )
+            )
             playable_sets.append((name, set_id, tracks))
         return playable_sets
 
     def get_user_liked(self):
-        # Note: As with get_user_stream, this API call is undocumented.
         likes = []
-        liked = self._get('e1/me/likes.json?limit=1000')
-        for data in liked:
-
-            track = data['track']
-            if track:
+        liked = self._get('me/favorites?oauth_token=%s&limit=200' % token)   # This API call does not contain liked paylist, couldn't find how to get them in the v1 API. favorites.json also works, and the limit of the limit is 200 songs...
+        for track in liked:
+            
+            if self.parse_track(track) is not None:
                 likes.append(self.parse_track(track))
-
-            pl = data['playlist']
-            if pl:
-                likes.append((pl['title'], str(pl['id'])))
 
         return likes
 
@@ -192,10 +185,13 @@ class SoundCloudClient(object):
     def get_track(self, track_id, streamable=False):
         logger.debug('Getting info for track with id %s' % track_id)
         try:
-            return self.parse_track(self._get('tracks/%s.json' % track_id),
-                                    streamable)
+            return self.parse_track(
+                self._get('tracks/%s.json' % track_id),
+                streamable
+            )
         except Exception:
-            return None
+            logger.info('Song %s was removed' % track_id)
+            return Track()
 
     def parse_track_uri(self, track):
         logger.debug('Parsing track %s' % (track))
@@ -206,8 +202,9 @@ class SoundCloudClient(object):
     def search(self, query):
 
         search_results = self._get(
-            'tracks.json?q=%s&filter=streamable&order=hotness&limit=%d' % (
-                quote_plus(query.encode('utf-8')), self.explore_songs))
+            'tracks.json?q=%s&filter=streamable&order=hotness&limit=10' %
+            quote_plus(query)
+        )
         tracks = []
         for track in search_results:
             tracks.append(self.parse_track(track, False))
@@ -241,14 +238,12 @@ class SoundCloudClient(object):
     @cache()
     def parse_track(self, data, remote_url=False):
         if not data:
-            return []
+            return None     #  None instead of [] because an empty list causes the client to not display likes
         if not data['streamable']:
             logger.info(
-                "'%s' can't be streamed from SoundCloud" % data.get('title'))
-            return []
-        if not data['kind'] == 'track':
-            logger.debug('%s is not track' % data.get('title'))
-            return []
+                "'%s' can't be streamed from SoundCloud" % data.get('title')
+            )
+            return None 
 
         # NOTE kwargs dict keys must be bytestrings to work on Python < 2.6.5
         # See https://github.com/mopidy/mopidy/issues/302 for details.
@@ -276,8 +271,8 @@ class SoundCloudClient(object):
         if remote_url:
             if not self.can_be_streamed(data['stream_url']):
                 logger.info(
-                    "'%s' can't be streamed from SoundCloud" % data.get(
-                        'title'))
+                    "'%s' can't be streamed from SoundCloud" %
+                    data.get('title'))
                 return []
             track_kwargs[b'uri'] = self.get_streamble_url(data['stream_url'])
         else:
@@ -294,9 +289,9 @@ class SoundCloudClient(object):
 
         if album_kwargs:
             if 'artwork_url' in data and data['artwork_url']:
-                album_kwargs[b'images'] = [data['artwork_url']]
+                album_kwargs[b'images'] = [data['artwork_url'].replace("large","t500x500") ]    # So we can have nice, high res, non pixelated thumbnails
             else:
-                image = data.get('user').get('avatar_url')
+                image = data.get('user').get('avatar_url').replace("large","t500x500") 
                 album_kwargs[b'images'] = [image]
 
             album = Album(**album_kwargs)
@@ -304,6 +299,7 @@ class SoundCloudClient(object):
 
         track = Track(**track_kwargs)
         return track
+        
 
     @cache()
     def can_be_streamed(self, url):
@@ -312,15 +308,3 @@ class SoundCloudClient(object):
 
     def get_streamble_url(self, url):
         return '%s?client_id=%s' % (url, self.CLIENT_ID)
-
-    def resolve_tracks(self, track_ids):
-        """Resolve tracks concurrently emulating browser
-
-        :param track_ids:list of track ids
-        :return:list `Track`
-        """
-        pool = ThreadPool(processes=16)
-        tracks = pool.map(self.get_track, track_ids)
-        pool.close()
-        tracks = [t for t in tracks if t is not None]
-        return tracks
