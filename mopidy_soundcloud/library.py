@@ -220,14 +220,18 @@ class SoundCloudLibraryProvider(backend.LibraryProvider):
                     return []
                 return self.backend.remote.get_set(set_id)
         except Exception as error:
-            logger.error('Failed to resolve stream with URI "%s": %s', uri, error)
+            logger.error(
+                'Failed to resolve stream with URI "%s": %s',
+                uri,
+                error
+            )
             return []
-
 
         # try to resolve single track
         if 'sc:' in uri:
             uri = uri.replace('sc:', '')
             return self.backend.remote.resolve_url(uri)
+
         try:
             track_id = self.backend.remote.parse_track_uri(uri)
             track = self.backend.remote.get_track(track_id)
