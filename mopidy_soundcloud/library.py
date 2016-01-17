@@ -204,7 +204,9 @@ class SoundCloudLibraryProvider(backend.LibraryProvider):
                 return self.backend.remote.get_user_stream()
             elif 'soundcloud:directory:explore' in uri:
                 explore_id = uri[len('soundcloud:directory:explore/'):]
-                return self.backend.remote.get_explore(explore_id or None)
+                if explore_id == '':
+                    return []
+                return self.backend.remote.get_explore(explore_id)
             elif 'soundcloud:directory:groups' in uri:
                 group_id = uri[len('soundcloud:directory:groups/'):]
                 if group_id == '':
