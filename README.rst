@@ -22,6 +22,27 @@ Mopidy-SoundCloud
 `SoundCloud <http://www.soundcloud.com>`_.
 
 
+Maintainer wanted
+=================
+
+Mopidy-SoundCloud is currently kept on life support by the Mopidy core
+developers. It is in need of a more dedicated maintainer.
+
+If you want to be the maintainer of Mopidy-SoundCloud, please:
+
+1. Make 2-3 good pull requests improving any part of the project.
+
+2. Read and get familiar with all of the project's open issues.
+
+3. Send a pull request removing this section and adding yourself as the
+   "Current maintainer" in the "Credits" section below. In the pull request
+   description, please refer to the previous pull requests and state that
+   you've familiarized yourself with the open issues.
+
+As a maintainer, you'll be given push access to the repo and the authority to
+make releases to PyPI when you see fit.
+
+
 Installation
 ============
 
@@ -72,6 +93,14 @@ Project resources
 
 - `Source code <https://github.com/mopidy/mopidy-soundcloud>`_
 - `Issue tracker <https://github.com/mopidy/mopidy-soundcloud/issues>`_
+
+
+Credits
+=======
+
+- Original author: `Janez Troha <https://github.com/dz0ny>`_
+- Current maintainer: None. Maintainer wanted, see section above.
+- `Contributors <https://github.com/mopidy/mopidy-soundcloud/graphs/contributors>`_
 
 
 Changelog
