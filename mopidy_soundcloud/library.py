@@ -218,7 +218,7 @@ class SoundCloudLibraryProvider(backend.LibraryProvider):
                 return self.backend.remote.get_user_liked()
 
             if 'soundcloud:directory:following' in uri:
-                return self.list_user_follows()
+                return self.backend.remote.get_followings()
 
             if 'soundcloud:directory:sets' in uri:
                 set_id = uri[len('soundcloud:directory:sets/'):]
