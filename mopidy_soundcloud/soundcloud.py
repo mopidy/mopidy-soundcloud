@@ -278,7 +278,7 @@ class SoundCloudClient(object):
                 logger.info(
                     "'%s' can't be streamed from SoundCloud" % data.get(
                         'title'))
-                return []
+                return None
             track_kwargs[b'uri'] = self.get_streamble_url(data['stream_url'])
         else:
             track_kwargs[b'uri'] = 'soundcloud:song/%s.%s' % (
