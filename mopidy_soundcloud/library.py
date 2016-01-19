@@ -241,7 +241,7 @@ class SoundCloudLibraryProvider(backend.LibraryProvider):
 
         except Exception as error:
             logger.error(
-                'Failed to resolve stream with URI "%s": %s',
+                'Failed to resolve URI "%s": %s',
                 uri,
                 error
             )
