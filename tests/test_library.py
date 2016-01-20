@@ -3,27 +3,24 @@ from __future__ import unicode_literals
 
 import unittest
 
-import pykka
+import mock
 
-from mopidy_soundcloud import SoundCloudExtension, actor
+from mopidy_soundcloud import SoundCloudExtension
 from mopidy_soundcloud.library import (
-    SoundCloudLibraryProvider, new_folder, simplify_search_query)
+    SoundCloudLibraryProvider,
+    new_folder,
+    simplify_search_query
+)
 from mopidy_soundcloud.soundcloud import safe_url
 
 
-class ApiTest(unittest.TestCase):
+class LibraryTest(unittest.TestCase):
     def setUp(self):
         config = SoundCloudExtension().get_config_schema()
         config['auth_token'] = '1-35204-61921957-55796ebef403996'
         # using this user http://maildrop.cc/inbox/mopidytestuser
-        self.backend = actor.SoundCloudBackend.start(
-            config={'soundcloud': config},
-            audio=None
-        ).proxy()
+        self.backend = mock.Mock()
         self.library = SoundCloudLibraryProvider(backend=self.backend)
-
-    def tearDown(self):
-        pykka.ActorRegistry.stop_all()
 
     def test_add_folder(self):
         try:
@@ -99,3 +96,44 @@ class ApiTest(unittest.TestCase):
                     uri='soundcloud:directory:stream')
             ]
         )
+
+    def test_lookup_explore(self):
+        self.library.lookup('soundcloud:directory:explore/0')
+        self.backend.remote.get_explore.assert_called_once_with('0')
+
+    def test_lookup_following(self):
+        self.library.lookup('soundcloud:directory:following')
+        self.backend.remote.get_followings.assert_called_once_with()
+
+    def test_lookup_groups(self):
+        self.library.lookup('soundcloud:directory:groups/0')
+        self.backend.remote.get_groups.assert_called_once_with('0')
+
+    def test_lookup_liked(self):
+        self.library.lookup('soundcloud:directory:liked')
+        self.backend.remote.get_user_liked.assert_called_once_with()
+
+    def test_lookup_sets(self):
+        self.library.lookup('soundcloud:directory:sets/0')
+        self.backend.remote.get_set.assert_called_once_with('0')
+
+    def test_lookup_stream(self):
+        self.library.lookup('soundcloud:directory:stream')
+        self.backend.remote.get_user_stream.assert_called_once_with()
+
+    def test_lookup_track(self):
+        self.library.lookup('sc:something')
+        self.backend.remote.resolve_url.assert_called_once_with('something')
+
+    def test_lookup_track_by_id(self):
+        self.backend.remote.parse_track_uri.return_value = 0
+        self.backend.remote.get_track.return_value = 'bar'
+        result = self.library.lookup('foo')
+        self.backend.remote.parse_track_uri.assert_called_once_with('foo')
+        self.backend.remote.get_track.assert_called_once_with(0)
+        self.assertEquals(result, ['bar'])
+
+    def test_lookup_error(self):
+        self.backend.remote.get_user_stream.side_effect = Exception('No.')
+        result = self.library.lookup('soundcloud:directory:stream')
+        self.assertEquals(result, [])
