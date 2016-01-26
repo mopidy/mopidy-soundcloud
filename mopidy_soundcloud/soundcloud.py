@@ -134,7 +134,7 @@ class SoundCloudClient(object):
             for track in web_tracks:
                 if 'track' in track.get('kind'):
                     tracks.append(self.parse_track(track))
-            return tracks
+            return self.sanitize_tracks(tracks)
         else:
             return self._get('me/groups.json')
 
@@ -185,7 +185,7 @@ class SoundCloudClient(object):
             if pl:
                 likes.append((pl['title'], str(pl['id'])))
 
-        return likes
+        return self.sanitize_tracks(likes)
 
     # Public
     @cache()
@@ -322,5 +322,4 @@ class SoundCloudClient(object):
         pool = ThreadPool(processes=16)
         tracks = pool.map(self.get_track, track_ids)
         pool.close()
-        tracks = [t for t in tracks if t is not None]
-        return tracks
+        return self.sanitize_tracks(tracks)
