@@ -134,7 +134,7 @@ class SoundCloudClient(object):
             for track in web_tracks:
                 if 'track' in track.get('kind'):
                     tracks.append(self.parse_track(track))
-            return tracks
+            return self.sanitize_tracks(tracks)
         else:
             return self._get('me/groups.json')
 
@@ -185,7 +185,7 @@ class SoundCloudClient(object):
             if pl:
                 likes.append((pl['title'], str(pl['id'])))
 
-        return likes
+        return self.sanitize_tracks(likes)
 
     # Public
     @cache()
@@ -241,14 +241,14 @@ class SoundCloudClient(object):
     @cache()
     def parse_track(self, data, remote_url=False):
         if not data:
-            return []
+            return None
         if not data['streamable']:
             logger.info(
                 "'%s' can't be streamed from SoundCloud" % data.get('title'))
-            return []
+            return None
         if not data['kind'] == 'track':
             logger.debug('%s is not track' % data.get('title'))
-            return []
+            return None
 
         # NOTE kwargs dict keys must be bytestrings to work on Python < 2.6.5
         # See https://github.com/mopidy/mopidy/issues/302 for details.
@@ -278,7 +278,7 @@ class SoundCloudClient(object):
                 logger.info(
                     "'%s' can't be streamed from SoundCloud" % data.get(
                         'title'))
-                return []
+                return None
             track_kwargs[b'uri'] = self.get_streamble_url(data['stream_url'])
         else:
             track_kwargs[b'uri'] = 'soundcloud:song/%s.%s' % (
@@ -322,5 +322,4 @@ class SoundCloudClient(object):
         pool = ThreadPool(processes=16)
         tracks = pool.map(self.get_track, track_ids)
         pool.close()
-        tracks = [t for t in tracks if t is not None]
-        return tracks
+        return self.sanitize_tracks(tracks)
