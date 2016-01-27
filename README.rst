@@ -106,6 +106,12 @@ Credits
 Changelog
 =========
 
+v2.0.3 (UNRELEASED)
+-------------------
+
+- Fix ``AttributeError: : 'list' object has no attribute 'name'`` when browsing
+  tracks. (PR #69)
+
 v2.0.2 (2016-01-03)
 -------------------
 
