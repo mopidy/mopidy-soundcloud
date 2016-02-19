@@ -144,9 +144,10 @@ class SoundCloudClient(object):
             return self._get('users/%s/tracks.json' % query_user_id)
 
         users = []
-        for playlist in self._get('me/followings.json?limit=60'):
-            name = playlist.get('username')
-            user_id = str(playlist.get('id'))
+        followings = self._get('me/followings.json?limit=60').get('collection')
+        for user in followings:
+            name = user.get('username')
+            user_id = str(user.get('id'))
             logger.debug('Fetched user %s with id %s' % (
                 name, user_id
             ))
