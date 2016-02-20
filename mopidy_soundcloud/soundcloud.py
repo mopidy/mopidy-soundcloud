@@ -1,6 +1,5 @@
 from __future__ import unicode_literals
 
-import collections
 import logging
 import re
 import string
@@ -9,10 +8,8 @@ import unicodedata
 from multiprocessing.pool import ThreadPool
 from urllib import quote_plus
 
-from mopidy.models import Album, Artist, Track
-
 import requests
-
+from mopidy.models import Album, Artist, Track
 
 logger = logging.getLogger(__name__)
 
@@ -91,19 +88,22 @@ class SoundCloudClient(object):
 
     @cache()
     def get_user_stream(self):
-        # User timeline like playlist which uses undocumented api
+        # User timeline like playlist which uses undocumented api:
         # https://api.soundcloud.com/e1/me/stream.json?limit=0
-        # additional parameters are 'promoted_playlist=true' or 'offset=00000152-cc97-84a0-0000-00002a293ab5'
+        # Additional parameters are: 'promoted_playlist=true'
+        # or 'offset=00000152-cc97-84a0-0000-00002a293ab5'
         tracks_and_playlists = []
         stream = self._get('e1/me/stream.json?limit=%s' % self.stream_entries)
         for data in stream.get('collection'):
             kind = data.get('type')
             # multiple types of track with same data
             if 'track' in kind:
-                tracks_and_playlists.append(self.parse_track(data.get('track')))
+                tracks_and_playlists.append(
+                    self.parse_track(data.get('track')))
             if 'playlist' in kind:
                 playlist = data.get('playlist')
-                tracks_and_playlists.append((playlist.get('title'), str(playlist.get('id'))))
+                tracks_and_playlists.append(
+                    (playlist.get('title'), str(playlist.get('id'))))
 
         return self.sanitize_tracks(tracks_and_playlists)
 
@@ -114,8 +114,9 @@ class SoundCloudClient(object):
     def get_explore(self, query_explore_id=None):
         explore = self.get_explore_categories()
         if query_explore_id:
-            url = 'explore/{urn}?limit={limit}&offset=0&linked_partitioning=1'\
-                .format(
+            url = \
+                'explore/{urn}?limit={limit}&offset=0&linked_partitioning=1' \
+                    .format(
                     urn=explore[int(query_explore_id)],
                     limit=self.explore_songs
                 )

@@ -88,7 +88,8 @@ class SoundCloudLibraryProvider(backend.LibraryProvider):
             try:
                 name, set_id = data
             except (TypeError, ValueError):
-                logger.debug('Adding track "%s" from stream to vfs' % data.name)
+                logger.debug(
+                    'Adding track "%s" from stream to vfs' % data.name)
                 vfs_list[data.name] = models.Ref.track(
                     uri=data.uri, name=data.name
                 )
