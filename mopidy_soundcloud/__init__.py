@@ -25,6 +25,7 @@ class SoundCloudExtension(ext.Extension):
         schema['auth_token'] = config.Secret()
         schema['explore'] = config.Deprecated()
         schema['explore_pages'] = config.Deprecated()
+        schema['stream_entries'] = config.Integer()
         return schema
 
     def validate_config(self, config):  # no_coverage

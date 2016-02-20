@@ -18,6 +18,7 @@ class ApiTest(unittest.TestCase):
         config = SoundCloudExtension().get_config_schema()
         config['auth_token'] = '1-35204-61921957-55796ebef403996'
         config['explore_songs'] = 10
+        config['stream_entries'] = 10
         # using this user http://maildrop.cc/inbox/mopidytestuser
         self.api = SoundCloudClient(config)
 
@@ -75,8 +76,8 @@ class ApiTest(unittest.TestCase):
 
     @vcr.use_cassette('tests/fixtures/sc-stream.yaml')
     def test_get_user_stream(self):
-        tracks = self.api.get_user_stream()
-        self.assertIsInstance(tracks, list)
+        tracks_and_playlists = self.api.get_user_stream()
+        self.assertIsInstance(tracks_and_playlists, list)
 
     @vcr.use_cassette('tests/fixtures/sc-explore.yaml')
     def test_get_explore(self):

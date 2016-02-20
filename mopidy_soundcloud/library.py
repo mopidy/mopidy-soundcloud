@@ -11,7 +11,6 @@ from mopidy.models import SearchResult, Track
 
 from mopidy_soundcloud.soundcloud import safe_url
 
-
 logger = logging.getLogger(__name__)
 
 
@@ -27,7 +26,6 @@ def new_folder(name, path):
 
 
 def simplify_search_query(query):
-
     if isinstance(query, dict):
         r = []
         for v in query.values():
@@ -81,6 +79,21 @@ class SoundCloudLibraryProvider(backend.LibraryProvider):
                 )
             else:
                 logger.debug('Adding liked playlist %s to vfs' % name)
+                vfs_list[set_id] = new_folder(name, ['sets', set_id])
+        return vfs_list.values()
+
+    def list_stream(self):
+        vfs_list = collections.OrderedDict()
+        for data in self.backend.remote.get_user_stream():
+            try:
+                name, set_id = data
+            except (TypeError, ValueError):
+                logger.debug('Adding track "%s" from stream to vfs' % data.name)
+                vfs_list[data.name] = models.Ref.track(
+                    uri=data.uri, name=data.name
+                )
+            else:
+                logger.debug('Adding playlist "%s" from stream to vfs' % name)
                 vfs_list[set_id] = new_folder(name, ['sets', set_id])
         return vfs_list.values()
 
@@ -166,9 +179,7 @@ class SoundCloudLibraryProvider(backend.LibraryProvider):
                 return self.list_liked()
             # User stream
             if 'stream' == req_type:
-                return self.tracklist_to_vfs(
-                    self.backend.remote.get_user_stream()
-                )
+                return self.list_stream()
 
         # root directory
         return self.vfs.get(uri, {}).values()

@@ -71,6 +71,7 @@ class SoundCloudClient(object):
         super(SoundCloudClient, self).__init__()
         token = config['auth_token']
         self.explore_songs = config.get('explore_songs', 10)
+        self.stream_entries = config.get('stream_entries', 100)
         self.http_client = requests.Session()
         self.http_client.headers.update({'Authorization': 'OAuth %s' % token})
 
@@ -91,22 +92,20 @@ class SoundCloudClient(object):
     @cache()
     def get_user_stream(self):
         # User timeline like playlist which uses undocumented api
-        # https://api.soundcloud.com/e1/me/stream.json?offset=0
-        # returns five elements per request
-        tracks = []
-        for sid in xrange(0, 2):
-            stream = self._get('e1/me/stream.json?offset=%s' % sid * 5)
-            for data in stream.get('collection'):
-                kind = data.get('type')
-                # multiple types of track with same data
-                if 'track' in kind:
-                    tracks.append(self.parse_track(data.get('track')))
-                if kind == 'playlist':
-                    playlist = data.get('playlist').get('tracks')
-                    if isinstance(playlist, collections.Iterable):
-                        tracks.extend(self.parse_results(playlist))
+        # https://api.soundcloud.com/e1/me/stream.json?limit=0
+        # additional parameters are 'promoted_playlist=true' or 'offset=00000152-cc97-84a0-0000-00002a293ab5'
+        tracks_and_playlists = []
+        stream = self._get('e1/me/stream.json?limit=%s' % self.stream_entries)
+        for data in stream.get('collection'):
+            kind = data.get('type')
+            # multiple types of track with same data
+            if 'track' in kind:
+                tracks_and_playlists.append(self.parse_track(data.get('track')))
+            if 'playlist' in kind:
+                playlist = data.get('playlist')
+                tracks_and_playlists.append((playlist.get('title'), str(playlist.get('id'))))
 
-        return self.sanitize_tracks(tracks)
+        return self.sanitize_tracks(tracks_and_playlists)
 
     @cache()
     def get_explore_categories(self):

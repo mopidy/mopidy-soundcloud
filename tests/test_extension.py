@@ -22,3 +22,4 @@ class ExtensionTest(unittest.TestCase):
 
         self.assertIn('auth_token', schema)
         self.assertIn('explore_songs', schema)
+        self.assertIn('stream_entries', schema)

@@ -86,6 +86,7 @@ Configuration
     [soundcloud]
     auth_token = 1-1111-1111111
     explore_songs = 25
+    stream_entries = 100
 
 
 Project resources
