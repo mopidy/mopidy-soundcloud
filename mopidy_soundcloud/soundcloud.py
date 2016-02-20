@@ -8,8 +8,9 @@ import unicodedata
 from multiprocessing.pool import ThreadPool
 from urllib import quote_plus
 
-import requests
 from mopidy.models import Album, Artist, Track
+
+import requests
 
 logger = logging.getLogger(__name__)
 
