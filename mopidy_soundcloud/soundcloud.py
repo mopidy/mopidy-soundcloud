@@ -110,7 +110,9 @@ class SoundCloudClient(object):
 
     @cache()
     def get_explore_categories(self):
-        return self._get('explore/categories', 'api-v2').get('music')
+        # TODO kriim the json string returned here contains many placeholders for names/titles etc.
+        explore_categories = self._get('explore/categories', 'api-v2')
+        return explore_categories.get('music')
 
     def get_explore(self, query_explore_id=None):
         explore = self.get_explore_categories()
@@ -282,6 +284,7 @@ class SoundCloudClient(object):
             track_kwargs[b'uri'] = self.get_streamble_url(data['stream_url'])
         else:
             track_kwargs[b'uri'] = 'soundcloud:song/%s.%s' % (
+                # TODO kriim safe_url would make more sense? and then delete readable_url
                 readable_url(data.get('title')), data.get('id')
             )
 

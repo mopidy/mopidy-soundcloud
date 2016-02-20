@@ -36,6 +36,17 @@ class ApiTest(unittest.TestCase):
                 uri='soundcloud:directory:test')
         )
 
+    def test_add_folder_with_spaces(self):
+        try:
+            from mopidy.models import Ref
+        except ImportError as e:
+            self.skipTest(e.message)
+        self.assertEquals(
+            new_folder('This is a test folder', ['This_is_a_test_folder']),
+            Ref(name='This is a test folder', type='directory',
+                uri='soundcloud:directory:This_is_a_test_folder')
+        )
+
     def test_mpc_search(self):
         self.assertEquals(
             simplify_search_query({u'any': [u'explosions in the sky']}),
@@ -69,6 +80,7 @@ class ApiTest(unittest.TestCase):
         self.assertIsNone(self.library.search(
             {'uri': 'http://www.youtube.com/watch?v=wD6H6Yhluo8'}))
 
+    # TODO kriim do we really need this?
     def test_returns_url_safe_string(self):
         self.assertEquals(
             safe_url('Alternative/Indie/rock/pop '),
