@@ -172,18 +172,26 @@ class SoundCloudClient(object):
         return playable_sets
 
     def get_user_liked(self):
-        # Note: As with get_user_stream, this API call is undocumented.
+        # Note: As with get_user_stream, this API call is undocumented. --Updated with _getv2 for alternative URL
         likes = []
-        liked = self._get('e1/me/likes.json?limit=1000')
-        for data in liked:
+        liked = self._getv2('https://api-v2.soundcloud.com/users','likes?limit=1000')
 
-            track = data['track']
-            if track:
-                likes.append(self.parse_track(track))
+        for data in liked['collection']:
+        #The Try/Catch makes sure that tracks/playlists which for whatever reason can't be parsed don't stop the entire process. 
 
-            pl = data['playlist']
-            if pl:
-                likes.append((pl['title'], str(pl['id'])))
+        try:
+             track = data['track']
+             if track:
+                 likes.append(self.parse_track(track))
+        except Exception:
+         pass       
+
+         try:
+              pl = data['playlist']
+              if pl:
+                  likes.append((pl['title'], str(pl['id'])))
+         except Exception:
+          pass      
 
         return self.sanitize_tracks(likes)
 
@@ -231,6 +239,21 @@ class SoundCloudClient(object):
         url = 'https://%s.soundcloud.com/%s' % (endpoint, url)
 
         logger.debug('Requesting %s' % url)
+        res = self.http_client.get(url)
+        res.raise_for_status()
+        return res.json()
+
+    def get_user_id(self):
+        userdata = self._get('me.json')
+        return userdata['id']
+
+    def _getv2(self, url, endstring, endpoint='api'):
+
+        iduser = self.get_user_id()
+
+        logger.debug('Requesting v2 %s' % url)
+        url = '%s/%s/%s' % (url, iduser, endstring)
+
         res = self.http_client.get(url)
         res.raise_for_status()
         return res.json()
