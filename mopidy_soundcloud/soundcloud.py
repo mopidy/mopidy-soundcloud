@@ -108,35 +108,6 @@ class SoundCloudClient(object):
 
         return self.sanitize_tracks(tracks)
 
-    @cache()
-    def get_explore_categories(self):
-        return self._get('explore/categories', 'api-v2').get('music')
-
-    def get_explore(self, query_explore_id=None):
-        explore = self.get_explore_categories()
-        if query_explore_id:
-            url = 'explore/{urn}?limit={limit}&offset=0&linked_partitioning=1'\
-                .format(
-                    urn=explore[int(query_explore_id)],
-                    limit=self.explore_songs
-                )
-            web_tracks = self._get(url, 'api-v2')
-            track_ids = map(lambda x: x.get('id'), web_tracks.get('tracks'))
-            return self.resolve_tracks(track_ids)
-        return explore
-
-    def get_groups(self, query_group_id=None):
-
-        if query_group_id:
-            web_tracks = self._get(
-                'groups/%d/tracks.json' % int(query_group_id))
-            tracks = []
-            for track in web_tracks:
-                if 'track' in track.get('kind'):
-                    tracks.append(self.parse_track(track))
-            return self.sanitize_tracks(tracks)
-        else:
-            return self._get('me/groups.json')
 
     def get_followings(self, query_user_id=None):
 

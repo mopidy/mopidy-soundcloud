@@ -78,18 +78,6 @@ class ApiTest(unittest.TestCase):
         tracks = self.api.get_user_stream()
         self.assertIsInstance(tracks, list)
 
-    @vcr.use_cassette('tests/fixtures/sc-explore.yaml')
-    def test_get_explore(self):
-        tracks = self.api.get_explore()
-        self.assertIsInstance(tracks, list)
-        self.assertEquals(tracks[0], 'Popular+Music')
-
-    @vcr.use_cassette('tests/fixtures/sc-popular.yaml')
-    def test_get_explore_popular_music(self):
-        tracks = self.api.get_explore('1')
-        self.assertIsInstance(tracks, list)
-        self.assertIsInstance(tracks[0], Track)
-
     @vcr.use_cassette('tests/fixtures/sc-following.yaml')
     def test_get_followings(self):
         tracks = self.api.get_followings()
@@ -99,16 +87,6 @@ class ApiTest(unittest.TestCase):
     def test_get_sets(self):
         tracks = self.api.get_sets()
         self.assertIsInstance(tracks, list)
-
-    @vcr.use_cassette('tests/fixtures/sc-groups.yaml')
-    def test_get_groups(self):
-        tracks = self.api.get_groups()
-        self.assertIsInstance(tracks, list)
-
-    @vcr.use_cassette('tests/fixtures/sc-tracks.yaml')
-    def test_get_group_tracks(self):
-        tracks = self.api.get_groups(136)
-        self.assertIsInstance(tracks[0], Track)
 
     def test_readeble_url(self):
         self.assertEquals('Barsuk Records',
