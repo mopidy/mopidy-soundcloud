@@ -4,27 +4,28 @@ interactions:
     headers:
       Accept: ['*/*']
       Accept-Encoding: ['gzip, deflate']
-      Authorization: [!!python/unicode 'OAuth 1-35204-61921957-55796ebef403996']
+      Authorization: [!!python/unicode OAuth 1-35204-61921957-55796ebef403996]
       Connection: [keep-alive]
-      User-Agent: [python-requests/2.4.3 CPython/2.7.8 Linux/3.16.0-28-generic]
+      User-Agent: [python-requests/2.11.1]
     method: GET
-    uri: https://api.soundcloud.com:443/tracks/38720262.json?client_id=93e33e327fd8a9b77becd179652272e2
+    uri: https://api.soundcloud.com/tracks/13158665?client_id=93e33e327fd8a9b77becd179652272e2
   response:
     body:
       string: !!binary |
-        H4sIAAAAAAAEA5VUTW+cMBD9K8jXLAsGlgRuqdSeovZSqUc0gBecNTa1DatNlP/eMR9bslUUdbUX
-        DzPPb9688Ss5cVmTnFgN1YnsCMdD/HAfhVEa7UilGVhWF2AxJQppFIRxEB68MMwTmkeJdxfiD8sG
-        w3ThapM4PBwedqQeNFiuJKIdkjShiKW6jkkLpWAkt3pgO2IsoiPykUtuWlYjkNK84RJEUSlpMb0w
-        /AVTaELTJEmzHRFgbNGpmh85FkysDkFI8e9YxWlOsysr04LmssGsfigFrxDfQlMIblw/eOqZ7kBw
-        ecJjOWgOwj+qQfuWWV+qETDFWNSg27JmXcnq2kWK8oKFIATm1eoshYIpTvIjCIMN9oOuWjCsGLQg
-        uRyEcA2UTExazedrjuXWSTNHGya1k8ZRnuPky0TQu/O+IUXvJ7Oe732fSdbMVJr3s+CuZr5EQrdg
-        aCYY8lgA3awLe+mX84ldUOZGgh3WO7nR1Zw88pqpLf+y71aSC2pxYaBvYx3Or70N1oCCzQ1eB31U
-        OAM3j66PHXNeMTkxRV19dENrja8Z+mucDIIiYG5rbW/yIICe740aZF0JNdR79FgwOdkEq4kR0pmT
-        5K+Tt1d/LrafPr33wWqApXDRcNV80vYfByYBRQemHg3zKMtpeHXgp2wdARPMrBD7ashZ8alPbPOm
-        xQ1FGMGC3mQ7VTjdG5SklpMgc4rx3arS5CGLszT2M9r0h8gXoBu2f+4b8rYscS/gUjp/VCgrjgU3
-        d1ruI4w4Mreuq7fX3dlc/jHV4IP1Am3PSp+2BjvDyJwpNriuqfO7pn6/nKLh/vnxa8zHotv3uOXr
-        rt7UfW6RYN5xJ/9t89khvc/Cv9u9qhLTZEcWSfCFMWs8CbMMvyxv3RqlaYwYYC1UrXsDDVL8PxcH
-        m2LHU+GauLfn8enpxy/y9gcvlQQkxwUAAA==
+        H4sIAAAAAAAAAJxVTZObMAz9K4yvDQEHkhJmemg7nZ46PWzvjIId8MbYjG2STXf2v1cOhBD6sW1z
+        wrKe9KQnOc/kIBQjOXEGygNZEIEHmtB1ttmsF6Q0HBxnBTh0WcWURnEaxZuArvPkbZ4mwZsYfwjr
+        LDeFxyab7ZbGdEFYZ8AJrTBcRuMtxtJNw5WDneQkd6bjC2IdRsfIe6GErTnDQNqISiiQRamVQ/fC
+        iu/ogrnTLFkQCdYVjWZiLzjrOSVRvIpoFtAtZsopHTnZGoxQFXq13U6KEk0OqkIK66uxulOslLpj
+        OX6akr8Tba0VDw0vtfFUWm4akEId0LvpVFljsBBc6AQoBTasNVbt8zjsUjOtizc7zpi3FLszokFK
+        9GP6pKQG1nvuQVp0bTF1DZYXnZEkV52Uvsgdl5du9ufRxwnnob214sqMh+GGfBl4BuCCbz3P4MqT
+        cVsa0faiTDMpaMZAhkuOqca4fiwKd2598L4zvqULcuBnlKZS4LobC2FNef0+Csb1tKpd28ySFGcO
+        Zm5rUPd6bmRwvprGAdlrlMcr2aSAhFBgrjxx3+0QnWpnUUucy+NlsDoj8K52rrV5FEErlrcJWOJs
+        RpdSbXQd/mGoSf5M7uZ62JfL3f2MgORPoXX8iDywxT2+7y15j3fBw+TuF4OMy7XB9MEqyddZnqa3
+        5XqNuk9ko4HilFXf/wsUkTPUT3zhCA7MBOPTCbq0iGKqx1xcbOiZxSndJtk6Cx/VftWyUIKp+PKx
+        rcjL8CC0Es47P0AlZkap6GDfwxFldLctuL4zJ+G17ztOV+nYbWhb5Df08sGX8dGXEYivD3/TH4Sj
+        sKv0961h2AWp8dLOsYjhT84LKe8hwnWK22v8SXN9+f+jQPSnRwaMO2lzmC7UCY7cL8FMsNOdYPun
+        qvv0+DmFp82Holm2l+XtX6wZ7vWViHqc7+JM2OztNrs9cKPcCSo4aI1l2at9Nf4ZXC0bLNA5KGtv
+        tMW/7mo0AZOXHwAAAP//AwCnTeIU1AYAAA==
     headers:
       access-control-allow-headers: ['Accept, Authorization, Content-Type, Origin']
       access-control-allow-methods: ['GET, PUT, POST, DELETE']
@@ -32,24 +33,23 @@ interactions:
       access-control-expose-headers: [Date]
       cache-control: ['private, max-age=0, must-revalidate']
       content-encoding: [gzip]
-      content-length: ['709']
+      content-length: ['766']
       content-type: [application/json; charset=utf-8]
-      date: ['Fri, 02 Jan 2015 17:03:55 GMT']
-      etag: ['"6152060d44f2e1ca16175b22acea932d"']
+      date: ['Thu, 27 Oct 2016 20:33:38 GMT']
+      etag: ['"26aec1a94b637a0f3bbfb2614d7cbd90"']
       server: [am/2]
-      set-cookie: [_session_auth_key="iuo9QNN6oaPVa3gj9XyKTHZtsxE="]
+      status: [200 OK]
     status: {code: 200, message: OK}
 - request:
     body: null
     headers:
       Accept: ['*/*']
       Accept-Encoding: ['gzip, deflate']
-      Authorization: [!!python/unicode 'OAuth 1-35204-61921957-55796ebef403996']
+      Authorization: [!!python/unicode OAuth 1-35204-61921957-55796ebef403996]
       Connection: [keep-alive]
-      Cookie: [_session_auth_key="iuo9QNN6oaPVa3gj9XyKTHZtsxE="]
-      User-Agent: [python-requests/2.4.3 CPython/2.7.8 Linux/3.16.0-28-generic]
+      User-Agent: [python-requests/2.11.1]
     method: HEAD
-    uri: https://api.soundcloud.com:443/tracks/38720262/stream?client_id=93e33e327fd8a9b77becd179652272e2
+    uri: https://api.soundcloud.com/tracks/13158665/stream?client_id=93e33e327fd8a9b77becd179652272e2
   response:
     body: {string: !!python/unicode ''}
     headers:
@@ -60,8 +60,75 @@ interactions:
       cache-control: [no-cache]
       content-length: ['0']
       content-type: [application/json; charset=utf-8]
-      date: ['Fri, 02 Jan 2015 17:03:55 GMT']
-      location: ['https://cf-media.sndcdn.com/qzk2u7jAE3iv.128.mp3?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiKjovL2NmLW1lZGlhLnNuZGNkbi5jb20vcXprMnU3akFFM2l2LjEyOC5tcDMiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE0MjAyMTg3MTB9fX1dfQ__&Signature=EKZT2x0hOy6g3Nn~fWvm-WOK0YJ27lFpWeU0PLvd5NEmEb8WbbSd5wyNbDN6XTYGN8TRdHUwj3jU8eQaZesNnrqE6f1HWNBA-e9-tM5bx9lrHTmJ3dQEHHRLulHt0emspkGQBRm25IhH7RMMLBM3UhB-McS~oH9rEizlpHDDAXIrNcwxGY0KG4R35auaJD-trqA3TKK3pm9ayQ-lSdgXrVjmum5TxL-15F72njAZ5WcmHKv7zSrM8-yD5HowS3n3nAQgc89mUSB834GxcIAciXg415ZF9gaHw8vgqmLvZHQVtIwVJRO73hvlh0hd4zrwh10INYnTROi3jbSkYjHw3A__&Key-Pair-Id=APKAJAGZ7VMH2PFPW6UQ']
+      date: ['Thu, 27 Oct 2016 20:33:39 GMT']
+      location: ['https://cf-media.sndcdn.com/fxguEjG4ax6B.128.mp3?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiKjovL2NmLW1lZGlhLnNuZGNkbi5jb20vZnhndUVqRzRheDZCLjEyOC5tcDMiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE0Nzc2MDA1NTd9fX1dfQ__&Signature=u9bxAkZOtTTF1VqTmLGmw3ENrqbiSTFK-sMvZL-ZsQK85DOepHh5MfPA4MNooszUy~PZqiVyBn4YnElhWyb~4B7kS6y0VZ6t-qF78CfTMOimemafpqfWJ8nYXczhM9pUpAwiS--lkNjGks4Qxi-FZJDBPG99gAIU0eVW78CADcpuOKLugGpzHl6gRPN2Z4zZ9dVujZ5MlG2OWnPuNiBcE~wUFwcOxt9N6ePTff-wMFQR2PGpEK6wc6bWuB4WFNBkE0bmEke4cOQjWHa5FwYEidZN5rvv5lVT1r07zzifnADEipwMaZ2-QYdqzOYaM4jymFDhl7DklaU24PY5C5mH0A__&Key-Pair-Id=APKAJAGZ7VMH2PFPW6UQ']
       server: [am/2]
+      status: [302 Found]
+    status: {code: 302, message: Found}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Authorization: [!!python/unicode OAuth 1-35204-61921957-55796ebef403996]
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.11.1]
+    method: GET
+    uri: https://api.soundcloud.com/tracks/13158665?client_id=93e33e327fd8a9b77becd179652272e2
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAAJxVTZObMAz9K4yvDQEHkhJmemg7nZ46PWzvjIId8MbYjG2STXf2v1cOhBD6sW1z
+        wrKe9KQnOc/kIBQjOXEGygNZEIEHmtB1ttmsF6Q0HBxnBTh0WcWURnEaxZuArvPkbZ4mwZsYfwjr
+        LDeFxyab7ZbGdEFYZ8AJrTBcRuMtxtJNw5WDneQkd6bjC2IdRsfIe6GErTnDQNqISiiQRamVQ/fC
+        iu/ogrnTLFkQCdYVjWZiLzjrOSVRvIpoFtAtZsopHTnZGoxQFXq13U6KEk0OqkIK66uxulOslLpj
+        OX6akr8Tba0VDw0vtfFUWm4akEId0LvpVFljsBBc6AQoBTasNVbt8zjsUjOtizc7zpi3FLszokFK
+        9GP6pKQG1nvuQVp0bTF1DZYXnZEkV52Uvsgdl5du9ufRxwnnob214sqMh+GGfBl4BuCCbz3P4MqT
+        cVsa0faiTDMpaMZAhkuOqca4fiwKd2598L4zvqULcuBnlKZS4LobC2FNef0+Csb1tKpd28ySFGcO
+        Zm5rUPd6bmRwvprGAdlrlMcr2aSAhFBgrjxx3+0QnWpnUUucy+NlsDoj8K52rrV5FEErlrcJWOJs
+        RpdSbXQd/mGoSf5M7uZ62JfL3f2MgORPoXX8iDywxT2+7y15j3fBw+TuF4OMy7XB9MEqyddZnqa3
+        5XqNuk9ko4HilFXf/wsUkTPUT3zhCA7MBOPTCbq0iGKqx1xcbOiZxSndJtk6Cx/VftWyUIKp+PKx
+        rcjL8CC0Es47P0AlZkap6GDfwxFldLctuL4zJ+G17ztOV+nYbWhb5Df08sGX8dGXEYivD3/TH4Sj
+        sKv0961h2AWp8dLOsYjhT84LKe8hwnWK22v8SXN9+f+jQPSnRwaMO2lzmC7UCY7cL8FMsNOdYPun
+        qvv0+DmFp82Holm2l+XtX6wZ7vWViHqc7+JM2OztNrs9cKPcCSo4aI1l2at9Nf4ZXC0bLNA5KGtv
+        tMW/7mo0AZOXHwAAAP//AwCnTeIU1AYAAA==
+    headers:
+      access-control-allow-headers: ['Accept, Authorization, Content-Type, Origin']
+      access-control-allow-methods: ['GET, PUT, POST, DELETE']
+      access-control-allow-origin: ['*']
+      access-control-expose-headers: [Date]
+      cache-control: ['private, max-age=0, must-revalidate']
+      content-encoding: [gzip]
+      content-length: ['766']
+      content-type: [application/json; charset=utf-8]
+      date: ['Thu, 27 Oct 2016 20:34:04 GMT']
+      etag: ['"26aec1a94b637a0f3bbfb2614d7cbd90"']
+      server: [am/2]
+      status: [200 OK]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Authorization: [!!python/unicode OAuth 1-35204-61921957-55796ebef403996]
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.11.1]
+    method: HEAD
+    uri: https://api.soundcloud.com/tracks/13158665/stream?client_id=93e33e327fd8a9b77becd179652272e2
+  response:
+    body: {string: !!python/unicode ''}
+    headers:
+      access-control-allow-headers: ['Accept, Authorization, Content-Type, Origin']
+      access-control-allow-methods: ['GET, PUT, POST, DELETE']
+      access-control-allow-origin: ['*']
+      access-control-expose-headers: [Date]
+      cache-control: [no-cache]
+      content-length: ['0']
+      content-type: [application/json; charset=utf-8]
+      date: ['Thu, 27 Oct 2016 20:34:04 GMT']
+      location: ['https://cf-media.sndcdn.com/fxguEjG4ax6B.128.mp3?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiKjovL2NmLW1lZGlhLnNuZGNkbi5jb20vZnhndUVqRzRheDZCLjEyOC5tcDMiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE0Nzc2MDA1ODJ9fX1dfQ__&Signature=j3FhlV0efnkCUciO8OLYpHHA2UugEd2~YuqkRFAsgvOoB9Zf1G5Jr5x1MQG2-7kH~OkJIozVvBOxzjhw959xbN4wEkAfTEfVpGWZHCQUYZ8UqbecilnqKROvMgPuLeDTlud~v5Mmhr03M4PXojYhjEYkSTMzkpPRqa2T6u~AiXsnZzFMhQVomU5L2gNGQxNvGx5~RIHNR3SvnFR5qJcX2HViB6HZZQ08PhriP~J3xE1-t55m31kInKQcGkxL-frqbj0s4jbp0duD15eW44ZaLy34YUqrwWrBEE4CETa0H1UvBOms~3wdHIgao-qPQhS7qTZtKmD6SUxMDlROWv2ygg__&Key-Pair-Id=APKAJAGZ7VMH2PFPW6UQ']
+      server: [am/2]
+      status: [302 Found]
     status: {code: 302, message: Found}
 version: 1
