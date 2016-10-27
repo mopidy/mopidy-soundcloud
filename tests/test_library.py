@@ -85,12 +85,8 @@ class ApiTest(unittest.TestCase):
         self.assertEquals(
             self.library.browse('soundcloud:directory'),
             [
-                Ref(name='Explore', type='directory',
-                    uri='soundcloud:directory:explore'),
                 Ref(name='Following', type='directory',
                     uri='soundcloud:directory:following'),
-                Ref(name='Groups', type='directory',
-                    uri='soundcloud:directory:groups'),
                 Ref(name='Liked', type='directory',
                     uri='soundcloud:directory:liked'),
                 Ref(name='Sets', type='directory',

@@ -4,15 +4,15 @@ interactions:
     headers:
       Accept: ['*/*']
       Accept-Encoding: ['gzip, deflate']
-      Authorization: [!!python/unicode 'OAuth 1-35204-61921957-55796ebef403996']
+      Authorization: [!!python/unicode OAuth 1-35204-61921957-55796ebef403996]
       Connection: [keep-alive]
-      User-Agent: [python-requests/2.4.3 CPython/2.7.8 Linux/3.16.0-28-generic]
+      User-Agent: [python-requests/2.11.1]
     method: GET
-    uri: https://api.soundcloud.com:443/e1/me/likes.json?limit=1000&client_id=93e33e327fd8a9b77becd179652272e2
+    uri: https://api.soundcloud.com/e1/me/likes.json?limit=1000&client_id=93e33e327fd8a9b77becd179652272e2
   response:
     body:
       string: !!binary |
-        H4sIAAAAAAAEA4uOBQApu0wNAgAAAA==
+        H4sIAAAAAAAAAIqOBQAAAP//AwApu0wNAgAAAA==
     headers:
       access-control-allow-headers: ['Accept, Authorization, Content-Type, Origin']
       access-control-allow-methods: ['GET, PUT, POST, DELETE']
@@ -20,10 +20,39 @@ interactions:
       access-control-expose-headers: [Date]
       cache-control: ['private, max-age=0, must-revalidate']
       content-encoding: [gzip]
-      content-length: ['22']
+      content-length: ['28']
       content-type: [application/json; charset=utf-8]
-      date: ['Fri, 02 Jan 2015 17:03:54 GMT']
+      date: ['Thu, 27 Oct 2016 20:27:24 GMT']
       etag: ['"d751713988987e9331980363e24189ce"']
       server: [am/2]
+      status: [200 OK]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Authorization: [!!python/unicode OAuth 1-35204-61921957-55796ebef403996]
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.11.1]
+    method: GET
+    uri: https://api.soundcloud.com/e1/me/likes?limit=1000&client_id=93e33e327fd8a9b77becd179652272e2
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAAIqOBQAAAP//AwApu0wNAgAAAA==
+    headers:
+      access-control-allow-headers: ['Accept, Authorization, Content-Type, Origin']
+      access-control-allow-methods: ['GET, PUT, POST, DELETE']
+      access-control-allow-origin: ['*']
+      access-control-expose-headers: [Date]
+      cache-control: ['private, max-age=0, must-revalidate']
+      content-encoding: [gzip]
+      content-length: ['28']
+      content-type: [application/json; charset=utf-8]
+      date: ['Thu, 27 Oct 2016 20:34:07 GMT']
+      etag: ['"d751713988987e9331980363e24189ce"']
+      server: [am/2]
+      status: [200 OK]
     status: {code: 200, message: OK}
 version: 1

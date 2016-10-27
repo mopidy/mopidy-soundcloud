@@ -75,7 +75,7 @@ class SoundCloudClient(object):
         self.http_client.headers.update({'Authorization': 'OAuth %s' % token})
 
         try:
-            self._get('me.json')
+            self._get('me')
         except Exception as err:
             if err.response is not None and err.response.status_code == 401:
                 logger.error('Invalid "auth_token" used for SoundCloud '
@@ -86,16 +86,16 @@ class SoundCloudClient(object):
     @property
     @cache()
     def user(self):
-        return self._get('me.json')
+        return self._get('me')
 
     @cache()
     def get_user_stream(self):
         # User timeline like playlist which uses undocumented api
-        # https://api.soundcloud.com/e1/me/stream.json?offset=0
+        # https://api.soundcloud.com/e1/me/stream?offset=0
         # returns five elements per request
         tracks = []
         for sid in xrange(0, 2):
-            stream = self._get('e1/me/stream.json?offset=%s' % sid * 5)
+            stream = self._get('e1/me/stream?offset=%s' % sid * 5)
             for data in stream.get('collection'):
                 kind = data.get('type')
                 # multiple types of track with same data
@@ -108,43 +108,13 @@ class SoundCloudClient(object):
 
         return self.sanitize_tracks(tracks)
 
-    @cache()
-    def get_explore_categories(self):
-        return self._get('explore/categories', 'api-v2').get('music')
-
-    def get_explore(self, query_explore_id=None):
-        explore = self.get_explore_categories()
-        if query_explore_id:
-            url = 'explore/{urn}?limit={limit}&offset=0&linked_partitioning=1'\
-                .format(
-                    urn=explore[int(query_explore_id)],
-                    limit=self.explore_songs
-                )
-            web_tracks = self._get(url, 'api-v2')
-            track_ids = map(lambda x: x.get('id'), web_tracks.get('tracks'))
-            return self.resolve_tracks(track_ids)
-        return explore
-
-    def get_groups(self, query_group_id=None):
-
-        if query_group_id:
-            web_tracks = self._get(
-                'groups/%d/tracks.json' % int(query_group_id))
-            tracks = []
-            for track in web_tracks:
-                if 'track' in track.get('kind'):
-                    tracks.append(self.parse_track(track))
-            return self.sanitize_tracks(tracks)
-        else:
-            return self._get('me/groups.json')
-
     def get_followings(self, query_user_id=None):
 
         if query_user_id:
-            return self._get('users/%s/tracks.json' % query_user_id)
+            return self._get('users/%s/tracks' % query_user_id)
 
         users = []
-        for playlist in self._get('me/followings.json?limit=60'):
+        for playlist in self._get('me/followings.json?limit=60')['collection']:
             name = playlist.get('username')
             user_id = str(playlist.get('id'))
             logger.debug('Fetched user %s with id %s' % (
@@ -156,12 +126,12 @@ class SoundCloudClient(object):
 
     @cache()
     def get_set(self, set_id):
-        playlist = self._get('playlists/%s.json' % set_id)
+        playlist = self._get('playlists/%s' % set_id)
         return playlist.get('tracks', [])
 
     def get_sets(self):
         playable_sets = []
-        for playlist in self._get('me/playlists.json?limit=1000'):
+        for playlist in self._get('me/playlists?limit=1000'):
             name = playlist.get('title')
             set_id = str(playlist.get('id'))
             tracks = playlist.get('tracks')
@@ -174,7 +144,7 @@ class SoundCloudClient(object):
     def get_user_liked(self):
         # Note: As with get_user_stream, this API call is undocumented.
         likes = []
-        liked = self._get('e1/me/likes.json?limit=1000')
+        liked = self._get('e1/me/likes?limit=1000')
         for data in liked:
 
             track = data['track']
@@ -192,7 +162,7 @@ class SoundCloudClient(object):
     def get_track(self, track_id, streamable=False):
         logger.debug('Getting info for track with id %s' % track_id)
         try:
-            return self.parse_track(self._get('tracks/%s.json' % track_id),
+            return self.parse_track(self._get('tracks/%s' % track_id),
                                     streamable)
         except Exception:
             return None
@@ -206,7 +176,7 @@ class SoundCloudClient(object):
     def search(self, query):
 
         search_results = self._get(
-            'tracks.json?q=%s&filter=streamable&order=hotness&limit=%d' % (
+            'tracks?q=%s&filter=streamable&order=hotness&limit=%d' % (
                 quote_plus(query.encode('utf-8')), self.explore_songs))
         tracks = []
         for track in search_results:
@@ -220,7 +190,7 @@ class SoundCloudClient(object):
         return self.sanitize_tracks(tracks)
 
     def resolve_url(self, uri):
-        return self.parse_results([self._get('resolve.json?url=%s' % uri)])
+        return self.parse_results([self._get('resolve?url=%s' % uri)])
 
     def _get(self, url, endpoint='api'):
         if '?' in url:

@@ -4,15 +4,25 @@ interactions:
     headers:
       Accept: ['*/*']
       Accept-Encoding: ['gzip, deflate']
-      Authorization: [!!python/unicode 'OAuth 1-35204-61921957-55796ebef403996']
+      Authorization: [!!python/unicode OAuth 1-35204-61921957-55796ebef403996]
       Connection: [keep-alive]
-      User-Agent: [python-requests/2.4.3 CPython/2.7.8 Linux/3.16.0-28-generic]
+      User-Agent: [python-requests/2.11.1]
     method: GET
-    uri: https://api.soundcloud.com:443/me/followings.json?limit=60&client_id=93e33e327fd8a9b77becd179652272e2
+    uri: https://api.soundcloud.com/me/followings.json?limit=60&client_id=93e33e327fd8a9b77becd179652272e2
   response:
     body:
       string: !!binary |
-        H4sIAAAAAAAEA4uOBQApu0wNAgAAAA==
+        H4sIAAAAAAAAAJyTTY/aMBCG/0rka4HE+QCSU6uWa1Wp6qlbRcYxMMWxI9uBRSv+e8dLCAF2pbLi
+        kryZmXc+Hl4I11IK7kArUvx+IWzHHDNlayQpyMa5xhZhCHRiVcUrNeG6Dk8hdhxFURyneZ5mSTbm
+        m2SauLFkZi0mf5s1GRGoSEHnSZLQOJqOyBYUCqS1wuDHRpiaSVDbgRU6Wd2ikdRt9WrlNmDBqtZn
+        tAYGLbEGJjfBvrINe0efgopitcC8U43eFZVhbcmsK2tdwQqEbzKO6DSkUUhnAc2LjBbZNPiE80YY
+        uwKDwV3Z7/qS30mLmtU+rJVyGBV0Ogd3QOkrA6PxtRKWG2hO+yc/jK5aLsyTWjxjr1AL5ZgMfvpB
+        gy/GgXVPyv9e07tHjTHcFYFCl4lAl1n8eV0zkH4r3hGznfGmi/Whcag4w/i2fNXxRDPcS7uUwMsV
+        22kDTtjztwjnQD70Hjd71pI0P6ug1r2cxVhGsm4KNKkPtmFcdDtQuA6cFizXmDPU9mJp0bN04OSt
+        eH41otHW9V7UD1X75VykdES0wtNizopJK/AosL2aBLs7SNxgn3IcPcw7ndEsRcTGqx3VS7jjfZbM
+        8zj7GOyVUHqHYf/P+sntGvRvlypD2gfF34M9jgI6L2hSZOnbsN+AfgP5he07rIcQng56RWCaPIhg
+        SnOavQVhNGQw+IU81Fir+jiN/d66/1LP5fmG+/1+chNzA2t6D2v0OKvz458RUeLZlRsjVqduj/8A
+        AAD//wMAEhk/kr4FAAA=
     headers:
       access-control-allow-headers: ['Accept, Authorization, Content-Type, Origin']
       access-control-allow-methods: ['GET, PUT, POST, DELETE']
@@ -20,10 +30,45 @@ interactions:
       access-control-expose-headers: [Date]
       cache-control: ['private, max-age=0, must-revalidate']
       content-encoding: [gzip]
-      content-length: ['22']
-      content-type: [application/json; charset=utf-8]
-      date: ['Fri, 02 Jan 2015 17:03:52 GMT']
-      etag: ['"d751713988987e9331980363e24189ce"']
+      content-length: ['584']
+      content-type: [application/json]
+      date: ['Thu, 27 Oct 2016 20:26:05 GMT']
+      server: [am/2]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Authorization: [!!python/unicode OAuth 1-35204-61921957-55796ebef403996]
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.11.1]
+    method: GET
+    uri: https://api.soundcloud.com/me/followings?limit=60&client_id=93e33e327fd8a9b77becd179652272e2
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAAJyTTY/aMBCG/0rka4HE+QCSU6uWa1Wp6qlbRcYxMMWxI9uBRSv+e8dLCAF2pbLi
+        kryZmXc+Hl4I11IK7kArUvx+IWzHHDNlayQpyMa5xhZhCHRiVcUrNeG6Dk8hdhxFURyneZ5mSTbm
+        m2SauLFkZi0mf5s1GRGoSEHnSZLQOJqOyBYUCqS1wuDHRpiaSVDbgRU6Wd2ikdRt9WrlNmDBqtZn
+        tAYGLbEGJjfBvrINe0efgopitcC8U43eFZVhbcmsK2tdwQqEbzKO6DSkUUhnAc2LjBbZNPiE80YY
+        uwKDwV3Z7/qS30mLmtU+rJVyGBV0Ogd3QOkrA6PxtRKWG2hO+yc/jK5aLsyTWjxjr1AL5ZgMfvpB
+        gy/GgXVPyv9e07tHjTHcFYFCl4lAl1n8eV0zkH4r3hGznfGmi/Whcag4w/i2fNXxRDPcS7uUwMsV
+        22kDTtjztwjnQD70Hjd71pI0P6ug1r2cxVhGsm4KNKkPtmFcdDtQuA6cFizXmDPU9mJp0bN04OSt
+        eH41otHW9V7UD1X75VykdES0wtNizopJK/AosL2aBLs7SNxgn3IcPcw7ndEsRcTGqx3VS7jjfZbM
+        8zj7GOyVUHqHYf/P+sntGvRvlypD2gfF34M9jgI6L2hSZOnbsN+AfgP5he07rIcQng56RWCaPIhg
+        SnOavQVhNGQw+IU81Fir+jiN/d66/1LP5fmG+/1+chNzA2t6D2v0OKvz458RUeLZlRsjVqduj/8A
+        AAD//wMAEhk/kr4FAAA=
+    headers:
+      access-control-allow-headers: ['Accept, Authorization, Content-Type, Origin']
+      access-control-allow-methods: ['GET, PUT, POST, DELETE']
+      access-control-allow-origin: ['*']
+      access-control-expose-headers: [Date]
+      cache-control: ['private, max-age=0, must-revalidate']
+      content-encoding: [gzip]
+      content-length: ['584']
+      content-type: [application/json]
+      date: ['Thu, 27 Oct 2016 20:34:06 GMT']
       server: [am/2]
     status: {code: 200, message: OK}
 version: 1
