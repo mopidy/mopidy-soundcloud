@@ -13,13 +13,7 @@ from mopidy.models import Album, Artist, Track
 
 import requests
 
-
 logger = logging.getLogger(__name__)
-
-
-def safe_url(uri):
-    return quote_plus(
-        unicodedata.normalize('NFKD', unicode(uri)).encode('ASCII', 'ignore'))
 
 
 def readable_url(uri):
@@ -110,12 +104,14 @@ class SoundCloudClient(object):
 
     @cache()
     def get_explore_categories(self):
-        return self._get('explore/categories', 'api-v2').get('music')
+        explore_categories = self._get('explore/categories', 'api-v2')
+        return explore_categories.get('music')
 
     def get_explore(self, query_explore_id=None):
         explore = self.get_explore_categories()
         if query_explore_id:
-            url = 'explore/{urn}?limit={limit}&offset=0&linked_partitioning=1'\
+            url = \
+                'explore/{urn}?limit={limit}&offset=0&linked_partitioning=1' \
                 .format(
                     urn=explore[int(query_explore_id)],
                     limit=self.explore_songs

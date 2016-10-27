@@ -8,7 +8,6 @@ import pykka
 from mopidy_soundcloud import SoundCloudExtension, actor
 from mopidy_soundcloud.library import (
     SoundCloudLibraryProvider, new_folder, simplify_search_query)
-from mopidy_soundcloud.soundcloud import safe_url
 
 
 class ApiTest(unittest.TestCase):
@@ -34,6 +33,17 @@ class ApiTest(unittest.TestCase):
             new_folder('Test', ['test']),
             Ref(name='Test', type='directory',
                 uri='soundcloud:directory:test')
+        )
+
+    def test_add_folder_with_spaces(self):
+        try:
+            from mopidy.models import Ref
+        except ImportError as e:
+            self.skipTest(e.message)
+        self.assertEquals(
+            new_folder('This is a test folder', ['This_is_a_test_folder']),
+            Ref(name='This is a test folder', type='directory',
+                uri='soundcloud:directory:This_is_a_test_folder')
         )
 
     def test_mpc_search(self):
@@ -68,14 +78,6 @@ class ApiTest(unittest.TestCase):
     def test_only_resolves_soundcloud_uris(self):
         self.assertIsNone(self.library.search(
             {'uri': 'http://www.youtube.com/watch?v=wD6H6Yhluo8'}))
-
-    def test_returns_url_safe_string(self):
-        self.assertEquals(
-            safe_url('Alternative/Indie/rock/pop '),
-            'Alternative%2FIndie%2Frock%2Fpop+')
-        self.assertEquals(
-            safe_url('D∃∃P Hau⑀ iNDiE DᴬNCE | №➊ ²⁰¹⁴'),
-            'DP+Hau+iNDiE+DANCE+%7C+No+2014')
 
     def test_default_folders(self):
         try:
