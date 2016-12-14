@@ -221,10 +221,12 @@ class SoundCloudClient(object):
                 tracks.append(self.parse_track(item))
             elif item['kind'] == 'playlist':
                 for track in item['tracks']:
-                    logger.debug('  Parsing item %s in playlist...', track['kind'])
+                    logger.debug('  Parsing item %s in playlist...', \
+                                 track['kind'])
                     tracks.append(self.parse_track(track))
             else:
-                logger.warning("I don't know how to parse a '%s'.", item['kind'])
+                logger.warning("I don't know how to parse a '%s'.", \
+                               item['kind'])
         return self.sanitize_tracks(tracks)
 
     def resolve_url(self, uri):
