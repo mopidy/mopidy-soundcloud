@@ -157,11 +157,40 @@ class SoundCloudLibraryProvider(backend.LibraryProvider):
             )
 
     def lookup(self, uri):
-        if 'sc:' in uri:
-            uri = uri.replace('sc:', '')
-            return self.backend.remote.resolve_url(uri)
-
         try:
+            # try to resolve streams first
+            if 'soundcloud:directory:stream' in uri:
+                return self.backend.remote.get_user_stream()
+
+            if 'soundcloud:directory:explore' in uri:
+                explore_id = uri[len('soundcloud:directory:explore/'):]
+                if explore_id == '':
+                    return []
+                return self.backend.remote.get_explore(explore_id)
+
+            if 'soundcloud:directory:groups' in uri:
+                group_id = uri[len('soundcloud:directory:groups/'):]
+                if group_id == '':
+                    return []
+                return self.backend.remote.get_groups(group_id)
+
+            if 'soundcloud:directory:liked' in uri:
+                return self.backend.remote.get_user_liked()
+
+            if 'soundcloud:directory:following' in uri:
+                return self.backend.remote.get_followings()
+
+            if 'soundcloud:directory:sets' in uri:
+                set_id = uri[len('soundcloud:directory:sets/'):]
+                if set_id == '':
+                    return []
+                return self.backend.remote.get_set(set_id)
+
+            # try to resolve single track
+            if 'sc:' in uri:
+                uri = uri.replace('sc:', '')
+                return self.backend.remote.resolve_url(uri)
+
             track_id = self.backend.remote.parse_track_uri(uri)
             track = self.backend.remote.get_track(track_id)
             if track is None:
@@ -169,6 +198,11 @@ class SoundCloudLibraryProvider(backend.LibraryProvider):
                     'Failed to lookup %s: SoundCloud track not found' % uri)
                 return []
             return [track]
+
         except Exception as error:
-            logger.error('Failed to lookup %s: %s', uri, error)
+            logger.error(
+                'Failed to resolve URI "%s": %s',
+                uri,
+                error
+            )
             return []
