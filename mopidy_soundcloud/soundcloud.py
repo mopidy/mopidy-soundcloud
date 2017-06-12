@@ -12,6 +12,7 @@ from urllib import quote_plus
 from mopidy.models import Album, Artist, Track
 
 import requests
+from requests.adapters import HTTPAdapter
 
 
 logger = logging.getLogger(__name__)
@@ -71,7 +72,11 @@ class SoundCloudClient(object):
         super(SoundCloudClient, self).__init__()
         token = config['auth_token']
         self.explore_songs = config.get('explore_songs', 10)
+        max_retries = config.get('http_max_retries',
+                                 requests.adapters.DEFAULT_RETRIES)
         self.http_client = requests.Session()
+        self.http_client.mount('https://api.soundcloud.com',
+                               HTTPAdapter(max_retries=max_retries))
         self.http_client.headers.update({'Authorization': 'OAuth %s' % token})
 
         try:
