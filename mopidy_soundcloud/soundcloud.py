@@ -190,7 +190,16 @@ class SoundCloudClient(object):
         return self.sanitize_tracks(tracks)
 
     def resolve_url(self, uri):
-        return self.parse_results([self._get('resolve?url=%s' % uri)])
+        data = self._get('resolve?url=%s' % uri)
+        kind = data.get("kind")
+        if not kind:
+            return
+        tracks = []
+        if kind == "track":
+            tracks.append(data)
+        elif kind == "playlist":
+            tracks = data.get("tracks", [])
+        return self.parse_results(tracks)
 
     def _get(self, url, endpoint='api'):
         if '?' in url:
