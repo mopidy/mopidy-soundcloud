@@ -108,6 +108,14 @@ class ApiTest(unittest.TestCase):
         self.assertIsInstance(track, Track)
         self.assertEquals(
             track.uri,
-            'https://api.soundcloud.com/tracks/'
-            '13158665/stream?client_id=93e33e327fd8a9b77becd179652272e2'
+            'https://cf-media.sndcdn.com/fxguEjG4ax6B.128.mp3?Policy=eyJTdGF0ZW'
+            '1lbnQiOlt7IlJlc291cmNlIjoiKjovL2NmLW1lZGlhLnNuZGNkbi5jb20vZnhndUVq'
+            'RzRheDZCLjEyOC5tcDMiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUz'
+            'pFcG9jaFRpbWUiOjE0Nzc2MDA1NTd9fX1dfQ__&Signature=u9bxAkZOtTTF1VqTm'
+            'LGmw3ENrqbiSTFK-sMvZL-ZsQK85DOepHh5MfPA4MNooszUy~PZqiVyBn4YnElhWyb'
+            '~4B7kS6y0VZ6t-qF78CfTMOimemafpqfWJ8nYXczhM9pUpAwiS--lkNjGks4Qxi-FZ'
+            'JDBPG99gAIU0eVW78CADcpuOKLugGpzHl6gRPN2Z4zZ9dVujZ5MlG2OWnPuNiBcE~w'
+            'UFwcOxt9N6ePTff-wMFQR2PGpEK6wc6bWuB4WFNBkE0bmEke4cOQjWHa5FwYEidZN5'
+            'rvv5lVT1r07zzifnADEipwMaZ2-QYdqzOYaM4jymFDhl7DklaU24PY5C5mH0A__&Ke'
+            'y-Pair-Id=APKAJAGZ7VMH2PFPW6UQ'
         )

@@ -30,6 +30,10 @@ def readable_url(uri):
                   ''.join(c for c in safe_uri if c in valid_chars)).strip()
 
 
+def streamble_url(url, client_id):
+    return '%s?client_id=%s' % (url, client_id)
+
+
 class cache(object):
     # TODO: merge this to util library
 
@@ -254,12 +258,12 @@ class SoundCloudClient(object):
             track_kwargs[b'date'] = data['date']
 
         if remote_url:
-            if not self.can_be_streamed(data['stream_url']):
+            track_kwargs[b'uri'] = self.get_streamble_url(data['stream_url'])
+            if track_kwargs[b'uri'] is None:
                 logger.info(
                     "'%s' can't be streamed from SoundCloud" % data.get(
                         'title'))
                 return None
-            track_kwargs[b'uri'] = self.get_streamble_url(data['stream_url'])
         else:
             track_kwargs[b'uri'] = 'soundcloud:song/%s.%s' % (
                 readable_url(data.get('title')), data.get('id')
@@ -286,12 +290,12 @@ class SoundCloudClient(object):
         return track
 
     @cache()
-    def can_be_streamed(self, url):
-        req = self.http_client.head(self.get_streamble_url(url))
-        return req.status_code == 302
-
     def get_streamble_url(self, url):
-        return '%s?client_id=%s' % (url, self.CLIENT_ID)
+        req = self.http_client.head(streamble_url(url, self.CLIENT_ID))
+        if req.status_code == 302:
+            return req.headers.get('Location', None)
+        elif req.status_code == 429:
+            logger.info('SoundCloud daily rate limit exceeded')
 
     def resolve_tracks(self, track_ids):
         """Resolve tracks concurrently emulating browser
