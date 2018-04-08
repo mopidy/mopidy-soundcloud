@@ -96,14 +96,14 @@ class SoundCloudClient(object):
     def get_user_stream(self):
         # https://developers.soundcloud.com/docs/api/reference#activities
         tracks = []
-        stream = self._get('me/activities?limit=500').get('collection')
+        stream = self._get('me/activities', limit=True).get('collection')
         for data in stream:
             kind = data.get('origin')
             # multiple types of track with same data
             if kind:
                 if kind['kind'] == 'track':
                     tracks.append(self.parse_track(kind))
-                if kind['kind'] == 'playlist':
+                elif kind['kind'] == 'playlist':
                     playlist = kind.get('tracks')
                     if isinstance(playlist, collections.Iterable):
                         tracks.extend(self.parse_results(playlist))
@@ -116,7 +116,7 @@ class SoundCloudClient(object):
             return self._get('users/%s/tracks' % query_user_id)
 
         users = []
-        for playlist in self._get('me/followings?limit=500')['collection']:
+        for playlist in self._get('me/followings', limit=True)['collection']:
             name = playlist.get('username')
             user_id = str(playlist.get('id'))
             logger.debug('Fetched user %s with id %s' % (
@@ -134,7 +134,7 @@ class SoundCloudClient(object):
 
     def get_sets(self):
         playable_sets = []
-        for playlist in self._get('me/playlists?limit=500'):
+        for playlist in self._get('me/playlists', limit=True):
             name = playlist.get('title')
             set_id = str(playlist.get('id'))
             tracks = playlist.get('tracks')
@@ -147,7 +147,7 @@ class SoundCloudClient(object):
     def get_user_liked(self):
         # https://developers.soundcloud.com/docs/api/reference#GET--users--id--favorites
         likes = []
-        liked = self._get('me/favorites?limit=500')
+        liked = self._get('me/favorites', limit=True)
         for data in liked:
 
             if data['kind'] == 'track':
@@ -176,9 +176,8 @@ class SoundCloudClient(object):
 
     def search(self, query):
         # https://developers.soundcloud.com/docs/api/reference#tracks
-        search_results = self._get(
-            'tracks?q=%s&limit=%d' % (
-                quote_plus(query.encode('utf-8')), self.explore_songs))
+        query = quote_plus(query.encode('utf-8'))
+        search_results = self._get('tracks?q=%s' % query, limit=True)
         tracks = []
         for track in search_results:
             tracks.append(self.parse_track(track, False))
@@ -203,16 +202,14 @@ class SoundCloudClient(object):
     def resolve_url(self, uri):
         return self.parse_results([self._get('resolve?url=%s' % uri)])
 
-    def _get(self, url, endpoint='api'):
-        if '?' in url:
-            url = '%s&client_id=%s' % (url, self.CLIENT_ID)
-        else:
-            url = '%s?client_id=%s' % (url, self.CLIENT_ID)
-
-        url = 'https://%s.soundcloud.com/%s' % (endpoint, url)
-
-        logger.debug('Requesting %s' % url)
-        res = self.http_client.get(url)
+    def _get(self, url, limit=None):
+        url = 'https://api.soundcloud.com/%s' % url
+        if limit:
+            limit = self.explore_songs
+        res = self.http_client.get(url, params={
+            'client_id': self.CLIENT_ID,
+            'limit': limit})
+        logger.info('Requested %s', res.url)
         res.raise_for_status()
         return res.json()
 
