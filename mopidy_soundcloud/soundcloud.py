@@ -78,8 +78,10 @@ class SoundCloudClient(object):
         self.http_client = requests.Session()
         self.http_client.headers.update({'Authorization': 'OAuth %s' % token})
 
+    def check_login(self):
         try:
-            self._get('me')
+            username = self.user.get('username', 'UNKNOWN')
+            logger.info('Logged in to SoundCloud as "%s"', username)
         except Exception as err:
             if err.response is not None and err.response.status_code == 401:
                 logger.error('Invalid "auth_token" used for SoundCloud '

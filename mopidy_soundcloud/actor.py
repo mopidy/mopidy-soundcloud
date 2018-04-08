@@ -24,6 +24,9 @@ class SoundCloudBackend(pykka.ThreadingActor, backend.Backend):
 
         self.uri_schemes = ['soundcloud', 'sc']
 
+    def on_start(self):
+        self.remote.check_login()
+
 
 class SoundCloudPlaybackProvider(backend.PlaybackProvider):
 
