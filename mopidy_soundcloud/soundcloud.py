@@ -10,10 +10,13 @@ from contextlib import closing
 from multiprocessing.pool import ThreadPool
 from urllib import quote_plus
 
+from mopidy import httpclient
 from mopidy.models import Album, Artist, Track
 
 import requests
 from requests.exceptions import HTTPError
+
+import mopidy_soundcloud
 
 
 logger = logging.getLogger(__name__)
@@ -34,6 +37,18 @@ def readable_url(uri):
 
 def streamble_url(url, client_id):
     return '%s?client_id=%s' % (url, client_id)
+
+
+def get_requests_session(proxy_config, user_agent, token):
+    proxy = httpclient.format_proxy(proxy_config)
+    full_user_agent = httpclient.format_user_agent(user_agent)
+
+    session = requests.Session()
+    session.proxies.update({'http': proxy, 'https': proxy})
+    session.headers.update({'user-agent': full_user_agent})
+    session.headers.update({'Authorization': 'OAuth %s' % token})
+
+    return session
 
 
 class cache(object):
@@ -75,10 +90,13 @@ class SoundCloudClient(object):
 
     def __init__(self, config):
         super(SoundCloudClient, self).__init__()
-        token = config['auth_token']
-        self.explore_songs = config.get('explore_songs', 10)
-        self.http_client = requests.Session()
-        self.http_client.headers.update({'Authorization': 'OAuth %s' % token})
+        self.explore_songs = config['soundcloud'].get('explore_songs', 10)
+        self.http_client = get_requests_session(
+            proxy_config=config['proxy'],
+            user_agent='%s/%s' % (
+                mopidy_soundcloud.SoundCloudExtension.dist_name,
+                mopidy_soundcloud.__version__),
+            token=config['soundcloud']['auth_token'])
 
     @property
     @cache()
