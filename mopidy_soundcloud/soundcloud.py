@@ -6,12 +6,14 @@ import re
 import string
 import time
 import unicodedata
+from contextlib import closing
 from multiprocessing.pool import ThreadPool
 from urllib import quote_plus
 
 from mopidy.models import Album, Artist, Track
 
 import requests
+from requests.exceptions import HTTPError
 
 
 logger = logging.getLogger(__name__)
@@ -78,17 +80,6 @@ class SoundCloudClient(object):
         self.http_client = requests.Session()
         self.http_client.headers.update({'Authorization': 'OAuth %s' % token})
 
-    def check_login(self):
-        try:
-            username = self.user.get('username', 'UNKNOWN')
-            logger.info('Logged in to SoundCloud as "%s"', username)
-        except Exception as err:
-            if err.response is not None and err.response.status_code == 401:
-                logger.error('Invalid "auth_token" used for SoundCloud '
-                             'authentication!')
-            else:
-                raise
-
     @property
     @cache()
     def user(self):
@@ -98,7 +89,7 @@ class SoundCloudClient(object):
     def get_user_stream(self):
         # https://developers.soundcloud.com/docs/api/reference#activities
         tracks = []
-        stream = self._get('me/activities', limit=True).get('collection')
+        stream = self._get('me/activities', limit=True).get('collection', [])
         for data in stream:
             kind = data.get('origin')
             # multiple types of track with same data
@@ -115,7 +106,7 @@ class SoundCloudClient(object):
     def get_followings(self, query_user_id=None):
 
         if query_user_id:
-            return self._get('users/%s/tracks' % query_user_id)
+            return self._get('users/%s/tracks' % query_user_id) or []
 
         users = []
         for playlist in self._get('me/followings', limit=True)['collection']:
@@ -151,10 +142,8 @@ class SoundCloudClient(object):
         likes = []
         liked = self._get('me/favorites', limit=True)
         for data in liked:
-
             if data['kind'] == 'track':
                 likes.append(self.parse_track(data))
-
             else:
                 likes.append((data['title'], str(data['id'])))
 
@@ -206,14 +195,20 @@ class SoundCloudClient(object):
 
     def _get(self, url, limit=None):
         url = 'https://api.soundcloud.com/%s' % url
+        params = {'client_id': self.CLIENT_ID}
         if limit:
-            limit = self.explore_songs
-        res = self.http_client.get(url, params={
-            'client_id': self.CLIENT_ID,
-            'limit': limit})
-        logger.info('Requested %s', res.url)
-        res.raise_for_status()
-        return res.json()
+            params['limit'] = self.explore_songs
+        try:
+            with closing(self.http_client.get(url, params=params)) as res:
+                logger.debug('Requested %s', res.url)
+                res.raise_for_status()
+                return res.json()
+        except Exception as e:
+            if isinstance(e, HTTPError) and e.response.status_code == 401:
+                logger.error('Invalid "auth_token" used for SoundCloud '
+                             'authentication!')
+            logger.error('SoundCloud API request failed: %s' % e)
+        return {}
 
     def sanitize_tracks(self, tracks):
         return filter(None, tracks)
@@ -291,7 +286,7 @@ class SoundCloudClient(object):
         if req.status_code == 302:
             return req.headers.get('Location', None)
         elif req.status_code == 429:
-            logger.info('SoundCloud daily rate limit exceeded')
+            logger.warning('SoundCloud daily rate limit exceeded')
 
     def resolve_tracks(self, track_ids):
         """Resolve tracks concurrently emulating browser

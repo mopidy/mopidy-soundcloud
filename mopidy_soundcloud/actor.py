@@ -25,7 +25,9 @@ class SoundCloudBackend(pykka.ThreadingActor, backend.Backend):
         self.uri_schemes = ['soundcloud', 'sc']
 
     def on_start(self):
-        self.remote.check_login()
+        username = self.remote.user.get('username')
+        if username is not None:
+            logger.info('Logged in to SoundCloud as "%s"', username)
 
 
 class SoundCloudPlaybackProvider(backend.PlaybackProvider):
