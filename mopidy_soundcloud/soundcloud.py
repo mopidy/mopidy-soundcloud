@@ -127,13 +127,11 @@ class SoundCloudClient(object):
             return self._get('users/%s/tracks' % query_user_id) or []
 
         users = []
-        for playlist in self._get('me/followings', limit=True)['collection']:
+        playlists = self._get('me/followings', limit=True).get('collection', [])
+        for playlist in playlists:
             name = playlist.get('username')
             user_id = str(playlist.get('id'))
-            logger.debug('Fetched user %s with id %s' % (
-                name, user_id
-            ))
-
+            logger.debug('Fetched user %s with id %s' % (name, user_id))
             users.append((name, user_id))
         return users
 
@@ -235,11 +233,11 @@ class SoundCloudClient(object):
     def parse_track(self, data, remote_url=False):
         if not data:
             return None
-        if not data['streamable']:
+        if not data.get('streamable'):
             logger.info(
                 "'%s' can't be streamed from SoundCloud" % data.get('title'))
             return None
-        if not data['kind'] == 'track':
+        if not data.get('kind') == 'track':
             logger.debug('%s is not track' % data.get('title'))
             return None
 
@@ -251,16 +249,13 @@ class SoundCloudClient(object):
         album_kwargs = {}
 
         if 'title' in data:
-            name = data['title']
             label_name = data.get('label_name')
+            if not label_name:
+                label_name = data.get(
+                    'user', {}).get('username', 'Unknown label')
 
-            if bool(label_name):
-                track_kwargs[b'name'] = name
-                artist_kwargs[b'name'] = label_name
-            else:
-                track_kwargs[b'name'] = name
-                artist_kwargs[b'name'] = data.get('user').get('username')
-
+            track_kwargs[b'name'] = data['title']
+            artist_kwargs[b'name'] = label_name
             album_kwargs[b'name'] = 'SoundCloud'
 
         if 'date' in data:
@@ -269,34 +264,29 @@ class SoundCloudClient(object):
         if remote_url:
             track_kwargs[b'uri'] = self.get_streamble_url(data['stream_url'])
             if track_kwargs[b'uri'] is None:
-                logger.info(
-                    "'%s' can't be streamed from SoundCloud" % data.get(
-                        'title'))
+                logger.info("'%s' can't be streamed from SoundCloud" % data.get(
+                    'title'))
                 return None
         else:
             track_kwargs[b'uri'] = 'soundcloud:song/%s.%s' % (
-                readable_url(data.get('title')), data.get('id')
-            )
+                readable_url(data.get('title')), data.get('id'))
 
         track_kwargs[b'length'] = int(data.get('duration', 0))
         track_kwargs[b'comment'] = data.get('permalink_url', '')
 
         if artist_kwargs:
-            artist = Artist(**artist_kwargs)
-            track_kwargs[b'artists'] = [artist]
+            track_kwargs[b'artists'] = [Artist(**artist_kwargs)]
 
         if album_kwargs:
-            if 'artwork_url' in data and data['artwork_url']:
+            if data.get('artwork_url'):
                 album_kwargs[b'images'] = [data['artwork_url']]
             else:
-                image = data.get('user').get('avatar_url')
+                image = data.get('user', {}).get('avatar_url')
                 album_kwargs[b'images'] = [image]
 
-            album = Album(**album_kwargs)
-            track_kwargs[b'album'] = album
+            track_kwargs[b'album'] = Album(**album_kwargs)
 
-        track = Track(**track_kwargs)
-        return track
+        return Track(**track_kwargs)
 
     @cache()
     def get_streamble_url(self, url):
