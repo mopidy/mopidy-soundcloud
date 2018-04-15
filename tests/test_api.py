@@ -27,7 +27,7 @@ class ApiTest(unittest.TestCase):
         config['auth_token'] = '1-35204-61921957-55796ebef403996'
         config['explore_songs'] = 10
         # using this user http://maildrop.cc/inbox/mopidytestuser
-        self.api = SoundCloudClient(config)
+        self.api = SoundCloudClient({'soundcloud': config, 'proxy': {}})
 
     def test_resolves_string(self):
         _id = self.api.parse_track_uri('soundcloud:song.38720262')
@@ -38,9 +38,14 @@ class ApiTest(unittest.TestCase):
         with mock.patch('mopidy_soundcloud.soundcloud.logger.error') as d:
             config = SoundCloudExtension().get_config_schema()
             config['auth_token'] = '1-fake-token'
-            SoundCloudClient(config)
+            SoundCloudClient({'soundcloud': config, 'proxy': {}}).user
             d.assert_called_once_with('Invalid "auth_token" used for '
                                       'SoundCloud authentication!')
+
+    @my_vcr.use_cassette('sc-login.yaml')
+    def test_returns_username(self):
+        user = self.api.user.get('username')
+        self.assertEquals(user, 'ticosax')
 
     @my_vcr.use_cassette('sc-resolve-track.yaml')
     def test_resolves_object(self):
