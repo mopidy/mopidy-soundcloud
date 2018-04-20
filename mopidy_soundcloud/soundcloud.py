@@ -127,8 +127,8 @@ class SoundCloudClient(object):
             return self._get('users/%s/tracks' % query_user_id) or []
 
         users = []
-        playlists = self._get('me/followings', limit=True).get('collection', [])
-        for playlist in playlists:
+        playlists = self._get('me/followings', limit=True)
+        for playlist in playlists.get('collection', []):
             name = playlist.get('username')
             user_id = str(playlist.get('id'))
             logger.debug('Fetched user %s with id %s' % (name, user_id))
@@ -265,8 +265,8 @@ class SoundCloudClient(object):
         if remote_url:
             track_kwargs[b'uri'] = self.get_streamble_url(data['stream_url'])
             if track_kwargs[b'uri'] is None:
-                logger.info("'%s' can't be streamed from SoundCloud" % data.get(
-                    'title'))
+                logger.info("'%s' can't be streamed "
+                            "from SoundCloud" % data.get('title'))
                 return None
         else:
             track_kwargs[b'uri'] = 'soundcloud:song/%s.%s' % (

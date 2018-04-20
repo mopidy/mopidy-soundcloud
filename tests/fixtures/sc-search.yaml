@@ -1,0 +1,80 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      user-agent: [!!python/unicode 'Mopidy-SoundCloud/2.0.2 Mopidy/2.1.0 CPython/2.7.11+']
+    method: GET
+    uri: https://api.soundcloud.com/tracks?q=the+great+descent&limit=10&client_id=93e33e327fd8a9b77becd179652272e2
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAAOyabXPbNhKA/wpOX5rOmRII8FX9cJNeWsdO1Thx+nI532ggEhJp8a0AKVnX6X+/
+        BSnJpMzYEuVcPakziScGdxcgdrEPFuC/f++Ffm9IXdOglJr2SW8eJtDQywXz5r2Tnic4y7k/Zjk0
+        Eqw7A0wG2EK6M6Q66KG/Y/gDghGT+ThO/XAacn9H1h1ie6jjrWzGRcyiMJmrjgqRaEykReJrcXij
+        1x+PCxGBSJDnmRwOBlIJeVFa+H0vjQd5wGdqdD6XHk/yQYulPMwjDhY+wCP0snyEXozg2dfw0C8E
+        y8M06Q1113Qd56QnAybCZAYKWTGJQg+ElmzBp6mId4ay1PsSxuIn5Ug+sODcef2OX74io3Hcz8AE
+        GMthcLt6LAv7u6+hZloOti4YVIpgoRDhYapKR3IxLl1qm47rEt066TGRL1OxO5th4xXWMlIDDxHX
+        IZZDCNbMaQGmtYiJGe9fZ+q1QDiG2R57MBSICbxtYRM11bkoOEwtuESEWTW7PTXX6TKJUubX1DZN
+        ld6URRIUeTzhftk0nqxAlUURaE/ZIhVhDq6RNQMznghemQ+l8HrDpIgiFYgTHpVTUP89YTHftoQQ
+        L5JX5jURzoJcaoLDzC0gdE960NcsTFgEfSW5elcZ/hekTd2hJqZWTUBFRrkyIExU4EZsNQGX1AaZ
+        FcILmOTjdShWI9i2li6p2gSPOJPrF1r/MvbZauc5rLEkD3YbV5yJ27YslXl9pmQOaxgMT8MklEH5
+        jlWQ1X2Ws9k4CmVeDaAMrXG+yrZjVpHVG/7eYwuWM1ELJhWbjVgKYzbjcuDzKSuifLxWqIII1sY/
+        dJMY2HSJayjXNWN1nX7KztozwYOJYJ+Vo+zDwtn0u144VZD0PgQcnSqD6NXWYiNl3elv/+T3hwq/
+        Od96R4flmefMC9QSkuODl/ygpg0DmWTxxl9zvoLAnSUM8uI6qsrksF5Mt2uubN0N3crGIvR5Wg/S
+        7Tretv1x0kAItQ5FiLM/QnA7QpaCe3N+LD52rGzQ8UvV3IYNgh1HxWxXbMz/+faHKT71vru04yOx
+        Qa3O2KDW42JD17Wb1Ji61jM2KmyYhOrw4xkbz9h4NGzgo7AB2eKJYcM6FBsG3hcb1pBardiA8BYq
+        OWjTEFaxBtXBLNB8waZ5d4jca3ODlMu1EPpeCaEX75UUeqWkdgCjm65xRF0SjFL600d7ii9+mx8J
+        GKs7YKxHBgyhmpVNlvbqGTAVYGxdtzB9BswzYJ4KYKynBxj3MwJGd1oBM+F5zoWWQQ7T0qkWc016
+        LPJXms/jtDtjHjK7wcy3pRy6ADn0dopGHL24LAUhfOJ0hzSGYWK9O2lu4vfnFx/Txa+O/tOxpHG7
+        k8Z9ZNK4WuySeYGfSVOSxsbUcS3iPJPmmTRPhTTukyGN5RLLpvjhOxQy0PUBcRE2gE71e5GWSdyR
+        1dvvUAKulf7Q/Lvuuh8uy4Anms+WicayTKQwkRC3bfa2VyktoXHLEQtjx+6OkeUPqfMOW9/eWG9e
+        d8XIxg2HU2SjWYcIcSk1DNc4nCGYmjqljm1r1+wmWRRPnCEjHkHgeeg1E76XQtP+TOkh1OvMFN0l
+        pmPTNqTEGf3LIqUltkqRKrSIbeqGaWDtJlkaCW+EVjNqu9CkLSfsj5RN302i/AI20SuwiV7WbTaO
+        8du7vScpwk4dm0OdPu7dyjaBPBWwEGoTw7EfrmD0AXYHBCMM5YsxJOQ+sNRlzaFB9wOLKjhUoyyS
+        /RkDv3AxK2/fPcg/bYBp2v0ka1QdoxovS7Fb7FCdGPoR5YvrXp9fjG6cl+c/h125s/HS4dzZaDa4
+        Q+GFHLMDdnTdtk1DN7Uo8ax4/sSxc5b4IUfv0zKeK+D0eg/g5gjYYNPBttFawMQG+4JocwH6mppW
+        dJaAYFE6OULVdJc/tfWk16G0nZbeZ612tsHdhU53sskBaKr6bZKpzV49B7Y9fyCfktub6l0mkW5M
+        2iaXp8IknRKH6ASbD0LJKMtAinQ8NE2oBO+DkjnAIK4j3RgaVv3rsvuhFLMwUfiI+f5Qms/TQkjA
+        RRuNGgY/TaMXI5BDpdzOB2XUpIrXXXl0/i4jlx9m369OR2+68mjrocOBtFVtHqcZ1OgCJMu1bdfB
+        RLMklsH1sUB6u05RqBx7OWIEE4qu7jroqneCGCqjGs1gtaN1bCLwmuGgQEVAqZsrzSidgNVTJXfO
+        YgThSPvoSlwl5b/SOiybhOdI5mmWgRnYpfqFp27y0psVEK2PLtOYpwlHcSFzJHia8TI+UBqBNJMS
+        EiVaspVEOYwoRWp9qf+G+VcSqRFzgVjig2bGwmpYVZfwOAA+5H9DbyuDshBT5vGTynrZO4r4gkcS
+        McHRjOflDaPPkhmH3CWjFYrSZb/fRxcwqgimgiVf5WiiJgQs8KS8g1R9n6nOJhz8oAxAAPtqhHG6
+        4Er7X2lRvVxQCLECOZg+Xh8E6IH5nEOHfihhJw/Dlv2rHvrMG4lbL/8/NhKEuthpPwj9sqrW2ex6
+        d49w397g/rLVcgxbtxxLCyKXLCZ3ytZNiumyLbjN54ecfqr+mtuBNysRsnkq0ZuavTp+Gh21MMwe
+        YGegmwjjIaVDajxucXqb1Z/KToBahqnbpr7HsSdsBKBYx1C1P/TpeCVrqN0U1Ye4/X4tZnOugdcS
+        X2pHHIFCghQrzS+ShA8eMrnZC4xADr0s5dCLO9zZ2Qw4lu6S7puB9G2Ufnc2is5/i047362tndTh
+        am2tWd8K6Op036VOl+rUIbZjOq62KtxlYBy7GYCpl7wk3rWCkgT8wg8gBJqsUMz76rQAHkJuR0uI
+        fcjg1QP0gt94PMvRiKuyaMT8hEt5Uhd6v2IJ+jH0gjSSX5dklBm0MOBojtIpKsEj0TIAEaTiRiKp
+        UKI2F0xBHskw8aDYgm0C0Bh6LUBQ5YByOGqxSGUHaBp6/RY6kl06VhPQ6XCXJatDDnS7g5FihUb3
+        yy+wH/M4V8fEpBYxtcS0bXt5h4u3660LGWv5bX80brpswvFUmUKv1qbqubjZSXtGtwdUVxdZkNTJ
+        p7DY9TZwk9/+TCoeMs6NZm9bUJu2DkWjTfYpqO2yoLaGBn3g+/lPyt5fUEPGWoR8qYX7UzQVqZwH
+        LG0rp+vm7qmmLyoxdNbkp2lh6wh8JheRPLV+vJYL8aFzLb1xTodaeqPaACgmLjFhH7dD0CqqOnDw
+        LAfiqLItUfVcWY9FKmUrwPzMkwIKzgCmeskVjKQqNKGqC0KJZlEYZyW0oMhTakvgHd9Kb6o5H5XH
+        YFVFykBAFPADjKuGUZom30CluKjkBQ9gX9RQ4atSeAQJ7wSQK7wC0ohC6nmRwdoT31R8DRQYJ2C8
+        ytg+WoYwyHXBG0YqSNR3tcrUpVrHUHB/5qpSZiE8LGCLAH46gKBHfWbjOo6ByV/ge05+o6JRQggj
+        WC2JSgM+V3um1POKKH9MxLrEcSg1Tc1Z8czL7yL2dkV2Yew2+x1A2E2PTcS+BUtv1pbqSbreQ0ui
+        twYY/pLyYxv308fPtGPVuc1/T6XqLEdEXAMfgktqP3D+vCN7MC4fm5f7AnOHmDYkENqdmL9m5uq1
+        8fF1+srMjiKm8k9HYirVz03MUNbPL/NAqJNbxTRRAEOLDNJSVd2tKQUMyu+AtIIThwzulxCblmfT
+        aw8qa3f8dgJPQ3XoXAE34Tc5EqFsYO0quUq2zlku++qsd5Km82boXIv0S+SfTl2iw67vLwXACnno
+        SqUXVKYDpKL8qtdE4zMTnxQTywz3pzPxP/8DAAD//wMAf41fN8dDAAA=
+    headers:
+      access-control-allow-headers: ['Accept, Authorization, Content-Type, Origin']
+      access-control-allow-methods: ['GET, PUT, POST, DELETE']
+      access-control-allow-origin: ['*']
+      access-control-expose-headers: [Date]
+      cache-control: ['public, max-age=60, must-revalidate']
+      connection: [keep-alive]
+      content-encoding: [gzip]
+      content-length: ['2834']
+      content-type: [application/json;charset=utf-8]
+      date: ['Fri, 20 Apr 2018 00:13:27 GMT']
+      server: [am/2]
+      via: [1.1 939414900b0e5d33a5f9bf346ea3a331.cloudfront.net (CloudFront)]
+      x-amz-cf-id: [FNSEvMG1qATRx983FRIWRIKvY_8JU9HOf5_XtAc9z3xuUAc0tqwk8Q==]
+      x-cache: [Miss from cloudfront]
+    status: {code: 200, message: OK}
+version: 1

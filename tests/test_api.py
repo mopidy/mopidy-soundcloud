@@ -9,6 +9,7 @@ from mopidy.models import Track
 
 import vcr
 
+import mopidy_soundcloud
 from mopidy_soundcloud import SoundCloudExtension
 from mopidy_soundcloud.soundcloud import SoundCloudClient, readable_url
 
@@ -17,6 +18,8 @@ my_vcr = vcr.VCR(serializer='yaml',
                  cassette_library_dir=local_path + '/fixtures',
                  record_mode='once',
                  match_on=['uri', 'method'],
+                 decode_compressed_response=False,
+                 filter_headers=['Authorization']
                  )
 
 
@@ -26,8 +29,11 @@ class ApiTest(unittest.TestCase):
         config = SoundCloudExtension().get_config_schema()
         config['auth_token'] = '1-35204-61921957-55796ebef403996'
         config['explore_songs'] = 10
-        # using this user http://maildrop.cc/inbox/mopidytestuser
         self.api = SoundCloudClient({'soundcloud': config, 'proxy': {}})
+
+    def test_sets_user_agent(self):
+        agent = 'Mopidy-SoundCloud/%s Mopidy/' % mopidy_soundcloud.__version__
+        self.assertTrue(agent in self.api.http_client.headers['user-agent'])
 
     def test_resolves_string(self):
         _id = self.api.parse_track_uri('soundcloud:song.38720262')
@@ -45,7 +51,7 @@ class ApiTest(unittest.TestCase):
     @my_vcr.use_cassette('sc-login.yaml')
     def test_returns_username(self):
         user = self.api.user.get('username')
-        self.assertEquals(user, 'ticosax')
+        self.assertEquals(user, 'Nick Steel 3')
 
     @my_vcr.use_cassette('sc-resolve-track.yaml')
     def test_resolves_object(self):
@@ -84,22 +90,46 @@ class ApiTest(unittest.TestCase):
     @my_vcr.use_cassette('sc-liked.yaml')
     def test_get_user_liked(self):
         tracks = self.api.get_user_liked()
-        self.assertIsInstance(tracks, list)
+        self.assertEquals(len(tracks), 3)
+        self.assertIsInstance(tracks[0], Track)
+        self.assertEquals(tracks[1].name, 'Pelican - Deny The Absolute')
 
     @my_vcr.use_cassette('sc-stream.yaml')
     def test_get_user_stream(self):
         tracks = self.api.get_user_stream()
-        self.assertIsInstance(tracks, list)
+        # 2nd item is a playlist with no tracks
+        self.assertEquals(len(tracks), 9)
+        self.assertIsInstance(tracks[0], Track)
+        self.assertEquals(tracks[2].name, '#55 The Witch\'s Tale')
 
     @my_vcr.use_cassette('sc-following.yaml')
     def test_get_followings(self):
-        tracks = self.api.get_followings()
-        self.assertIsInstance(tracks, list)
+        users = self.api.get_followings()
+        self.assertEquals(len(users), 10)
+        self.assertEquals(users[0], (u'Young Legionnaire', '992503'))
+        self.assertEquals(users[1], (u'Tall Ships', '1710483'))
+        self.assertEquals(users[8], (u'Pelican Song', '27945548'))
+        self.assertEquals(users[9], (u'sleepmakeswaves', '1739693'))
+
+    @my_vcr.use_cassette('sc-set.yaml')
+    def test_get_set(self):
+        tracks = self.api.get_set('10961826')
+        self.assertEquals(len(tracks), 1)
+        self.assertIsInstance(tracks[0], dict)
+
+    @my_vcr.use_cassette('sc-set-invalid.yaml')
+    def test_get_invalid_set(self):
+        tracks = self.api.get_set('blahblahrubbosh')
+        self.assertEquals(tracks, [])
 
     @my_vcr.use_cassette('sc-sets.yaml')
     def test_get_sets(self):
-        tracks = self.api.get_sets()
-        self.assertIsInstance(tracks, list)
+        sets = self.api.get_sets()
+        self.assertEquals(len(sets), 2)
+        name, set_id, tracks = sets[1]
+        self.assertEquals(name, 'Pelican')
+        self.assertEquals(set_id, '10961826')
+        self.assertEquals(len(tracks), 1)
 
     def test_readeble_url(self):
         self.assertEquals('Barsuk Records',
@@ -113,14 +143,21 @@ class ApiTest(unittest.TestCase):
         self.assertIsInstance(track, Track)
         self.assertEquals(
             track.uri,
-            'https://cf-media.sndcdn.com/fxguEjG4ax6B.128.mp3?Policy=eyJTdGF0ZW'
-            '1lbnQiOlt7IlJlc291cmNlIjoiKjovL2NmLW1lZGlhLnNuZGNkbi5jb20vZnhndUVq'
-            'RzRheDZCLjEyOC5tcDMiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUz'
-            'pFcG9jaFRpbWUiOjE0Nzc2MDA1NTd9fX1dfQ__&Signature=u9bxAkZOtTTF1VqTm'
-            'LGmw3ENrqbiSTFK-sMvZL-ZsQK85DOepHh5MfPA4MNooszUy~PZqiVyBn4YnElhWyb'
-            '~4B7kS6y0VZ6t-qF78CfTMOimemafpqfWJ8nYXczhM9pUpAwiS--lkNjGks4Qxi-FZ'
-            'JDBPG99gAIU0eVW78CADcpuOKLugGpzHl6gRPN2Z4zZ9dVujZ5MlG2OWnPuNiBcE~w'
-            'UFwcOxt9N6ePTff-wMFQR2PGpEK6wc6bWuB4WFNBkE0bmEke4cOQjWHa5FwYEidZN5'
-            'rvv5lVT1r07zzifnADEipwMaZ2-QYdqzOYaM4jymFDhl7DklaU24PY5C5mH0A__&Ke'
-            'y-Pair-Id=APKAJAGZ7VMH2PFPW6UQ'
+            'https://cf-media.sndcdn.com/fxguEjG4ax6B.128.mp3?Policy=eyJTdGF0Z'
+            'W1lbnQiOlt7IlJlc291cmNlIjoiKjovL2NmLW1lZGlhLnNuZGNkbi5jb20vZnhndU'
+            'VqRzRheDZCLjEyOC5tcDMiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkF'
+            'XUzpFcG9jaFRpbWUiOjE0Nzc2MDA1NTd9fX1dfQ__&Signature=u9bxAkZOtTTF1'
+            'VqTmLGmw3ENrqbiSTFK-sMvZL-ZsQK85DOepHh5MfPA4MNooszUy~PZqiVyBn4YnE'
+            'lhWyb~4B7kS6y0VZ6t-qF78CfTMOimemafpqfWJ8nYXczhM9pUpAwiS--lkNjGks4'
+            'Qxi-FZJDBPG99gAIU0eVW78CADcpuOKLugGpzHl6gRPN2Z4zZ9dVujZ5MlG2OWnPu'
+            'NiBcE~wUFwcOxt9N6ePTff-wMFQR2PGpEK6wc6bWuB4WFNBkE0bmEke4cOQjWHa5F'
+            'wYEidZN5rvv5lVT1r07zzifnADEipwMaZ2-QYdqzOYaM4jymFDhl7DklaU24PY5C5'
+            'mH0A__&Key-Pair-Id=APKAJAGZ7VMH2PFPW6UQ'
         )
+
+    @my_vcr.use_cassette('sc-search.yaml')
+    def test_search(self):
+        tracks = self.api.search('the great descent')
+        self.assertEquals(len(tracks), 10)
+        self.assertIsInstance(tracks[0], Track)
+        self.assertEquals(tracks[0].name, 'Turn Around (Mix1)')

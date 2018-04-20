@@ -1,0 +1,60 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      user-agent: [!!python/unicode 'Mopidy-SoundCloud/2.0.2 Mopidy/2.1.0 CPython/2.7.11+']
+    method: GET
+    uri: https://api.soundcloud.com/playlists/10961826?client_id=93e33e327fd8a9b77becd179652272e2
+  response:
+    body:
+      string: !!binary |
+        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
+        //8DAJ+/XH+/DgAA
+    headers:
+      access-control-allow-headers: ['Accept, Authorization, Content-Type, Origin']
+      access-control-allow-methods: ['GET, PUT, POST, DELETE']
+      access-control-allow-origin: ['*']
+      access-control-expose-headers: [Date]
+      cache-control: ['private, max-age=0, must-revalidate']
+      connection: [keep-alive]
+      content-encoding: [gzip]
+      content-length: ['1494']
+      content-type: [application/json;charset=utf-8]
+      date: ['Fri, 20 Apr 2018 00:13:25 GMT']
+      etag: ['"31ed6fd5775905cb46a198d5aa338c01"']
+      server: [am/2]
+      status: [200 OK]
+      via: [1.1 91c3e999c953fd1ba6874eebbc464012.cloudfront.net (CloudFront)]
+      x-amz-cf-id: [UyjgWF55-1dmp2yRBIWgwdCnbU_WxWVTL_vZ-MgQqi8ySo_kXWhSPw==]
+      x-cache: [Miss from cloudfront]
+      x-frame-options: [SAMEORIGIN]
+    status: {code: 200, message: OK}
+version: 1

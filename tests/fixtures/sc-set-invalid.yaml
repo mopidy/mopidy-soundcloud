@@ -1,0 +1,33 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      user-agent: [!!python/unicode 'Mopidy-SoundCloud/2.0.2 Mopidy/2.1.0 CPython/2.7.11+']
+    method: GET
+    uri: https://api.soundcloud.com/playlists/blahblahrubbosh?client_id=93e33e327fd8a9b77becd179652272e2
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAAKpWSi0qyi8qVrKKroYw43NTi4sT01OVrJRMDEwUdBX88ksU3PJL81KUamNrAQAA
+        AP//AwBB7xS6MAAAAA==
+    headers:
+      access-control-allow-headers: ['Accept, Authorization, Content-Type, Origin']
+      access-control-allow-methods: ['GET, PUT, POST, DELETE']
+      access-control-allow-origin: ['*']
+      access-control-expose-headers: [Date]
+      cache-control: [no-cache, 'private, max-age=0']
+      connection: [keep-alive]
+      content-encoding: [gzip]
+      content-length: ['70']
+      content-type: [application/json;charset=utf-8]
+      date: ['Fri, 20 Apr 2018 00:13:25 GMT']
+      server: [am/2]
+      status: [404 Not Found]
+      via: [1.1 87510893413a5a70f5cf33b727e70ad8.cloudfront.net (CloudFront)]
+      x-amz-cf-id: [Pkhz8gFCLwtLDhPzSUE5Fuyl3nNV5abXxHoeJxaN94cwZp34gwyDmA==]
+      x-cache: [Error from cloudfront]
+    status: {code: 404, message: Not Found}
+version: 1

@@ -4,55 +4,58 @@ interactions:
     headers:
       Accept: ['*/*']
       Accept-Encoding: ['gzip, deflate']
-      Authorization: [!!python/unicode OAuth 1-35204-61921957-55796ebef403996]
       Connection: [keep-alive]
-      User-Agent: [python-requests/2.11.1]
+      user-agent: [!!python/unicode 'Mopidy-SoundCloud/2.0.2 Mopidy/2.1.0 CPython/2.7.11+']
     method: GET
-    uri: https://api.soundcloud.com/me/playlists.json?limit=1000&client_id=93e33e327fd8a9b77becd179652272e2
+    uri: https://api.soundcloud.com/me/playlists?limit=10&client_id=93e33e327fd8a9b77becd179652272e2
   response:
     body:
       string: !!binary |
-        H4sIAAAAAAAAAIqOBQAAAP//AwApu0wNAgAAAA==
+        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
     headers:
       access-control-allow-headers: ['Accept, Authorization, Content-Type, Origin']
       access-control-allow-methods: ['GET, PUT, POST, DELETE']
       access-control-allow-origin: ['*']
       access-control-expose-headers: [Date]
       cache-control: ['private, max-age=0, must-revalidate']
+      connection: [keep-alive]
       content-encoding: [gzip]
-      content-length: ['28']
-      content-type: [application/json; charset=utf-8]
-      date: ['Thu, 27 Oct 2016 20:27:24 GMT']
-      etag: ['"d751713988987e9331980363e24189ce"']
+      content-length: ['1593']
+      content-type: [application/json;charset=utf-8]
+      date: ['Fri, 20 Apr 2018 00:13:26 GMT']
+      etag: ['"454c3e9c7d1682d9dd516110df6524cd"']
       server: [am/2]
       status: [200 OK]
-    status: {code: 200, message: OK}
-- request:
-    body: null
-    headers:
-      Accept: ['*/*']
-      Accept-Encoding: ['gzip, deflate']
-      Authorization: [!!python/unicode OAuth 1-35204-61921957-55796ebef403996]
-      Connection: [keep-alive]
-      User-Agent: [python-requests/2.11.1]
-    method: GET
-    uri: https://api.soundcloud.com/me/playlists?limit=1000&client_id=93e33e327fd8a9b77becd179652272e2
-  response:
-    body:
-      string: !!binary |
-        H4sIAAAAAAAAAIqOBQAAAP//AwApu0wNAgAAAA==
-    headers:
-      access-control-allow-headers: ['Accept, Authorization, Content-Type, Origin']
-      access-control-allow-methods: ['GET, PUT, POST, DELETE']
-      access-control-allow-origin: ['*']
-      access-control-expose-headers: [Date]
-      cache-control: ['private, max-age=0, must-revalidate']
-      content-encoding: [gzip]
-      content-length: ['28']
-      content-type: [application/json; charset=utf-8]
-      date: ['Thu, 27 Oct 2016 20:34:07 GMT']
-      etag: ['"d751713988987e9331980363e24189ce"']
-      server: [am/2]
-      status: [200 OK]
+      via: [1.1 56f2c719aefd3766bb3bccf085790735.cloudfront.net (CloudFront)]
+      x-amz-cf-id: [z3FYjlrKrh65dp2zICH6dZ7yjjlp02NhgpGlkkYoQFIC5y2OTJgEeA==]
+      x-cache: [Miss from cloudfront]
+      x-frame-options: [SAMEORIGIN]
     status: {code: 200, message: OK}
 version: 1
