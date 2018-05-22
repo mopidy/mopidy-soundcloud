@@ -114,10 +114,9 @@ class ApiTest(unittest.TestCase):
     @my_vcr.use_cassette('sc-stream.yaml')
     def test_get_user_stream(self):
         tracks = self.api.get_user_stream()
-        # 2nd item is a playlist with no tracks
-        self.assertEquals(len(tracks), 9)
+        self.assertEquals(len(tracks), 10)
         self.assertIsInstance(tracks[0], Track)
-        self.assertEquals(tracks[2].name, '#55 The Witch\'s Tale')
+        self.assertEquals(tracks[2].name, 'JW Ep 20- Jeremiah Watkins')
 
     @my_vcr.use_cassette('sc-following.yaml')
     def test_get_followings(self):

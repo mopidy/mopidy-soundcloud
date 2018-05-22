@@ -199,7 +199,7 @@ class SoundCloudClient(object):
             elif item['kind'] == 'playlist':
                 playlist_tracks = item.get('tracks', [])
                 logger.debug('Parsing %u playlist track(s)...',
-                    len(playlist_tracks))
+                             len(playlist_tracks))
                 for track in playlist_tracks:
                     tracks.append(self.parse_track(track))
             else:
@@ -211,9 +211,9 @@ class SoundCloudClient(object):
 
     def _get(self, url, limit=None):
         url = 'https://api.soundcloud.com/%s' % url
-        params = {'client_id': self.CLIENT_ID}
+        params = [('client_id', self.CLIENT_ID)]
         if limit:
-            params['limit'] = self.explore_songs
+            params.insert(0, ('limit', self.explore_songs))
         try:
             with closing(self.http_client.get(url, params=params)) as res:
                 logger.debug('Requested %s', res.url)
@@ -282,7 +282,7 @@ class SoundCloudClient(object):
                 image = data.get('user', {}).get('avatar_url')
                 album_kwargs['images'] = [image]
             if len(album_kwargs['images']) == 1:
-                image = album_kwargs['images'][0].replace('large','t500x500')
+                image = album_kwargs['images'][0].replace('large', 't500x500')
                 album_kwargs['images'] = [image]
 
             track_kwargs['album'] = Album(**album_kwargs)
