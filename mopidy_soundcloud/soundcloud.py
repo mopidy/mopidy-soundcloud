@@ -242,9 +242,6 @@ class SoundCloudClient(object):
             logger.debug('%s is not track' % data.get('title'))
             return None
 
-        # NOTE kwargs dict keys must be bytestrings to work on Python < 2.6.5
-        # See https://github.com/mopidy/mopidy/issues/302 for details.
-
         track_kwargs = {}
         artist_kwargs = {}
         album_kwargs = {}
@@ -255,37 +252,37 @@ class SoundCloudClient(object):
                 label_name = data.get(
                     'user', {}).get('username', 'Unknown label')
 
-            track_kwargs[b'name'] = data['title']
-            artist_kwargs[b'name'] = label_name
-            album_kwargs[b'name'] = 'SoundCloud'
+            track_kwargs['name'] = data['title']
+            artist_kwargs['name'] = label_name
+            album_kwargs['name'] = 'SoundCloud'
 
         if 'date' in data:
-            track_kwargs[b'date'] = data['date']
+            track_kwargs['date'] = data['date']
 
         if remote_url:
-            track_kwargs[b'uri'] = self.get_streamble_url(data['stream_url'])
-            if track_kwargs[b'uri'] is None:
+            track_kwargs['uri'] = self.get_streamble_url(data['stream_url'])
+            if track_kwargs['uri'] is None:
                 logger.info("'%s' can't be streamed "
                             "from SoundCloud" % data.get('title'))
                 return None
         else:
-            track_kwargs[b'uri'] = 'soundcloud:song/%s.%s' % (
+            track_kwargs['uri'] = 'soundcloud:song/%s.%s' % (
                 readable_url(data.get('title')), data.get('id'))
 
-        track_kwargs[b'length'] = int(data.get('duration', 0))
-        track_kwargs[b'comment'] = data.get('permalink_url', '')
+        track_kwargs['length'] = int(data.get('duration', 0))
+        track_kwargs['comment'] = data.get('permalink_url', '')
 
         if artist_kwargs:
-            track_kwargs[b'artists'] = [Artist(**artist_kwargs)]
+            track_kwargs['artists'] = [Artist(**artist_kwargs)]
 
         if album_kwargs:
             if data.get('artwork_url'):
-                album_kwargs[b'images'] = [data['artwork_url']]
+                album_kwargs['images'] = [data['artwork_url']]
             else:
                 image = data.get('user', {}).get('avatar_url')
-                album_kwargs[b'images'] = [image]
+                album_kwargs['images'] = [image]
 
-            track_kwargs[b'album'] = Album(**album_kwargs)
+            track_kwargs['album'] = Album(**album_kwargs)
 
         return Track(**track_kwargs)
 
