@@ -87,6 +87,23 @@ class ApiTest(unittest.TestCase):
             'soundcloud:song/That Mitchell and Webb Sound The Cloud.122889665'
         )
 
+    @my_vcr.use_cassette('sc-resolve-set.yaml')
+    def test_resolves_set_url(self):
+        expected_tracks = ['01 Dash And Blast',
+                           '02 We Flood Empty Lakes',
+                           '03 A Song For Starlit Beaches',
+                           '04 Illuminate My Heart, My Darling']
+        tracks = self.api.resolve_url(
+            'https://soundcloud.com/yndihalda/sets/dash-and-blast'
+        )
+        self.assertEquals(len(tracks), 4)
+        for i, t in enumerate(expected_tracks):
+            self.assertIsInstance(tracks[i], Track)
+            self.assertEquals(tracks[i].name, expected_tracks[i])
+            self.assertTrue(tracks[i].length > 500)
+            self.assertEquals(len(tracks[i].artists), 1)
+            self.assertEquals(list(tracks[i].artists)[0].name, 'yndi halda')
+
     @my_vcr.use_cassette('sc-liked.yaml')
     def test_get_user_liked(self):
         tracks = self.api.get_user_liked()

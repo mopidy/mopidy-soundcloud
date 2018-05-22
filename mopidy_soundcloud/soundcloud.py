@@ -192,18 +192,18 @@ class SoundCloudClient(object):
 
     def parse_results(self, res):
         tracks = []
+        logger.debug('Parsing %d result item(s)...', len(res))
         for item in res:
-            logger.debug('Parsing item %s in results...', item['kind'])
             if item['kind'] == 'track':
                 tracks.append(self.parse_track(item))
             elif item['kind'] == 'playlist':
-                for track in item['tracks']:
-                    logger.debug('  Parsing item %s in playlist...',
-                                 track['kind'])
+                playlist_tracks = item.get('tracks', [])
+                logger.debug('Parsing %u playlist track(s)...',
+                    len(playlist_tracks))
+                for track in playlist_tracks:
                     tracks.append(self.parse_track(track))
             else:
-                logger.warning("I don't know how to parse a '%s'.",
-                               item['kind'])
+                logger.warning("Unknown item type '%s'.", item['kind'])
         return self.sanitize_tracks(tracks)
 
     def resolve_url(self, uri):

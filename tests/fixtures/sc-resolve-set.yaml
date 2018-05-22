@@ -1,0 +1,91 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      user-agent: [!!python/unicode 'Mopidy-SoundCloud/2.0.2 Mopidy/2.1.0 CPython/2.7.11+']
+    method: GET
+    uri: https://api.soundcloud.com/resolve?url=https://soundcloud.com/yndihalda/sets/dash-and-blast&client_id=93e33e327fd8a9b77becd179652272e2
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAABTJQQrCMBAAwK+UPWtjN7XbFKQ3vyFpEjEQk8BuDlL8uxXmNjuwWGkMC+gLdufu
+        Xlr2cIJUnJVY8hEvkcqLUrbGnv/tUmm+d+WtarKfFFlYjeOEs15diiHLI/qb0UEfkJ5+tmYj2oLz
+        A5npikgYEL4/AAAA//8DAIz95ld8AAAA
+    headers:
+      access-control-allow-headers: ['Accept, Authorization, Content-Type, Origin']
+      access-control-allow-methods: ['GET, PUT, POST, DELETE']
+      access-control-allow-origin: ['*']
+      access-control-expose-headers: [Date]
+      cache-control: [no-cache]
+      connection: [keep-alive]
+      content-encoding: [gzip]
+      content-length: ['138']
+      content-type: [application/json;charset=utf-8]
+      date: ['Tue, 22 May 2018 19:55:23 GMT']
+      location: ['https://api.soundcloud.com/playlists/446283?client_id=93e33e327fd8a9b77becd179652272e2']
+      server: [am/2]
+      status: [302 Found]
+      via: [1.1 8bc6ceb505a42af10a5f7fdd59805ef6.cloudfront.net (CloudFront)]
+      x-amz-cf-id: [-XRt6hwO6GGYkgUG_6HcjKftGcT12xIHR0v2cYVuYpFgKsMsV-PGpQ==]
+      x-cache: [Miss from cloudfront]
+      x-frame-options: [SAMEORIGIN]
+    status: {code: 302, message: Moved Temporarily}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      user-agent: [!!python/unicode 'Mopidy-SoundCloud/2.0.2 Mopidy/2.1.0 CPython/2.7.11+']
+    method: GET
+    uri: https://api.soundcloud.com/playlists/446283?client_id=93e33e327fd8a9b77becd179652272e2
+  response:
+    body:
+      string: !!binary |
+        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
+    headers:
+      access-control-allow-headers: ['Accept, Authorization, Content-Type, Origin']
+      access-control-allow-methods: ['GET, PUT, POST, DELETE']
+      access-control-allow-origin: ['*']
+      access-control-expose-headers: [Date]
+      cache-control: ['private, max-age=0, must-revalidate']
+      connection: [keep-alive]
+      content-encoding: [gzip]
+      content-length: ['1359']
+      content-type: [application/json;charset=utf-8]
+      date: ['Tue, 22 May 2018 19:55:23 GMT']
+      etag: ['"89b37b085db65b30f5dfaed7755ec429"']
+      server: [am/2]
+      status: [200 OK]
+      via: [1.1 8bc6ceb505a42af10a5f7fdd59805ef6.cloudfront.net (CloudFront)]
+      x-amz-cf-id: [ceXjpjN3UiEcoQSeaNZlV4cAWeMuwY1ForkRzAtIzBTEMgMggFkvjQ==]
+      x-cache: [Miss from cloudfront]
+      x-frame-options: [SAMEORIGIN]
+    status: {code: 200, message: OK}
+version: 1
