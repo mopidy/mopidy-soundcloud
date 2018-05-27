@@ -110,7 +110,7 @@ class SoundCloudClient(object):
     def user(self):
         return self._get('me')
 
-    @cache()
+    @cache(ttl=10)
     def get_user_stream(self):
         # https://developers.soundcloud.com/docs/api/reference#activities
         tracks = []
@@ -128,6 +128,7 @@ class SoundCloudClient(object):
 
         return self.sanitize_tracks(tracks)
 
+    @cache(ttl=10)
     def get_followings(self, user_id=None):
         user_url = get_user_url(user_id)
         users = []
@@ -145,6 +146,7 @@ class SoundCloudClient(object):
         playlist = self._get('playlists/%s' % set_id)
         return playlist.get('tracks', [])
 
+    @cache(ttl=10)
     def get_sets(self, user_id=None):
         user_url = get_user_url(user_id)
         playable_sets = []
@@ -158,12 +160,14 @@ class SoundCloudClient(object):
             playable_sets.append((name, set_id, tracks))
         return playable_sets
 
+    @cache(ttl=10)
     def get_likes(self, user_id=None):
         # https://developers.soundcloud.com/docs/api/reference#GET--users--id--favorites
         user_url = get_user_url(user_id)
         likes = self._get('%s/favorites' % user_url, limit=True)
         return self.parse_results(likes)
 
+    @cache(ttl=10)
     def get_tracks(self, user_id=None):
         user_url = get_user_url(user_id)
         tracks = self._get('%s/tracks' % user_url, limit=True)
