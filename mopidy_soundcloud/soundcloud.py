@@ -6,12 +6,17 @@ import re
 import string
 import time
 import unicodedata
+from contextlib import closing
 from multiprocessing.pool import ThreadPool
 from urllib import quote_plus
 
+from mopidy import httpclient
 from mopidy.models import Album, Artist, Track
 
 import requests
+from requests.exceptions import HTTPError
+
+import mopidy_soundcloud
 
 
 logger = logging.getLogger(__name__)
@@ -28,6 +33,22 @@ def readable_url(uri):
                                                                   'ignore')
     return re.sub('\s+', ' ',
                   ''.join(c for c in safe_uri if c in valid_chars)).strip()
+
+
+def streamble_url(url, client_id):
+    return '%s?client_id=%s' % (url, client_id)
+
+
+def get_requests_session(proxy_config, user_agent, token):
+    proxy = httpclient.format_proxy(proxy_config)
+    full_user_agent = httpclient.format_user_agent(user_agent)
+
+    session = requests.Session()
+    session.proxies.update({'http': proxy, 'https': proxy})
+    session.headers.update({'user-agent': full_user_agent})
+    session.headers.update({'Authorization': 'OAuth %s' % token})
+
+    return session
 
 
 class cache(object):
@@ -69,19 +90,13 @@ class SoundCloudClient(object):
 
     def __init__(self, config):
         super(SoundCloudClient, self).__init__()
-        token = config['auth_token']
-        self.explore_songs = config.get('explore_songs', 10)
-        self.http_client = requests.Session()
-        self.http_client.headers.update({'Authorization': 'OAuth %s' % token})
-
-        try:
-            self._get('me')
-        except Exception as err:
-            if err.response is not None and err.response.status_code == 401:
-                logger.error('Invalid "auth_token" used for SoundCloud '
-                             'authentication!')
-            else:
-                raise
+        self.explore_songs = config['soundcloud'].get('explore_songs', 10)
+        self.http_client = get_requests_session(
+            proxy_config=config['proxy'],
+            user_agent='%s/%s' % (
+                mopidy_soundcloud.SoundCloudExtension.dist_name,
+                mopidy_soundcloud.__version__),
+            token=config['soundcloud']['auth_token'])
 
     @property
     @cache()
@@ -90,19 +105,17 @@ class SoundCloudClient(object):
 
     @cache()
     def get_user_stream(self):
-        # User timeline like playlist which uses undocumented api
-        # https://api.soundcloud.com/e1/me/stream?offset=0
-        # returns five elements per request
+        # https://developers.soundcloud.com/docs/api/reference#activities
         tracks = []
-        for sid in xrange(0, 2):
-            stream = self._get('e1/me/stream?offset=%s' % sid * 5)
-            for data in stream.get('collection'):
-                kind = data.get('type')
-                # multiple types of track with same data
-                if 'track' in kind:
-                    tracks.append(self.parse_track(data.get('track')))
-                if kind == 'playlist':
-                    playlist = data.get('playlist').get('tracks')
+        stream = self._get('me/activities', limit=True).get('collection', [])
+        for data in stream:
+            kind = data.get('origin')
+            # multiple types of track with same data
+            if kind:
+                if kind['kind'] == 'track':
+                    tracks.append(self.parse_track(kind))
+                elif kind['kind'] == 'playlist':
+                    playlist = kind.get('tracks')
                     if isinstance(playlist, collections.Iterable):
                         tracks.extend(self.parse_results(playlist))
 
@@ -111,27 +124,26 @@ class SoundCloudClient(object):
     def get_followings(self, query_user_id=None):
 
         if query_user_id:
-            return self._get('users/%s/tracks' % query_user_id)
+            return self._get('users/%s/tracks' % query_user_id) or []
 
         users = []
-        for playlist in self._get('me/followings.json?limit=60')['collection']:
+        playlists = self._get('me/followings', limit=True)
+        for playlist in playlists.get('collection', []):
             name = playlist.get('username')
             user_id = str(playlist.get('id'))
-            logger.debug('Fetched user %s with id %s' % (
-                name, user_id
-            ))
-
+            logger.debug('Fetched user %s with id %s' % (name, user_id))
             users.append((name, user_id))
         return users
 
     @cache()
     def get_set(self, set_id):
+        # https://developers.soundcloud.com/docs/api/reference#playlists
         playlist = self._get('playlists/%s' % set_id)
         return playlist.get('tracks', [])
 
     def get_sets(self):
         playable_sets = []
-        for playlist in self._get('me/playlists?limit=1000'):
+        for playlist in self._get('me/playlists', limit=True):
             name = playlist.get('title')
             set_id = str(playlist.get('id'))
             tracks = playlist.get('tracks')
@@ -142,18 +154,14 @@ class SoundCloudClient(object):
         return playable_sets
 
     def get_user_liked(self):
-        # Note: As with get_user_stream, this API call is undocumented.
+        # https://developers.soundcloud.com/docs/api/reference#GET--users--id--favorites
         likes = []
-        liked = self._get('e1/me/likes?limit=1000')
+        liked = self._get('me/favorites', limit=True)
         for data in liked:
-
-            track = data['track']
-            if track:
-                likes.append(self.parse_track(track))
-
-            pl = data['playlist']
-            if pl:
-                likes.append((pl['title'], str(pl['id'])))
+            if data['kind'] == 'track':
+                likes.append(self.parse_track(data))
+            else:
+                likes.append((data['title'], str(data['id'])))
 
         return self.sanitize_tracks(likes)
 
@@ -174,10 +182,9 @@ class SoundCloudClient(object):
         return track.split('.')[-1]
 
     def search(self, query):
-
-        search_results = self._get(
-            'tracks?q=%s&filter=streamable&order=hotness&limit=%d' % (
-                quote_plus(query.encode('utf-8')), self.explore_songs))
+        # https://developers.soundcloud.com/docs/api/reference#tracks
+        query = quote_plus(query.encode('utf-8'))
+        search_results = self._get('tracks?q=%s' % query, limit=True)
         tracks = []
         for track in search_results:
             tracks.append(self.parse_track(track, False))
@@ -185,25 +192,40 @@ class SoundCloudClient(object):
 
     def parse_results(self, res):
         tracks = []
-        for track in res:
-            tracks.append(self.parse_track(track))
+        logger.debug('Parsing %d result item(s)...', len(res))
+        for item in res:
+            if item['kind'] == 'track':
+                tracks.append(self.parse_track(item))
+            elif item['kind'] == 'playlist':
+                playlist_tracks = item.get('tracks', [])
+                logger.debug('Parsing %u playlist track(s)...',
+                             len(playlist_tracks))
+                for track in playlist_tracks:
+                    tracks.append(self.parse_track(track))
+            else:
+                logger.warning("Unknown item type '%s'.", item['kind'])
         return self.sanitize_tracks(tracks)
 
     def resolve_url(self, uri):
         return self.parse_results([self._get('resolve?url=%s' % uri)])
 
-    def _get(self, url, endpoint='api'):
-        if '?' in url:
-            url = '%s&client_id=%s' % (url, self.CLIENT_ID)
-        else:
-            url = '%s?client_id=%s' % (url, self.CLIENT_ID)
-
-        url = 'https://%s.soundcloud.com/%s' % (endpoint, url)
-
-        logger.debug('Requesting %s' % url)
-        res = self.http_client.get(url)
-        res.raise_for_status()
-        return res.json()
+    def _get(self, url, limit=None):
+        url = 'https://api.soundcloud.com/%s' % url
+        params = [('client_id', self.CLIENT_ID)]
+        if limit:
+            params.insert(0, ('limit', self.explore_songs))
+        try:
+            with closing(self.http_client.get(url, params=params)) as res:
+                logger.debug('Requested %s', res.url)
+                res.raise_for_status()
+                return res.json()
+        except Exception as e:
+            if isinstance(e, HTTPError) and e.response.status_code == 401:
+                logger.error('Invalid "auth_token" used for SoundCloud '
+                             'authentication!')
+            else:
+                logger.error('SoundCloud API request failed: %s' % e)
+        return {}
 
     def sanitize_tracks(self, tracks):
         return filter(None, tracks)
@@ -212,76 +234,68 @@ class SoundCloudClient(object):
     def parse_track(self, data, remote_url=False):
         if not data:
             return None
-        if not data['streamable']:
+        if not data.get('streamable'):
             logger.info(
                 "'%s' can't be streamed from SoundCloud" % data.get('title'))
             return None
-        if not data['kind'] == 'track':
+        if not data.get('kind') == 'track':
             logger.debug('%s is not track' % data.get('title'))
             return None
-
-        # NOTE kwargs dict keys must be bytestrings to work on Python < 2.6.5
-        # See https://github.com/mopidy/mopidy/issues/302 for details.
 
         track_kwargs = {}
         artist_kwargs = {}
         album_kwargs = {}
 
         if 'title' in data:
-            name = data['title']
             label_name = data.get('label_name')
+            if not label_name:
+                label_name = data.get(
+                    'user', {}).get('username', 'Unknown label')
 
-            if bool(label_name):
-                track_kwargs[b'name'] = name
-                artist_kwargs[b'name'] = label_name
-            else:
-                track_kwargs[b'name'] = name
-                artist_kwargs[b'name'] = data.get('user').get('username')
-
-            album_kwargs[b'name'] = 'SoundCloud'
+            track_kwargs['name'] = data['title']
+            artist_kwargs['name'] = label_name
+            album_kwargs['name'] = 'SoundCloud'
 
         if 'date' in data:
-            track_kwargs[b'date'] = data['date']
+            track_kwargs['date'] = data['date']
 
         if remote_url:
-            if not self.can_be_streamed(data['stream_url']):
-                logger.info(
-                    "'%s' can't be streamed from SoundCloud" % data.get(
-                        'title'))
+            track_kwargs['uri'] = self.get_streamble_url(data['stream_url'])
+            if track_kwargs['uri'] is None:
+                logger.info("'%s' can't be streamed "
+                            "from SoundCloud" % data.get('title'))
                 return None
-            track_kwargs[b'uri'] = self.get_streamble_url(data['stream_url'])
         else:
-            track_kwargs[b'uri'] = 'soundcloud:song/%s.%s' % (
-                readable_url(data.get('title')), data.get('id')
-            )
+            track_kwargs['uri'] = 'soundcloud:song/%s.%s' % (
+                readable_url(data.get('title')), data.get('id'))
 
-        track_kwargs[b'length'] = int(data.get('duration', 0))
-        track_kwargs[b'comment'] = data.get('permalink_url', '')
+        track_kwargs['length'] = int(data.get('duration', 0))
+        track_kwargs['comment'] = data.get('permalink_url', '')
 
         if artist_kwargs:
-            artist = Artist(**artist_kwargs)
-            track_kwargs[b'artists'] = [artist]
+            track_kwargs['artists'] = [Artist(**artist_kwargs)]
 
         if album_kwargs:
-            if 'artwork_url' in data and data['artwork_url']:
-                album_kwargs[b'images'] = [data['artwork_url']]
+            if data.get('artwork_url'):
+                album_kwargs['images'] = [data['artwork_url']]
             else:
-                image = data.get('user').get('avatar_url')
-                album_kwargs[b'images'] = [image]
+                image = data.get('user', {}).get('avatar_url')
+                album_kwargs['images'] = [image]
+            if len(album_kwargs['images']) == 1:
+                image = album_kwargs['images'][0].replace('large', 't500x500')
+                album_kwargs['images'] = [image]
 
-            album = Album(**album_kwargs)
-            track_kwargs[b'album'] = album
+            track_kwargs['album'] = Album(**album_kwargs)
 
-        track = Track(**track_kwargs)
-        return track
+        return Track(**track_kwargs)
 
     @cache()
-    def can_be_streamed(self, url):
-        req = self.http_client.head(self.get_streamble_url(url))
-        return req.status_code == 302
-
     def get_streamble_url(self, url):
-        return '%s?client_id=%s' % (url, self.CLIENT_ID)
+        req = self.http_client.head(streamble_url(url, self.CLIENT_ID))
+        if req.status_code == 302:
+            return req.headers.get('Location', None)
+        elif req.status_code == 429:
+            logger.warning('SoundCloud daily rate limit exceeded')
 
     def resolve_tracks(self, track_ids):
         """Resolve tracks concurrently emulating browser

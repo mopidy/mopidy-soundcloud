@@ -4,71 +4,90 @@ interactions:
     headers:
       Accept: ['*/*']
       Accept-Encoding: ['gzip, deflate']
-      Authorization: [!!python/unicode OAuth 1-35204-61921957-55796ebef403996]
       Connection: [keep-alive]
-      User-Agent: [python-requests/2.11.1]
+      user-agent: [!!python/unicode 'Mopidy-SoundCloud/2.0.2 Mopidy/2.1.0 CPython/2.7.11+']
     method: GET
-    uri: https://api.soundcloud.com/me/followings.json?limit=60&client_id=93e33e327fd8a9b77becd179652272e2
+    uri: https://api.soundcloud.com/me/followings?limit=10&client_id=93e33e327fd8a9b77becd179652272e2
   response:
     body:
       string: !!binary |
-        H4sIAAAAAAAAAJyTTY/aMBCG/0rka4HE+QCSU6uWa1Wp6qlbRcYxMMWxI9uBRSv+e8dLCAF2pbLi
-        kryZmXc+Hl4I11IK7kArUvx+IWzHHDNlayQpyMa5xhZhCHRiVcUrNeG6Dk8hdhxFURyneZ5mSTbm
-        m2SauLFkZi0mf5s1GRGoSEHnSZLQOJqOyBYUCqS1wuDHRpiaSVDbgRU6Wd2ikdRt9WrlNmDBqtZn
-        tAYGLbEGJjfBvrINe0efgopitcC8U43eFZVhbcmsK2tdwQqEbzKO6DSkUUhnAc2LjBbZNPiE80YY
-        uwKDwV3Z7/qS30mLmtU+rJVyGBV0Ogd3QOkrA6PxtRKWG2hO+yc/jK5aLsyTWjxjr1AL5ZgMfvpB
-        gy/GgXVPyv9e07tHjTHcFYFCl4lAl1n8eV0zkH4r3hGznfGmi/Whcag4w/i2fNXxRDPcS7uUwMsV
-        22kDTtjztwjnQD70Hjd71pI0P6ug1r2cxVhGsm4KNKkPtmFcdDtQuA6cFizXmDPU9mJp0bN04OSt
-        eH41otHW9V7UD1X75VykdES0wtNizopJK/AosL2aBLs7SNxgn3IcPcw7ndEsRcTGqx3VS7jjfZbM
-        8zj7GOyVUHqHYf/P+sntGvRvlypD2gfF34M9jgI6L2hSZOnbsN+AfgP5he07rIcQng56RWCaPIhg
-        SnOavQVhNGQw+IU81Fir+jiN/d66/1LP5fmG+/1+chNzA2t6D2v0OKvz458RUeLZlRsjVqduj/8A
-        AAD//wMAEhk/kr4FAAA=
+        H4sIAAAAAAAAANxa6Y7bRhJ+lY5+JDZW0vDQOUAQjI917HgnRsaO4V0vBi2yRfaIZDPdTcmaIMC+
+        xr7ePsl+1SRndNkZTRxjscAcYrNZVV3HVwf1aydSWSYiK1XROf3Hrx2+5Jbry0pnndNOam1pTk9O
+        pN83RRzFRT9S+Um9xfQ8zwvCYDKdDIZ+T4/CX4zoZVwnon9VJp1uR8ad0+k0GHpht7OQBa46lREa
+        d0qhc57JYrHBB2yMqsAlU1Xs+KxxmfQykUC2gkst8GSl5YZcvJT9nYeIgzmp2dJ+XBY8F3joHZFj
+        L7fI3QiC+4fYZdzYy1zFci4FyR94/vjEG534Q+ZNT4Pw1A/YX6AHD3vnUmPzJrOWQLO2zXpeZdnl
+        J0SLpF3TQ6qIYZpuJxYm0rKsDVXgYWzBY1av20urebS4dIudU3+E01WzTEaXc75UWlph2nseuMPq
+        agVV3ewPp8OwXZdFsrm5zDh4dv6qBQmWr03JI9HIXrOOpYkUntlcW4mZAddLK21Gh+zcLN1afLVa
+        9Z3eN9ROZsReLUpl7KYYWM9FcbsUdDuqgPFAb84zI6BtuRA7gq8zCQu0S791j/Vwf+D7Yeh7Xs9L
+        BpNsvOfh/tj3BpN7urjlWWZSWZq7u3bDb9u3X4MOu2gIbTr1JoPDzjw9CQLmj0+94DSYHnbmLeqb
+        Hr3jxlv7Gv99pGWS2t/1YNpnuSzYgzc/POzs+HIwPc6XA38yPOTK/mdy5a3F9vL3/dU72l/D4/01
+        QCB741Ew7C2KyXIV7/nrIAjGwfCe7pqKQnywOPnd/bXmt+Ou5293/XST8mFHDeCrzPdOQ/+jjvpp
+        97x1yrPcWKFjnu96Zed1Kg3DD+Rhr1QcgRqbCxGzudLsNRbPISV7K2b9rSt6hBfseWHpjESLZ6wQ
+        dqX0gqk5m2VwKRaLWEbcgppVzIooLRTW112WySX8lEkLIrHjncm5MHadCcY1aRX3+uyFQoBUxsmy
+        EmKRrRniewHWM1VZtkq5/cawmQSlwtHvdzZD7FyAskYAxGY3wnzyiKPSxWTkjbxDQRbcBNkrrdgb
+        OHwOYvEfSBybij6URG59538sdXjj8SQMRtPeVVFVo+FeKAbTwSAkLd4nFnmx/pDIpSg+xHx993Bs
+        eG7H41mxZs+IFnviaG1G5i6fA8E5OPG9E29MJZE/OvX+YHA+EzBIsZA6gl33AvQx4ieBfwp4vRas
+        5NpSgFHMzCoDixrTxSfLCrVqo6mgP2sWIUJngl1ViGkrc9GLVGGqHM7bZ6jA3P0o4zLHdm7Z2fk7
+        9uz5z0/P2ZOzd2yuVc62ROviEmoqbghrkd0EN8Qx1ayXiEJD0kJAlkSwXCBeu/W/SEF8EjAW3KZ0
+        1WfPKX7hj4oZvhREyPB1LQ0oSs2cSVlVUHgyBB6zVSHiLkMA6GSNFR7TZco1gB/KiFkq+NJpha2k
+        TbHRphppmuAmFxnMGDkdGicKziHzEhIbur9UEVAMvgC8wTkjCPiogRmGoq0WlM4eKweZitWmgioa
+        aWsAA/CpVdGzqifAKaUFZy53eCVq1u87zi6ZoIMDCJ20TlH9950dWxjh9MGWQq9hZ/LVLou5BB7m
+        PHaHhTA53CHqs59UlaSORVXwWGko5St2AfSjuoSAEkfRbA5g+oq9IBFqplvI2Rh6FzXDI8uS8fAw
+        ZH6uEvuL1SX3AMNgMAyHA2887AETlsF+HR0G0+lwOLofGEqDGrN3VYmluL47FjYst7HQkbqhtImE
+        O0wOAOHoxJuc+D4DCg5QTg8OA2HG4WOa/hQJL2ZarPkONrLHb/726PkZM+Qm7Gv28uz183MUEZUw
+        O7B5gBb79NMNyiYVsCrnjvUOwn4PhRUvz86fgBaBAXxFvNfvCyuFBquYcOzaymvVZTdUuoCmNXt+
+        8f3rH9mLN09/fvr3LuIN4RVLYCAH+mkIg/jrMqAuU1cKYb8UGdweiwaLOeBDRpYzkQFJE3gbyocI
+        hVHW7/ddLLtnc3iztErjMwd0c8jGHqBUwnOG5ZLwKMI5CGSvAeYkrVXEIcNvyQEO7JdKECHJAJjA
+        IoBc1q4SSdF1e6kVNZDElFI7EZvdVWYrjQ85YKpYi8iKh4zxVGmSwKp1tz6LY0rATKvIUzgocMUd
+        HrZSVAyygec2lFpFwhB6AoZmGiWizkVNBZCFPAInBBFN2upCTnkN9galIytVtoRW8GB7n+xEv0Ym
+        itVoLEURq1YvwrQ7opTMTNUgWS+XH5AsAG6UV7C2ZVpkxG3LAvPhfiRpIa/xXGNmhdoUshpSv8Pv
+        lF9fi6yoAMhiLQwVuguXHBoLC13bHMAJIzNeY7bkRWtpATtTLhIaEV8kK8JYLHEGHIb34PkHtqnY
+        8zWjLXQTh2HUihIjl6ARFxxSMjC6qbBJYQJ5T7IVamjKmrQKq2OF9uOqXqotLminLK7I4DGYGZHN
+        3SEfEt2cyo3meMQZFQl0QVU4SVcbH8aMITAZ3d0QjeEN7c75goK1sTbcGadElQ/9zygdmrpqoXUW
+        41NrRMfaWAmWpBsiQUow29mrtmTG9/rqIxOYHw4O9tWB96cOiTYQuU9FA6K0vHOl73+RrtvzhyPf
+        Hw3GvesVRFwcmBIF49E49O+X3gzKOgLPKJXHDIpqltvpbZvUZnrbvnMgu01OvOGJ57sefHoajA5n
+        tyebBJq1C0d6J3W5jezmVpOXXvAFikTee6GSq/3cRK0gPd6lcJ9rgrYuBf8mrT67UMBPqpzlNwhM
+        ObdrSk+ba8p23QcXVZw6B6riSyAaCkQ2U+s+O3M4UWOLK3kl1bkr6iYaEjXGvRICjalgz7iBaQ0e
+        pLJ4ATwoqNL9Qcbsx4KdoQ6NFgCBn2QstovL5zTgFUbuh+eRI9wQFdbB+Pxs0VninCv8JvVZPzbR
+        lUWK5GBLVZZVsbhzqIbDL1GIel44Gk2CEO34XE79AwOy0WAymt5zoJtUEoxWSmfxESOymuN2oD5z
+        lN42lDYDdZvHx4ZlwYT5UxqWeR95RVEz2InUlt9moNYbWXurCdRz9LTvaLz1mK53A3XLw99Qvxqj
+        6aJEvzd6GoZHzp7G/mD8O/PdzzV62jBC48YHHX7DIs6s++4efI62yx8Oj/f3cDIcT+Fdo97VyvKJ
+        3Pf3MbZ4wT07ryvUprnk6UpRdXPEe4yW7bbXv2jIsYYeysId799n+LFUFfjMG5/iJ/QPR0DLbDcG
+        uG3QbTMKbiS7vd1EwvdwxPVKKaSix2d7kXDgRAyFGxqMdoZbNnNm5BYt2C4fFIuoeZdSrAxqctT5
+        zSTHJTRUjpSi2rBBySgTSbNnVPcIMjxYT1faqY6iBEWzrgLVlHZZCmzVNyCtqHi0yrVD4PnV3SM4
+        9IIjE9Uo9MbBwUrys0+P7zITCfwDdeOXGRGjog686TjsLUJZpnZ/RDyeDobDweR+wVmKjHq0HvUE
+        R4yIG57bkfmqpoXiytHaDMkdNofjERkpZN7gNByfDsM/NiF+nIJdovZC7WxOHeWc5nlrAQ1TeBiZ
+        iSIS1HOh46vIxggPN+OjdqqIuY7ZDLspVNozpjSEjCjAbOq6NoqNGVy+6Wv/qrSLn0eC5giu6USf
+        TwNFpwO0gLMqp2modTNYRNWM6KErBy0soN5rh9Y5HJGhTEKTA0JAAy1WEEm2VEy7kU5EyPG+eCTm
+        NDuuZ6yp5LYydaeaaFWVED5GC4+yE80kunM+y8Abx1i0lBL3Rsm9mqI3SbR0SDmRKISbPf/nX/82
+        tTYARcp1o1TcNk2sHzbKRp8eiXrSTn0q4QVFSA0riXv3hOLYmQgN4/R2BjxvXnC5ltpkpEbogcca
+        lXuX3e6gB2Kahyv3jyROksxpciaIDXlLjyb7datdn/NmpkBnyDLpVOusSFP5Oc9lJpsZdKGKnttN
+        AAqPILRmbyXkWnfrg8UyLqAOS/06jRJgLm5SWDqSDlxrcWk8U5GaeH3AuhmYu37etfmxKAz1MCJG
+        3WAlnM0Fomm0B7SmtIA7MAg+zWVSObepLEtp6K/gNkt6+WHaFwNqBp1HmTB98hD3FlOLGTUzrU/T
+        HAJUNNiS98xVhOCOG/2ivHOr3Bji1Gc/wbN1DJ5ofJ7S94O008pZFUtFlm9CsH2pgKQDbWFVg81j
+        QCmNgBxlAfd04UOt28UKgvxAV3XFBPBkT5BvoLDXqcrx7wGgOeORcxoax+RgM4MKYlHWLvWSQ8DC
+        soso1UrAyr2XYiaih3sx2bySlQTrpGxTCthM9zS3tnn9UWufxpFFEwVzSYmOReuo9iv3bsYdhF7I
+        0gsaZkGFLJsp9+JJfAASSoKY2vTtOqJ9jmh3IaGgRSvyklrNVPC4p6g1jOgY7asrmSRAi24NB9Ce
+        yqBYGdFNF3cMp6/fax06Z6mVIwRj3UIYzZ3AYu3iQ9m0Ngj5omm9aCVF5uIqh9sckfCPLNiDCX2D
+        Yz/bh5vJfi/Ft2mlc//JUUOBMPlwFzr6876lQRl2K+3LnMPGJ7GY8yqzl80DdcIvi+Q7fxiMhmMv
+        cBObemYUTu/diJpMiJJQyqyQzI76fpHjujM12qO2NTnau/ux780FHvMD+t7c4CMvic8y8WG3HJeZ
+        cd8f2iwGaB+7udPUBRfruBB7vejuN43OKmQOiL43bwkHR45Dp8H4/+JrRsPf/tnt0FcoLlMt5p92
+        klyc3J74uyijFHUp42+noQjxE4zn8YRPZ+MxQDn20XkO6fs/Ivi6hPdfUkHyre99HVXaKP2tH46H
+        k9HYD6HKUee3/wIAAP//AwD+wbFTjSoAAA==
     headers:
       access-control-allow-headers: ['Accept, Authorization, Content-Type, Origin']
       access-control-allow-methods: ['GET, PUT, POST, DELETE']
       access-control-allow-origin: ['*']
       access-control-expose-headers: [Date]
       cache-control: ['private, max-age=0, must-revalidate']
+      connection: [keep-alive]
       content-encoding: [gzip]
-      content-length: ['584']
-      content-type: [application/json]
-      date: ['Thu, 27 Oct 2016 20:26:05 GMT']
+      content-length: ['3559']
+      content-type: [application/json;charset=utf-8]
+      date: ['Tue, 22 May 2018 22:30:35 GMT']
       server: [am/2]
-    status: {code: 200, message: OK}
-- request:
-    body: null
-    headers:
-      Accept: ['*/*']
-      Accept-Encoding: ['gzip, deflate']
-      Authorization: [!!python/unicode OAuth 1-35204-61921957-55796ebef403996]
-      Connection: [keep-alive]
-      User-Agent: [python-requests/2.11.1]
-    method: GET
-    uri: https://api.soundcloud.com/me/followings?limit=60&client_id=93e33e327fd8a9b77becd179652272e2
-  response:
-    body:
-      string: !!binary |
-        H4sIAAAAAAAAAJyTTY/aMBCG/0rka4HE+QCSU6uWa1Wp6qlbRcYxMMWxI9uBRSv+e8dLCAF2pbLi
-        kryZmXc+Hl4I11IK7kArUvx+IWzHHDNlayQpyMa5xhZhCHRiVcUrNeG6Dk8hdhxFURyneZ5mSTbm
-        m2SauLFkZi0mf5s1GRGoSEHnSZLQOJqOyBYUCqS1wuDHRpiaSVDbgRU6Wd2ikdRt9WrlNmDBqtZn
-        tAYGLbEGJjfBvrINe0efgopitcC8U43eFZVhbcmsK2tdwQqEbzKO6DSkUUhnAc2LjBbZNPiE80YY
-        uwKDwV3Z7/qS30mLmtU+rJVyGBV0Ogd3QOkrA6PxtRKWG2hO+yc/jK5aLsyTWjxjr1AL5ZgMfvpB
-        gy/GgXVPyv9e07tHjTHcFYFCl4lAl1n8eV0zkH4r3hGznfGmi/Whcag4w/i2fNXxRDPcS7uUwMsV
-        22kDTtjztwjnQD70Hjd71pI0P6ug1r2cxVhGsm4KNKkPtmFcdDtQuA6cFizXmDPU9mJp0bN04OSt
-        eH41otHW9V7UD1X75VykdES0wtNizopJK/AosL2aBLs7SNxgn3IcPcw7ndEsRcTGqx3VS7jjfZbM
-        8zj7GOyVUHqHYf/P+sntGvRvlypD2gfF34M9jgI6L2hSZOnbsN+AfgP5he07rIcQng56RWCaPIhg
-        SnOavQVhNGQw+IU81Fir+jiN/d66/1LP5fmG+/1+chNzA2t6D2v0OKvz458RUeLZlRsjVqduj/8A
-        AAD//wMAEhk/kr4FAAA=
-    headers:
-      access-control-allow-headers: ['Accept, Authorization, Content-Type, Origin']
-      access-control-allow-methods: ['GET, PUT, POST, DELETE']
-      access-control-allow-origin: ['*']
-      access-control-expose-headers: [Date]
-      cache-control: ['private, max-age=0, must-revalidate']
-      content-encoding: [gzip]
-      content-length: ['584']
-      content-type: [application/json]
-      date: ['Thu, 27 Oct 2016 20:34:06 GMT']
-      server: [am/2]
+      via: [1.1 f76a5f650b7fe2be49bcae6cfe9c8215.cloudfront.net (CloudFront)]
+      x-amz-cf-id: [lj1O0UGgoSQjfDfaGBoQXUv0nv2erwEQh-gW9c-aYAe_1b2paiZEZQ==]
+      x-cache: [Miss from cloudfront]
     status: {code: 200, message: OK}
 version: 1
