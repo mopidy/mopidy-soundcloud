@@ -97,7 +97,7 @@ class SoundCloudClient(object):
 
     def __init__(self, config):
         super(SoundCloudClient, self).__init__()
-        self.explore_songs = config['soundcloud'].get('explore_songs', 10)
+        self.explore_songs = config['soundcloud'].get('explore_songs', 25)
         self.http_client = get_requests_session(
             proxy_config=config['proxy'],
             user_agent='%s/%s' % (

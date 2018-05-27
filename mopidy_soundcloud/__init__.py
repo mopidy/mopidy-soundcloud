@@ -21,7 +21,7 @@ class SoundCloudExtension(ext.Extension):
 
     def get_config_schema(self):
         schema = super(SoundCloudExtension, self).get_config_schema()
-        schema['explore_songs'] = config.Integer()
+        schema['explore_songs'] = config.Integer(optional=True)
         schema['auth_token'] = config.Secret()
         schema['explore'] = config.Deprecated()
         schema['explore_pages'] = config.Deprecated()
