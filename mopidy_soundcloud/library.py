@@ -69,17 +69,10 @@ class SoundCloudLibraryProvider(backend.LibraryProvider):
 
     def list_liked(self):
         vfs_list = collections.OrderedDict()
-        for data in self.backend.remote.get_user_liked():
-            try:
-                name, set_id = data
-            except (TypeError, ValueError):
-                logger.debug('Adding liked track %s to vfs' % data.name)
-                vfs_list[data.name] = models.Ref.track(
-                    uri=data.uri, name=data.name
-                )
-            else:
-                logger.debug('Adding liked playlist %s to vfs' % name)
-                vfs_list[set_id] = new_folder(name, ['sets', set_id])
+        for track in self.backend.remote.get_likes():
+            logger.debug('Adding liked track %s to vfs' % track.name)
+            vfs_list[track.name] = models.Ref.track(
+                uri=track.uri, name=track.name)
         return vfs_list.values()
 
     def list_user_follows(self):
@@ -117,7 +110,7 @@ class SoundCloudLibraryProvider(backend.LibraryProvider):
             if 'following' == req_type:
                 if res_id:
                     return self.tracklist_to_vfs(
-                        self.backend.remote.get_followings(res_id)
+                        self.backend.remote.get_tracks(res_id)
                     )
                 else:
                     return self.list_user_follows()

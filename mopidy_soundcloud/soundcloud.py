@@ -39,6 +39,13 @@ def streamble_url(url, client_id):
     return '%s?client_id=%s' % (url, client_id)
 
 
+def get_user_url(user_id):
+    if not user_id:
+        return 'me'
+    else:
+        return 'users/%s' % user_id
+
+
 def get_requests_session(proxy_config, user_agent, token):
     proxy = httpclient.format_proxy(proxy_config)
     full_user_agent = httpclient.format_user_agent(user_agent)
@@ -121,18 +128,15 @@ class SoundCloudClient(object):
 
         return self.sanitize_tracks(tracks)
 
-    def get_followings(self, query_user_id=None):
-
-        if query_user_id:
-            return self._get('users/%s/tracks' % query_user_id) or []
-
+    def get_followings(self, user_id=None):
+        user_url = get_user_url(user_id)
         users = []
-        playlists = self._get('me/followings', limit=True)
+        playlists = self._get('%s/followings' % user_url, limit=True)
         for playlist in playlists.get('collection', []):
-            name = playlist.get('username')
+            user_name = playlist.get('username')
             user_id = str(playlist.get('id'))
-            logger.debug('Fetched user %s with id %s' % (name, user_id))
-            users.append((name, user_id))
+            logger.debug('Fetched user %s with id %s' % (user_name, user_id))
+            users.append((user_name, user_id))
         return users
 
     @cache()
@@ -141,29 +145,29 @@ class SoundCloudClient(object):
         playlist = self._get('playlists/%s' % set_id)
         return playlist.get('tracks', [])
 
-    def get_sets(self):
+    def get_sets(self, user_id=None):
+        user_url = get_user_url(user_id)
         playable_sets = []
-        for playlist in self._get('me/playlists', limit=True):
+        for playlist in self._get('%s/playlists' % user_url, limit=True):
             name = playlist.get('title')
             set_id = str(playlist.get('id'))
-            tracks = playlist.get('tracks')
+            tracks = playlist.get('tracks', [])
             logger.debug('Fetched set %s with id %s (%d tracks)' % (
                 name, set_id, len(tracks)
             ))
             playable_sets.append((name, set_id, tracks))
         return playable_sets
 
-    def get_user_liked(self):
+    def get_likes(self, user_id=None):
         # https://developers.soundcloud.com/docs/api/reference#GET--users--id--favorites
-        likes = []
-        liked = self._get('me/favorites', limit=True)
-        for data in liked:
-            if data['kind'] == 'track':
-                likes.append(self.parse_track(data))
-            else:
-                likes.append((data['title'], str(data['id'])))
+        user_url = get_user_url(user_id)
+        likes = self._get('%s/favorites' % user_url, limit=True)
+        return self.parse_results(likes)
 
-        return self.sanitize_tracks(likes)
+    def get_tracks(self, user_id=None):
+        user_url = get_user_url(user_id)
+        tracks = self._get('%s/tracks' % user_url, limit=True)
+        return self.parse_results(tracks)
 
     # Public
     @cache()

@@ -28,6 +28,7 @@ class ApiTest(unittest.TestCase):
     def setUp(self):
         config = SoundCloudExtension().get_config_schema()
         config['auth_token'] = '1-35204-61921957-55796ebef403996'
+        config['auth_token'] = '1-35204-53562492-1b695b8186102fc'
         config['explore_songs'] = 10
         self.api = SoundCloudClient({'soundcloud': config, 'proxy': {}})
 
@@ -105,8 +106,8 @@ class ApiTest(unittest.TestCase):
             self.assertEquals(list(tracks[i].artists)[0].name, 'yndi halda')
 
     @my_vcr.use_cassette('sc-liked.yaml')
-    def test_get_user_liked(self):
-        tracks = self.api.get_user_liked()
+    def test_get_user_likes(self):
+        tracks = self.api.get_likes()
         self.assertEquals(len(tracks), 3)
         self.assertIsInstance(tracks[0], Track)
         self.assertEquals(tracks[1].name, 'Pelican - Deny The Absolute')
@@ -126,6 +127,26 @@ class ApiTest(unittest.TestCase):
         self.assertEquals(users[1], (u'Tall Ships', '1710483'))
         self.assertEquals(users[8], (u'Pelican Song', '27945548'))
         self.assertEquals(users[9], (u'sleepmakeswaves', '1739693'))
+
+    @my_vcr.use_cassette('sc-user-tracks.yaml')
+    def test_get_user_tracks(self):
+        expected_tracks = ['The Wait',
+                           'The Cliff (Palms Remix)',
+                           'The Cliff (Justin Broadrick Remix)',
+                           'The Cliff (Vocal Version)',
+                           'Pelican - The Creeper',
+                           'Pelican - Lathe Biosas',
+                           'Pelican - Ephemeral',
+                           'Pelican - Deny the Absolute',
+                           'Pelican - Immutable Dusk',
+                           'Pelican - Strung Up From The Sky']
+
+        tracks = self.api.get_tracks(27945548)
+        for i, t in enumerate(expected_tracks):
+            self.assertIsInstance(tracks[i], Track)
+            self.assertEquals(tracks[i].name, expected_tracks[i])
+            self.assertTrue(tracks[i].length > 500)
+            self.assertEquals(len(tracks[i].artists), 1)
 
     @my_vcr.use_cassette('sc-set.yaml')
     def test_get_set(self):
