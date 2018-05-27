@@ -28,7 +28,6 @@ class ApiTest(unittest.TestCase):
     def setUp(self):
         config = SoundCloudExtension().get_config_schema()
         config['auth_token'] = '1-35204-61921957-55796ebef403996'
-        config['auth_token'] = '1-35204-53562492-1b695b8186102fc'
         config['explore_songs'] = 10
         self.api = SoundCloudClient({'soundcloud': config, 'proxy': {}})
 

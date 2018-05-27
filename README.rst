@@ -83,6 +83,8 @@ Configuration
     auth_token = 1-1111-1111111
     explore_songs = 25
 
+#. Use ``explore_songs`` to restrict the number of items returned.
+
 
 Project resources
 =================
@@ -102,11 +104,17 @@ Credits
 Changelog
 =========
 
-v2.0.3 (UNRELEASED)
+v2.1.0 (UNRELEASED)
 -------------------
 
 - Fix ``AttributeError: : 'list' object has no attribute 'name'`` when browsing
-  tracks. (Fixes #43, #45, #59, PR #69)
+  tracks. (Fixes #43, #45, #59, PR #69).
+- Improved error handling (Fixes #53, #71, #90, #95, PR #100).
+- Merged oustanding pull requests implementing various API updates (Fixes #79,
+  #82, PR #100).
+- Cached main API endpoint responses for 10 seconds.
+- Cached stream links to reduce impact of API rate limit. (#PR 100).
+- Use explore_songs to limit the number of results returned (#PR 100).
 
 v2.0.2 (2016-01-03)
 -------------------
