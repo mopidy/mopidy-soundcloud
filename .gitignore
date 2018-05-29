@@ -1,9 +1,7 @@
 *.egg-info
 *.pyc
-*.swp
 .cache/
 .coverage
-.idea
 .tox
 MANIFEST
 build/
