@@ -104,7 +104,7 @@ Credits
 Changelog
 =========
 
-v2.1.0 (UNRELEASED)
+v2.1.0 (2018-05-30)
 -------------------
 
 - Fix ``AttributeError: 'list' object has no attribute 'name'`` when browsing
