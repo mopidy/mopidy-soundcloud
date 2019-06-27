@@ -50,7 +50,7 @@ Debian/Ubuntu/Raspbian: Install the ``mopidy-soundcloud`` package from
 Arch Linux: Install the ``mopidy-soundcloud`` package from
 `AUR <https://aur.archlinux.org/packages/mopidy-soundcloud/>`_::
 
-    sudo yaourt -S mopidy-soundcloud
+    sudo yay -S mopidy-soundcloud
 
 OS X: Install the ``mopidy-soundcloud`` package from the
 `mopidy/mopidy <https://github.com/mopidy/homebrew-mopidy>`_ Homebrew tap::
