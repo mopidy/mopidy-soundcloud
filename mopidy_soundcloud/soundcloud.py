@@ -31,7 +31,7 @@ def readable_url(uri):
     valid_chars = "-_.() %s%s" % (string.ascii_letters, string.digits)
     safe_uri = unicodedata.normalize('NFKD', unicode(uri)).encode('ASCII',
                                                                   'ignore')
-    return re.sub('\s+', ' ',
+    return re.sub(r'\s+', ' ',
                   ''.join(c for c in safe_uri if c in valid_chars)).strip()
 
 
