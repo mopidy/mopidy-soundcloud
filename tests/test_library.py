@@ -5,7 +5,7 @@ import unittest
 
 import pykka
 
-from mopidy_soundcloud import SoundCloudExtension, actor
+from mopidy_soundcloud import Extension, actor
 from mopidy_soundcloud.library import (
     SoundCloudLibraryProvider, new_folder, simplify_search_query)
 from mopidy_soundcloud.soundcloud import safe_url
@@ -13,7 +13,7 @@ from mopidy_soundcloud.soundcloud import safe_url
 
 class ApiTest(unittest.TestCase):
     def setUp(self):
-        config = SoundCloudExtension().get_config_schema()
+        config = Extension().get_config_schema()
         config['auth_token'] = '1-35204-61921957-55796ebef403996'
         # using this user http://maildrop.cc/inbox/mopidytestuser
         self.backend = actor.SoundCloudBackend.start(

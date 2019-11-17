@@ -141,7 +141,7 @@ class SoundCloudClient(object):
         self.http_client = get_requests_session(
             proxy_config=config['proxy'],
             user_agent='%s/%s' % (
-                mopidy_soundcloud.SoundCloudExtension.dist_name,
+                mopidy_soundcloud.Extension.dist_name,
                 mopidy_soundcloud.__version__),
             token=config['soundcloud']['auth_token'])
         adapter = ThrottlingHttpAdapter(burst_length=3, burst_window=1, wait_window=10)

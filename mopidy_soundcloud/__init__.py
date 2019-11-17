@@ -9,7 +9,7 @@ from mopidy.exceptions import ExtensionError
 __version__ = '2.1.0'
 
 
-class SoundCloudExtension(ext.Extension):
+class Extension(ext.Extension):
 
     dist_name = 'Mopidy-SoundCloud'
     ext_name = 'soundcloud'

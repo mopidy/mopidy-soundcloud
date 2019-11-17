@@ -10,7 +10,7 @@ from mopidy.models import Track
 import vcr
 
 import mopidy_soundcloud
-from mopidy_soundcloud import SoundCloudExtension
+from mopidy_soundcloud import Extension
 from mopidy_soundcloud.soundcloud import SoundCloudClient, readable_url
 
 local_path = os.path.abspath(os.path.dirname(__file__))
@@ -26,7 +26,7 @@ my_vcr = vcr.VCR(serializer='yaml',
 class ApiTest(unittest.TestCase):
     @my_vcr.use_cassette('sc-login.yaml')
     def setUp(self):
-        config = SoundCloudExtension().get_config_schema()
+        config = Extension().get_config_schema()
         config['auth_token'] = '1-35204-61921957-55796ebef403996'
         config['explore_songs'] = 10
         self.api = SoundCloudClient({'soundcloud': config, 'proxy': {}})
@@ -42,7 +42,7 @@ class ApiTest(unittest.TestCase):
     @my_vcr.use_cassette('sc-login-error.yaml')
     def test_responds_with_error(self):
         with mock.patch('mopidy_soundcloud.soundcloud.logger.error') as d:
-            config = SoundCloudExtension().get_config_schema()
+            config = Extension().get_config_schema()
             config['auth_token'] = '1-fake-token'
             SoundCloudClient({'soundcloud': config, 'proxy': {}}).user
             d.assert_called_once_with('Invalid "auth_token" used for '
