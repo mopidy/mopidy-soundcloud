@@ -41,7 +41,7 @@ class SoundCloudLibraryProvider(backend.LibraryProvider):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.vfs = {"soundcloud:directory": collections.OrderedDict()}
+        self.vfs = {"soundcloud:directory": {}}
         self.add_to_vfs(new_folder("Following", ["following"]))
         self.add_to_vfs(new_folder("Liked", ["liked"]))
         self.add_to_vfs(new_folder("Sets", ["sets"]))
@@ -56,7 +56,7 @@ class SoundCloudLibraryProvider(backend.LibraryProvider):
             sets_list = new_folder(name, ["sets", set_id])
             logger.debug("Adding set %s to vfs" % sets_list.name)
             sets_vfs[set_id] = sets_list
-        return sets_vfs.values()
+        return list(sets_vfs.values())
 
     def list_liked(self):
         vfs_list = collections.OrderedDict()
@@ -65,7 +65,7 @@ class SoundCloudLibraryProvider(backend.LibraryProvider):
             vfs_list[track.name] = models.Ref.track(
                 uri=track.uri, name=track.name
             )
-        return vfs_list.values()
+        return list(vfs_list.values())
 
     def list_user_follows(self):
         sets_vfs = collections.OrderedDict()
@@ -73,7 +73,7 @@ class SoundCloudLibraryProvider(backend.LibraryProvider):
             sets_list = new_folder(name, ["following", user_id])
             logger.debug("Adding set %s to vfs" % sets_list.name)
             sets_vfs[user_id] = sets_list
-        return sets_vfs.values()
+        return list(sets_vfs.values())
 
     def tracklist_to_vfs(self, track_list):
         vfs_list = collections.OrderedDict()
@@ -84,7 +84,7 @@ class SoundCloudLibraryProvider(backend.LibraryProvider):
                 vfs_list[temp_track.name] = models.Ref.track(
                     uri=temp_track.uri, name=temp_track.name
                 )
-        return vfs_list.values()
+        return list(vfs_list.values())
 
     def browse(self, uri):
         if not self.vfs.get(uri):
@@ -115,7 +115,7 @@ class SoundCloudLibraryProvider(backend.LibraryProvider):
                 )
 
         # root directory
-        return self.vfs.get(uri, {}).values()
+        return list(self.vfs.get(uri, {}).values())
 
     def search(self, query=None, uris=None, exact=False):
         # TODO Support exact search
