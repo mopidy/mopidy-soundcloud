@@ -28,8 +28,8 @@ def safe_url(uri):
 
 def readable_url(uri):
     valid_chars = f"-_.() {string.ascii_letters}{string.digits}"
-    safe_uri = unicodedata.normalize("NFKD", uri).encode(
-        "ASCII", "ignore"
+    safe_uri = (
+        unicodedata.normalize("NFKD", uri).encode("ascii", "ignore").decode()
     )
     return re.sub(
         r"\s+", " ", "".join(c for c in safe_uri if c in valid_chars)
