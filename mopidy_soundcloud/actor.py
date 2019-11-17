@@ -12,7 +12,6 @@ logger = logging.getLogger(__name__)
 
 
 class SoundCloudBackend(pykka.ThreadingActor, backend.Backend):
-
     def __init__(self, config, audio):
         super().__init__()
         self.config = config
@@ -20,16 +19,15 @@ class SoundCloudBackend(pykka.ThreadingActor, backend.Backend):
         self.library = SoundCloudLibraryProvider(backend=self)
         self.playback = SoundCloudPlaybackProvider(audio=audio, backend=self)
 
-        self.uri_schemes = ['soundcloud', 'sc']
+        self.uri_schemes = ["soundcloud", "sc"]
 
     def on_start(self):
-        username = self.remote.user.get('username')
+        username = self.remote.user.get("username")
         if username is not None:
             logger.info('Logged in to SoundCloud as "%s"', username)
 
 
 class SoundCloudPlaybackProvider(backend.PlaybackProvider):
-
     def translate_uri(self, uri):
         track_id = self.backend.remote.parse_track_uri(uri)
         track = self.backend.remote.get_track(track_id, True)

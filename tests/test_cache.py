@@ -6,7 +6,6 @@ from mopidy_soundcloud.soundcloud import cache
 
 
 class CacheTest(unittest.TestCase):
-
     def test_decorator(self):
         func = Mock()
         decorated_func = cache()
@@ -16,12 +15,11 @@ class CacheTest(unittest.TestCase):
         self.assertEquals(decorated_func._call_count, 1)
 
     def test_set_default_cache(self):
-
         @cache()
         def returnstring():
-            return 'ok'
+            return "ok"
 
-        self.assertEquals(returnstring(), 'ok')
+        self.assertEquals(returnstring(), "ok")
 
     def test_set_ttl_cache(self):
 
