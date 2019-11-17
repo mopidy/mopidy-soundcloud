@@ -1,9 +1,11 @@
 import pathlib
 
+import pkg_resources
+
 from mopidy import config, ext
 from mopidy.exceptions import ExtensionError
 
-__version__ = "2.1.0"
+__version__ = pkg_resources.get_distribution("Mopidy-SoundCloud").version
 
 
 class Extension(ext.Extension):
