@@ -1,35 +1,29 @@
-from __future__ import unicode_literals
-
 import unittest
-
-from mock import Mock
+from unittest import mock
 
 from mopidy_soundcloud.soundcloud import cache
 
 
 class CacheTest(unittest.TestCase):
-
     def test_decorator(self):
-        func = Mock()
+        func = mock.Mock()
         decorated_func = cache()
         decorated_func(func)
         func()
-        self.assertEquals(func.called, True)
-        self.assertEquals(decorated_func._call_count, 1)
+        assert func.called is True
+        assert decorated_func._call_count == 1
 
     def test_set_default_cache(self):
-
         @cache()
         def returnstring():
-            return 'ok'
+            return "ok"
 
-        self.assertEquals(returnstring(), 'ok')
+        assert returnstring() == "ok"
 
     def test_set_ttl_cache(self):
-
-        func = Mock()
+        func = mock.Mock()
         decorated_func = cache(func, ttl=5)
         func()
-        self.assertEquals(func.called, True)
-        self.assertEquals(decorated_func._call_count, 1)
-        self.assertEquals(decorated_func.ttl, 5)
+        assert func.called is True
+        assert decorated_func._call_count == 1
+        assert decorated_func.ttl == 5
