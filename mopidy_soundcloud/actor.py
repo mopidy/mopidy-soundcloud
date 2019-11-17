@@ -22,7 +22,7 @@ class SoundCloudBackend(pykka.ThreadingActor, backend.Backend):
     def on_start(self):
         username = self.remote.user.get("username")
         if username is not None:
-            logger.info('Logged in to SoundCloud as "%s"', username)
+            logger.info(f"Logged in to SoundCloud as {username!r}")
 
 
 class SoundCloudPlaybackProvider(backend.PlaybackProvider):

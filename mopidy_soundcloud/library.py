@@ -11,7 +11,7 @@ logger = logging.getLogger(__name__)
 
 
 def generate_uri(path):
-    return "soundcloud:directory:%s" % urllib.parse.quote("/".join(path))
+    return f"soundcloud:directory:{urllib.parse.quote('/'.join(path))}"
 
 
 def new_folder(name, path):
@@ -54,14 +54,14 @@ class SoundCloudLibraryProvider(backend.LibraryProvider):
         sets_vfs = collections.OrderedDict()
         for (name, set_id, _tracks) in self.backend.remote.get_sets():
             sets_list = new_folder(name, ["sets", set_id])
-            logger.debug("Adding set %s to vfs" % sets_list.name)
+            logger.debug(f"Adding set {sets_list.name} to VFS")
             sets_vfs[set_id] = sets_list
         return list(sets_vfs.values())
 
     def list_liked(self):
         vfs_list = collections.OrderedDict()
         for track in self.backend.remote.get_likes():
-            logger.debug("Adding liked track %s to vfs" % track.name)
+            logger.debug(f"Adding liked track {track.name} to VFS")
             vfs_list[track.name] = models.Ref.track(
                 uri=track.uri, name=track.name
             )
@@ -71,7 +71,7 @@ class SoundCloudLibraryProvider(backend.LibraryProvider):
         sets_vfs = collections.OrderedDict()
         for (name, user_id) in self.backend.remote.get_followings():
             sets_list = new_folder(name, ["following", user_id])
-            logger.debug("Adding set %s to vfs" % sets_list.name)
+            logger.debug(f"Adding set {sets_list.name} to VFS")
             sets_vfs[user_id] = sets_list
         return list(sets_vfs.values())
 
@@ -127,14 +127,14 @@ class SoundCloudLibraryProvider(backend.LibraryProvider):
             search_query = "".join(query["uri"])
             url = urllib.parse.urlparse(search_query)
             if "soundcloud.com" in url.netloc:
-                logger.info("Resolving SoundCloud for: %s", search_query)
+                logger.info(f"Resolving SoundCloud for: {search_query}")
                 return SearchResult(
                     uri="soundcloud:search",
                     tracks=self.backend.remote.resolve_url(search_query),
                 )
         else:
             search_query = simplify_search_query(query)
-            logger.info("Searching SoundCloud for: %s", search_query)
+            logger.info(f"Searching SoundCloud for: {search_query}")
             return SearchResult(
                 uri="soundcloud:search",
                 tracks=self.backend.remote.search(search_query),
@@ -150,10 +150,10 @@ class SoundCloudLibraryProvider(backend.LibraryProvider):
             track = self.backend.remote.get_track(track_id)
             if track is None:
                 logger.info(
-                    "Failed to lookup %s: SoundCloud track not found" % uri
+                    f"Failed to lookup {uri}: SoundCloud track not found"
                 )
                 return []
             return [track]
         except Exception as error:
-            logger.error("Failed to lookup %s: %s", uri, error)
+            logger.error(f"Failed to lookup {uri}: {error}")
             return []
