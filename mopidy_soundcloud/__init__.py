@@ -3,7 +3,6 @@ import os
 from mopidy import config, ext
 from mopidy.exceptions import ExtensionError
 
-
 __version__ = "2.1.0"
 
 

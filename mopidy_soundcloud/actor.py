@@ -1,12 +1,10 @@
 import logging
 
-from mopidy import backend
-
 import pykka
 
-from .library import SoundCloudLibraryProvider
-from .soundcloud import SoundCloudClient
-
+from mopidy import backend
+from mopidy_soundcloud.library import SoundCloudLibraryProvider
+from mopidy_soundcloud.soundcloud import SoundCloudClient
 
 logger = logging.getLogger(__name__)
 

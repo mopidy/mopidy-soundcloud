@@ -9,15 +9,13 @@ from contextlib import closing
 from multiprocessing.pool import ThreadPool
 from urllib import quote_plus
 
-from mopidy import httpclient
-from mopidy.models import Album, Artist, Track
-
 import requests
 from requests.adapters import HTTPAdapter
 from requests.exceptions import HTTPError
 
 import mopidy_soundcloud
-
+from mopidy import httpclient
+from mopidy.models import Album, Artist, Track
 
 logger = logging.getLogger(__name__)
 

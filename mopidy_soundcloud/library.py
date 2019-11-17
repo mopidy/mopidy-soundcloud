@@ -6,9 +6,7 @@ from urlparse import urlparse
 
 from mopidy import backend, models
 from mopidy.models import SearchResult, Track
-
 from mopidy_soundcloud.soundcloud import safe_url
-
 
 logger = logging.getLogger(__name__)
 

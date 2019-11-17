@@ -3,11 +3,10 @@ import unittest
 
 import mock
 
-from mopidy.models import Track
-
 import vcr
 
 import mopidy_soundcloud
+from mopidy.models import Track
 from mopidy_soundcloud import Extension
 from mopidy_soundcloud.soundcloud import SoundCloudClient, readable_url
 
