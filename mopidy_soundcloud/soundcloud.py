@@ -1,6 +1,7 @@
 from __future__ import unicode_literals
 
 import collections
+import datetime
 import logging
 import re
 import string
@@ -14,6 +15,7 @@ from mopidy import httpclient
 from mopidy.models import Album, Artist, Track
 
 import requests
+from requests.adapters import HTTPAdapter
 from requests.exceptions import HTTPError
 
 import mopidy_soundcloud
@@ -92,6 +94,44 @@ class cache(object):
         return _memoized
 
 
+class ThrottlingHttpAdapter(HTTPAdapter):
+
+    def __init__(self, burst_length, burst_window, wait_window):
+        super(ThrottlingHttpAdapter, self).__init__()
+        self.max_hits = burst_length
+        self.hits = 0
+        self.rate = burst_length / burst_window
+        self.burst_window = datetime.timedelta(seconds=burst_window)
+        self.total_window = datetime.timedelta(seconds=burst_window + wait_window)
+        self.timestamp = datetime.datetime.min
+
+    def _is_too_many_requests(self):
+        now = datetime.datetime.utcnow()
+        if now < self.timestamp + self.total_window:
+            elapsed = now - self.timestamp
+            self.hits += 1
+            if (now < self.timestamp + self.burst_window) and (self.hits < self.max_hits):
+                return False
+            else:
+                logger.debug('Request throttling after %u hits in %u us (window until %s)', self.hits, elapsed.microseconds, self.timestamp + self.total_window)
+                return True
+        else:
+            self.timestamp = now
+            self.hits = 0
+            return False
+
+    def send(self, request, **kwargs):
+        if request.method == 'HEAD' and self._is_too_many_requests():
+            resp = requests.Response()
+            resp.request = request
+            resp.url = request.url
+            resp.status_code = 429
+            resp.reason = 'Client throttled to %u requests per second' % self.rate
+            return resp
+        else:
+            return super(ThrottlingHttpAdapter, self).send(request, **kwargs)
+
+
 class SoundCloudClient(object):
     CLIENT_ID = '93e33e327fd8a9b77becd179652272e2'
 
@@ -104,6 +144,8 @@ class SoundCloudClient(object):
                 mopidy_soundcloud.SoundCloudExtension.dist_name,
                 mopidy_soundcloud.__version__),
             token=config['soundcloud']['auth_token'])
+        adapter = ThrottlingHttpAdapter(burst_length=3, burst_window=1, wait_window=10)
+        self.http_client.mount('https://api.soundcloud.com/', adapter)
 
     @property
     @cache()
@@ -303,7 +345,11 @@ class SoundCloudClient(object):
         if req.status_code == 302:
             return req.headers.get('Location', None)
         elif req.status_code == 429:
-            logger.warning('SoundCloud daily rate limit exceeded')
+            if req.reason != 'Unknown':
+                reason = ' (%s)' % req.reason
+            else:
+                reason = ''
+            logger.warning('SoundCloud daily rate limit exceeded%s', reason)
 
     def resolve_tracks(self, track_ids):
         """Resolve tracks concurrently emulating browser
