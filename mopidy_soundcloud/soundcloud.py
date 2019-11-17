@@ -1,5 +1,3 @@
-from __future__ import unicode_literals
-
 import collections
 import datetime
 import logging
@@ -30,7 +28,7 @@ def safe_url(uri):
 
 
 def readable_url(uri):
-    valid_chars = "-_.() %s%s" % (string.ascii_letters, string.digits)
+    valid_chars = f"-_.() {string.ascii_letters}{string.digits}"
     safe_uri = unicodedata.normalize('NFKD', unicode(uri)).encode('ASCII',
                                                                   'ignore')
     return re.sub(r'\s+', ' ',
@@ -38,7 +36,7 @@ def readable_url(uri):
 
 
 def streamble_url(url, client_id):
-    return '%s?client_id=%s' % (url, client_id)
+    return f'{url}?client_id={client_id}'
 
 
 def get_user_url(user_id):
@@ -60,7 +58,7 @@ def get_requests_session(proxy_config, user_agent, token):
     return session
 
 
-class cache(object):
+class cache:
     # TODO: merge this to util library
 
     def __init__(self, ctl=8, ttl=3600):
@@ -97,7 +95,7 @@ class cache(object):
 class ThrottlingHttpAdapter(HTTPAdapter):
 
     def __init__(self, burst_length, burst_window, wait_window):
-        super(ThrottlingHttpAdapter, self).__init__()
+        super().__init__()
         self.max_hits = burst_length
         self.hits = 0
         self.rate = burst_length / burst_window
@@ -129,18 +127,18 @@ class ThrottlingHttpAdapter(HTTPAdapter):
             resp.reason = 'Client throttled to %u requests per second' % self.rate
             return resp
         else:
-            return super(ThrottlingHttpAdapter, self).send(request, **kwargs)
+            return super().send(request, **kwargs)
 
 
-class SoundCloudClient(object):
+class SoundCloudClient:
     CLIENT_ID = '93e33e327fd8a9b77becd179652272e2'
 
     def __init__(self, config):
-        super(SoundCloudClient, self).__init__()
+        super().__init__()
         self.explore_songs = config['soundcloud'].get('explore_songs', 25)
         self.http_client = get_requests_session(
             proxy_config=config['proxy'],
-            user_agent='%s/%s' % (
+            user_agent='{}/{}'.format(
                 mopidy_soundcloud.Extension.dist_name,
                 mopidy_soundcloud.__version__),
             token=config['soundcloud']['auth_token'])
@@ -178,7 +176,7 @@ class SoundCloudClient(object):
         for playlist in playlists.get('collection', []):
             user_name = playlist.get('username')
             user_id = str(playlist.get('id'))
-            logger.debug('Fetched user %s with id %s' % (user_name, user_id))
+            logger.debug(f'Fetched user {user_name} with id {user_id}')
             users.append((user_name, user_id))
         return users
 
@@ -316,7 +314,7 @@ class SoundCloudClient(object):
                             "from SoundCloud" % data.get('title'))
                 return None
         else:
-            track_kwargs['uri'] = 'soundcloud:song/%s.%s' % (
+            track_kwargs['uri'] = 'soundcloud:song/{}.{}'.format(
                 readable_url(data.get('title')), data.get('id'))
 
         track_kwargs['length'] = int(data.get('duration', 0))

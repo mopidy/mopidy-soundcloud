@@ -1,5 +1,3 @@
-from __future__ import unicode_literals
-
 import logging
 
 from mopidy import backend
@@ -16,7 +14,7 @@ logger = logging.getLogger(__name__)
 class SoundCloudBackend(pykka.ThreadingActor, backend.Backend):
 
     def __init__(self, config, audio):
-        super(SoundCloudBackend, self).__init__()
+        super().__init__()
         self.config = config
         self.remote = SoundCloudClient(config)
         self.library = SoundCloudLibraryProvider(backend=self)

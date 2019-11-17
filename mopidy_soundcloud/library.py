@@ -1,5 +1,3 @@
-from __future__ import unicode_literals
-
 import collections
 import logging
 import re
@@ -49,7 +47,7 @@ class SoundCloudLibraryProvider(backend.LibraryProvider):
     )
 
     def __init__(self, *args, **kwargs):
-        super(SoundCloudLibraryProvider, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
         self.vfs = {'soundcloud:directory': collections.OrderedDict()}
         self.add_to_vfs(new_folder('Following', ['following']))
         self.add_to_vfs(new_folder('Liked', ['liked']))

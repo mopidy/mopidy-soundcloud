@@ -1,5 +1,3 @@
-from __future__ import unicode_literals
-
 import os.path
 import unittest
 
@@ -122,10 +120,10 @@ class ApiTest(unittest.TestCase):
     def test_get_followings(self):
         users = self.api.get_followings()
         self.assertEquals(len(users), 10)
-        self.assertEquals(users[0], (u'Young Legionnaire', '992503'))
-        self.assertEquals(users[1], (u'Tall Ships', '1710483'))
-        self.assertEquals(users[8], (u'Pelican Song', '27945548'))
-        self.assertEquals(users[9], (u'sleepmakeswaves', '1739693'))
+        self.assertEquals(users[0], ('Young Legionnaire', '992503'))
+        self.assertEquals(users[1], ('Tall Ships', '1710483'))
+        self.assertEquals(users[8], ('Pelican Song', '27945548'))
+        self.assertEquals(users[9], ('sleepmakeswaves', '1739693'))
 
     @my_vcr.use_cassette('sc-user-tracks.yaml')
     def test_get_user_tracks(self):

@@ -1,6 +1,3 @@
-# coding=utf-8
-from __future__ import unicode_literals
-
 import unittest
 
 import pykka
@@ -38,7 +35,7 @@ class ApiTest(unittest.TestCase):
 
     def test_mpc_search(self):
         self.assertEquals(
-            simplify_search_query({u'any': [u'explosions in the sky']}),
+            simplify_search_query({'any': ['explosions in the sky']}),
             'explosions in the sky'
         )
 
@@ -46,8 +43,8 @@ class ApiTest(unittest.TestCase):
         self.assertEquals(
             simplify_search_query(
                 {
-                    u'track_name': [u'explosions in the sky'],
-                    u'any': [u'explosions in the sky']
+                    'track_name': ['explosions in the sky'],
+                    'any': ['explosions in the sky']
                 }
             ),
             'explosions in the sky explosions in the sky'
