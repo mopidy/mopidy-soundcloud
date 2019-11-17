@@ -1,13 +1,12 @@
 import unittest
-
-from mock import Mock
+from unittest import mock
 
 from mopidy_soundcloud.soundcloud import cache
 
 
 class CacheTest(unittest.TestCase):
     def test_decorator(self):
-        func = Mock()
+        func = mock.Mock()
         decorated_func = cache()
         decorated_func(func)
         func()
@@ -22,8 +21,7 @@ class CacheTest(unittest.TestCase):
         self.assertEquals(returnstring(), "ok")
 
     def test_set_ttl_cache(self):
-
-        func = Mock()
+        func = mock.Mock()
         decorated_func = cache(func, ttl=5)
         func()
         self.assertEquals(func.called, True)
