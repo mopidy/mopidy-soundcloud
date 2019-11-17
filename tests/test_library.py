@@ -29,55 +29,55 @@ class ApiTest(unittest.TestCase):
             from mopidy.models import Ref
         except ImportError as e:
             self.skipTest(e.message)
-        self.assertEquals(
-            new_folder("Test", ["test"]),
-            Ref(name="Test", type="directory", uri="soundcloud:directory:test"),
+        assert new_folder("Test", ["test"]) == Ref(
+            name="Test", type="directory", uri="soundcloud:directory:test"
         )
 
     def test_mpc_search(self):
-        self.assertEquals(
-            simplify_search_query({"any": ["explosions in the sky"]}),
-            "explosions in the sky",
+        assert (
+            simplify_search_query({"any": ["explosions in the sky"],})
+            == "explosions in the sky"
         )
 
     def test_moped_search(self):
-        self.assertEquals(
+        assert (
             simplify_search_query(
                 {
                     "track_name": ["explosions in the sky"],
                     "any": ["explosions in the sky"],
                 }
-            ),
-            "explosions in the sky explosions in the sky",
+            )
+            == "explosions in the sky explosions in the sky"
         )
 
     def test_simple_search(self):
-        self.assertEquals(
-            simplify_search_query("explosions in the sky"),
-            "explosions in the sky",
+        assert (
+            simplify_search_query("explosions in the sky")
+            == "explosions in the sky"
         )
 
     def test_aria_search(self):
-        self.assertEquals(
-            simplify_search_query(["explosions", "in the sky"]),
-            "explosions in the sky",
+        assert (
+            simplify_search_query(["explosions", "in the sky"])
+            == "explosions in the sky"
         )
 
     def test_only_resolves_soundcloud_uris(self):
-        self.assertIsNone(
+        assert (
             self.library.search(
-                {"uri": "http://www.youtube.com/watch?v=wD6H6Yhluo8"}
+                {"uri": "http://www.youtube.com/watch?v=wD6H6Yhluo8",}
             )
+            is None
         )
 
     def test_returns_url_safe_string(self):
-        self.assertEquals(
-            safe_url("Alternative/Indie/rock/pop "),
-            "Alternative%2FIndie%2Frock%2Fpop+",
+        assert (
+            safe_url("Alternative/Indie/rock/pop ")
+            == "Alternative%2FIndie%2Frock%2Fpop+"
         )
-        self.assertEquals(
-            safe_url("D∃∃P Hau⑀ iNDiE DᴬNCE | №➊ ²⁰¹⁴"),
-            "DP+Hau+iNDiE+DANCE+%7C+No+2014",
+        assert (
+            safe_url("D∃∃P Hau⑀ iNDiE DᴬNCE | №➊ ²⁰¹⁴")
+            == "DP+Hau+iNDiE+DANCE+%7C+No+2014"
         )
 
     def test_default_folders(self):
@@ -85,28 +85,19 @@ class ApiTest(unittest.TestCase):
             from mopidy.models import Ref
         except ImportError as e:
             self.skipTest(e.message)
-        self.assertEquals(
-            self.library.browse("soundcloud:directory"),
-            [
-                Ref(
-                    name="Following",
-                    type="directory",
-                    uri="soundcloud:directory:following",
-                ),
-                Ref(
-                    name="Liked",
-                    type="directory",
-                    uri="soundcloud:directory:liked",
-                ),
-                Ref(
-                    name="Sets",
-                    type="directory",
-                    uri="soundcloud:directory:sets",
-                ),
-                Ref(
-                    name="Stream",
-                    type="directory",
-                    uri="soundcloud:directory:stream",
-                ),
-            ],
-        )
+        assert self.library.browse("soundcloud:directory") == [
+            Ref(
+                name="Following",
+                type="directory",
+                uri="soundcloud:directory:following",
+            ),
+            Ref(
+                name="Liked", type="directory", uri="soundcloud:directory:liked"
+            ),
+            Ref(name="Sets", type="directory", uri="soundcloud:directory:sets"),
+            Ref(
+                name="Stream",
+                type="directory",
+                uri="soundcloud:directory:stream",
+            ),
+        ]

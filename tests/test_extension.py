@@ -9,13 +9,13 @@ class ExtensionTest(unittest.TestCase):
 
         config = ext.get_default_config()
 
-        self.assertIn("[soundcloud]", config)
-        self.assertIn("enabled = True", config)
+        assert "[soundcloud]" in config
+        assert "enabled = True" in config
 
     def test_get_config_schema(self):
         ext = Extension()
 
         schema = ext.get_config_schema()
 
-        self.assertIn("auth_token", schema)
-        self.assertIn("explore_songs", schema)
+        assert "auth_token" in schema
+        assert "explore_songs" in schema
