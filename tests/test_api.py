@@ -66,7 +66,7 @@ class ApiTest(unittest.TestCase):
         assert track is None
 
     @my_vcr.use_cassette("sc-resolve-track.yaml")
-    def test_resolves_Track(self):
+    def test_resolves_track(self):
         track = self.api.get_track("13158665")
         assert isinstance(track, Track)
         assert track.uri == "soundcloud:song/Munching at Tiannas house.13158665"
@@ -94,7 +94,7 @@ class ApiTest(unittest.TestCase):
             "https://soundcloud.com/yndihalda/sets/dash-and-blast"
         )
         assert len(tracks) == 4
-        for i, t in enumerate(expected_tracks):
+        for i, _ in enumerate(expected_tracks):
             assert isinstance(tracks[i], Track)
             assert tracks[i].name == expected_tracks[i]
             assert tracks[i].length > 500
@@ -140,7 +140,7 @@ class ApiTest(unittest.TestCase):
         ]
 
         tracks = self.api.get_tracks(27945548)
-        for i, t in enumerate(expected_tracks):
+        for i, _ in enumerate(expected_tracks):
             assert isinstance(tracks[i], Track)
             assert tracks[i].name == expected_tracks[i]
             assert tracks[i].length > 500

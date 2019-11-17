@@ -52,7 +52,7 @@ class SoundCloudLibraryProvider(backend.LibraryProvider):
 
     def list_sets(self):
         sets_vfs = collections.OrderedDict()
-        for (name, set_id, tracks) in self.backend.remote.get_sets():
+        for (name, set_id, _tracks) in self.backend.remote.get_sets():
             sets_list = new_folder(name, ["sets", set_id])
             logger.debug("Adding set %s to vfs" % sets_list.name)
             sets_vfs[set_id] = sets_list

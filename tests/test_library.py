@@ -2,6 +2,7 @@ import unittest
 
 import pykka
 
+from mopidy.models import Ref
 from mopidy_soundcloud import Extension, actor
 from mopidy_soundcloud.library import (
     SoundCloudLibraryProvider,
@@ -25,17 +26,13 @@ class ApiTest(unittest.TestCase):
         pykka.ActorRegistry.stop_all()
 
     def test_add_folder(self):
-        try:
-            from mopidy.models import Ref
-        except ImportError as e:
-            self.skipTest(e.message)
         assert new_folder("Test", ["test"]) == Ref(
             name="Test", type="directory", uri="soundcloud:directory:test"
         )
 
     def test_mpc_search(self):
         assert (
-            simplify_search_query({"any": ["explosions in the sky"],})
+            simplify_search_query({"any": ["explosions in the sky"]})
             == "explosions in the sky"
         )
 
@@ -65,7 +62,7 @@ class ApiTest(unittest.TestCase):
     def test_only_resolves_soundcloud_uris(self):
         assert (
             self.library.search(
-                {"uri": "http://www.youtube.com/watch?v=wD6H6Yhluo8",}
+                {"uri": "http://www.youtube.com/watch?v=wD6H6Yhluo8"}
             )
             is None
         )
@@ -81,10 +78,6 @@ class ApiTest(unittest.TestCase):
         )
 
     def test_default_folders(self):
-        try:
-            from mopidy.models import Ref
-        except ImportError as e:
-            self.skipTest(e.message)
         assert self.library.browse("soundcloud:directory") == [
             Ref(
                 name="Following",

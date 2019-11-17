@@ -22,13 +22,13 @@ logger = logging.getLogger(__name__)
 
 def safe_url(uri):
     return quote_plus(
-        unicodedata.normalize("NFKD", unicode(uri)).encode("ASCII", "ignore")
+        unicodedata.normalize("NFKD", uri).encode("ASCII", "ignore")
     )
 
 
 def readable_url(uri):
     valid_chars = f"-_.() {string.ascii_letters}{string.digits}"
-    safe_uri = unicodedata.normalize("NFKD", unicode(uri)).encode(
+    safe_uri = unicodedata.normalize("NFKD", uri).encode(
         "ASCII", "ignore"
     )
     return re.sub(
@@ -59,7 +59,7 @@ def get_requests_session(proxy_config, user_agent, token):
     return session
 
 
-class cache:
+class cache:  # noqa
     # TODO: merge this to util library
 
     def __init__(self, ctl=8, ttl=3600):
