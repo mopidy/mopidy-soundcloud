@@ -7,7 +7,7 @@ import time
 import unicodedata
 from contextlib import closing
 from multiprocessing.pool import ThreadPool
-from urllib import quote_plus
+from urllib.parse import quote_plus
 
 import requests
 from requests.adapters import HTTPAdapter

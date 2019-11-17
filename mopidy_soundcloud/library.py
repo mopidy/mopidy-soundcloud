@@ -1,8 +1,7 @@
 import collections
 import logging
 import re
-import urllib
-from urlparse import urlparse
+import urllib.parse
 
 from mopidy import backend, models
 from mopidy.models import SearchResult, Track
@@ -12,7 +11,7 @@ logger = logging.getLogger(__name__)
 
 
 def generate_uri(path):
-    return "soundcloud:directory:%s" % urllib.quote("/".join(path))
+    return "soundcloud:directory:%s" % urllib.parse.quote("/".join(path))
 
 
 def new_folder(name, path):
@@ -126,7 +125,7 @@ class SoundCloudLibraryProvider(backend.LibraryProvider):
 
         if "uri" in query:
             search_query = "".join(query["uri"])
-            url = urlparse(search_query)
+            url = urllib.parse.urlparse(search_query)
             if "soundcloud.com" in url.netloc:
                 logger.info("Resolving SoundCloud for: %s", search_query)
                 return SearchResult(
