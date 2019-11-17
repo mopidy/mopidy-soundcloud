@@ -296,7 +296,7 @@ class SoundCloudClient:
         return {}
 
     def sanitize_tracks(self, tracks):
-        return filter(None, tracks)
+        return [t for t in tracks if t]
 
     @cache()
     def parse_track(self, data, remote_url=False):
