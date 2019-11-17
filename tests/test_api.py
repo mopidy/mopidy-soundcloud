@@ -54,7 +54,7 @@ class ApiTest(unittest.TestCase):
     @my_vcr.use_cassette("sc-resolve-track.yaml")
     def test_resolves_object(self):
         trackc = {}
-        trackc[b"uri"] = "soundcloud:song.38720262"
+        trackc["uri"] = "soundcloud:song.38720262"
         track = Track(**trackc)
 
         id = self.api.parse_track_uri(track)
