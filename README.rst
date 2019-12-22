@@ -42,31 +42,11 @@ make releases to PyPI when you see fit.
 Installation
 ============
 
-Debian/Ubuntu/Raspbian: Install the ``mopidy-soundcloud`` package from
-`apt.mopidy.com <https://apt.mopidy.com/>`_::
+Install by running::
 
-    sudo apt install mopidy-soundcloud
+    sudo python3 -m pip install Mopidy-SoundCloud
 
-Arch Linux: Install the ``mopidy-soundcloud`` package from
-`AUR <https://aur.archlinux.org/packages/mopidy-soundcloud/>`_::
-
-    yay -S mopidy-soundcloud
-
-OS X: Install the ``mopidy-soundcloud`` package from the
-`mopidy/mopidy <https://github.com/mopidy/homebrew-mopidy>`_ Homebrew tap::
-
-    brew install mopidy-soundcloud
-
-Else: Install the dependencies listed above yourself, and then install the
-package from PyPI::
-
-    python3 -m pip install Mopidy-SoundCloud
-
-If you're having trouble with audio playback from SoundCloud, make sure you
-have the "ugly" plugin set from GStreamer installed for MP3 support. The
-package is typically named ``gstreamer1.0-plugins-ugly`` or similar, depending
-on OS and distribution. The package isn't a strict requirement for Mopidy's
-core, so you may be missing it.
+See https://mopidy.com/ext/soundcloud/ for alternative installation methods.
 
 
 Configuration
@@ -84,6 +64,16 @@ Configuration
     explore_songs = 25
 
 #. Use ``explore_songs`` to restrict the number of items returned.
+
+
+Troubleshooting
+===============
+
+If you're having trouble with audio playback from SoundCloud, make sure you
+have the "ugly" plugin set from GStreamer installed for MP3 support. The
+package is typically named ``gstreamer1.0-plugins-ugly`` or similar, depending
+on OS and distribution. The package isn't a strict requirement for Mopidy's
+core, so you may be missing it.
 
 
 Project resources
