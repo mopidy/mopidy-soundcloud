@@ -3,6 +3,12 @@ Changelog
 *********
 
 
+v3.0.1 (UNRELEASED)
+===================
+
+- Don't URL encode browse directory names. (Fixes #64, #103, PR #112)
+
+
 v3.0.0 (2019-12-22)
 ===================
 
