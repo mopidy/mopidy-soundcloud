@@ -5,7 +5,6 @@ import urllib.parse
 
 from mopidy import backend, models
 from mopidy.models import SearchResult, Track
-from mopidy_soundcloud.soundcloud import safe_url
 
 logger = logging.getLogger(__name__)
 
@@ -15,7 +14,7 @@ def generate_uri(path):
 
 
 def new_folder(name, path):
-    return models.Ref.directory(uri=generate_uri(path), name=safe_url(name))
+    return models.Ref.directory(uri=generate_uri(path), name=name)
 
 
 def simplify_search_query(query):
