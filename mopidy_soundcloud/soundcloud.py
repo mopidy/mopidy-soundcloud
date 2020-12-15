@@ -265,7 +265,7 @@ class SoundCloudClient:
                 for track in playlist_tracks:
                     tracks.append(self.parse_track(track))
             else:
-                logger.warning(f"Unknown item type {item['kind']!r}",)
+                logger.warning(f"Unknown item type {item['kind']!r}")
         return self.sanitize_tracks(tracks)
 
     def resolve_url(self, uri):
