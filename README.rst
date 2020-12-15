@@ -81,7 +81,7 @@ Project resources
 
 - `Source code <https://github.com/mopidy/mopidy-soundcloud>`_
 - `Issue tracker <https://github.com/mopidy/mopidy-soundcloud/issues>`_
-- `Changelog <https://github.com/mopidy/mopidy-soundcloud/blob/master/CHANGELOG.rst>`_
+- `Changelog <https://github.com/mopidy/mopidy-soundcloud/releases>`_
 
 
 Credits
