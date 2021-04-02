@@ -235,12 +235,17 @@ class SoundCloudClient:
 
     # Public
     @cache()
-    def get_track(self, track_id, streamable=False):
+    def get_track(self, track_id):
         logger.debug(f"Getting info for track with ID {track_id}")
         try:
-            return self.parse_track(self._get(f"tracks/{track_id}"), streamable)
+            return self._get(f"tracks/{track_id}")
         except Exception:
             return None
+
+    @cache()
+    def get_parsed_track(self, track_id, streamable=False):
+        track = self.get_track(track_id)
+        return self.parse_track(track, streamable)
 
     @staticmethod
     def parse_track_uri(track):
