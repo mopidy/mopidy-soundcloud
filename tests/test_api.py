@@ -24,13 +24,17 @@ class ApiTest(unittest.TestCase):
     @my_vcr.use_cassette("sc-login.yaml")
     def setUp(self):
         config = Extension().get_config_schema()
-        config["auth_token"] = "1-35204-61921957-55796ebef403996"
+        config["auth_token"] = "3-35204-970067440-lVY4FovkEcKrEGw"
         config["explore_songs"] = 10
         self.api = SoundCloudClient({"soundcloud": config, "proxy": {}})
 
     def test_sets_user_agent(self):
         agent = "Mopidy-SoundCloud/%s Mopidy/" % mopidy_soundcloud.__version__
         assert agent in self.api.http_client.headers["user-agent"]
+
+    def test_public_client_no_token(self):
+        token_key = "authorization"
+        assert token_key not in self.api.public_stream_client.headers._store
 
     def test_resolves_string(self):
         _id = self.api.parse_track_uri("soundcloud:song.38720262")
@@ -43,7 +47,7 @@ class ApiTest(unittest.TestCase):
             config["auth_token"] = "1-fake-token"
             SoundCloudClient({"soundcloud": config, "proxy": {}}).user
             d.assert_called_once_with(
-                'Invalid "auth_token" used for ' "SoundCloud authentication!"
+                'Invalid "auth_token" used for SoundCloud authentication!'
             )
 
     @my_vcr.use_cassette("sc-login.yaml")
@@ -178,16 +182,41 @@ class ApiTest(unittest.TestCase):
             "https://cf-media.sndcdn.com/fxguEjG4ax6B.128.mp3?Policy="
             "eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiKjovL2NmLW1lZGlhLnNu"
             "ZGNkbi5jb20vZnhndUVqRzRheDZCLjEyOC5tcDMiLCJDb25kaXRpb24i"
-            "OnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE0Nzc2MDA1"
-            "NTd9fX1dfQ__&Signature=u9bxAkZOtTTF1VqTmLGmw3ENrqbiSTFK-"
-            "sMvZL-ZsQK85DOepHh5MfPA4MNooszUy~PZqiVyBn4YnElhWyb~4B7kS"
-            "6y0VZ6t-qF78CfTMOimemafpqfWJ8nYXczhM9pUpAwiS--lkNjGks4Qx"
-            "i-FZJDBPG99gAIU0eVW78CADcpuOKLugGpzHl6gRPN2Z4zZ9dVujZ5Ml"
-            "G2OWnPuNiBcE~wUFwcOxt9N6ePTff-wMFQR2PGpEK6wc6bWuB4WFNBkE"
-            "0bmEke4cOQjWHa5FwYEidZN5rvv5lVT1r07zzifnADEipwMaZ2-QYdqz"
-            "OYaM4jymFDhl7DklaU24PY5C5mH0A__&Key-Pair-Id=APKAJAGZ7VMH"
-            "2PFPW6UQ"
+            "OnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE2MTc3MzMy"
+            "MDJ9fX1dfQ__&Signature=R6mfsrmYiPXF8Q-Eh0vsmtiqnIAkFMckw"
+            "6qETd0gjJlXnxzjXq~ZiY4ClwgChjfv9e5NdID54hcSrq3jamUCuQ-Gr"
+            "94WH0beJFXa9itVnV2A83~FE6Fye~ocTsVx7fzrpDFKJ80csI-QtLkV3"
+            "3E06oMClsMPbjvdw3d1caFpGfkck7OCmV0Z9Jat0dYDkRfjGZF7HqGRP"
+            "-upiIJ3l0cWfSyhRJ~F5o29TASJMQMQAigjCV0by9DsK2Naw1tcAW4DH"
+            "YJF4oOUQkTLRwtw0B5mJXfKfFGQxjj1RSGZNFZxG0oV2nD1-svYX-Enz"
+            "ldPOUBDvyUr-nNmS0wR9Qm5XsTAbQ__&Key-Pair-Id=APKAI6TU7MMX"
+            "M5DG6EPQ"
         )
+
+    @my_vcr.use_cassette("sc-resolve-track-id-invalid-client-id.yaml")
+    def test_resolves_stream_track_invalid_id(self):
+        self.api.public_client_id = "blahblahrubbosh"
+        track = self.api.get_track("13158665", True)
+        assert isinstance(track, Track)
+        assert track.uri == (
+            "https://cf-media.sndcdn.com/fxguEjG4ax6B.128.mp3?Policy="
+            "eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiKjovL2NmLW1lZGlhLnNu"
+            "ZGNkbi5jb20vZnhndUVqRzRheDZCLjEyOC5tcDMiLCJDb25kaXRpb24i"
+            "OnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE2MTc1NDI2"
+            "MDh9fX1dfQ__&Signature=SwnMkrFlBL1Es-S7DMuHLiAzYxgKdl4bk"
+            "sjUny73MKN9d~54MhUzYOmgzETiERC73tyGo3iovjjk6P556J3FvAibn"
+            "adM7ip5pPNT5HpyS4~xE2zCAg9s1DnDSypcUzOT6pvKKTJ3F95w6~kr3"
+            "lRbRfDHsuq6O1HKB4k~NBVdTMRFhDRZJPdGg2BJFiI5M-IA-Ut5CQUJS"
+            "kYNXG1kQtvIJNenAUQAuQm0iKv-um7C5YbgkdOpZC~HU49YiLcCw8T~b"
+            "VYRgspxMctUQssmTg5yysD65vkQk8QVWpx9kE9kxdCL7oFqdAbv9tsgu"
+            "s7~nptZlygrOVi9TIyikLsi6BeMQw__&Key-Pair-Id=APKAI6TU7MMX"
+            "M5DG6EPQ"
+        )
+
+    def test_parse_fail_reason(self):
+        test_reason = "Unknown"
+        reason_res = self.api.parse_fail_reason(test_reason)
+        assert reason_res == ""
 
     @my_vcr.use_cassette("sc-search.yaml")
     def test_search(self):
