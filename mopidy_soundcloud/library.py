@@ -144,6 +144,9 @@ class SoundCloudLibraryProvider(backend.LibraryProvider):
             uri = uri.replace("sc:", "")
             return self.backend.remote.resolve_url(uri)
 
+        if uri.startswith("soundcloud:directory"):
+            return []
+
         try:
             track_id = self.backend.remote.parse_track_uri(uri)
             track = self.backend.remote.get_track(track_id)

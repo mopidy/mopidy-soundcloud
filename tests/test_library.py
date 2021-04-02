@@ -15,10 +15,13 @@ from mopidy_soundcloud.soundcloud import safe_url
 class ApiTest(unittest.TestCase):
     def setUp(self):
         config = Extension().get_config_schema()
-        config["auth_token"] = "1-35204-61921957-55796ebef403996"
+        config["auth_token"] = "3-35204-970067440-lVY4FovkEcKrEGw"
         # using this user http://maildrop.cc/inbox/mopidytestuser
-        self.backend = actor.SoundCloudBackend.start(
-            config={"soundcloud": config, "proxy": {}}, audio=None
+        config = {"soundcloud": config, "proxy": {}}
+        self.soundCloudBackend = actor.SoundCloudBackend(config, audio=None)
+
+        self.backend = self.soundCloudBackend.start(
+            config=config, audio=None
         ).proxy()
         self.library = SoundCloudLibraryProvider(backend=self.backend)
 
@@ -94,3 +97,13 @@ class ApiTest(unittest.TestCase):
                 uri="soundcloud:directory:stream",
             ),
         ]
+
+    def test_default_folders_lookup(self):
+        assert self.library.lookup("soundcloud:directory") == []
+
+        subfolders = ["stream", "liked", "sets", "following"]
+        for subfolder in subfolders:
+            subfolder = "soundcloud:directory:" + subfolder
+            assert self.library.lookup(subfolder) == []
+
+        assert self.library.lookup("soundcloud:non-existent") == []
