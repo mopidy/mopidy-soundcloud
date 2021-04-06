@@ -193,6 +193,33 @@ class ApiTest(unittest.TestCase):
             "M5DG6EPQ"
         )
 
+    @my_vcr.use_cassette("sc-resolve-track-id.yaml")
+    def test_unstreamable_track(self):
+        track = self.api._get("tracks/13158665")
+        track["streamable"] = False
+        track = self.api.parse_track(track)
+        assert track is None
+
+    @my_vcr.use_cassette("sc-resolve-app-client-id.yaml")
+    def test_resolves_app_client_id(self):
+        track = self.api._get("tracks/13158665")
+        track["sharing"] = "private"
+        track = self.api.parse_track(track, True)
+        assert track.uri == (
+            "https://cf-media.sndcdn.com/fxguEjG4ax6B.128.mp3?Policy="
+            "eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiKjovL2NmLW1lZGlhLnNu"
+            "ZGNkbi5jb20vZnhndUVqRzRheDZCLjEyOC5tcDMiLCJDb25kaXRpb24i"
+            "OnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE2MTc3Mzcw"
+            "ODV9fX1dfQ__&Signature=AT7ZL9gDe~34stPzDOORReIeNTbEpo~27"
+            "VP-set6t-T2mIW-W1fuWW6ny4-kd5XsW7mgndht1poURixYx1bUNTJFt"
+            "SX1LjjfvUaGfA5w3eDbfSHvlmh8fqIVN6RZAbCwQUbcndn8TI5Q1EPfP"
+            "8Aq-DLsIdUEE~3gxIVvX-YgzDZtxRMue0eefgp5oxk5z3KbHILPAyeS-"
+            "GQx4JIgMxSWaMKiG0Dx0raTNW8JFNugs9u5h62J21BxGSd6aifU9boff"
+            "khg1yWR9ccqHjMdDSRGpHLSBin6iNNHRzHj9vC4cq--DexYnyLQtdZp3"
+            "UlaXbFlP~-3XBMf6FLNiPbUA4HxgA__&Key-Pair-Id=APKAI6TU7MMX"
+            "M5DG6EPQ"
+        )
+
     @my_vcr.use_cassette("sc-resolve-track-id-invalid-client-id.yaml")
     def test_resolves_stream_track_invalid_id(self):
         self.api.public_client_id = "blahblahrubbosh"
