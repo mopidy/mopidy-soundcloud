@@ -1,0 +1,436 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Connection:
+      - close
+      Host:
+      - soundcloud.com
+      User-Agent:
+      - Python-urllib/3.9
+    method: GET
+    uri: https://soundcloud.com/
+  response:
+    body:
+      string: "<script crossorigin src=\"https://a-v2.sndcdn.com/assets/49-5f48c9f5.js\"\
+        ></script>\n<script crossorigin src=\"https://a-v2.sndcdn.com/assets/1-e3be28a4.js\"\
+        ></script>\n<script crossorigin src=\"https://a-v2.sndcdn.com/assets/3-d4045f62.js\"\
+        ></script>\n<script crossorigin src=\"https://a-v2.sndcdn.com/assets/2-69b33992.js\"\
+        ></script>\n<script crossorigin src=\"https://a-v2.sndcdn.com/assets/0-baffb4fd.js\"\
+        ></script>\n<script crossorigin src=\"https://a-v2.sndcdn.com/assets/48-98e8674a.js\"\
+        ></script>\n<script>!function(e,n){var t,c;e=e.bind(null,n),\"function\"==typeof\
+        \ window.webpackJsonp?window.webpackJsonp([],{0:e}):(t=n.reduce(function(e,n){return\
+        \ e.concat(n.chunks)},[]).filter(function(e,n,t){return t.indexOf(e)===n}),(c={})[n=\"\
+        __sc_data_rehydration_module__\"]=e,(window.webpackJsonp=window.webpackJsonp||[]).push([[],c,[[n].concat(t)]]))}(function(e,n,t,c){var\
+        \ o=Date.now(),a=[\"resource_type\",\"get\",\"set\",\"addSubmodel\",\"release\"\
+        ];function r(t){var n;return(n=t,a.every(function(e){return e in n.prototype}))?function(e){var\
+        \ n=o;e.lastFetchTime&&(n=e.lastFetchTime,delete e.lastFetchTime),(e=new t(e,{parse:!0,__hydrate:!0})).lastFetchTime=n,e.release()}:t}e.forEach(function(e){try{var\
+        \ n=r(c(e.id));e.data.forEach(function(e){n(e)})}catch(e){}})},[{\"id\":1963,\"\
+        chunks\":[0],\"data\":[{\"features\":[\"v2_show_pro_unlimited_badge_profile\"\
+        ,\"v2_hide_pro_badge_on_avatar\",\"v2_enable_sourcepoint_tcfv2\",\"v2_can_request_verified_badge\"\
+        ,\"v2_test_feature_toggle\",\"v2_snippet_ux_skip_snippets_in_play_queue\"\
+        ,\"v2_post_with_caption\",\"v2_repost_redirect_page\",\"v2_direct_support_link\"\
+        ,\"v2_hq_file_storage_release\",\"v2_enable_onetrust\",\"v2_use_onetrust_eu2\"\
+        ,\"v2_show_verified_badge\",\"v2_oscp_german_tax_fields_support\",\"v2_use_new_connect\"\
+        ,\"v2_use_onetrust_eu1\",\"v2_enable_sourcepoint\",\"v2_tags_recent_tracks\"\
+        ,\"system_playlist_in_library\",\"v2_can_see_insights\",\"v2_enable_pwa\"\
+        ]}]},{\"id\":158,\"chunks\":[48],\"data\":[{\"allows_messages_from_unfollowed_users\"\
+        :false,\"analytics_opt_in\":true,\"communications_opt_in\":true,\"targeted_advertising_opt_in\"\
+        :false,\"legislation\":[]}]},{\"id\":1980,\"chunks\":[48],\"data\":[{\"country_code\"\
+        :\"NL\",\"country_name\":\"Netherlands\",\"region\":\"11\",\"city\":\"The\
+        \ Hague\",\"postal_code\":\"2517\",\"latitude\":52.08099365234375,\"longitude\"\
+        :4.2816925048828125}]},{\"id\":1964,\"chunks\":[0],\"data\":[{\"reco_listening\"\
+        :{\"experiment_name\":\"home_swap_exploration\",\"variant_id\":2226,\"variant_name\"\
+        :\"control\"}}]},{\"id\":1010,\"chunks\":[0],\"data\":[\"929317-681514-713455-319696\"\
+        ]}]);</script>\n</body>\n</html>\n"
+    headers:
+      Cache-Control:
+      - private, max-age=0, no-cache, no-store
+      Connection:
+      - close
+      Content-Length:
+      - '12814'
+      Content-Type:
+      - text/html
+      Date:
+      - Sun, 04 Apr 2021 13:21:09 GMT
+      Server:
+      - am/2
+      Server-Timing:
+      - experiments; dur=9.585997; desc="api-v2/experiments", enabledFeatures; dur=17.058787;
+        desc="api-v2/enabledFeatures", geoip; dur=7.005502; desc="geoip/geoip", privacySettings;
+        dur=7.046504; desc="api-v2/privacySettings", geoip; dur=1.607941; desc="geoip/geoip"
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubdomains; preload
+      Via:
+      - 1.1 9bd09ac7aca1ea8ca6c788136a9ce480.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - meiM8fFiFietNYXNEAqXCIlXhA7P8I8drkilYhX5uuUUaqjeP30Yzg==
+      X-Amz-Cf-Pop:
+      - AMS50-C1
+      X-Cache:
+      - Miss from cloudfront
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Pants:
+      - distant-towel
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Connection:
+      - close
+      Host:
+      - a-v2.sndcdn.com
+      User-Agent:
+      - Python-urllib/3.9
+    method: GET
+    uri: https://a-v2.sndcdn.com/assets/14-0b44b0c5.js
+  response:
+    body:
+      string: "(window.webpackJsonp=window.webpackJsonp||[]).push([[14],{2142:function(e,t,n){e.exports=n(21).extend({resource_type:\"\
+        historicalPlayContext\",submodelMap:{playlist:n(48),station:n(120),user:n(32),system_playlist:n(91)},setup:function(e){this.contextModel=function(e){var\
+        \ t=e.kind,o=e.station,r=e.playlist,i=e.user,a=e.system_playlist;switch(t){case\"\
+        station\":return new(n(120))(o);case\"playlist\":return new(n(48))(r);case\"\
+        :[n(3081)],\"l-front-signup-teaser\":[n(3087)],\"l-front-footer\":[n(742),{content:\"\
+        frontPage\",style:\"marketing\"}]})}function i(){return t.ajax({url:n(37).getUrlForEndpoint(\"\
+        paymentQuotations\",{category:\"creator-subscription\"})}).then((function(e){var\
+        \ t,o,r=(t=e.plans,o=\"pro-unlimited\",n(0).find(t,(function(e){return e.id===o}))),i=\"\
+        soundcloud:payments:discounts:creator-subscription:pro-unlimited-ten-percent-off-broad\"\
+        ;return r&&(r.yearly&&r.yearly.discount&&r.yearly.discount.urn===i||r.monthly&&r.monthly.discount&&r.monthly.discount.urn===i)}),(function(){return!1}))}}).call(this,n(15))}}]);\n\
+        //# sourceMappingURL=http://ent/web-sourcemaps/14-0b44b0c5.js.map"
+    headers:
+      Accept-Ranges:
+      - bytes
+      Access-Control-Allow-Methods:
+      - GET
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Max-Age:
+      - '3000'
+      Age:
+      - '254769'
+      Cache-Control:
+      - public, max-age=31536000, immutable
+      Connection:
+      - close
+      Content-Length:
+      - '49165'
+      Content-Type:
+      - application/javascript
+      Date:
+      - Thu, 01 Apr 2021 14:35:01 GMT
+      ETag:
+      - '"508b2c3fcba9a346c776bd6fe5c0909c"'
+      Last-Modified:
+      - Thu, 01 Apr 2021 14:07:29 GMT
+      Server:
+      - AmazonS3
+      Vary:
+      - Accept-Encoding
+      Via:
+      - 1.1 9463f100725b8b17da2d778617835761.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - B4wFPjIXKlXIPIudX3eIhI4OF7uwvqjaB6m5jK8Ij3WVkelf8t7DHQ==
+      X-Amz-Cf-Pop:
+      - AMS50-C1
+      X-Cache:
+      - Hit from cloudfront
+      x-amz-meta-syncfilehash:
+      - ddf8b820f40f4b5cc503da12a2321e68
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Connection:
+      - close
+      Host:
+      - a-v2.sndcdn.com
+      User-Agent:
+      - Python-urllib/3.9
+    method: GET
+    uri: https://a-v2.sndcdn.com/assets/49-5f48c9f5.js
+  response:
+    body:
+      string: '!function(e){function r(r){for(var n,c,f=r[0],u=r[1],d=r[2],l=0,s=[];l<f.length;l++)c=f[l],Object.prototype.hasOwnProperty.call(o,c)&&o[c]&&s.push(o[c][0]),o[c]=0;for(n
+        in u)Object.prototype.hasOwnProperty.call(u,n)&&(e[n]=u[n]);for(i&&i(r);s.length;)s.shift()();return
+        a.push.apply(a,d||[]),t()}function t(){for(var e,r=0;r<a.length;r++){for(var
+        t=a[r],n=!0,f=1;f<t.length;f++){var u=t[f];0!==o[u]&&(n=!1)}n&&(a.splice(r--,1),e=c(c.s=t[0]))}return
+        e}var n={},o={49:0},a=[];function c(r){if(n[r])return n[r].exports;var t=n[r]={i:r,l:!1,exports:{}};return
+        e[r].call(t.exports,t,t.exports,c),t.l=!0,t.exports}c.e=function(e){var r=[],t=o[e];if(0!==t)if(t)r.push(t[2]);else{var
+        n=new Promise((function(r,n){t=o[e]=[r,n]}));r.push(t[2]=n);var a,f=document.createElement("script");f.charset="utf-8",f.timeout=120,c.nc&&f.setAttribute("nonce",c.nc),f.src=function(e){return
+        c.p+"assets/"+e+"-"+{4:"8e12616d",5:"0570cb6a",6:"b716c3f3",7:"4e4bd1b8",8:"04f4602d",9:"73efc335",10:"b43634b7",11:"8bcd9b19",12:"40ebef3a",13:"824bd4ff",14:"0b44b0c5",15:"ea049047",16:"464b7869",17:"6160b0df",18:"69d981e5",19:"a1508b49",20:"4ca121ac",21:"526de4bc",22:"5d629abf",23:"81658960",24:"d9f404f5",25:"1e5f58c7",26:"0fc9dff6",27:"8c733169",28:"1b1e3aaa",29:"57dcbcd5",30:"bdad34ad",31:"61f1a530",32:"7d69ed58",33:"7e314429",34:"775196a8",35:"2d7fef8d",36:"17aa3c2c",37:"21e63194",38:"91e98336",39:"d243da83",40:"4ca8fbb4",41:"d1512410",42:"928fd139",43:"121ccaad",44:"9a5c9650",45:"d4282ba0",46:"3618c5ec",47:"3ece68c5"}[e]+".js"}(e);var
+        u=new Error;a=function(r){f.onerror=f.onload=null,clearTimeout(d);var t=o[e];if(0!==t){if(t){var
+        n=r&&("load"===r.type?"missing":r.type),a=r&&r.target&&r.target.src;u.message="Loading
+        chunk "+e+" failed.\n("+n+": "+a+")",u.name="ChunkLoadError",u.type=n,u.request=a,t[1](u)}o[e]=void
+        0}};var d=setTimeout((function(){a({type:"timeout",target:f})}),12e4);f.onerror=f.onload=a,document.head.appendChild(f)}return
+        Promise.all(r)},c.m=e,c.c=n,c.d=function(e,r,t){c.o(e,r)||Object.defineProperty(e,r,{enumerable:!0,get:t})},c.r=function(e){"undefined"!=typeof
+        Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},c.t=function(e,r){if(1&r&&(e=c(e)),8&r)return
+        e;if(4&r&&"object"==typeof e&&e&&e.__esModule)return e;var t=Object.create(null);if(c.r(t),Object.defineProperty(t,"default",{enumerable:!0,value:e}),2&r&&"string"!=typeof
+        e)for(var n in e)c.d(t,n,function(r){return e[r]}.bind(null,n));return t},c.n=function(e){var
+        r=e&&e.__esModule?function(){return e.default}:function(){return e};return
+        c.d(r,"a",r),r},c.o=function(e,r){return Object.prototype.hasOwnProperty.call(e,r)},c.p="https://a-v2.sndcdn.com/",c.oe=function(e){throw
+        console.error(e),e};var f=window.webpackJsonp=window.webpackJsonp||[],u=f.push.bind(f);f.push=r,f=f.slice();for(var
+        d=0;d<f.length;d++)r(f[d]);var i=u;t()}([]);
+
+        //# sourceMappingURL=http://ent/web-sourcemaps/49-5f48c9f5.js.map'
+    headers:
+      Accept-Ranges:
+      - bytes
+      Access-Control-Allow-Methods:
+      - GET
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Max-Age:
+      - '3000'
+      Age:
+      - '249701'
+      Cache-Control:
+      - public, max-age=31536000, immutable
+      Connection:
+      - close
+      Content-Length:
+      - '2963'
+      Content-Type:
+      - application/javascript
+      Date:
+      - Thu, 01 Apr 2021 15:59:29 GMT
+      ETag:
+      - '"1fb7d1d64fc885de077789214307b1f1"'
+      Last-Modified:
+      - Thu, 01 Apr 2021 15:36:33 GMT
+      Server:
+      - AmazonS3
+      Vary:
+      - Accept-Encoding
+      Via:
+      - 1.1 e286b474b1ba30ed08f54fc007fcfa09.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - rcgmJkgVZly2jTWvABMklAo9JmgkaVNVBCIl3174aJk6e-VVBkaTGQ==
+      X-Amz-Cf-Pop:
+      - AMS50-C1
+      X-Cache:
+      - Hit from cloudfront
+      x-amz-meta-syncfilehash:
+      - 1c7c310a80729b27b5706dcb955b484f
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Connection:
+      - close
+      Host:
+      - a-v2.sndcdn.com
+      User-Agent:
+      - Python-urllib/3.9
+    method: GET
+    uri: https://a-v2.sndcdn.com/assets/1-e3be28a4.js
+  response:
+    body:
+      string: "(window.webpackJsonp=window.webpackJsonp||[]).push([[1],Array(30).concat([function(e,t,n){(function(t){e.exports=n(6).extend(n(85),n(185),n(454).withOptions({canBeApplied:function(e){return!e.isTextarea()},action:function(e){var\
+        \ t=e.actionOnEnter,n=e.submitFormOnEnter;return t||n&&\"default\"}}),{className:\"\
+        textfield\",defaults:{updateOn:\"change\",validateOn:\"change\",markAsValidOnChange:!0,label:null,labelClass:\"\
+        \",inputClass:\"\",size:\"medium\",inline:!1,placeholder:null,type:\"text\"\
+        ,name:\"\",rows:5,maxlength:0,autocomplete:null,autoFocus:!1,autoSelectAll:!1,resizing:
+        ,e).toggleClass(\"m-boldIcon\",this.options.boldIcon);var t=e?\"selected\"\
+        :\"default\";this.updateButton(t)}},buttonLabels:{default:function(){return\
+        \ this.myFollowers.get(this.userId)?n(1).Lingua.t(\"Follow back\"):n(1).Lingua.t(\"\
+        Follow\")},selected:{text:n(1).Lingua.t(\"Following\",null,{context:\"button\"\
+        }),title:n(1).Lingua.t(\"Unfollow\")}},userId:null,loadingTemplate:null,setup:function(e){this.userId=e.resource_id,this.observedAttributes=[this.userId],this.model=new(n(290)),this.myFollowers=this.addDataSource(new(n(355)),{observedAttributes:[this.userId]}),this.$el.toggleClass(\"\
+        sc-button-cta\",e.is_cta),this.$el.toggleClass(\"sc-button-icon-light\",e.dark)},isButtonSelected:function(){return!!this.model.get(this.userId)},onClick:function(e){var\
+        \ t=!this.model.get(this.userId),o=this.getContextData();n(33).follow(this.userId,t,{context:o}),e.preventDefault()}})},,,,,,function(e,t,n){e.exports=n(108).extend({className:\"\
+        sc-button-more\",defaults:{ContentViewClass:n(1655),overlayType:\"dropdown\"\
+        ,overlayOptions:{anchor:\"left top\",relativeElementAnchor:\"left bottom\"\
+        },actions:null,cornerStyle:\"square\"},buttonLabels:{default:n(1).Lingua.t(\"\
+        More\")},getContentViewArgs:function(){var e=this.options,t=e.actions,o=e.contentViewArgs,i=e.cornerStyle;return\
+        \ n(0).defaults({actions:t,cornerStyle:i},o)}})},,,function(e,t,n){e.exports=n(6).extend(n(69),n(276),n(170),n(36).withOptions(\"\
+        addToNextUpButton\"),{className:\"sc-button-queue addToNextUp\",css:n(1756),buttonLabels:{default:n(1).Lingua.t(\"\
+        Add to Next up\"),selected:n(1).Lingua.t(\"Added\")},defaults:{selectedClass:\"\
+        sc-button-selected\",allPossibleLabels:[n(1).Lingua.t(\"Add to Next up\"),n(1).Lingua.t(\"\
+        Added\")],closesDropdown:!1},states:{disabled:function(e){this.$el.attr(\"\
+        disabled\",e)}},setup:function(e){var t=e.resource_id,i=e.resource_type;this.ModelClass=o(i)?n(149):n(49),this.model=this.getModel({resource_id:t,resource_type:i});var\
+        \ a=n(51).shouldEnableSnippetUX(),l=o(i)?this.model.sound:this.model,r=\"\
+        sound\"===l.resource_type,s=r&&!l.isSnippetized()&&!l.isBlocked();this.toggleState(\"\
+        disabled\",a&&r&&!s)},onClick:function(e){var t=this;if(e.preventDefault(),!this.getState(\"\
+        selected\")){var n=this.options,i=n.resource_type,a=n.closesDropdown;this.toggleState(\"\
+        selected\",!0),this.addTimeout((function(){t.toggleState(\"selected\",!1)}),1e3),o(i)?this.cloneQueueItemToExplicit(this.model):this.addExplicitQueueItem(this.model),a&&this.bubble(\"\
+        overlay:close\")}}});function o(e){return e===n(149).prototype.resource_type}},,,,,,,,,,,,,,,,,,,,,,,,,,,,,,function(e,t,n){e.exports=n(6).extend(n(69),n(276),{className:\"\
+        sc-button-download\",attributes:{rel:\"nofollow\"},ModelClass:n(17),requiredAttributes:[\"\
+        title\",\"downloadable\"],buttonLabels:{default:function(){return{text:n(1).Lingua.t(\"\
+        Download file\"),title:n(1).Lingua.t(\"Download this track\")}}},renderDecorate:function(){var\
+        \ e=this.model;this.$el.attr(\"download\",e.get(\"title\")),this.toggleState(\"\
+        disabled\",!e.get(\"downloadable\"))},missingRequiredData:function(e){var\
+        \ t=e.source;return!(!o(t)||t.get(\"downloadable\"))||n(6).prototype.missingRequiredData.apply(this,arguments)},fetchDataFromSource:function(e){var\
+        \ t=e.source,n=o(t);return t.fetch({url:n?t.ownerUrl():t.baseUrl(),attrs:this.requiredAttributes,reset:!0,batch:!n})},onClick:function(){var\
+        \ e=this.model,t=this.getContextData(),i={client_id:n(4).get(\"client_id\"\
+        )};this.model.isPrivate()&&(i.secret_token=e.get(\"secret_token\")),n(18).login({implicitAction:\"\
+        download\"}).then((function(){return n(7).settled([n(37).callEndpoint(\"trackDownload\"\
+        ,{id:e.id},i),o(e)&&e.isMastered()?n(37).callEndpoint(\"trackMasterInfo\"\
+        ,{urn:e.getUrn()}):n(7).resolve({})])})).always((function(e,t){var o,i,a,l=e[0],r=t[0];if((null==r||null==(o=r.body)?void\
+        \ 0:o.master)&&(null==r||null==(i=r.body)?void 0:i.pre_master))return new\
+        "
+    headers:
+      Accept-Ranges:
+      - bytes
+      Access-Control-Allow-Methods:
+      - GET
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Max-Age:
+      - '3000'
+      Age:
+      - '249700'
+      Cache-Control:
+      - public, max-age=31536000, immutable
+      Connection:
+      - close
+      Content-Length:
+      - '698459'
+      Content-Type:
+      - application/javascript
+      Date:
+      - Thu, 01 Apr 2021 15:59:30 GMT
+      ETag:
+      - '"a9f36caf85d5a161ce5c33919fb1b272"'
+      Last-Modified:
+      - Thu, 01 Apr 2021 15:36:32 GMT
+      Server:
+      - AmazonS3
+      Vary:
+      - Accept-Encoding
+      Via:
+      - 1.1 9463f100725b8b17da2d778617835761.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - zqmf0gukrZNnJhaL98YWKoglPckbtGuaIz0GR9_yDqkyTY3ctCZNeg==
+      X-Amz-Cf-Pop:
+      - AMS50-C1
+      X-Cache:
+      - Hit from cloudfront
+      x-amz-meta-syncfilehash:
+      - c46e8f5cc7f81b878fe565c6b44aab80
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Connection:
+      - close
+      Host:
+      - a-v2.sndcdn.com
+      User-Agent:
+      - Python-urllib/3.9
+    method: GET
+    uri: https://a-v2.sndcdn.com/assets/3-d4045f62.js
+  response:
+    body:
+      string: "(window.webpackJsonp=window.webpackJsonp||[]).push([[3],Array(36).concat([function(e,t,n){e.exports=new(n(16))({applyTo:function(e,t){e.contextName=t,e.bubbleEvents=n(0).assign({},e.bubbleEvents,{contextrequest:\"\
+        _onContextRequest\"})},_onContextRequest:function(e){var t=this.model,o=n(74).extractPromotedAttrs(t);o&&n(0).defaults(e.data,o),!e.data.urn&&t&&(e.data.urn=t.getUrn()),e.data.scope||(e.data.scope=[]),e.data.scope.unshift(this.contextName),this.onContextRequest&&this.onContextRequest(e)}})},,,,,,,,,,function(e,t,n){(function(t){var\
+        \ o=t(window.document.body),i=0,l=e.exports=n(6).extend(n(222),{className:\"\
+        modal g-z-index-modal-background g-opacity-transition\",css:n(521),defaults:{width:null,height:null,edgeOffset:30,warnBeforeClosing:!1,stayOpenOnNavigate:!1,confirmCloseMessage:n(1).Lingua.t(\"\
+        Are you sure you want to close this?\"),customElementsInside:null,transparentBackground:!1,HeaderSubview:null,headerSubviewArgs:{},title:\"\
+        \",filter:\"whiteout\"},element2selector:{content:\".modal__content\",modal:\"\
+        genre\"},setup:function(e){var t=o({},e,{label:e.genre});n(508).prototype.setup.call(this,t)}})},,function(e,t,n){e.exports=n(6).extend(n(271),n(225),{template:n(1819),css:n(1820),className:\"\
+        userAudibleSearch sc-border-box\",inputSelector:\".userAudibleSearch__input\"\
+        ,defaults:{publicOnly:!0,includePlaylists:!0,includeSystemPlaylists:!1,numOfSearchResults:5,customUserAudiblesFilter:null,onItemSelected:null,onClose:null,placeholder:n(1).Lingua.t(\"\
+        Select a track or playlist from your profile\")},showAllItems:!0,MenuContentView:n(1823),setup:function(e){var\
+        \ t=e.numOfSearchResults,o=e.publicOnly,i=e.includePlaylists,l=e.includeSystemPlaylists,a=e.customUserAudiblesFilter,s=n(4).get(\"\
+        me\").id;this.menuContentViewArgs={userId:s,numOfSearchResults:t,publicOnly:o,includePlaylists:i,includeSystemPlaylists:l,customUserAudiblesFilter:a}},onItemSelected:function(e){var\
+        \ t=this.options.onItemSelected;this.trigger(\"onItemSelected\",e),this.emptyInput(),n(0).isFunction(t)&&t(e)},onClose:function(){var\
+        \ e=this.options.onClose;this.trigger(\"onClose\"),n(0).isFunction(e)&&e()}})},function(e,t,n){e.exports=n(6).extend({template:n(1836),className:\"\
+        reportCopyright\",ModelClass:n(17),requiredAttributes:[\"permalink\",\"user\"\
+        ],defaults:{standalone:!0},getTemplateData:function(e){e.reportCopyrightUrl=n(22).getRoute(\"\
+        reportCopyright\",this.model)}})},,function(e,t,n){e.exports=n(6).extend({tagName:\"\
+        div\",className:\"webAuthContainer\",css:n(1960),template:n(1962),defaults:{onToken:null,onComplete:null,onCancel:null,startStep:n(531).default},_handleEmbedMessage:null,isSignUp:void\
+        \ 0,isTokenSet:!1,setup:function(){this._handleEmbedMessage=u.bind(this),window.addEventListener(\"\
+        message\",this._handleEmbedMessage,!1)},dispose:function(){window.removeEventListener(\"\
+        message\",this._handleEmbedMessage)},getTemplateData:function(e){var t=this.options.startStep===n(531).passwordReset?\"\
+        &initial_state=password_reset\":\"\",o=n(84).getAnonymousId(),i=n(4).get(\"\
+        auth_ui_host\");var l=n(4).get(\"web_auth_use_test_captcha\")?\"&test_captcha=1\"\
+        :\"\";return e.iframeSrc=i+\"web-auth?client_id=4fySKWbw6Mtwp82ylr9VdQ52GlKCHMIp&device_id=\"\
+        +o+t+l,e}});function o(){return this.$(\".webAuthContainer__iframe\").get(0)}function\
+        \ i(e){var t=e.token,o=e.isSignUp,i=this.options.onToken;this.isSignUp=o,this.isTokenSet=!0,t&&n(0).isFunction(i)&&i.call(null,t)}function\
+        \ l(e){var t=e.height;o.call(this).height=t}function a(){if(this.isTokenSet){var\
+        \ e=this.options.onComplete;n(0).isFunction(e)&&e(this.isSignUp)}else{var\
+        \ t=this.options.onCancel;n(0).isFunction(t)&&t()}}function s(e){switch(e.eventType){case\"\
+        authEvent\":n(12).trackAuthEvent(e.payload.name,{target:e.payload.target,object:e.payload.object});break;case\"\
+        authFunnel\":n(12).trackAuthFunnel(e.payload.stepName)}}function r(e){var\
+        \ e=this.model.resource;switch(this.model.get(\"kind\")){case\"user\":return\
+        \ n(28).subview(n(201),{resource_id:e.resource_id});case\"track\":case\"playlist\"\
+        :return n(28).subview(n(132),{resource_type:e.resource_type,resource_id:e.resource_id})}}})},,,,,,function(e,t,n){(t=n(9)(!1)).push([e.i,\"\
+        .soundList__item{clear:both;margin-bottom:36px;position:relative}.soundList__item:first-child{padding-top:0}\"\
+        ,\"\"]),e.exports=t},,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,function(e,t,n){var o=n(8),i=n(2116);\"\
+        string\"==typeof(i=i.__esModule?i.default:i)&&(i=[[e.i,i,\"\"]]);var l={insert:\"\
+        head\",singleton:!1},a=(o(i,l),i.locals?i.locals:{});e.exports=a},,,,,,,,,,,,function(e,t,n){var\
+        \ o={\"user-badge\":n(509),\"user-avatar-badge\":n(254),\"user-avatar-badge-hover\"\
+        :n(2023)};e.exports=n(113).extend({defaults:{floating:!1,subviewName:null,subviewArgs:{},UsersCollection:null,usersCollectionArgs:null,emptyTemplate:null},className:\"\
+        usersList\",listClassName:\"usersList__list lazyLoadingList__list sc-list-nostyle\"\
+        ,itemClassName:\"usersList__item\",css:n(2024),states:{floating:\"floating\"\
+        },automaticErrorHandling:!1,setup:function(e){var t=o[e.subviewName],n=e.usersCollectionArgs||{};this.Subview=t,this.subviewArgs=e.subviewArgs,this.collection=new\
+        \ e.UsersCollection(null,n),n.limit&&this.collection.setLimit(n.limit),this.toggleState(\"\
+        floating\",e.floating),this.$el.addClass(e.subviewName)},getEmptyTemplate:function(){return\
+        \ this.options.emptyTemplate}})},,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,function(e,t,n){e.exports=n(503).extend(n(128).withOptions({names:[n(138).FEATURE_ENABLE_ARTIST_SHORTCUTS]}),n(36).withOptions(\"\
+        streamSidebar\"),{className:\"streamSidebar\",defaults:{adZone:\"dashboxStream\"\
+        },setup:function(){n(503).prototype.setup.apply(this,arguments),this.listenTo(n(10),\"\
+        stream:empty-follow-suggestions-rendered\",(function(){var e=this.subviews[\"\
+        who-to-follow\"];e&&(e.destroyElement(),e._teardown(),this.removeSubview(e))}))},template:function(){var\
+        \ e,t,i=n(4).get(\"me\"),l=n(18).isLoggedIn(),a=l&&n(141).hasUploads(),s=this.options,r=s.adZone,u=s._id,c=n(228).getQuotaInfo(i).isNearingQuota,d=!i.hasUnlimitedUpload()&&c,p=n(141).insightsSwitchedOn(),h=function(e,t){return\
+        \ void 0===t&&(t={}),n(28).subview(e,t)};return n(0).flatten([a&&!p&&h(n(837)),a&&p&&(e=n(2139).default,void\
+        \ 0===t&&(t={}),n(28).reactSubview(e,t)),d&&h(n(762),{ref:o(),stretchedVersion:!1}),h(n(782),{adZone:r}),n(98).shouldShowUpsells()&&h(n(2035),{ref:\"\
+        t218\"}),l&&[this.hasFeature(n(138).FEATURE_ENABLE_ARTIST_SHORTCUTS)&&h(n(2039)),h(n(840),{_id:u,key:\"\
+        who-to-follow\"}),h(n(841),{_id:u,includePlaylists:!1}),h(n(2080))],h(n(783))]).filter(Boolean).join(\"\
+        \")}});function o(){var e=n(4).get(\"router\").getLayoutInfo(),t=e&&e.layoutName,o=n(4).get(\"\
+        me\").isOverQuota();switch(t){case\"discover\":return o?\"t255\":\"t254\"\
+        ;case\"stream\":return o?\"t257\":\"t256\";case\"charts\":return\"t322\";default:return\
+        \ null}}}])]);\n//# sourceMappingURL=http://ent/web-sourcemaps/3-d4045f62.js.map"
+    headers:
+      Accept-Ranges:
+      - bytes
+      Access-Control-Allow-Methods:
+      - GET
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Max-Age:
+      - '3000'
+      Age:
+      - '249697'
+      Cache-Control:
+      - public, max-age=31536000, immutable
+      Connection:
+      - close
+      Content-Length:
+      - '735879'
+      Content-Type:
+      - application/javascript
+      Date:
+      - Thu, 01 Apr 2021 15:59:33 GMT
+      ETag:
+      - '"841f9ece908a7ff583062d4be52378e7"'
+      Last-Modified:
+      - Thu, 01 Apr 2021 15:36:32 GMT
+      Server:
+      - AmazonS3
+      Vary:
+      - Accept-Encoding
+      Via:
+      - 1.1 abc3ecd1d98ae9cd426d47386509de19.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - v56H7YAgeHYY92wPIF0WuZ4xoKLOKHRi-aKSIkqHq7HfiifRdkehFw==
+      X-Amz-Cf-Pop:
+      - AMS50-C1
+      X-Cache:
+      - Hit from cloudfront
+      x-amz-meta-syncfilehash:
+      - 65d5dbfd3c2dd83524f6bf24c4d0e9a8
+    status:
+      code: 200
+      message: OK
+version: 1

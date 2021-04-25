@@ -8,6 +8,7 @@ import unicodedata
 from contextlib import closing
 from multiprocessing.pool import ThreadPool
 from urllib.parse import quote_plus
+from bs4 import BeautifulSoup
 
 import requests
 from requests.adapters import HTTPAdapter
@@ -36,27 +37,33 @@ def readable_url(uri):
     ).strip()
 
 
-def streamble_url(url, client_id):
-    return f"{url}?client_id={client_id}"
-
-
 def get_user_url(user_id):
-    if not user_id:
-        return "me"
-    else:
-        return f"users/{user_id}"
+    return "me" if not user_id else f"users/{user_id}"
 
 
-def get_requests_session(proxy_config, user_agent, token):
+def get_requests_session(proxy_config, user_agent, token, public=False):
     proxy = httpclient.format_proxy(proxy_config)
     full_user_agent = httpclient.format_user_agent(user_agent)
 
     session = requests.Session()
     session.proxies.update({"http": proxy, "https": proxy})
-    session.headers.update({"user-agent": full_user_agent})
-    session.headers.update({"Authorization": f"OAuth {token}"})
+    if not public:
+        session.headers.update({"user-agent": full_user_agent})
+        session.headers.update({"Authorization": f"OAuth {token}"})
 
     return session
+
+
+def get_mopidy_requests_session(config, public=False):
+    return get_requests_session(
+        proxy_config=config["proxy"],
+        user_agent=(
+            f"{mopidy_soundcloud.Extension.dist_name}/"
+            f"{mopidy_soundcloud.__version__}"
+        ),
+        token=config["soundcloud"]["auth_token"],
+        public=public,
+    )
 
 
 class cache:  # noqa
@@ -143,21 +150,20 @@ class ThrottlingHttpAdapter(HTTPAdapter):
 class SoundCloudClient:
     CLIENT_ID = "93e33e327fd8a9b77becd179652272e2"
 
+    public_client_id = None
+
     def __init__(self, config):
         super().__init__()
         self.explore_songs = config["soundcloud"].get("explore_songs", 25)
-        self.http_client = get_requests_session(
-            proxy_config=config["proxy"],
-            user_agent=(
-                f"{mopidy_soundcloud.Extension.dist_name}/"
-                f"{mopidy_soundcloud.__version__}"
-            ),
-            token=config["soundcloud"]["auth_token"],
-        )
+        self.http_client = get_mopidy_requests_session(config)
         adapter = ThrottlingHttpAdapter(
             burst_length=3, burst_window=1, wait_window=10
         )
         self.http_client.mount("https://api.soundcloud.com/", adapter)
+
+        self.public_stream_client = get_mopidy_requests_session(
+            config, public=True
+        )
 
     @property
     @cache()
@@ -236,7 +242,8 @@ class SoundCloudClient:
         except Exception:
             return None
 
-    def parse_track_uri(self, track):
+    @staticmethod
+    def parse_track_uri(track):
         logger.debug(f"Parsing track {track}")
         if hasattr(track, "uri"):
             track = track.uri
@@ -304,7 +311,7 @@ class SoundCloudClient:
             )
             return None
         if not data.get("kind") == "track":
-            logger.debug(f"{data.get('title')} is not track")
+            logger.debug(f"{data.get('title')} is not a track")
             return None
 
         track_kwargs = {}
@@ -326,7 +333,8 @@ class SoundCloudClient:
             track_kwargs["date"] = data["date"]
 
         if remote_url:
-            track_kwargs["uri"] = self.get_streamble_url(data["stream_url"])
+            args = (data["sharing"], data["permalink_url"], data["stream_url"])
+            track_kwargs["uri"] = self.get_streamable_url(*args)
             if track_kwargs["uri"] is None:
                 logger.info(
                     f"{data.get('title')} can't be streamed from SoundCloud"
@@ -348,14 +356,86 @@ class SoundCloudClient:
 
         return Track(**track_kwargs)
 
+    def _update_public_client_id(self):
+        """Gets a client id which can be used to stream publicly available tracks"""
+
+        def get_page(url):
+            return self.public_stream_client.get(url).content.decode("utf-8")
+
+        public_page = get_page("https://soundcloud.com/")
+        regex_str = r"client_id=([a-zA-Z0-9]{16,})"
+        soundcloud_soup = BeautifulSoup(public_page, "html.parser")
+        scripts = soundcloud_soup.find_all("script", attrs={"src": True})
+        self.public_client_id = None
+        for script in scripts:
+            for match in re.finditer(regex_str, get_page(script["src"])):
+                self.public_client_id = match.group(1)
+                logger.debug(
+                    f"Updated SoundCloud public client id to: {self.public_client_id}"
+                )
+                return
+
+        logger.warning("Failed to update SoundCloud public client id")
+
+    def _get_public_stream(self, progr_stream):
+        params = [("client_id", self.public_client_id)]
+        return self.public_stream_client.get(progr_stream, params=params)
+
+    @staticmethod
+    def parse_fail_reason(reason):
+        return "" if reason == "Unknown" else f"({reason})"
+
     @cache()
-    def get_streamble_url(self, url):
-        req = self.http_client.head(streamble_url(url, self.CLIENT_ID))
+    def get_streamable_url(self, sharing, permalink_url, stream_url):
+
+        if self.public_client_id is None:
+            self._update_public_client_id()
+
+        progressive_urls = {}
+        if sharing == "public" and self.public_client_id is not None:
+            res = self.public_stream_client.get(permalink_url)
+
+            for html_substring in res.text.split('"'):
+                if html_substring.endswith("preview/progressive"):
+                    progressive_urls["preview"] = html_substring
+                elif html_substring.endswith("stream/progressive"):
+                    progressive_urls["stream"] = html_substring
+
+                if progressive_urls.get("preview"):
+                    if progressive_urls.get("stream"):
+                        break
+
+            if progressive_urls.get("stream"):
+                stream = self._get_public_stream(progressive_urls["stream"])
+                if stream.status_code in [401, 403, 429]:
+                    self._update_public_client_id()  # refresh public client id once
+                    stream = self._get_public_stream(progressive_urls["stream"])
+
+                try:
+                    return stream.json().get("url")
+                except Exception as e:
+                    logger.info(
+                        "Streaming of public song using public client id failed, "
+                        "trying with standard app client id.."
+                    )
+                    logger.debug(
+                        f"Caught public client id stream fail:\n{str(e)}"
+                        f"\n{self.parse_fail_reason(stream.reason)}"
+                    )
+
+        # ~quickly yields rate limit errors
+        req = self.http_client.head(f"{stream_url}?client_id={self.CLIENT_ID}")
         if req.status_code == 302:
             return req.headers.get("Location", None)
         elif req.status_code == 429:
-            reason = "" if req.reason == "Unknown" else f" ({req.reason})"
-            logger.warning(f"SoundCloud daily rate limit exceeded{reason}")
+            logger.warning(
+                "SoundCloud daily rate limit exceeded "
+                f"{self.parse_fail_reason(req.reason)}"
+            )
+            if progressive_urls.get("preview"):
+                logger.info("Playing public preview stream")
+                stream = self._get_public_stream(progressive_urls["preview"])
+                return stream.json().get("url")
 
     def resolve_tracks(self, track_ids):
         """Resolve tracks concurrently emulating browser
