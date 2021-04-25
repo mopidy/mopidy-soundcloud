@@ -236,7 +236,7 @@ class SoundCloudClient:
     # Public
     @cache()
     def get_track(self, track_id, streamable=False):
-        logger.debug("Getting info for track with ID {track_id}")
+        logger.debug(f"Getting info for track with ID {track_id}")
         try:
             return self.parse_track(self._get(f"tracks/{track_id}"), streamable)
         except Exception:
