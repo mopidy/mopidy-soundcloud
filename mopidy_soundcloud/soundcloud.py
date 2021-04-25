@@ -375,6 +375,8 @@ class SoundCloudClient:
                 )
                 return
 
+        logger.warning("Failed to update SoundCloud public client id")
+
     def _get_public_stream(self, progr_stream):
         params = [("client_id", self.public_client_id)]
         return self.public_stream_client.get(progr_stream, params=params)
