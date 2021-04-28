@@ -98,10 +98,22 @@ class SoundCloudImageProvider:
     def _process_track(track):
         images = []
         if track:
-            image_sources = track["artwork_url"], track["user"]["avatar_url"]
+            image_sources = [
+                track.get("artwork_url"),
+                track.get("calculated_artwork_url"),
+            ]
+
+            # Only include avatar images if no other images found
+            if image_sources.count(None) == len(image_sources):
+                image_sources = [
+                    track.get("user", {}).get("avatar_url"),
+                    track.get("avatar_url"),
+                ]
+
             for image_url in image_sources:
                 if image_url is not None:
                     image_url = image_url.replace("large", "t500x500")
                     image = models.Image(uri=image_url, height=500, width=500)
                     images.append(image)
+
         return tuple(images)

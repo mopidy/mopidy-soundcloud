@@ -128,6 +128,6 @@ class ApiTest(unittest.TestCase):
         uri_str = "soundcloud:playlist/Old Songs Throwback.1129540288"
         image_uri = "https://i1.sndcdn.com/artworks-aaArnHd1VBTE-0-t500x500.jpg"
         images = self.library.image_provider.get_images([uri_str])
-        assert len(images[uri_str]) == 127
+        assert len(images[uri_str]) == 64
         check_uri = images[uri_str][0]._uri
         assert check_uri == image_uri
