@@ -410,7 +410,7 @@ class SoundCloudClient:
                     stream = self._get_public_stream(progressive_urls["stream"])
 
                 try:
-                    return stream.json().get("url")
+                    return stream.json()["url"]
                 except Exception as e:
                     logger.info(
                         "Streaming of public song using public client id failed, "
