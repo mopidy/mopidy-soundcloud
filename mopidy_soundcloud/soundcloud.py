@@ -148,8 +148,6 @@ class ThrottlingHttpAdapter(HTTPAdapter):
 
 
 class SoundCloudClient:
-    CLIENT_ID = "93e33e327fd8a9b77becd179652272e2"
-
     public_client_id = None
 
     def __init__(self, config):
@@ -280,7 +278,7 @@ class SoundCloudClient:
 
     def _get(self, url, limit=None):
         url = f"https://api.soundcloud.com/{url}"
-        params = [("client_id", self.CLIENT_ID)]
+        params = []
         if limit:
             params.insert(0, ("limit", self.explore_songs))
         try:
@@ -424,7 +422,7 @@ class SoundCloudClient:
                     )
 
         # ~quickly yields rate limit errors
-        req = self.http_client.head(f"{stream_url}?client_id={self.CLIENT_ID}")
+        req = self.http_client.head(stream_url)
         if req.status_code == 302:
             return req.headers.get("Location", None)
         elif req.status_code == 429:
