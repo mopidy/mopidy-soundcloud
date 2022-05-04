@@ -8,7 +8,7 @@ interactions:
       Connection: [keep-alive]
       User-Agent: [python-requests/2.11.1]
     method: GET
-    uri: https://api.soundcloud.com/groups/136/tracks.json?client_id=93e33e327fd8a9b77becd179652272e2
+    uri: https://api.soundcloud.com/groups/136/tracks.json
   response:
     body: {string: !!python/unicode ''}
     headers:
@@ -30,7 +30,7 @@ interactions:
       Connection: [keep-alive]
       User-Agent: [python-requests/2.11.1]
     method: GET
-    uri: https://api.soundcloud.com/groups/136/tracks.json?client_id=93e33e327fd8a9b77becd179652272e2
+    uri: https://api.soundcloud.com/groups/136/tracks.json
   response:
     body: {string: !!python/unicode ''}
     headers:

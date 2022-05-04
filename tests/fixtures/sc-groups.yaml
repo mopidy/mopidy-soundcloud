@@ -8,7 +8,7 @@ interactions:
       Connection: [keep-alive]
       User-Agent: [python-requests/2.4.3 CPython/2.7.8 Linux/3.16.0-28-generic]
     method: GET
-    uri: https://api.soundcloud.com:443/me/groups.json?client_id=93e33e327fd8a9b77becd179652272e2
+    uri: https://api.soundcloud.com:443/me/groups.json
   response:
     body:
       string: !!binary |

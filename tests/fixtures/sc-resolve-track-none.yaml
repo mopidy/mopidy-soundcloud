@@ -8,7 +8,7 @@ interactions:
       Connection: [keep-alive]
       User-Agent: [python-requests/2.11.1]
     method: GET
-    uri: https://api.soundcloud.com/tracks/s38720262?client_id=93e33e327fd8a9b77becd179652272e2
+    uri: https://api.soundcloud.com/tracks/s38720262
   response:
     body:
       string: !!binary |

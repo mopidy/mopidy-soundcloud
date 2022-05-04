@@ -11,7 +11,7 @@ interactions:
       user-agent:
       - Mopidy-SoundCloud/3.0.1 Mopidy/3.1.1 CPython/3.9.2
     method: GET
-    uri: https://api.soundcloud.com/tracks/13158665?client_id=93e33e327fd8a9b77becd179652272e2
+    uri: https://api.soundcloud.com/tracks/13158665
   response:
     body:
       string: !!binary |
@@ -5934,7 +5934,7 @@ interactions:
       user-agent:
       - Mopidy-SoundCloud/3.0.1 Mopidy/3.1.1 CPython/3.9.2
     method: HEAD
-    uri: https://api.soundcloud.com/tracks/13158665/stream?client_id=93e33e327fd8a9b77becd179652272e2
+    uri: https://api.soundcloud.com/tracks/13158665/stream
   response:
     body:
       string: ''

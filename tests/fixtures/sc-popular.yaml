@@ -8,7 +8,7 @@ interactions:
       Connection: [keep-alive]
       User-Agent: [python-requests/2.4.3 CPython/2.7.8 Linux/3.16.0-28-generic]
     method: GET
-    uri: https://api-v2.soundcloud.com:443/explore/categories?client_id=93e33e327fd8a9b77becd179652272e2
+    uri: https://api-v2.soundcloud.com:443/explore/categories
   response:
     body:
       string: !!binary |
@@ -39,7 +39,7 @@ interactions:
       Cookie: [_session_auth_key="iuo9QNN6oaPVa3gj9XyKTHZtsxE="]
       User-Agent: [python-requests/2.4.3 CPython/2.7.8 Linux/3.16.0-28-generic]
     method: GET
-    uri: https://api-v2.soundcloud.com:443/explore/Alternative+Rock?limit=10&offset=0&linked_partitioning=1&client_id=93e33e327fd8a9b77becd179652272e2
+    uri: https://api-v2.soundcloud.com:443/explore/Alternative+Rock?limit=10&offset=0&linked_partitioning=1
   response:
     body:
       string: !!binary |
@@ -160,7 +160,7 @@ interactions:
       Connection: [keep-alive]
       User-Agent: [python-requests/2.4.3 CPython/2.7.8 Linux/3.16.0-28-generic]
     method: GET
-    uri: https://api.soundcloud.com:443/tracks/170703457.json?client_id=93e33e327fd8a9b77becd179652272e2
+    uri: https://api.soundcloud.com:443/tracks/170703457.json
   response:
     body:
       string: !!binary |
@@ -203,7 +203,7 @@ interactions:
       Connection: [keep-alive]
       User-Agent: [python-requests/2.4.3 CPython/2.7.8 Linux/3.16.0-28-generic]
     method: GET
-    uri: https://api.soundcloud.com:443/tracks/170437996.json?client_id=93e33e327fd8a9b77becd179652272e2
+    uri: https://api.soundcloud.com:443/tracks/170437996.json
   response:
     body:
       string: !!binary |
@@ -246,7 +246,7 @@ interactions:
       Connection: [keep-alive]
       User-Agent: [python-requests/2.4.3 CPython/2.7.8 Linux/3.16.0-28-generic]
     method: GET
-    uri: https://api.soundcloud.com:443/tracks/172570926.json?client_id=93e33e327fd8a9b77becd179652272e2
+    uri: https://api.soundcloud.com:443/tracks/172570926.json
   response:
     body:
       string: !!binary |
@@ -288,7 +288,7 @@ interactions:
       Connection: [keep-alive]
       User-Agent: [python-requests/2.4.3 CPython/2.7.8 Linux/3.16.0-28-generic]
     method: GET
-    uri: https://api.soundcloud.com:443/tracks/173263597.json?client_id=93e33e327fd8a9b77becd179652272e2
+    uri: https://api.soundcloud.com:443/tracks/173263597.json
   response:
     body:
       string: !!binary |
@@ -330,7 +330,7 @@ interactions:
       Connection: [keep-alive]
       User-Agent: [python-requests/2.4.3 CPython/2.7.8 Linux/3.16.0-28-generic]
     method: GET
-    uri: https://api.soundcloud.com:443/tracks/157945262.json?client_id=93e33e327fd8a9b77becd179652272e2
+    uri: https://api.soundcloud.com:443/tracks/157945262.json
   response:
     body:
       string: !!binary |
@@ -373,7 +373,7 @@ interactions:
       Connection: [keep-alive]
       User-Agent: [python-requests/2.4.3 CPython/2.7.8 Linux/3.16.0-28-generic]
     method: GET
-    uri: https://api.soundcloud.com:443/tracks/180099816.json?client_id=93e33e327fd8a9b77becd179652272e2
+    uri: https://api.soundcloud.com:443/tracks/180099816.json
   response:
     body:
       string: !!binary |
@@ -414,7 +414,7 @@ interactions:
       Connection: [keep-alive]
       User-Agent: [python-requests/2.4.3 CPython/2.7.8 Linux/3.16.0-28-generic]
     method: GET
-    uri: https://api.soundcloud.com:443/tracks/172322693.json?client_id=93e33e327fd8a9b77becd179652272e2
+    uri: https://api.soundcloud.com:443/tracks/172322693.json
   response:
     body:
       string: !!binary |
@@ -457,7 +457,7 @@ interactions:
       Connection: [keep-alive]
       User-Agent: [python-requests/2.4.3 CPython/2.7.8 Linux/3.16.0-28-generic]
     method: GET
-    uri: https://api.soundcloud.com:443/tracks/166785347.json?client_id=93e33e327fd8a9b77becd179652272e2
+    uri: https://api.soundcloud.com:443/tracks/166785347.json
   response:
     body:
       string: !!binary |
@@ -501,7 +501,7 @@ interactions:
       Connection: [keep-alive]
       User-Agent: [python-requests/2.4.3 CPython/2.7.8 Linux/3.16.0-28-generic]
     method: GET
-    uri: https://api.soundcloud.com:443/tracks/172120478.json?client_id=93e33e327fd8a9b77becd179652272e2
+    uri: https://api.soundcloud.com:443/tracks/172120478.json
   response:
     body:
       string: !!binary |
@@ -542,7 +542,7 @@ interactions:
       Connection: [keep-alive]
       User-Agent: [python-requests/2.4.3 CPython/2.7.8 Linux/3.16.0-28-generic]
     method: GET
-    uri: https://api.soundcloud.com:443/tracks/164767462.json?client_id=93e33e327fd8a9b77becd179652272e2
+    uri: https://api.soundcloud.com:443/tracks/164767462.json
   response:
     body:
       string: !!binary |

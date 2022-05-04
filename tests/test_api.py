@@ -15,7 +15,7 @@ my_vcr = vcr.VCR(
     cassette_library_dir=local_path + "/fixtures",
     record_mode="once",
     match_on=["uri", "method"],
-    decode_compressed_response=False,
+    decode_compressed_response=True,
     filter_headers=["Authorization"],
 )
 
@@ -176,20 +176,21 @@ class ApiTest(unittest.TestCase):
 
     @my_vcr.use_cassette("sc-resolve-track-id.yaml")
     def test_resolves_stream_track(self):
+        self.api._update_public_client_id = mock.Mock()
         track = self.api.get_track("13158665", True)
         assert isinstance(track, Track)
         assert track.uri == (
             "https://cf-media.sndcdn.com/fxguEjG4ax6B.128.mp3?Policy="
             "eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiKjovL2NmLW1lZGlhLnNu"
-            "ZGNkbi5jb20vZnhndUVqRzRheDZCLjEyOC5tcDMiLCJDb25kaXRpb24i"
-            "OnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE2MTc3MzMy"
-            "MDJ9fX1dfQ__&Signature=R6mfsrmYiPXF8Q-Eh0vsmtiqnIAkFMckw"
-            "6qETd0gjJlXnxzjXq~ZiY4ClwgChjfv9e5NdID54hcSrq3jamUCuQ-Gr"
-            "94WH0beJFXa9itVnV2A83~FE6Fye~ocTsVx7fzrpDFKJ80csI-QtLkV3"
-            "3E06oMClsMPbjvdw3d1caFpGfkck7OCmV0Z9Jat0dYDkRfjGZF7HqGRP"
-            "-upiIJ3l0cWfSyhRJ~F5o29TASJMQMQAigjCV0by9DsK2Naw1tcAW4DH"
-            "YJF4oOUQkTLRwtw0B5mJXfKfFGQxjj1RSGZNFZxG0oV2nD1-svYX-Enz"
-            "ldPOUBDvyUr-nNmS0wR9Qm5XsTAbQ__&Key-Pair-Id=APKAI6TU7MMX"
+            "ZGNkbi5jb20vZnhndUVqRzRheDZCLjEyOC5tcDMqIiwiQ29uZGl0aW9u"
+            "Ijp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNjUxNzky"
+            "Mzg1fX19XX0_&Signature=OGBst0oQOjHEf3TnH7IJbKipFi3zmWB9b"
+            "PSjTld5weixfAW6K3z4xglDCbDyt0YRn6fdq6WKIdZR93ngRB2OyBIuP"
+            "777YhM45uRxYBZkJMr1KC3NleHmNjVror1XBE-Zsp2Lz6EDOGvYPMno9"
+            "nYM0MLiSjStYtMHKu101vhrdn2DpgJf-xLdQW-2UAY-Ls-trnQRfA038"
+            "40ebzbNVepPAzum3EeX2CIaislknlEwM40BUD4CVU-4maTCo9QdWOYuq"
+            "xXODjJkjSff9M9-OZ49EDzZoPD506pmY8omwqPgeDQ2X5l5I9Y9v7-3b"
+            "nmmqF~EkK4ojoX3I1fp89BrOMhTkw__&Key-Pair-Id=APKAI6TU7MMX"
             "M5DG6EPQ"
         )
 
@@ -199,46 +200,6 @@ class ApiTest(unittest.TestCase):
         track["streamable"] = False
         track = self.api.parse_track(track)
         assert track is None
-
-    @my_vcr.use_cassette("sc-resolve-app-client-id.yaml")
-    def test_resolves_app_client_id(self):
-        track = self.api._get("tracks/13158665")
-        track["sharing"] = "private"
-        track = self.api.parse_track(track, True)
-        assert track.uri == (
-            "https://cf-media.sndcdn.com/fxguEjG4ax6B.128.mp3?Policy="
-            "eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiKjovL2NmLW1lZGlhLnNu"
-            "ZGNkbi5jb20vZnhndUVqRzRheDZCLjEyOC5tcDMiLCJDb25kaXRpb24i"
-            "OnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE2MTc3Mzcw"
-            "ODV9fX1dfQ__&Signature=AT7ZL9gDe~34stPzDOORReIeNTbEpo~27"
-            "VP-set6t-T2mIW-W1fuWW6ny4-kd5XsW7mgndht1poURixYx1bUNTJFt"
-            "SX1LjjfvUaGfA5w3eDbfSHvlmh8fqIVN6RZAbCwQUbcndn8TI5Q1EPfP"
-            "8Aq-DLsIdUEE~3gxIVvX-YgzDZtxRMue0eefgp5oxk5z3KbHILPAyeS-"
-            "GQx4JIgMxSWaMKiG0Dx0raTNW8JFNugs9u5h62J21BxGSd6aifU9boff"
-            "khg1yWR9ccqHjMdDSRGpHLSBin6iNNHRzHj9vC4cq--DexYnyLQtdZp3"
-            "UlaXbFlP~-3XBMf6FLNiPbUA4HxgA__&Key-Pair-Id=APKAI6TU7MMX"
-            "M5DG6EPQ"
-        )
-
-    @my_vcr.use_cassette("sc-resolve-track-id-invalid-client-id.yaml")
-    def test_resolves_stream_track_invalid_id(self):
-        self.api.public_client_id = "blahblahrubbosh"
-        track = self.api.get_track("13158665", True)
-        assert isinstance(track, Track)
-        assert track.uri == (
-            "https://cf-media.sndcdn.com/fxguEjG4ax6B.128.mp3?Policy="
-            "eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiKjovL2NmLW1lZGlhLnNu"
-            "ZGNkbi5jb20vZnhndUVqRzRheDZCLjEyOC5tcDMiLCJDb25kaXRpb24i"
-            "OnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE2MTc1NDI2"
-            "MDh9fX1dfQ__&Signature=SwnMkrFlBL1Es-S7DMuHLiAzYxgKdl4bk"
-            "sjUny73MKN9d~54MhUzYOmgzETiERC73tyGo3iovjjk6P556J3FvAibn"
-            "adM7ip5pPNT5HpyS4~xE2zCAg9s1DnDSypcUzOT6pvKKTJ3F95w6~kr3"
-            "lRbRfDHsuq6O1HKB4k~NBVdTMRFhDRZJPdGg2BJFiI5M-IA-Ut5CQUJS"
-            "kYNXG1kQtvIJNenAUQAuQm0iKv-um7C5YbgkdOpZC~HU49YiLcCw8T~b"
-            "VYRgspxMctUQssmTg5yysD65vkQk8QVWpx9kE9kxdCL7oFqdAbv9tsgu"
-            "s7~nptZlygrOVi9TIyikLsi6BeMQw__&Key-Pair-Id=APKAI6TU7MMX"
-            "M5DG6EPQ"
-        )
 
     def test_parse_fail_reason(self):
         test_reason = "Unknown"
