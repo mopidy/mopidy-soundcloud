@@ -14,7 +14,7 @@ class SoundCloudBackend(pykka.ThreadingActor, backend.Backend):
         super().__init__()
         self.config = config
         self.remote = SoundCloudClient(config)
-        self.library = SoundCloudLibraryProvider(backend=self)
+        self.library = SoundCloudLibraryProvider(self.remote, backend=self)
         self.playback = SoundCloudPlaybackProvider(audio=audio, backend=self)
 
         self.uri_schemes = ["soundcloud", "sc"]
@@ -28,7 +28,7 @@ class SoundCloudBackend(pykka.ThreadingActor, backend.Backend):
 class SoundCloudPlaybackProvider(backend.PlaybackProvider):
     def translate_uri(self, uri):
         track_id = self.backend.remote.parse_track_uri(uri)
-        track = self.backend.remote.get_track(track_id, True)
+        track = self.backend.remote.get_parsed_track(track_id, True)
         if track is None:
             return None
         return track.uri

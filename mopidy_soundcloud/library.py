@@ -6,6 +6,8 @@ import urllib.parse
 from mopidy import backend, models
 from mopidy.models import SearchResult, Track
 
+from mopidy_soundcloud.images import SoundCloudImageProvider
+
 logger = logging.getLogger(__name__)
 
 
@@ -38,13 +40,18 @@ class SoundCloudLibraryProvider(backend.LibraryProvider):
         uri="soundcloud:directory", name="SoundCloud"
     )
 
-    def __init__(self, *args, **kwargs):
+    def __init__(self, web_client, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.vfs = {"soundcloud:directory": {}}
         self.add_to_vfs(new_folder("Following", ["following"]))
         self.add_to_vfs(new_folder("Liked", ["liked"]))
         self.add_to_vfs(new_folder("Sets", ["sets"]))
         self.add_to_vfs(new_folder("Stream", ["stream"]))
+
+        self.image_provider = SoundCloudImageProvider(web_client)
+
+    def get_images(self, uris):
+        return self.image_provider.get_images(uris)
 
     def add_to_vfs(self, _model):
         self.vfs["soundcloud:directory"][_model.uri] = _model
@@ -144,9 +151,24 @@ class SoundCloudLibraryProvider(backend.LibraryProvider):
             uri = uri.replace("sc:", "")
             return self.backend.remote.resolve_url(uri)
 
+        if "directory" in uri:
+            return
+
+        if "stream" in uri:
+            return list(self.backend.remote.get_user_stream())
+
+        if "liked" in uri:
+            return list(self.backend.remote.get_likes())
+
+        if "sets" in uri:
+            return list(self.backend.remote.get_sets())
+
+        if "following" in uri:
+            return list(self.backend.remote.get_followings())
+
         try:
             track_id = self.backend.remote.parse_track_uri(uri)
-            track = self.backend.remote.get_track(track_id)
+            track = self.backend.remote.get_parsed_track(track_id)
             if track is None:
                 logger.info(
                     f"Failed to lookup {uri}: SoundCloud track not found"

@@ -66,12 +66,12 @@ class ApiTest(unittest.TestCase):
 
     @my_vcr.use_cassette("sc-resolve-track-none.yaml")
     def test_resolves_unknown_track_to_none(self):
-        track = self.api.get_track("s38720262")
+        track = self.api.get_parsed_track("s38720262")
         assert track is None
 
     @my_vcr.use_cassette("sc-resolve-track.yaml")
     def test_resolves_track(self):
-        track = self.api.get_track("13158665")
+        track = self.api.get_parsed_track("13158665")
         assert isinstance(track, Track)
         assert track.uri == "soundcloud:song/Munching at Tiannas house.13158665"
 
@@ -176,7 +176,7 @@ class ApiTest(unittest.TestCase):
 
     @my_vcr.use_cassette("sc-resolve-track-id.yaml")
     def test_resolves_stream_track(self):
-        track = self.api.get_track("13158665", True)
+        track = self.api.get_parsed_track("13158665", True)
         assert isinstance(track, Track)
         assert track.uri == (
             "https://cf-media.sndcdn.com/fxguEjG4ax6B.128.mp3?Policy="
@@ -223,7 +223,7 @@ class ApiTest(unittest.TestCase):
     @my_vcr.use_cassette("sc-resolve-track-id-invalid-client-id.yaml")
     def test_resolves_stream_track_invalid_id(self):
         self.api.public_client_id = "blahblahrubbosh"
-        track = self.api.get_track("13158665", True)
+        track = self.api.get_parsed_track("13158665", True)
         assert isinstance(track, Track)
         assert track.uri == (
             "https://cf-media.sndcdn.com/fxguEjG4ax6B.128.mp3?Policy="

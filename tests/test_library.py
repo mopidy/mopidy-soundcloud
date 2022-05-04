@@ -1,4 +1,6 @@
+import os.path
 import unittest
+import vcr
 
 import pykka
 
@@ -11,16 +13,31 @@ from mopidy_soundcloud.library import (
 )
 from mopidy_soundcloud.soundcloud import safe_url
 
+local_path = os.path.abspath(os.path.dirname(__file__))
+my_vcr = vcr.VCR(
+    serializer="yaml",
+    cassette_library_dir=local_path + "/fixtures",
+    record_mode="once",
+    match_on=["uri", "method"],
+    decode_compressed_response=False,
+    filter_headers=["Authorization"],
+)
+
 
 class ApiTest(unittest.TestCase):
     def setUp(self):
         config = Extension().get_config_schema()
-        config["auth_token"] = "1-35204-61921957-55796ebef403996"
+        config["auth_token"] = "3-35204-970067440-lVY4FovkEcKrEGw"
         # using this user http://maildrop.cc/inbox/mopidytestuser
-        self.backend = actor.SoundCloudBackend.start(
-            config={"soundcloud": config, "proxy": {}}, audio=None
+        config = {"soundcloud": config, "proxy": {}}
+        self.soundCloudBackend = actor.SoundCloudBackend(config, audio=None)
+
+        self.backend = self.soundCloudBackend.start(
+            config=config, audio=None
         ).proxy()
-        self.library = SoundCloudLibraryProvider(backend=self.backend)
+        self.library = SoundCloudLibraryProvider(
+            self.soundCloudBackend.remote, backend=self.backend
+        )
 
     def tearDown(self):
         pykka.ActorRegistry.stop_all()
@@ -94,3 +111,23 @@ class ApiTest(unittest.TestCase):
                 uri="soundcloud:directory:stream",
             ),
         ]
+
+    @my_vcr.use_cassette("sc-images-track.yaml")
+    def test_track_images(self):
+        uri_str = "soundcloud:song/Munching at Tiannas house.13158665"
+        image_uri = (
+            "https://i1.sndcdn.com/avatars-000004193858-jnf2pd-t500x500.jpg"
+        )
+        images = self.library.image_provider.get_images([uri_str])
+        assert len(images[uri_str]) == 1
+        check_uri = images[uri_str][0]._uri
+        assert check_uri == image_uri
+
+    @my_vcr.use_cassette("sc-images-playlist.yaml")
+    def test_playlist_images(self):
+        uri_str = "soundcloud:playlist/Old Songs Throwback.1129540288"
+        image_uri = "https://i1.sndcdn.com/artworks-aaArnHd1VBTE-0-t500x500.jpg"
+        images = self.library.image_provider.get_images([uri_str])
+        assert len(images[uri_str]) == 64
+        check_uri = images[uri_str][0]._uri
+        assert check_uri == image_uri

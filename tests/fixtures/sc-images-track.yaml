@@ -1,0 +1,134 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      user-agent:
+      - Mopidy-SoundCloud/3.0.2 Mopidy/3.1.1 CPython/3.9.2
+    method: GET
+    uri: https://api.soundcloud.com/me?client_id=93e33e327fd8a9b77becd179652272e2
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAAHRRW27bQAy8SrC/da2VaiSODpC/nqAoFvTuSiXMfXQfCYQgdy+lyK5stIIgQEPO
+        cMh5F2hE//wk5ePT4SB34oyeAVGzTWInok0OCP15hb4+HmUnj89dy8UZ8OAs176HiGZijCAX5YLB
+        Ae2s08mubeSB34f2Wy87fh++SH5mfkLu+FVKzH3TQMR9DtUbTaGavQ6umQfk5mpu60fVRBvyP4g3
+        VuEVCqQ7ErT7zCzjFw46GG1ujB2gUlErgyCNdh/9yCKah5Q0id5Xop0YMPGunwf4RJblt8DA3xUQ
+        LGBs1gljweAvHRrLVdBg1mHMNwpuyhG0vcHe7Cljuf9VBQtdwZJAn9XiWPQcaySYCNneXyh4PiQT
+        BqBslw52JV6StfOh64lQqwFeQ2LxvOENgSi8cTIXrL1g6MdtY66n675Z9D9+cuSRAhiVrQ7eZEV2
+        mPnyKLn9dw0FRP8uKhtzPNSotX2trEbvNDhrs4z7v/YH75OQA+UjzXfZmrwULge6qzlIk7IOkBj3
+        HLmbp5VU2QgFDbRGm2wMW/LHHwAAAP//AwC9tXUnWQMAAA==
+    headers:
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '433'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Sun, 04 Apr 2021 19:00:26 GMT
+      ETag:
+      - '"e6b7820e97afc9216ad3430f26581c43"'
+      Referrer-Policy:
+      - no-referrer
+      Server:
+      - am/2
+      Status:
+      - 200 OK
+      Vary:
+      - Origin
+      Via:
+      - 1.1 d8c5e23736c47a3e5184b0a78042898f.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - 7bWSlEWdbbslZCIxRVya24TOidBubP1j9vhXrGQ5CG8VO5BQUTRKPw==
+      X-Amz-Cf-Pop:
+      - AMS50-C1
+      X-Cache:
+      - Miss from cloudfront
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - DENY
+      X-Robots-Tag:
+      - noindex
+      X-UA-Compatible:
+      - IE=Edge,chrome=1
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      user-agent:
+      - Mopidy-SoundCloud/3.0.2 Mopidy/3.1.1 CPython/3.9.2
+    method: GET
+    uri: https://api.soundcloud.com/tracks/13158665?client_id=93e33e327fd8a9b77becd179652272e2
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAALxUTY+bMBD9K5GvDQECySZIPbRS1VNP7R1N8AS8MTayTXbTVf97x3yFZauueikX
+        4Hk+nmfezAu7CMVZxpyB4sLWTNBPnMS7w36/W7PCIDjkOTgy2UZxHEZpGO1X8S5LHrI0WX2I6CG3
+        1qLJvW+yPx7jKF4z3hpwQisKd4ijI8XSdY3KwUkiy5xpcYLyQreKMjysmXWUj3KdhRK2Qk6htRGl
+        UCDJSjlvbcVPMiE26SFZMwnW5bXm4iyQ9ywPYZSE22gVP2TbNNseJ5a2AiNUSVZNe5KiIMhBmUth
+        /f0sseCF1C3P6NMU+FE0lVYYGCy08VQaNDVIoS5kXbeqqChYAC5wApQCG1Sa6uDzOKpbPb8p1ifk
+        3CP56UbeIKWPR1kqsJi3RrJMtVLOMCec9+9RCSeUXYH7/xKVmQ4HS/ZtoLQCt/rRU1qNlDjawoim
+        78g8poJ6CmRQIqWe4npN5O7W+OB9EXz11uyCN+pCqcC1dxbCmmL8vgqOen6rU1MvkuQ3BLPEampx
+        tQQ53EZo0sJZUyd80+oUiBD1EpUn7gsbkFHlLLWNRHntNNQaQWeVc43NwhAasbk3e0MqDLur2nBU
+        /qBolr2wV6IehqU7ey0HkPgcWIdX4kEl7v372rJPdLb6Pjv7g2ZpsvaUfrVNst0hS9P7ZL1H3Sey
+        4UBxzqqv/+S6cHtDGK7gwCycRLyx5MVV79OZ2MBTi9L4mBx2h+BRnbcNDySYEjePTcl+Devg/zAP
+        /zaIYNyTNpe5EvvZXGR4XxFh7+cnST8pqYH/e4jRk4I8wRW9hhdBPDwv+Pm5bL88fk3hef85rzdN
+        N31c1yBULnVBcizteDFqjpDdhunWqbnRm6b+1bRPRUDa7C53+oJqgXVd65Gui2e40tT5pXwGaXFA
+        Gwm3k98Ow+qm2XgDPSTxflauEU7SNRuCevojfvAD32jrJiS6O/erdCAwgjY36CvRbXTP+NdvAAAA
+        //8DAHLrK0jOBgAA
+    headers:
+      Cache-Control:
+      - private, max-age=0
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '753'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Sun, 04 Apr 2021 19:00:30 GMT
+      Referrer-Policy:
+      - no-referrer
+      Server:
+      - am/2
+      Vary:
+      - Origin
+      Via:
+      - 1.1 52102486f97ad6ff39f81538f01349ab.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - jDytazHi2g7VJdpCJ_FzVFXYXGCE7vHsoUzRKy5VhSoCv0uzq_ECkQ==
+      X-Amz-Cf-Pop:
+      - AMS50-C1
+      X-Cache:
+      - Miss from cloudfront
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - DENY
+      X-Robots-Tag:
+      - noindex
+    status:
+      code: 200
+      message: OK
+version: 1
