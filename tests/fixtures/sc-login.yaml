@@ -7,7 +7,7 @@ interactions:
       Connection: [keep-alive]
       user-agent: [!!python/unicode 'Mopidy-SoundCloud/2.0.2 Mopidy/2.1.0 CPython/2.7.11+']
     method: GET
-    uri: https://api.soundcloud.com/me?client_id=93e33e327fd8a9b77becd179652272e2
+    uri: https://api.soundcloud.com/me
   response:
     body:
       string: !!binary |

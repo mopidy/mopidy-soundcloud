@@ -8,7 +8,7 @@ interactions:
       Connection: [keep-alive]
       User-Agent: [python-requests/2.11.1]
     method: GET
-    uri: https://api.soundcloud.com/resolve?url=https://soundcloud.com/bbc-radio-4/m-w-cloud&client_id=93e33e327fd8a9b77becd179652272e2
+    uri: https://api.soundcloud.com/resolve?url=https://soundcloud.com/bbc-radio-4/m-w-cloud
   response:
     body:
       string: !!binary |
@@ -25,7 +25,7 @@ interactions:
       content-length: ['137']
       content-type: [application/json; charset=utf-8]
       date: ['Thu, 27 Oct 2016 20:33:37 GMT']
-      location: ['https://api.soundcloud.com/tracks/122889665?client_id=93e33e327fd8a9b77becd179652272e2']
+      location: ['https://api.soundcloud.com/tracks/122889665']
       server: [am/2]
       status: [302 Found]
     status: {code: 302, message: Found}
@@ -38,7 +38,7 @@ interactions:
       Connection: [keep-alive]
       User-Agent: [python-requests/2.11.1]
     method: GET
-    uri: https://api.soundcloud.com/tracks/122889665?client_id=93e33e327fd8a9b77becd179652272e2
+    uri: https://api.soundcloud.com/tracks/122889665
   response:
     body:
       string: !!binary |
@@ -81,7 +81,7 @@ interactions:
       Connection: [keep-alive]
       User-Agent: [python-requests/2.11.1]
     method: GET
-    uri: https://api.soundcloud.com/resolve?url=https://soundcloud.com/bbc-radio-4/m-w-cloud&client_id=93e33e327fd8a9b77becd179652272e2
+    uri: https://api.soundcloud.com/resolve?url=https://soundcloud.com/bbc-radio-4/m-w-cloud
   response:
     body:
       string: !!binary |
@@ -98,7 +98,7 @@ interactions:
       content-length: ['137']
       content-type: [application/json; charset=utf-8]
       date: ['Thu, 27 Oct 2016 20:34:10 GMT']
-      location: ['https://api.soundcloud.com/tracks/122889665?client_id=93e33e327fd8a9b77becd179652272e2']
+      location: ['https://api.soundcloud.com/tracks/122889665']
       server: [am/2]
       status: [302 Found]
     status: {code: 302, message: Found}
@@ -111,7 +111,7 @@ interactions:
       Connection: [keep-alive]
       User-Agent: [python-requests/2.11.1]
     method: GET
-    uri: https://api.soundcloud.com/tracks/122889665?client_id=93e33e327fd8a9b77becd179652272e2
+    uri: https://api.soundcloud.com/tracks/122889665
   response:
     body:
       string: !!binary |

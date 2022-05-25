@@ -7,7 +7,7 @@ interactions:
       Connection: [keep-alive]
       user-agent: [!!python/unicode 'Mopidy-SoundCloud/2.0.2 Mopidy/2.1.0 CPython/2.7.11+']
     method: GET
-    uri: https://api.soundcloud.com/resolve?url=https://soundcloud.com/yndihalda/sets/dash-and-blast&client_id=93e33e327fd8a9b77becd179652272e2
+    uri: https://api.soundcloud.com/resolve?url=https://soundcloud.com/yndihalda/sets/dash-and-blast
   response:
     body:
       string: !!binary |
@@ -25,7 +25,7 @@ interactions:
       content-length: ['138']
       content-type: [application/json;charset=utf-8]
       date: ['Tue, 22 May 2018 19:55:23 GMT']
-      location: ['https://api.soundcloud.com/playlists/446283?client_id=93e33e327fd8a9b77becd179652272e2']
+      location: ['https://api.soundcloud.com/playlists/446283']
       server: [am/2]
       status: [302 Found]
       via: [1.1 8bc6ceb505a42af10a5f7fdd59805ef6.cloudfront.net (CloudFront)]
@@ -41,7 +41,7 @@ interactions:
       Connection: [keep-alive]
       user-agent: [!!python/unicode 'Mopidy-SoundCloud/2.0.2 Mopidy/2.1.0 CPython/2.7.11+']
     method: GET
-    uri: https://api.soundcloud.com/playlists/446283?client_id=93e33e327fd8a9b77becd179652272e2
+    uri: https://api.soundcloud.com/playlists/446283
   response:
     body:
       string: !!binary |
