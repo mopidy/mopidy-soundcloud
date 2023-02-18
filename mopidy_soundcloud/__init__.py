@@ -9,7 +9,6 @@ __version__ = pkg_resources.get_distribution("Mopidy-SoundCloud").version
 
 
 class Extension(ext.Extension):
-
     dist_name = "Mopidy-SoundCloud"
     ext_name = "soundcloud"
     version = __version__

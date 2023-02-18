@@ -18,7 +18,6 @@ def new_folder(name, path):
 
 
 def simplify_search_query(query):
-
     if isinstance(query, dict):
         r = []
         for v in query.values():
@@ -51,7 +50,7 @@ class SoundCloudLibraryProvider(backend.LibraryProvider):
 
     def list_sets(self):
         sets_vfs = collections.OrderedDict()
-        for (name, set_id, _tracks) in self.backend.remote.get_sets():
+        for name, set_id, _tracks in self.backend.remote.get_sets():
             sets_list = new_folder(name, ["sets", set_id])
             logger.debug(f"Adding set {sets_list.name} to VFS")
             sets_vfs[set_id] = sets_list
@@ -68,7 +67,7 @@ class SoundCloudLibraryProvider(backend.LibraryProvider):
 
     def list_user_follows(self):
         sets_vfs = collections.OrderedDict()
-        for (name, user_id) in self.backend.remote.get_followings():
+        for name, user_id in self.backend.remote.get_followings():
             sets_list = new_folder(name, ["following", user_id])
             logger.debug(f"Adding set {sets_list.name} to VFS")
             sets_vfs[user_id] = sets_list
