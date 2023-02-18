@@ -385,7 +385,6 @@ class SoundCloudClient:
 
     @cache()
     def get_streamable_url(self, sharing, permalink_url, stream_url):
-
         if self.public_client_id is None:
             self._update_public_client_id()
 
