@@ -6,7 +6,7 @@ Mopidy-SoundCloud
     :target: https://pypi.org/project/Mopidy-SoundCloud/
     :alt: Latest PyPI version
 
-.. image:: https://img.shields.io/github/workflow/status/mopidy/mopidy-soundcloud/CI
+.. image:: https://img.shields.io/github/actions/workflow/status/mopidy/mopidy-soundcloud/ci.yml?branch=main
     :target: https://github.com/mopidy/mopidy-soundcloud/actions
     :alt: CI build status
 
