@@ -18,15 +18,22 @@ Mopidy-SoundCloud
 `SoundCloud <https://soundcloud.com>`_.
 
 
+Status
+======
+
+This extension is not currently maintained and may not function correctly / at all.
+See below for more details.
+
+
 Maintainer wanted
 =================
 
-Mopidy-SoundCloud is currently kept on life support by the Mopidy core
-developers. It is in need of a more dedicated maintainer.
+Mopidy-SoundCloud is currently not maintained by the Mopidy core
+developers. It is in need of a maintainer.
 
 If you want to be the maintainer of Mopidy-SoundCloud, please:
 
-1. Make 2-3 good pull requests improving any part of the project.
+1. Make a good pull request improving a material part of the project.
 
 2. Read and get familiar with all of the project's open issues.
 
