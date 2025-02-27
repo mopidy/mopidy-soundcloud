@@ -339,9 +339,9 @@ class SoundCloudClient:
                 )
                 return None
         else:
-            track_kwargs[
-                "uri"
-            ] = f"soundcloud:song/{readable_url(data.get('title'))}.{data.get('id')}"
+            track_kwargs["uri"] = (
+                f"soundcloud:song/{readable_url(data.get('title'))}.{data.get('id')}"
+            )
 
         track_kwargs["length"] = int(data.get("duration", 0))
         track_kwargs["comment"] = data.get("permalink_url", "")
