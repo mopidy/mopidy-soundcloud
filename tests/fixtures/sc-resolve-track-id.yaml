@@ -9,16 +9,17 @@ interactions:
       Connection:
       - keep-alive
       user-agent:
-      - Mopidy-SoundCloud/3.0.1 Mopidy/3.2.0 CPython/3.8.10
+      - Mopidy-SoundCloud/3.0.2 Mopidy/4.0.0a5.dev17+g9f5d217a CPython/3.13.3
     method: GET
     uri: https://api.soundcloud.com/tracks/13158665
   response:
     body:
-      string: '{"kind":"track","id":13158665,"created_at":"2011/04/06 15:37:43 +0000","duration":18109,"commentable":true,"comment_count":7,"sharing":"public","tag_list":"soundcloud:source=iphone-record
+      string: '{"kind":"track","id":13158665,"urn":"soundcloud:tracks:13158665","created_at":"2011/04/06
+        15:37:43 +0000","duration":18109,"commentable":true,"comment_count":7,"sharing":"public","tag_list":"soundcloud:source=iphone-record
         ","streamable":true,"embeddable_by":"all","purchase_url":null,"purchase_title":null,"genre":null,"title":"Munching
-        at Tiannas house","description":null,"label_name":null,"release":null,"key_signature":null,"isrc":null,"bpm":null,"release_year":null,"release_month":null,"release_day":null,"license":"all-rights-reserved","uri":"https://api.soundcloud.com/tracks/13158665","user":{"avatar_url":"https://i1.sndcdn.com/avatars-000004193858-jnf2pd-large.jpg","id":3699101,"kind":"user","permalink_url":"https://soundcloud.com/alex-stevenson","uri":"https://api.soundcloud.com/users/3699101","username":"Alex
+        at Tiannas house","description":null,"label_name":null,"release":null,"key_signature":null,"isrc":null,"bpm":null,"release_year":null,"release_month":null,"release_day":null,"license":"all-rights-reserved","uri":"https://api.soundcloud.com/tracks/soundcloud:tracks:13158665","user":{"avatar_url":"https://i1.sndcdn.com/avatars-000004193858-jnf2pd-large.jpg","id":3699101,"urn":"soundcloud:users:3699101","kind":"user","permalink_url":"https://soundcloud.com/alex-stevenson","uri":"https://api.soundcloud.com/users/soundcloud:users:3699101","username":"Alex
         Stevenson","permalink":"alex-stevenson","created_at":"2011/03/17 09:03:40
-        +0000","last_modified":"2011/06/13 23:58:44 +0000","first_name":"","last_name":"","full_name":"","city":"","description":null,"country":null,"track_count":1,"public_favorites_count":0,"reposts_count":0,"followers_count":0,"followings_count":0,"plan":"Free","myspace_name":null,"discogs_name":null,"website_title":null,"website":null,"comments_count":0,"online":false,"likes_count":0,"playlist_count":0,"subscriptions":[{"product":{"id":"free","name":"Free"}}]},"permalink_url":"https://soundcloud.com/alex-stevenson/munching-at-tiannas-house","artwork_url":null,"stream_url":"https://api.soundcloud.com/tracks/13158665/stream","download_url":null,"waveform_url":"https://wave.sndcdn.com/fxguEjG4ax6B_m.png","available_country_codes":null,"secret_uri":null,"user_favorite":false,"user_playback_count":1,"playback_count":17319,"download_count":134,"favoritings_count":5,"reposts_count":1,"downloadable":false,"access":"playable","policy":null,"monetization_model":null}'
+        +0000","last_modified":"2011/06/13 23:58:44 +0000","first_name":"","last_name":"","full_name":"","city":"","description":null,"country":null,"track_count":1,"public_favorites_count":0,"reposts_count":0,"followers_count":0,"followings_count":0,"plan":"Free","myspace_name":null,"discogs_name":null,"website_title":null,"website":null,"comments_count":0,"online":false,"likes_count":0,"playlist_count":0,"subscriptions":[{"product":{"id":"free","name":"Free"}}]},"permalink_url":"https://soundcloud.com/alex-stevenson/munching-at-tiannas-house","artwork_url":null,"stream_url":"https://api.soundcloud.com/tracks/soundcloud:tracks:13158665/stream","download_url":null,"waveform_url":"https://wave.sndcdn.com/fxguEjG4ax6B_m.png","available_country_codes":null,"secret_uri":null,"user_favorite":false,"user_playback_count":1,"playback_count":17378,"download_count":134,"favoritings_count":5,"reposts_count":1,"downloadable":false,"access":"playable","policy":null,"monetization_model":null,"metadata_artist":null}'
     headers:
       Cache-Control:
       - private, max-age=0
@@ -27,31 +28,39 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Thu, 05 May 2022 23:10:47 GMT
+      - Fri, 11 Jul 2025 15:40:02 GMT
       Server:
-      - am/2
+      - envoy
       Vary:
-      - Origin
+      - Origin,Origin
       Via:
-      - 1.1 b0f20dc7ed973df2db1883bc7d5fcb24.cloudfront.net (CloudFront)
+      - 1.1 6bb8eb5712512d0233fdbd1d8dcf84b6.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - PiTFM5ZjPxR_3dT19sLBerWhBnOVrlppmpH2VQLRfchVaWKLwjHp1A==
+      - a1XS1fhLWucybhrtULCBOWrSJTmg1DRVWvi0JDHh5uHblMraUHYTOA==
       X-Amz-Cf-Pop:
-      - LHR52-C1
+      - LHR5-P5
       X-Cache:
       - Miss from cloudfront
       content-length:
-      - '1833'
+      - '1977'
       referrer-policy:
       - no-referrer
-      strict-transport-security:
-      - max-age=63072000; includeSubdomains; preload
       x-content-type-options:
       - nosniff
+      x-envoy-upstream-service-time:
+      - '181'
       x-frame-options:
       - DENY
+      x-ratelimit-limit:
+      - '-1'
+      x-ratelimit-remaining:
+      - '0'
+      x-ratelimit-reset:
+      - '0'
       x-robots-tag:
       - noindex
+      x-tyk-trace-id:
+      - df55624b37db6a499609564ff282f319
     status:
       code: 200
       message: OK
@@ -65,9 +74,9 @@ interactions:
       Connection:
       - keep-alive
       user-agent:
-      - Mopidy-SoundCloud/3.0.1 Mopidy/3.2.0 CPython/3.8.10
+      - Mopidy-SoundCloud/3.0.2 Mopidy/4.0.0a5.dev17+g9f5d217a CPython/3.13.3
     method: HEAD
-    uri: https://api.soundcloud.com/tracks/13158665/stream
+    uri: https://api.soundcloud.com/tracks/soundcloud:tracks:13158665/stream
   response:
     body:
       string: ''
@@ -77,31 +86,39 @@ interactions:
       Content-Type:
       - text/plain; charset=utf-8
       Date:
-      - Thu, 05 May 2022 23:10:47 GMT
+      - Fri, 11 Jul 2025 15:40:02 GMT
       Location:
-      - https://cf-media.sndcdn.com/fxguEjG4ax6B.128.mp3?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiKjovL2NmLW1lZGlhLnNuZGNkbi5jb20vZnhndUVqRzRheDZCLjEyOC5tcDMqIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNjUxNzkyMzg1fX19XX0_&Signature=OGBst0oQOjHEf3TnH7IJbKipFi3zmWB9bPSjTld5weixfAW6K3z4xglDCbDyt0YRn6fdq6WKIdZR93ngRB2OyBIuP777YhM45uRxYBZkJMr1KC3NleHmNjVror1XBE-Zsp2Lz6EDOGvYPMno9nYM0MLiSjStYtMHKu101vhrdn2DpgJf-xLdQW-2UAY-Ls-trnQRfA03840ebzbNVepPAzum3EeX2CIaislknlEwM40BUD4CVU-4maTCo9QdWOYuqxXODjJkjSff9M9-OZ49EDzZoPD506pmY8omwqPgeDQ2X5l5I9Y9v7-3bnmmqF~EkK4ojoX3I1fp89BrOMhTkw__&Key-Pair-Id=APKAI6TU7MMXM5DG6EPQ
+      - https://cf-media.sndcdn.com/fxguEjG4ax6B.128.mp3?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiKjovL2NmLW1lZGlhLnNuZGNkbi5jb20vZnhndUVqRzRheDZCLjEyOC5tcDMqIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzUyMjQ4NTQwfX19XX0_&Signature=ASuFYvo9MqNG9Pj1q7dfnO6RIQi-Rl68EZhoJd23RZfkRBv8nW0~priQdVnFZpkMcH-nTVzObAlc0YwxkHBrxBKdigv2BjouRy5isvG0kNFGrd8WkWeNNsjRlsDdqn11DK3tic5NJ4H9ppn8TB9utx845r5sypytw0rwYPw1BFwOhlWKP0-a~pCfhXIM6id6J-ZerruRBO84j5bJnkrM3IuHt1D1VCDRELwhr4fo-SZetjie3clM~Fbce1VaM0GSOZOny6fDCAIuqWDke7W8a99uGMtC53qLy0w9F5oR72FyQaJVa6I16zGoXBldaZKrlwDaKwid~tDNWPJB77DAHw__&Key-Pair-Id=APKAI6TU7MMXM5DG6EPQ
       Server:
-      - am/2
+      - envoy
       Vary:
-      - Origin
+      - Origin,Origin
       Via:
-      - 1.1 b0f20dc7ed973df2db1883bc7d5fcb24.cloudfront.net (CloudFront)
+      - 1.1 dd9d266e3b8d8f3acf05baa4f4949342.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - Q8x9VM8q2978ojpN0LX6oB9DqoEh4x2-DtvQPEp8h0sFyGaGpKF17w==
+      - xRXFvYuI7IVitpQXjL8yekymQZXT7uds5StSMo6HCZn_nvdDoAvF9w==
       X-Amz-Cf-Pop:
-      - LHR52-C1
+      - LHR5-P5
       X-Cache:
       - Miss from cloudfront
       referrer-policy:
       - no-referrer
-      strict-transport-security:
-      - max-age=63072000; includeSubdomains; preload
       x-content-type-options:
       - nosniff
+      x-envoy-upstream-service-time:
+      - '79'
       x-frame-options:
       - DENY
+      x-ratelimit-limit:
+      - '-1'
+      x-ratelimit-remaining:
+      - '0'
+      x-ratelimit-reset:
+      - '0'
       x-robots-tag:
       - noindex
+      x-tyk-trace-id:
+      - 98194cb555663d4e04b416b0f5772048
     status:
       code: 302
       message: Moved Temporarily

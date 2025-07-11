@@ -2,147 +2,134 @@ interactions:
 - request:
     body: null
     headers:
-      Accept: ['*/*']
-      Accept-Encoding: ['gzip, deflate']
-      Authorization: [!!python/unicode OAuth 1-35204-61921957-55796ebef403996]
-      Connection: [keep-alive]
-      User-Agent: [python-requests/2.11.1]
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      user-agent:
+      - Mopidy-SoundCloud/3.0.2 Mopidy/4.0.0a5.dev17+g9f5d217a CPython/3.13.3
     method: GET
     uri: https://api.soundcloud.com/resolve?url=https://soundcloud.com/bbc-radio-4/m-w-cloud
   response:
     body:
-      string: !!binary |
-        H4sIAAAAAAAAABTJSwrCMBAA0KuUWWtjJzSfgrjzGjKdRAzGpJjJSry7Fd7ufaAJSW+wgD7hcByu
-        tZcAB8iVSVItezxEtrYoRVsa27851x5Gri8lb+JnUxOic96Y+cI5xSK3FM5eR71Dew+O/GrtGjlM
-        1psZ0WJE+P4AAAD//wMAI6hydXwAAAA=
+      string: '{"status":"302 - Found", "location":"https://api.soundcloud.com/tracks/soundcloud:tracks:122889665"}'
     headers:
-      access-control-allow-headers: ['Accept, Authorization, Content-Type, Origin']
-      access-control-allow-methods: ['GET, PUT, POST, DELETE']
-      access-control-allow-origin: ['*']
-      access-control-expose-headers: [Date]
-      cache-control: [no-cache]
-      content-encoding: [gzip]
-      content-length: ['137']
-      content-type: [application/json; charset=utf-8]
-      date: ['Thu, 27 Oct 2016 20:33:37 GMT']
-      location: ['https://api.soundcloud.com/tracks/122889665']
-      server: [am/2]
-      status: [302 Found]
-    status: {code: 302, message: Found}
+      Cache-Control:
+      - private, max-age=0
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 11 Jul 2025 15:40:01 GMT
+      Location:
+      - https://api.soundcloud.com/tracks/soundcloud:tracks:122889665
+      Server:
+      - envoy
+      Vary:
+      - Origin,Origin
+      Via:
+      - 1.1 9d395a7f2e324cfb528243e92355193c.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - oyE5_4qRB8N1DqA8wZiAy1UetU6KYxeVXGubtKkICKZJ9vL4H2bbWA==
+      X-Amz-Cf-Pop:
+      - LHR5-P5
+      X-Cache:
+      - Miss from cloudfront
+      content-length:
+      - '100'
+      referrer-policy:
+      - no-referrer
+      x-content-type-options:
+      - nosniff
+      x-envoy-upstream-service-time:
+      - '81'
+      x-frame-options:
+      - DENY
+      x-ratelimit-limit:
+      - '-1'
+      x-ratelimit-remaining:
+      - '0'
+      x-ratelimit-reset:
+      - '0'
+      x-robots-tag:
+      - noindex
+      x-tyk-trace-id:
+      - 98106ea926a827209acfa8162536aa70
+    status:
+      code: 302
+      message: Moved Temporarily
 - request:
     body: null
     headers:
-      Accept: ['*/*']
-      Accept-Encoding: ['gzip, deflate']
-      Authorization: [!!python/unicode OAuth 1-35204-61921957-55796ebef403996]
-      Connection: [keep-alive]
-      User-Agent: [python-requests/2.11.1]
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      user-agent:
+      - Mopidy-SoundCloud/3.0.2 Mopidy/4.0.0a5.dev17+g9f5d217a CPython/3.13.3
     method: GET
-    uri: https://api.soundcloud.com/tracks/122889665
+    uri: https://api.soundcloud.com/tracks/soundcloud:tracks:122889665
   response:
     body:
-      string: !!binary |
-        H4sIAAAAAAAAAJRVy67bNhD9FYIFuqn1tmxdLXPRxyJdtE3QpUBJY4k1RaokZUU3CJB/yKq/ly/p
-        UJIdXSPIwytydGZ45szDb+mZy5rm1GpWnemOcrxEcZxlD4dDuqOVBmahLphFTBxGSRDFQRiT6JDv
-        4zwNyU8h/tBvMKAL55ylhyw5xjtaD5pZriTN0/TwkGEs1XUgLSsF0NzqAXbUWIyOkU9cctNCjYGU
-        5g2XTBSVkhbhheFPCHnIon0UYVjBjC06VfMTh/qzpKIbKdMyzWWDqH4oBa/QZFlTCG5cOlwRzWqC
-        tKCeSMdt1YIQhMmajFCWxKgBjwjhao+ePeiOCS7P6Np5o1cJNTjCxqJG3TYr6Eqoa2cpygnRTAjE
-        1WqUQrF6QZ6YMAjtB121zEAxaEFzOQjhMixBzFou9xvGcutcF2sDUjvpXE6Lnb5qmSW/b/P42+Xx
-        15zHx/cfyKsWyONKuwZTad4vFUJXbkjJLXhO7psozqjV0LSWWEUmNZByIi9ePJI/nSpk75NflCad
-        0kAEQ5ghgp+B2BYwOcJlJYYayA+Pg+ZqMPvHNapEcgpBmtgRwK6Sf3z/H9I2gBdGJIykErx3j2oy
-        ssl/iVUD6XjM75206sgXM8b4kJPW2j4PgnEc/bKs/Er5wznotWo0w3Y0QRmGR/GvbulVeMm6VVcN
-        AlD3VWQ3IIWd+vV+hglbs5HMDtc6cKOr5XThNahtTcu+ux7XqMUETN/bOuz59t5Ys+lqug3HSWEz
-        uiYe2cUx5xXImSn2moeg1hpPYxH0ZR4q1B+/OSkMasF67s/NPbcwStIFc3YmuE3+OtE0f0ufDfW6
-        LeZvz0cCxfXmWfH2q/Mq5KZdyI+3089vLP3sMKdBFAXxkURpHh3zKPm0Yb6Wg3vTBCvVLbulEHTt
-        hDuv57zZhVmmNw7uLR75Bl1qOTssEOM5WockCpNjmHlD1oF+8gTTDfj/9A19t67EXrCpdJ1T4bNY
-        sGi1n9gFi2k3m+B72QbbJcS0HZU+f5n4glmZ7+P0EKaZd6ySZOIb5jvXU+Aa7C7a+Cxa/8fr4c1v
-        L399fcmeis7vZXPbhXd+39BuweLoinanV3J4SD7tzqs13NFVQFzv5mpNo9ufzEZuZi2rWmc0xXfP
-        QbDxpu/+BwAA//8DALBQnT8uBwAA
+      string: "{\"kind\":\"track\",\"id\":122889665,\"urn\":\"soundcloud:tracks:122889665\",\"created_at\":\"2013/12/02
+        16:42:50 +0000\",\"duration\":55698,\"commentable\":true,\"comment_count\":1,\"sharing\":\"public\",\"tag_list\":\"
+        io rad comedy mitchell and webb sound radio4\",\"streamable\":true,\"embeddable_by\":\"all\",\"purchase_url\":null,\"purchase_title\":null,\"genre\":\"\",\"title\":\"That
+        Mitchell and Webb Sound \u2013 The Cloud\",\"description\":\"This bite-sized
+        comedy is brought to you by BBC Radio 4. For more laughs like these, include
+        #Curious4Comedy in another tweet and we\u2019ll send a new clip your way.Listen
+        to more from That Mitchell and Webb Sound here: http://www.bbc.co.uk/programmes/b007lqrh\",\"label_name\":\"\",\"release\":\"\",\"key_signature\":\"\",\"isrc\":null,\"bpm\":null,\"release_year\":null,\"release_month\":null,\"release_day\":null,\"license\":\"all-rights-reserved\",\"uri\":\"https://api.soundcloud.com/tracks/soundcloud:tracks:122889665\",\"user\":{\"avatar_url\":\"https://i1.sndcdn.com/avatars-000063103708-u8merz-large.jpg\",\"id\":8568372,\"urn\":\"soundcloud:users:8568372\",\"kind\":\"user\",\"permalink_url\":\"https://soundcloud.com/bbc-radio-4\",\"uri\":\"https://api.soundcloud.com/users/soundcloud:users:8568372\",\"username\":\"BBC
+        Radio 4 & Radio 4 Ext\",\"permalink\":\"bbc-radio-4\",\"created_at\":\"2011/11/01
+        15:54:22 +0000\",\"last_modified\":\"2018/11/27 11:55:02 +0000\",\"first_name\":\"BBC
+        Radio 4\",\"last_name\":\"\",\"full_name\":\"BBC Radio 4\",\"city\":\"London\",\"description\":\"\",\"country\":\"Britain
+        (UK)\",\"track_count\":66,\"public_favorites_count\":0,\"reposts_count\":0,\"followers_count\":0,\"followings_count\":0,\"plan\":\"Free\",\"myspace_name\":null,\"discogs_name\":null,\"website_title\":\"BBC
+        Radio 4\",\"website\":\"http://www.bbc.co.uk/radio4\",\"comments_count\":0,\"online\":false,\"likes_count\":0,\"playlist_count\":7,\"subscriptions\":[{\"product\":{\"id\":\"free\",\"name\":\"Free\"}}]},\"permalink_url\":\"https://soundcloud.com/bbc-radio-4/m-w-cloud\",\"artwork_url\":\"https://i1.sndcdn.com/artworks-000064256058-7c33yi-large.jpg\",\"stream_url\":\"https://api.soundcloud.com/tracks/soundcloud:tracks:122889665/stream\",\"download_url\":null,\"waveform_url\":\"https://wave.sndcdn.com/pQUuxHLGUv8z_m.png\",\"available_country_codes\":null,\"secret_uri\":null,\"user_favorite\":false,\"user_playback_count\":1,\"playback_count\":6271,\"download_count\":0,\"favoritings_count\":68,\"reposts_count\":8,\"downloadable\":false,\"access\":\"playable\",\"policy\":null,\"monetization_model\":null,\"metadata_artist\":null}"
     headers:
-      access-control-allow-headers: ['Accept, Authorization, Content-Type, Origin']
-      access-control-allow-methods: ['GET, PUT, POST, DELETE']
-      access-control-allow-origin: ['*']
-      access-control-expose-headers: [Date]
-      cache-control: ['private, max-age=0, must-revalidate']
-      content-encoding: [gzip]
-      content-length: ['876']
-      content-type: [application/json; charset=utf-8]
-      date: ['Thu, 27 Oct 2016 20:33:38 GMT']
-      etag: ['"62bfb211e440fb08b0ee3d22dac9cc2a"']
-      server: [am/2]
-      status: [200 OK]
-    status: {code: 200, message: OK}
-- request:
-    body: null
-    headers:
-      Accept: ['*/*']
-      Accept-Encoding: ['gzip, deflate']
-      Authorization: [!!python/unicode OAuth 1-35204-61921957-55796ebef403996]
-      Connection: [keep-alive]
-      User-Agent: [python-requests/2.11.1]
-    method: GET
-    uri: https://api.soundcloud.com/resolve?url=https://soundcloud.com/bbc-radio-4/m-w-cloud
-  response:
-    body:
-      string: !!binary |
-        H4sIAAAAAAAAABTJSwrCMBAA0KuUWWtjJzSfgrjzGjKdRAzGpJjJSry7Fd7ufaAJSW+wgD7hcByu
-        tZcAB8iVSVItezxEtrYoRVsa27851x5Gri8lb+JnUxOic96Y+cI5xSK3FM5eR71Dew+O/GrtGjlM
-        1psZ0WJE+P4AAAD//wMAI6hydXwAAAA=
-    headers:
-      access-control-allow-headers: ['Accept, Authorization, Content-Type, Origin']
-      access-control-allow-methods: ['GET, PUT, POST, DELETE']
-      access-control-allow-origin: ['*']
-      access-control-expose-headers: [Date]
-      cache-control: [no-cache]
-      content-encoding: [gzip]
-      content-length: ['137']
-      content-type: [application/json; charset=utf-8]
-      date: ['Thu, 27 Oct 2016 20:34:10 GMT']
-      location: ['https://api.soundcloud.com/tracks/122889665']
-      server: [am/2]
-      status: [302 Found]
-    status: {code: 302, message: Found}
-- request:
-    body: null
-    headers:
-      Accept: ['*/*']
-      Accept-Encoding: ['gzip, deflate']
-      Authorization: [!!python/unicode OAuth 1-35204-61921957-55796ebef403996]
-      Connection: [keep-alive]
-      User-Agent: [python-requests/2.11.1]
-    method: GET
-    uri: https://api.soundcloud.com/tracks/122889665
-  response:
-    body:
-      string: !!binary |
-        H4sIAAAAAAAAAJRVy67bNhD9FYIFuqn1tmxdLXPRxyJdtE3QpUBJY4k1RaokZUU3CJB/yKq/ly/p
-        UJIdXSPIwytydGZ45szDb+mZy5rm1GpWnemOcrxEcZxlD4dDuqOVBmahLphFTBxGSRDFQRiT6JDv
-        4zwNyU8h/tBvMKAL55ylhyw5xjtaD5pZriTN0/TwkGEs1XUgLSsF0NzqAXbUWIyOkU9cctNCjYGU
-        5g2XTBSVkhbhheFPCHnIon0UYVjBjC06VfMTh/qzpKIbKdMyzWWDqH4oBa/QZFlTCG5cOlwRzWqC
-        tKCeSMdt1YIQhMmajFCWxKgBjwjhao+ePeiOCS7P6Np5o1cJNTjCxqJG3TYr6Eqoa2cpygnRTAjE
-        1WqUQrF6QZ6YMAjtB121zEAxaEFzOQjhMixBzFou9xvGcutcF2sDUjvpXE6Lnb5qmSW/b/P42+Xx
-        15zHx/cfyKsWyONKuwZTad4vFUJXbkjJLXhO7psozqjV0LSWWEUmNZByIi9ePJI/nSpk75NflCad
-        0kAEQ5ghgp+B2BYwOcJlJYYayA+Pg+ZqMPvHNapEcgpBmtgRwK6Sf3z/H9I2gBdGJIykErx3j2oy
-        ssl/iVUD6XjM75206sgXM8b4kJPW2j4PgnEc/bKs/Er5wznotWo0w3Y0QRmGR/GvbulVeMm6VVcN
-        AlD3VWQ3IIWd+vV+hglbs5HMDtc6cKOr5XThNahtTcu+ux7XqMUETN/bOuz59t5Ys+lqug3HSWEz
-        uiYe2cUx5xXImSn2moeg1hpPYxH0ZR4q1B+/OSkMasF67s/NPbcwStIFc3YmuE3+OtE0f0ufDfW6
-        LeZvz0cCxfXmWfH2q/Mq5KZdyI+3089vLP3sMKdBFAXxkURpHh3zKPm0Yb6Wg3vTBCvVLbulEHTt
-        hDuv57zZhVmmNw7uLR75Bl1qOTssEOM5WockCpNjmHlD1oF+8gTTDfj/9A19t67EXrCpdJ1T4bNY
-        sGi1n9gFi2k3m+B72QbbJcS0HZU+f5n4glmZ7+P0EKaZd6ySZOIb5jvXU+Aa7C7a+Cxa/8fr4c1v
-        L399fcmeis7vZXPbhXd+39BuweLoinanV3J4SD7tzqs13NFVQFzv5mpNo9ufzEZuZi2rWmc0xXfP
-        QbDxpu/+BwAA//8DALBQnT8uBwAA
-    headers:
-      access-control-allow-headers: ['Accept, Authorization, Content-Type, Origin']
-      access-control-allow-methods: ['GET, PUT, POST, DELETE']
-      access-control-allow-origin: ['*']
-      access-control-expose-headers: [Date]
-      cache-control: ['private, max-age=0, must-revalidate']
-      content-encoding: [gzip]
-      content-length: ['876']
-      content-type: [application/json; charset=utf-8]
-      date: ['Thu, 27 Oct 2016 20:34:10 GMT']
-      etag: ['"62bfb211e440fb08b0ee3d22dac9cc2a"']
-      server: [am/2]
-      status: [200 OK]
-    status: {code: 200, message: OK}
+      Cache-Control:
+      - private, max-age=0
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 11 Jul 2025 15:40:01 GMT
+      Server:
+      - envoy
+      Vary:
+      - Origin,Origin
+      Via:
+      - 1.1 2f1f2b9dead1700acb398fe109f37844.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - ILhW_ie_-uasmXFFkWEr2ktVMt25_rpETD4XiWzj_6mX3Iz7cXieXA==
+      X-Amz-Cf-Pop:
+      - LHR5-P5
+      X-Cache:
+      - Miss from cloudfront
+      content-length:
+      - '2372'
+      referrer-policy:
+      - no-referrer
+      x-content-type-options:
+      - nosniff
+      x-envoy-upstream-service-time:
+      - '121'
+      x-frame-options:
+      - DENY
+      x-ratelimit-limit:
+      - '-1'
+      x-ratelimit-remaining:
+      - '0'
+      x-ratelimit-reset:
+      - '0'
+      x-robots-tag:
+      - noindex
+      x-tyk-trace-id:
+      - ed277806fb0276670957d05b3f5596b2
+    status:
+      code: 200
+      message: OK
 version: 1

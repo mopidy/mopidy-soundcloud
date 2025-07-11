@@ -2,59 +2,105 @@ interactions:
 - request:
     body: null
     headers:
-      Accept: ['*/*']
-      Accept-Encoding: ['gzip, deflate']
-      Connection: [keep-alive]
-      user-agent: [!!python/unicode 'Mopidy-SoundCloud/2.0.2 Mopidy/2.1.0 CPython/2.7.11+']
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      user-agent:
+      - Mopidy-SoundCloud/3.0.2 Mopidy/4.0.0a5.dev17+g9f5d217a CPython/3.13.3
     method: GET
     uri: https://api.soundcloud.com/playlists/10961826
   response:
     body:
-      string: !!binary |
-        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
-        //8DAJ+/XH+/DgAA
+      string: "{\"duration\":246827,\"genre\":\"\",\"release_day\":null,\"permalink\":\"pelican\",\"permalink_url\":\"https://soundcloud.com/nick-steel-4/sets/pelican\",\"release_month\":null,\"release_year\":null,\"description\":null,\"uri\":\"https://api.soundcloud.com/playlists/soundcloud:playlists:10961826\",\"label_name\":null,\"label_id\":null,\"label\":null,\"tag_list\":\"\",\"track_count\":1,\"user_id\":53562492,\"user_urn\":\"soundcloud:users:53562492\",\"last_modified\":\"2013/09/24
+        14:12:25 +0000\",\"license\":\"all-rights-reserved\",\"user\":{\"avatar_url\":\"https://i1.sndcdn.com/avatars-000049704775-qq8pj8-large.jpg\",\"id\":53562492,\"urn\":\"soundcloud:users:53562492\",\"kind\":\"user\",\"permalink_url\":\"https://soundcloud.com/nick-steel-4\",\"uri\":\"https://api.soundcloud.com/users/soundcloud:users:53562492\",\"username\":\"Nick
+        Steel 3\",\"permalink\":\"nick-steel-4\",\"created_at\":\"2013/08/07 09:18:09
+        +0000\",\"last_modified\":\"2018/05/27 13:30:55 +0000\",\"first_name\":\"Nick\",\"last_name\":\"Steel\",\"full_name\":\"Nick
+        Steel\",\"city\":null,\"description\":null,\"country\":null,\"track_count\":0,\"public_favorites_count\":0,\"reposts_count\":0,\"followers_count\":0,\"followings_count\":0,\"plan\":\"Free\",\"myspace_name\":null,\"discogs_name\":null,\"website_title\":null,\"website\":null,\"comments_count\":0,\"online\":false,\"likes_count\":0,\"playlist_count\":2,\"subscriptions\":[{\"product\":{\"id\":\"free\",\"name\":\"Free\"}}]},\"playlist_type\":\"\",\"type\":\"\",\"id\":10961826,\"urn\":\"soundcloud:playlists:10961826\",\"downloadable\":null,\"likes_count\":0,\"sharing\":\"public\",\"created_at\":\"2013/09/24
+        14:12:25 +0000\",\"release\":null,\"tags\":\"\",\"kind\":\"playlist\",\"title\":\"Pelican\",\"purchase_title\":null,\"ean\":null,\"streamable\":true,\"embeddable_by\":\"all\",\"artwork_url\":null,\"purchase_url\":null,\"tracks_uri\":\"https://api.soundcloud.com/playlists/soundcloud:playlists:10961826/tracks\",\"tracks\":[{\"kind\":\"track\",\"id\":110937903,\"urn\":\"soundcloud:tracks:110937903\",\"created_at\":\"2013/09/17
+        17:31:09 +0000\",\"duration\":246827,\"commentable\":true,\"comment_count\":21,\"sharing\":\"public\",\"tag_list\":\"
+        \\\"southern lord\\\" metal \\\"post rock\\\" heavy chicago \\\"post everything\\\"
+        pelican\",\"streamable\":true,\"embeddable_by\":\"all\",\"purchase_url\":\"http://pelicansl.bandcamp.com\",\"purchase_title\":null,\"genre\":\"heavy\",\"title\":\"Pelican
+        - The Cliff\",\"description\":\"Taken from the forthcoming LP Forever Becoming,
+        available on October 15th through Southern Lord Recordings.\\r\\nPre-order
+        available at pelicansl.bandcamp.com\\r\\n\\r\\nTour Dates\\r\\n10/17 Brooklyn,
+        NY @ Saint Vitus - http://ticketf.ly/1a4scp9\\r\\n10/18 Brooklyn, NY @ Saint
+        Vitus - http://ticketf.ly/1dpr29P\\r\\n10/19 Boston, MA @ Great Scott - http://bit.ly/1aLiLvT\\r\\n11/1
+        Cleveland, OH @ Peabody's - http://tktwb.tw/17JOBb9\\r\\n11/2 Washington,
+        DC @ DC9 - http://ticketf.ly/17JWkWB\\r\\n11/3 Philadelphia, PA @ First Unitarian
+        Church - http://ticketf.ly/153CI1R\\r\\n11/4 Chapel Hill, NC @ Local 506 -
+        http://bit.ly/13RUG5T\\r\\n11/5 Atlanta, GA @ Masquerade - http://bit.ly/169TCg6\\r\\n11/6
+        Birmingham, AL @ Zydeco - http://ticketf.ly/1dps1Xn\\r\\n11/7 Baton Rouge,
+        LA @ Spanish Moon - http://tktwb.tw/19eijUI\\r\\n11/8 Austin, TX @ Fun Fun
+        Fun Fest - http://bit.ly/17pGO5i\\r\\n11/9 Austin, TX @ Fun Fun Fun Fest -
+        http://bit.ly/17pGO5i\\r\\n11/13 Chicago, IL @ Bottom Lounge - http://tktwb.tw/cGUWVL\",\"label_name\":\"Southern
+        Lord\",\"release\":\"LORD182\",\"key_signature\":\"\",\"isrc\":null,\"bpm\":null,\"release_year\":2013,\"release_month\":10,\"release_day\":14,\"license\":\"all-rights-reserved\",\"uri\":\"https://api.soundcloud.com/tracks/soundcloud:tracks:110937903\",\"user\":{\"avatar_url\":\"https://i1.sndcdn.com/avatars-000134520973-k3ipht-large.jpg\",\"id\":27945548,\"urn\":\"soundcloud:users:27945548\",\"kind\":\"user\",\"permalink_url\":\"https://soundcloud.com/pelican-song\",\"uri\":\"https://api.soundcloud.com/users/soundcloud:users:27945548\",\"username\":\"Pelican
+        Song\",\"permalink\":\"pelican-song\",\"created_at\":\"2012/11/09 19:58:08
+        +0000\",\"last_modified\":\"2024/08/08 11:32:06 +0000\",\"first_name\":\"\",\"last_name\":\"\",\"full_name\":\"\",\"city\":\"Chicago\",\"description\":\"After
+        four years of silence, instrumental metal standard bearers Pelican have come
+        thundering back, with Forever Becoming, an eight-song album destined to be
+        considered one of the most punishingly rewarding albums of the year. \\n\\nBefore
+        their hiatus, the group had laid a sizeable chunk of the groundwork for the
+        instrumental metal scene that\u2019s come into its own in the 13 years since
+        they started playing together. After 2009 the band found itself slightly adrift,
+        and found the day to day struggle of being full-time underground musicians
+        colliding with new families and non-musical careers. Wisely, they didn\u2019t
+        make any rash decisions, and as suits a band known for making dense, meditative
+        sounds they simply patiently figured out how to move past their obstacles.\\n\\nThis
+        reborn Pelican is purer, more focused, and far more assured. Recorded at Electrical
+        Audio in Chicago with engineer Chris Common, and featuring The Swan King guitarist
+        Dallas Thomas (replacing the amicably departed Laurent Schroeder-Lebec) Forever
+        Becoming is an immense, speaker-rattling meditation on the infinite cycle
+        of death and life. It takes a lot of experience and a lot of confidence to
+        attempt a head-on ascent of the biggest, most monolithic theme in art, but
+        Forever Becoming is proof that Pelican has plenty of both, and knows how to
+        wield them.\\n\",\"country\":\"United States\",\"track_count\":25,\"public_favorites_count\":0,\"reposts_count\":0,\"followers_count\":0,\"followings_count\":0,\"plan\":\"Pro
+        Unlimited\",\"myspace_name\":\"pelican\",\"discogs_name\":null,\"website_title\":\"\",\"website\":\"http://pelicansong.com\",\"comments_count\":0,\"online\":false,\"likes_count\":0,\"playlist_count\":3,\"subscriptions\":[{\"product\":{\"id\":\"creator-pro-unlimited\",\"name\":\"Pro
+        Unlimited\"}}]},\"permalink_url\":\"https://soundcloud.com/pelican-song/pelican-the-cliff\",\"artwork_url\":\"https://i1.sndcdn.com/artworks-000058009225-z8ykbg-large.jpg\",\"stream_url\":\"https://api.soundcloud.com/tracks/soundcloud:tracks:110937903/stream\",\"download_url\":null,\"waveform_url\":\"https://wave.sndcdn.com/A6OjJfuPRQlF_m.png\",\"available_country_codes\":null,\"secret_uri\":null,\"user_favorite\":false,\"user_playback_count\":1,\"playback_count\":48141,\"download_count\":0,\"favoritings_count\":507,\"reposts_count\":75,\"downloadable\":false,\"access\":\"playable\",\"policy\":null,\"monetization_model\":null,\"metadata_artist\":null}]}"
     headers:
-      access-control-allow-headers: ['Accept, Authorization, Content-Type, Origin']
-      access-control-allow-methods: ['GET, PUT, POST, DELETE']
-      access-control-allow-origin: ['*']
-      access-control-expose-headers: [Date]
-      cache-control: ['private, max-age=0, must-revalidate']
-      connection: [keep-alive]
-      content-encoding: [gzip]
-      content-length: ['1494']
-      content-type: [application/json;charset=utf-8]
-      date: ['Fri, 20 Apr 2018 00:13:25 GMT']
-      etag: ['"31ed6fd5775905cb46a198d5aa338c01"']
-      server: [am/2]
-      status: [200 OK]
-      via: [1.1 91c3e999c953fd1ba6874eebbc464012.cloudfront.net (CloudFront)]
-      x-amz-cf-id: [UyjgWF55-1dmp2yRBIWgwdCnbU_WxWVTL_vZ-MgQqi8ySo_kXWhSPw==]
-      x-cache: [Miss from cloudfront]
-      x-frame-options: [SAMEORIGIN]
-    status: {code: 200, message: OK}
+      Cache-Control:
+      - private, max-age=0
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 11 Jul 2025 15:40:00 GMT
+      Server:
+      - envoy
+      Vary:
+      - Origin,Origin
+      Via:
+      - 1.1 03f219a87ba990958a439a3a71b257e2.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - 9CHIAtBnt-FeEpHzVTmMAAwfahosW1bqRp9lIFVr9SBTFppRP_gQqg==
+      X-Amz-Cf-Pop:
+      - LHR5-P5
+      X-Cache:
+      - Miss from cloudfront
+      content-length:
+      - '6279'
+      referrer-policy:
+      - no-referrer
+      x-content-type-options:
+      - nosniff
+      x-envoy-upstream-service-time:
+      - '109'
+      x-frame-options:
+      - DENY
+      x-ratelimit-limit:
+      - '-1'
+      x-ratelimit-remaining:
+      - '0'
+      x-ratelimit-reset:
+      - '0'
+      x-robots-tag:
+      - noindex
+      x-tyk-trace-id:
+      - 6914e1a1d3960db0f1bc6d90d263fb62
+    status:
+      code: 200
+      message: OK
 version: 1

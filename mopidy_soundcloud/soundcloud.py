@@ -1,4 +1,4 @@
-import collections
+import collections.abc
 import datetime
 import logging
 import re
@@ -181,7 +181,7 @@ class SoundCloudClient:
                     tracks.append(self.parse_track(kind))
                 elif kind["kind"] == "playlist":
                     playlist = kind.get("tracks")
-                    if isinstance(playlist, collections.Iterable):
+                    if isinstance(playlist, collections.abc.Iterable):
                         tracks.extend(self.parse_results(playlist))
 
         return self.sanitize_tracks(tracks)

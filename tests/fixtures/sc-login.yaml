@@ -2,41 +2,64 @@ interactions:
 - request:
     body: null
     headers:
-      Accept: ['*/*']
-      Accept-Encoding: ['gzip, deflate']
-      Connection: [keep-alive]
-      user-agent: [!!python/unicode 'Mopidy-SoundCloud/2.0.2 Mopidy/2.1.0 CPython/2.7.11+']
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      user-agent:
+      - Mopidy-SoundCloud/3.0.2 Mopidy/4.0.0a5.dev17+g9f5d217a CPython/3.13.3
     method: GET
     uri: https://api.soundcloud.com/me
   response:
     body:
-      string: !!binary |
-        H4sIAAAAAAAAAHRSwXKbMBT8FY+uNQZjHDt8QI+95JjpaGRJuC8WEpZEMp5M/r0rDC6lU05o39t9
-        +1b6ZKRYvd/tn8rquVyzC1mcWR+0Z2vWad8KQ/YCyJK8ZCFqbbIKpdRhRatR+YHK6iVVVjtUjAiR
-        t05RQzpplcX2KS+qvNyuyqIudzV+vhX4koondPyKsQt1nouONsH1VknjerWRrs3TmJBP/uaWeO/N
-        yAV1QVuYFe8iCj9jpGm03QRwlB0Y95aQJWPV86GoDod9dr0eu7djZoQ/681bd4aUxKDob6y2vTFr
-        1pDHtrMgpgBGaIgFWINu/k9eKCgdpKcukrOTpqT40FcUpDuHkXrH2lvohNR/YR/6FCgujzxSNA8w
-        eiEvfFiA1QWiNOJmCF5HCNfvLKIFoREm6KEDrth3r3WKvj8ZkrwR785DPEy8PdZzxrgPXNVM646R
-        Pf9pBBr602PhwOrXn3gEnXFC8aClsypwoxv0botjAY/X3kXB6k/Ww1mLqYqP7WNldLrQwLNRw47/
-        1/7CQp5w60gpBRPmyYyFKaFFrRX+xnUryAC3eAJtmhZ9DyPGSZEiZwjM687NyV+/AQAA//8DAGsU
-        EO9uAwAA
+      string: '{"avatar_url":"https://i1.sndcdn.com/avatars-000049704775-qq8pj8-large.jpg","id":53562492,"urn":"soundcloud:users:53562492","kind":"user","permalink_url":"https://soundcloud.com/nick-steel-4","uri":"https://api.soundcloud.com/users/soundcloud:users:53562492","username":"Nick
+        Steel 3","permalink":"nick-steel-4","created_at":"2013/08/07 09:18:09 +0000","last_modified":"2018/05/27
+        13:30:55 +0000","first_name":"Nick","last_name":"Steel","full_name":"Nick
+        Steel","city":null,"description":null,"country":null,"track_count":0,"public_favorites_count":5,"reposts_count":0,"followers_count":1,"followings_count":51,"plan":"Free","myspace_name":null,"discogs_name":null,"website_title":null,"website":null,"comments_count":0,"online":false,"likes_count":0,"playlist_count":2,"subscriptions":[{"product":{"id":"free","name":"Free"}}],"quota":{"unlimited_upload_quota":false,"upload_seconds_used":0,"upload_seconds_left":10800},"private_tracks_count":0,"private_playlists_count":0,"primary_email_confirmed":true,"locale":"","upload_seconds_left":10800}'
     headers:
-      access-control-allow-headers: ['Accept, Authorization, Content-Type, Origin']
-      access-control-allow-methods: ['GET, PUT, POST, DELETE']
-      access-control-allow-origin: ['*']
-      access-control-expose-headers: [Date]
-      cache-control: ['private, max-age=0, must-revalidate']
-      connection: [keep-alive]
-      content-encoding: [gzip]
-      content-length: ['462']
-      content-type: [application/json;charset=utf-8]
-      date: ['Fri, 20 Apr 2018 00:13:26 GMT']
-      etag: ['"590341da44a4f60dcf7172bdb525f874"']
-      server: [am/2]
-      status: [200 OK]
-      via: [1.1 14ab6568bfe30e99a79da2a071b3e971.cloudfront.net (CloudFront)]
-      x-amz-cf-id: [oni7QrgwzILxoeDzfS2qLx0675uzDwe0evgW6BZnYVeo8EuyQDLm9A==]
-      x-cache: [Miss from cloudfront]
-      x-frame-options: [SAMEORIGIN]
-    status: {code: 200, message: OK}
+      Cache-Control:
+      - private, max-age=0
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 11 Jul 2025 15:40:02 GMT
+      Server:
+      - envoy
+      Vary:
+      - Origin,Origin
+      Via:
+      - 1.1 5e6fea8dea1dc3472a730c469ca55742.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - fbHtVeZCtGTreYdPHy4pCjip4tZ4QcnP0BgB_aDL_sZ9qiix-IuUgA==
+      X-Amz-Cf-Pop:
+      - LHR5-P5
+      X-Cache:
+      - Miss from cloudfront
+      content-length:
+      - '1045'
+      referrer-policy:
+      - no-referrer
+      x-content-type-options:
+      - nosniff
+      x-envoy-upstream-service-time:
+      - '40'
+      x-frame-options:
+      - DENY
+      x-ratelimit-limit:
+      - '-1'
+      x-ratelimit-remaining:
+      - '0'
+      x-ratelimit-reset:
+      - '0'
+      x-robots-tag:
+      - noindex
+      x-tyk-trace-id:
+      - a0259e3dc3abd7bb55b7cb2e192b773d
+    status:
+      code: 200
+      message: OK
 version: 1
