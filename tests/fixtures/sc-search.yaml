@@ -2,79 +2,152 @@ interactions:
 - request:
     body: null
     headers:
-      Accept: ['*/*']
-      Accept-Encoding: ['gzip, deflate']
-      Connection: [keep-alive]
-      user-agent: [!!python/unicode 'Mopidy-SoundCloud/2.0.2 Mopidy/2.1.0 CPython/2.7.11+']
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      user-agent:
+      - Mopidy-SoundCloud/3.0.2 Mopidy/4.0.0a5.dev17+g9f5d217a CPython/3.13.3
     method: GET
     uri: https://api.soundcloud.com/tracks?q=the+great+descent&limit=10
   response:
     body:
-      string: !!binary |
-        H4sIAAAAAAAAAOyabXPbNhKA/wpOX5rOmRII8FX9cJNeWsdO1Thx+nI532ggEhJp8a0AKVnX6X+/
-        BSnJpMzYEuVcPakziScGdxcgdrEPFuC/f++Ffm9IXdOglJr2SW8eJtDQywXz5r2Tnic4y7k/Zjk0
-        Eqw7A0wG2EK6M6Q66KG/Y/gDghGT+ThO/XAacn9H1h1ie6jjrWzGRcyiMJmrjgqRaEykReJrcXij
-        1x+PCxGBSJDnmRwOBlIJeVFa+H0vjQd5wGdqdD6XHk/yQYulPMwjDhY+wCP0snyEXozg2dfw0C8E
-        y8M06Q1113Qd56QnAybCZAYKWTGJQg+ElmzBp6mId4ay1PsSxuIn5Ug+sODcef2OX74io3Hcz8AE
-        GMthcLt6LAv7u6+hZloOti4YVIpgoRDhYapKR3IxLl1qm47rEt066TGRL1OxO5th4xXWMlIDDxHX
-        IZZDCNbMaQGmtYiJGe9fZ+q1QDiG2R57MBSICbxtYRM11bkoOEwtuESEWTW7PTXX6TKJUubX1DZN
-        ld6URRIUeTzhftk0nqxAlUURaE/ZIhVhDq6RNQMznghemQ+l8HrDpIgiFYgTHpVTUP89YTHftoQQ
-        L5JX5jURzoJcaoLDzC0gdE960NcsTFgEfSW5elcZ/hekTd2hJqZWTUBFRrkyIExU4EZsNQGX1AaZ
-        FcILmOTjdShWI9i2li6p2gSPOJPrF1r/MvbZauc5rLEkD3YbV5yJ27YslXl9pmQOaxgMT8MklEH5
-        jlWQ1X2Ws9k4CmVeDaAMrXG+yrZjVpHVG/7eYwuWM1ELJhWbjVgKYzbjcuDzKSuifLxWqIII1sY/
-        dJMY2HSJayjXNWN1nX7KztozwYOJYJ+Vo+zDwtn0u144VZD0PgQcnSqD6NXWYiNl3elv/+T3hwq/
-        Od96R4flmefMC9QSkuODl/ygpg0DmWTxxl9zvoLAnSUM8uI6qsrksF5Mt2uubN0N3crGIvR5Wg/S
-        7Tretv1x0kAItQ5FiLM/QnA7QpaCe3N+LD52rGzQ8UvV3IYNgh1HxWxXbMz/+faHKT71vru04yOx
-        Qa3O2KDW42JD17Wb1Ji61jM2KmyYhOrw4xkbz9h4NGzgo7AB2eKJYcM6FBsG3hcb1pBardiA8BYq
-        OWjTEFaxBtXBLNB8waZ5d4jca3ODlMu1EPpeCaEX75UUeqWkdgCjm65xRF0SjFL600d7ii9+mx8J
-        GKs7YKxHBgyhmpVNlvbqGTAVYGxdtzB9BswzYJ4KYKynBxj3MwJGd1oBM+F5zoWWQQ7T0qkWc016
-        LPJXms/jtDtjHjK7wcy3pRy6ADn0dopGHL24LAUhfOJ0hzSGYWK9O2lu4vfnFx/Txa+O/tOxpHG7
-        k8Z9ZNK4WuySeYGfSVOSxsbUcS3iPJPmmTRPhTTukyGN5RLLpvjhOxQy0PUBcRE2gE71e5GWSdyR
-        1dvvUAKulf7Q/Lvuuh8uy4Anms+WicayTKQwkRC3bfa2VyktoXHLEQtjx+6OkeUPqfMOW9/eWG9e
-        d8XIxg2HU2SjWYcIcSk1DNc4nCGYmjqljm1r1+wmWRRPnCEjHkHgeeg1E76XQtP+TOkh1OvMFN0l
-        pmPTNqTEGf3LIqUltkqRKrSIbeqGaWDtJlkaCW+EVjNqu9CkLSfsj5RN302i/AI20SuwiV7WbTaO
-        8du7vScpwk4dm0OdPu7dyjaBPBWwEGoTw7EfrmD0AXYHBCMM5YsxJOQ+sNRlzaFB9wOLKjhUoyyS
-        /RkDv3AxK2/fPcg/bYBp2v0ka1QdoxovS7Fb7FCdGPoR5YvrXp9fjG6cl+c/h125s/HS4dzZaDa4
-        Q+GFHLMDdnTdtk1DN7Uo8ax4/sSxc5b4IUfv0zKeK+D0eg/g5gjYYNPBttFawMQG+4JocwH6mppW
-        dJaAYFE6OULVdJc/tfWk16G0nZbeZ612tsHdhU53sskBaKr6bZKpzV49B7Y9fyCfktub6l0mkW5M
-        2iaXp8IknRKH6ASbD0LJKMtAinQ8NE2oBO+DkjnAIK4j3RgaVv3rsvuhFLMwUfiI+f5Qms/TQkjA
-        RRuNGgY/TaMXI5BDpdzOB2XUpIrXXXl0/i4jlx9m369OR2+68mjrocOBtFVtHqcZ1OgCJMu1bdfB
-        RLMklsH1sUB6u05RqBx7OWIEE4qu7jroqneCGCqjGs1gtaN1bCLwmuGgQEVAqZsrzSidgNVTJXfO
-        YgThSPvoSlwl5b/SOiybhOdI5mmWgRnYpfqFp27y0psVEK2PLtOYpwlHcSFzJHia8TI+UBqBNJMS
-        EiVaspVEOYwoRWp9qf+G+VcSqRFzgVjig2bGwmpYVZfwOAA+5H9DbyuDshBT5vGTynrZO4r4gkcS
-        McHRjOflDaPPkhmH3CWjFYrSZb/fRxcwqgimgiVf5WiiJgQs8KS8g1R9n6nOJhz8oAxAAPtqhHG6
-        4Er7X2lRvVxQCLECOZg+Xh8E6IH5nEOHfihhJw/Dlv2rHvrMG4lbL/8/NhKEuthpPwj9sqrW2ex6
-        d49w397g/rLVcgxbtxxLCyKXLCZ3ytZNiumyLbjN54ecfqr+mtuBNysRsnkq0ZuavTp+Gh21MMwe
-        YGegmwjjIaVDajxucXqb1Z/KToBahqnbpr7HsSdsBKBYx1C1P/TpeCVrqN0U1Ye4/X4tZnOugdcS
-        X2pHHIFCghQrzS+ShA8eMrnZC4xADr0s5dCLO9zZ2Qw4lu6S7puB9G2Ufnc2is5/i047362tndTh
-        am2tWd8K6Op036VOl+rUIbZjOq62KtxlYBy7GYCpl7wk3rWCkgT8wg8gBJqsUMz76rQAHkJuR0uI
-        fcjg1QP0gt94PMvRiKuyaMT8hEt5Uhd6v2IJ+jH0gjSSX5dklBm0MOBojtIpKsEj0TIAEaTiRiKp
-        UKI2F0xBHskw8aDYgm0C0Bh6LUBQ5YByOGqxSGUHaBp6/RY6kl06VhPQ6XCXJatDDnS7g5FihUb3
-        yy+wH/M4V8fEpBYxtcS0bXt5h4u3660LGWv5bX80brpswvFUmUKv1qbqubjZSXtGtwdUVxdZkNTJ
-        p7DY9TZwk9/+TCoeMs6NZm9bUJu2DkWjTfYpqO2yoLaGBn3g+/lPyt5fUEPGWoR8qYX7UzQVqZwH
-        LG0rp+vm7qmmLyoxdNbkp2lh6wh8JheRPLV+vJYL8aFzLb1xTodaeqPaACgmLjFhH7dD0CqqOnDw
-        LAfiqLItUfVcWY9FKmUrwPzMkwIKzgCmeskVjKQqNKGqC0KJZlEYZyW0oMhTakvgHd9Kb6o5H5XH
-        YFVFykBAFPADjKuGUZom30CluKjkBQ9gX9RQ4atSeAQJ7wSQK7wC0ohC6nmRwdoT31R8DRQYJ2C8
-        ytg+WoYwyHXBG0YqSNR3tcrUpVrHUHB/5qpSZiE8LGCLAH46gKBHfWbjOo6ByV/ge05+o6JRQggj
-        WC2JSgM+V3um1POKKH9MxLrEcSg1Tc1Z8czL7yL2dkV2Yew2+x1A2E2PTcS+BUtv1pbqSbreQ0ui
-        twYY/pLyYxv308fPtGPVuc1/T6XqLEdEXAMfgktqP3D+vCN7MC4fm5f7AnOHmDYkENqdmL9m5uq1
-        8fF1+srMjiKm8k9HYirVz03MUNbPL/NAqJNbxTRRAEOLDNJSVd2tKQUMyu+AtIIThwzulxCblmfT
-        aw8qa3f8dgJPQ3XoXAE34Tc5EqFsYO0quUq2zlku++qsd5Km82boXIv0S+SfTl2iw67vLwXACnno
-        SqUXVKYDpKL8qtdE4zMTnxQTywz3pzPxP/8DAAD//wMAf41fN8dDAAA=
+      string: "[{\"kind\":\"track\",\"id\":1345066615,\"urn\":\"soundcloud:tracks:1345066615\",\"created_at\":\"2022/09/16
+        13:14:17 +0000\",\"duration\":113789,\"commentable\":true,\"comment_count\":15,\"sharing\":\"public\",\"tag_list\":\"
+        \",\"streamable\":true,\"embeddable_by\":\"all\",\"purchase_url\":null,\"purchase_title\":null,\"genre\":\"\",\"title\":\"@rocstaryoshi
+        - the great descent p @henny808mafia + @mesler_\",\"description\":\"yeah,
+        wait\\nwe rockin all black attire its me n my\\nwe rockin all black attire
+        its me n my bitch\\nyeah, wait\\nhe talkin shit on the net get hit with that
+        uh\\nhe talkin shit on the net get hit with that stick\\ni got some niggas
+        gon ride some niggas gon blitz\\ni got a freak off the gram she swallow my
+        kids\\ni had to get to the bag now i look like a\\ni had to get to the bag
+        now i look like a lick\\n\\nyeah, wait\\ni call i the great descent\\nim in
+        my villan arc, these niggas done got me pissed\\ni just been sippin on wock
+        its all in my piss\\nhit up jun for the juice, hit up jun for the tris\\ndroppin
+        hit after hit after hit, how could i miss\\nthese niggas face, they say it
+        all, hate when i win\\nthese niggas follow the way im settin the trend\\nyeah,
+        i wanna feel bliss, so i pop me a 10\\n\\nrockin margiela, im rockin that
+        canada\\nwe just stackin n stackin n stackin n countin up\\nbitch with a attitude
+        she finna back it up\\nthey love to talk shit but dont wanna back it up\\n\\nyeah,
+        wait\\nwe rockin all black attire its me n my\\nwe rockin all black attire
+        its me n my bitch\\nyeah, wait\\nhe talkin shit on the net get hit with that
+        uh\\nhe talkin shit on the net get hit with that stick\\ni got some niggas
+        gon ride some niggas gon blitz\\ni got a freak off the gram she swallow my
+        kids\\ni had to get to the bag now i look like a\\ni had to get to the bag
+        now i look like a lick\",\"label_name\":null,\"release\":null,\"key_signature\":null,\"isrc\":null,\"bpm\":null,\"release_year\":null,\"release_month\":null,\"release_day\":null,\"license\":\"all-rights-reserved\",\"uri\":\"https://api.soundcloud.com/tracks/soundcloud:tracks:1345066615\",\"user\":{\"avatar_url\":\"https://i1.sndcdn.com/avatars-PmSnLEWJJY8X62JS-zXEDEg-large.jpg\",\"id\":147458205,\"urn\":\"soundcloud:users:147458205\",\"kind\":\"user\",\"permalink_url\":\"https://soundcloud.com/rocstaryoshi\",\"uri\":\"https://api.soundcloud.com/users/soundcloud:users:147458205\",\"username\":\"rocstaryoshi\",\"permalink\":\"rocstaryoshi\",\"created_at\":\"2015/04/10
+        03:20:02 +0000\",\"last_modified\":\"2025/01/31 08:23:33 +0000\",\"first_name\":\"yoshiyah\",\"last_name\":\"\",\"full_name\":\"yoshiyah\",\"city\":\"tx\",\"description\":\"\u2605\xAB\xAB\u0F12\xBB\xBB\u2606\\n\U0001D59A\U0001D593\U0001D586\U0001D59B\U0001D586\U0001D58E\U0001D591\U0001D586\U0001D587\U0001D591\U0001D58A\",\"country\":null,\"track_count\":96,\"public_favorites_count\":0,\"reposts_count\":0,\"followers_count\":0,\"followings_count\":0,\"plan\":\"Pro
+        Unlimited\",\"myspace_name\":null,\"discogs_name\":null,\"website_title\":\"Lyrics\",\"website\":\"https://genius.com/artists/Rocstaryoshi\",\"comments_count\":0,\"online\":false,\"likes_count\":0,\"playlist_count\":6,\"subscriptions\":[{\"product\":{\"id\":\"creator-pro-unlimited\",\"name\":\"Pro
+        Unlimited\"}}]},\"permalink_url\":\"https://soundcloud.com/rocstaryoshi/rocstaryoshi-the-great-descent-p-henny808mafia-mesler\",\"artwork_url\":\"https://i1.sndcdn.com/artworks-R5ze4ioGGvxiV7IS-JG8XPQ-large.jpg\",\"stream_url\":\"https://api.soundcloud.com/tracks/soundcloud:tracks:1345066615/stream\",\"download_url\":null,\"waveform_url\":\"https://wave.sndcdn.com/x8bhZDKE81eR_m.png\",\"available_country_codes\":null,\"secret_uri\":null,\"user_favorite\":false,\"user_playback_count\":1,\"playback_count\":13444,\"download_count\":0,\"favoritings_count\":281,\"reposts_count\":14,\"downloadable\":false,\"access\":\"playable\",\"policy\":null,\"monetization_model\":null,\"metadata_artist\":\"Rocstaryoshi\"},{\"kind\":\"track\",\"id\":1523447620,\"urn\":\"soundcloud:tracks:1523447620\",\"created_at\":\"2023/05/26
+        19:12:00 +0000\",\"duration\":184581,\"commentable\":true,\"comment_count\":0,\"sharing\":\"public\",\"tag_list\":\"
+        \",\"streamable\":true,\"embeddable_by\":\"all\",\"purchase_url\":null,\"purchase_title\":null,\"genre\":\"Electronic/Dance\",\"title\":\"Descent\",\"description\":null,\"label_name\":\"ADBC
+        Records\",\"release\":null,\"key_signature\":null,\"isrc\":\"US25X1085719\",\"bpm\":null,\"release_year\":2014,\"release_month\":2,\"release_day\":25,\"license\":\"all-rights-reserved\",\"uri\":\"https://api.soundcloud.com/tracks/soundcloud:tracks:1523447620\",\"user\":{\"avatar_url\":\"https://i1.sndcdn.com/avatars-AKFUgEWj2YO4ejiq-VzfCeg-large.jpg\",\"id\":7382349,\"urn\":\"soundcloud:users:7382349\",\"kind\":\"user\",\"permalink_url\":\"https://soundcloud.com/grrrreatdane\",\"uri\":\"https://api.soundcloud.com/users/soundcloud:users:7382349\",\"username\":\"Great
+        Dane\",\"permalink\":\"grrrreatdane\",\"created_at\":\"2011/09/14 05:44:44
+        +0000\",\"last_modified\":\"2025/05/16 21:38:24 +0000\",\"first_name\":\"Dane\",\"last_name\":\"Morris\",\"full_name\":\"Dane
+        Morris\",\"city\":\"Brooklyn\",\"description\":\"www.greatdanesounds.com\\n\\n@adbcrecords\\n@beatteamsupreme\\n\\ncontact@greatdanesounds.com\\nbooking:
+        taryn@triplea.agency\",\"country\":\"United States\",\"track_count\":233,\"public_favorites_count\":0,\"reposts_count\":0,\"followers_count\":0,\"followings_count\":0,\"plan\":\"Pro
+        Unlimited\",\"myspace_name\":null,\"discogs_name\":null,\"website_title\":null,\"website\":null,\"comments_count\":0,\"online\":false,\"likes_count\":0,\"playlist_count\":22,\"subscriptions\":[{\"product\":{\"id\":\"creator-pro-unlimited\",\"name\":\"Pro
+        Unlimited\"}}]},\"permalink_url\":\"https://soundcloud.com/grrrreatdane/descent\",\"artwork_url\":\"https://i1.sndcdn.com/artworks-H6d761hkJsbP-0-large.jpg\",\"stream_url\":\"https://api.soundcloud.com/tracks/soundcloud:tracks:1523447620/stream\",\"download_url\":null,\"waveform_url\":\"https://wave.sndcdn.com/aGHhUw8HqKHL_m.png\",\"available_country_codes\":null,\"secret_uri\":null,\"user_favorite\":false,\"user_playback_count\":1,\"playback_count\":154,\"download_count\":0,\"favoritings_count\":12,\"reposts_count\":0,\"downloadable\":false,\"access\":\"playable\",\"policy\":null,\"monetization_model\":null,\"metadata_artist\":\"Great
+        Dane\"},{\"kind\":\"track\",\"id\":1926372629,\"urn\":\"soundcloud:tracks:1926372629\",\"created_at\":\"2024/09/30
+        16:45:05 +0000\",\"duration\":171807,\"commentable\":true,\"comment_count\":0,\"sharing\":\"public\",\"tag_list\":\"
+        \",\"streamable\":true,\"embeddable_by\":\"all\",\"purchase_url\":null,\"purchase_title\":null,\"genre\":\"Soul-Pop\",\"title\":\"Great
+        Descent\",\"description\":null,\"label_name\":\"HO MOGO MA RECORDS\",\"release\":null,\"key_signature\":null,\"isrc\":\"ATFT62400007\",\"bpm\":null,\"release_year\":2024,\"release_month\":10,\"release_day\":25,\"license\":\"all-rights-reserved\",\"uri\":\"https://api.soundcloud.com/tracks/soundcloud:tracks:1926372629\",\"user\":{\"avatar_url\":\"https://a1.sndcdn.com/images/default_avatar_large.png\",\"id\":843682423,\"urn\":\"soundcloud:users:843682423\",\"kind\":\"user\",\"permalink_url\":\"https://soundcloud.com/candlelightficus\",\"uri\":\"https://api.soundcloud.com/users/soundcloud:users:843682423\",\"username\":\"Candlelight
+        Ficus\",\"permalink\":\"candlelightficus\",\"created_at\":\"2020/06/25 10:21:34
+        +0000\",\"last_modified\":\"2020/06/25 10:21:35 +0000\",\"first_name\":null,\"last_name\":null,\"full_name\":\"\",\"city\":null,\"description\":null,\"country\":null,\"track_count\":48,\"public_favorites_count\":0,\"reposts_count\":0,\"followers_count\":0,\"followings_count\":0,\"plan\":\"Free\",\"myspace_name\":null,\"discogs_name\":null,\"website_title\":null,\"website\":null,\"comments_count\":0,\"online\":false,\"likes_count\":0,\"playlist_count\":11,\"subscriptions\":[{\"product\":{\"id\":\"free\",\"name\":\"Free\"}}]},\"permalink_url\":\"https://soundcloud.com/candlelightficus/great-descent\",\"artwork_url\":\"https://i1.sndcdn.com/artworks-tzoPtUwocGBa-0-large.jpg\",\"stream_url\":\"https://api.soundcloud.com/tracks/soundcloud:tracks:1926372629/stream\",\"download_url\":null,\"waveform_url\":\"https://wave.sndcdn.com/yiuSMAMKZn33_m.png\",\"available_country_codes\":null,\"secret_uri\":null,\"user_favorite\":false,\"user_playback_count\":1,\"playback_count\":87,\"download_count\":0,\"favoritings_count\":3,\"reposts_count\":0,\"downloadable\":false,\"access\":\"playable\",\"policy\":null,\"monetization_model\":null,\"metadata_artist\":\"Candlelight
+        Ficus\"},{\"kind\":\"track\",\"id\":153032796,\"urn\":\"soundcloud:tracks:153032796\",\"created_at\":\"2014/06/05
+        23:58:32 +0000\",\"duration\":41825,\"commentable\":true,\"comment_count\":0,\"sharing\":\"public\",\"tag_list\":\"
+        \",\"streamable\":true,\"embeddable_by\":\"all\",\"purchase_url\":null,\"purchase_title\":null,\"genre\":\"Roll
+        20\",\"title\":\"Descent Of The Great Goddess soundbyte\",\"description\":\"From
+        Okami Soundtrack\",\"label_name\":null,\"release\":null,\"key_signature\":null,\"isrc\":null,\"bpm\":null,\"release_year\":null,\"release_month\":null,\"release_day\":null,\"license\":\"all-rights-reserved\",\"uri\":\"https://api.soundcloud.com/tracks/soundcloud:tracks:153032796\",\"user\":{\"avatar_url\":\"https://a1.sndcdn.com/images/default_avatar_large.png\",\"id\":57466581,\"urn\":\"soundcloud:users:57466581\",\"kind\":\"user\",\"permalink_url\":\"https://soundcloud.com/issun-1\",\"uri\":\"https://api.soundcloud.com/users/soundcloud:users:57466581\",\"username\":\"Issun\",\"permalink\":\"issun-1\",\"created_at\":\"2013/09/09
+        19:58:57 +0000\",\"last_modified\":\"2019/03/28 15:11:20 +0000\",\"first_name\":null,\"last_name\":null,\"full_name\":\"\",\"city\":null,\"description\":null,\"country\":null,\"track_count\":11,\"public_favorites_count\":0,\"reposts_count\":0,\"followers_count\":0,\"followings_count\":0,\"plan\":\"Free\",\"myspace_name\":null,\"discogs_name\":null,\"website_title\":null,\"website\":null,\"comments_count\":0,\"online\":false,\"likes_count\":0,\"playlist_count\":0,\"subscriptions\":[{\"product\":{\"id\":\"free\",\"name\":\"Free\"}}]},\"permalink_url\":\"https://soundcloud.com/issun-1/descent-of-the-great-goddess-soundbyte\",\"artwork_url\":null,\"stream_url\":\"https://api.soundcloud.com/tracks/soundcloud:tracks:153032796/stream\",\"download_url\":null,\"waveform_url\":\"https://wave.sndcdn.com/188Cnp7sdJBA_m.png\",\"available_country_codes\":null,\"secret_uri\":null,\"user_favorite\":false,\"user_playback_count\":1,\"playback_count\":4700,\"download_count\":0,\"favoritings_count\":53,\"reposts_count\":2,\"downloadable\":false,\"access\":\"playable\",\"policy\":null,\"monetization_model\":null,\"metadata_artist\":null},{\"kind\":\"track\",\"id\":473431689,\"urn\":\"soundcloud:tracks:473431689\",\"created_at\":\"2018/07/18
+        17:07:51 +0000\",\"duration\":156749,\"commentable\":true,\"comment_count\":5,\"sharing\":\"public\",\"tag_list\":\"
+        greymage vitusajna\",\"streamable\":true,\"embeddable_by\":\"all\",\"purchase_url\":null,\"purchase_title\":null,\"genre\":\"Dubstep\",\"title\":\"greymage
+        & Vitus Ajna - The Great Descent [PREMIERE]\",\"description\":\"Read about
+        the new greymage x Vitus Ajna collab:\\n\\nhttps://www.theuntz.com/news/greymage-and-vitus-ajna-team-up-on-the-great-descent/\\n\\nThe
+        Untz:\\nfacebook.com/theuntz\\ntwitter.com/theuntz\\ninstagram.com/theuntz\\n\\ngreymage:\\nhttps://www.facebook.com/raregreymage/\\nhttps://soundcloud.com/raregreymage\",\"label_name\":null,\"release\":null,\"key_signature\":null,\"isrc\":null,\"bpm\":null,\"release_year\":null,\"release_month\":null,\"release_day\":null,\"license\":\"all-rights-reserved\",\"uri\":\"https://api.soundcloud.com/tracks/soundcloud:tracks:473431689\",\"user\":{\"avatar_url\":\"https://i1.sndcdn.com/avatars-000008643801-zblyis-large.jpg\",\"id\":842531,\"urn\":\"soundcloud:users:842531\",\"kind\":\"user\",\"permalink_url\":\"https://soundcloud.com/theuntz\",\"uri\":\"https://api.soundcloud.com/users/soundcloud:users:842531\",\"username\":\"TheUntz.com\",\"permalink\":\"theuntz\",\"created_at\":\"2010/04/09
+        12:28:50 +0000\",\"last_modified\":\"2022/12/02 17:46:00 +0000\",\"first_name\":\"\",\"last_name\":\"\",\"full_name\":\"\",\"city\":\"Vallejo\",\"description\":\"As
+        fans of electronic music, we were frustrated having to search so many websites
+        to find the information we were looking for.  Specifically, we wanted to track
+        our favorite artists, search upcoming local area events, and listen to music
+        samples from a variety of electronic music genres.  We wanted to visit one
+        website for all of our electronic music informational needs.  The Untz was
+        created to fill this void.\\r\\n\\r\\nThe Untz connects the entire electronic
+        music community of fans, artists and promoters.  The website is designed to
+        allow artists and promoters to add information and music.  We organize all
+        of this information so fans can easily search for, track, and share it.\",\"country\":\"United
+        States\",\"track_count\":1629,\"public_favorites_count\":0,\"reposts_count\":0,\"followers_count\":0,\"followings_count\":0,\"plan\":\"Pro
+        Unlimited\",\"myspace_name\":null,\"discogs_name\":null,\"website_title\":\"The
+        Untz\",\"website\":\"http://www.theuntz.com\",\"comments_count\":0,\"online\":false,\"likes_count\":0,\"playlist_count\":107,\"subscriptions\":[{\"product\":{\"id\":\"creator-pro-unlimited\",\"name\":\"Pro
+        Unlimited\"}}]},\"permalink_url\":\"https://soundcloud.com/theuntz/greymage-vitus-ajna-the-great-descent-premiere\",\"artwork_url\":\"https://i1.sndcdn.com/artworks-000375755853-1bhl9l-large.jpg\",\"stream_url\":\"https://api.soundcloud.com/tracks/soundcloud:tracks:473431689/stream\",\"download_url\":null,\"waveform_url\":\"https://wave.sndcdn.com/VMJxD3IP249X_m.png\",\"available_country_codes\":null,\"secret_uri\":null,\"user_favorite\":false,\"user_playback_count\":1,\"playback_count\":2008,\"download_count\":0,\"favoritings_count\":99,\"reposts_count\":14,\"downloadable\":false,\"access\":\"playable\",\"policy\":null,\"monetization_model\":null,\"metadata_artist\":null},{\"kind\":\"track\",\"id\":911316427,\"urn\":\"soundcloud:tracks:911316427\",\"created_at\":\"2020/10/15
+        21:50:15 +0000\",\"duration\":82286,\"commentable\":true,\"comment_count\":0,\"sharing\":\"public\",\"tag_list\":\"
+        \\\"dungeon synth\\\" ambient medieval \\\"fantasy synth\\\" \\\"fantasy ambient\\\"\",\"streamable\":true,\"embeddable_by\":\"all\",\"purchase_url\":\"https://fogcastle.bandcamp.com/album/sanctuary-of-the-fogwood\",\"purchase_title\":null,\"genre\":\"Ambient\",\"title\":\"Sanctuary
+        of the Fogwood Preview - Descent Into the Great Green Forest\",\"description\":\"Previews
+        of download-only tracks from Fog Castle's \\\"Sanctuary of the Fogwood\\\":
+        https://fogcastle.bandcamp.com/album/sanctuary-of-the-fogwood\",\"label_name\":\"Fog
+        Crag Records\",\"release\":null,\"key_signature\":null,\"isrc\":null,\"bpm\":null,\"release_year\":null,\"release_month\":null,\"release_day\":null,\"license\":\"all-rights-reserved\",\"uri\":\"https://api.soundcloud.com/tracks/soundcloud:tracks:911316427\",\"user\":{\"avatar_url\":\"https://i1.sndcdn.com/avatars-000600468696-qzth7c-large.jpg\",\"id\":608348523,\"urn\":\"soundcloud:users:608348523\",\"kind\":\"user\",\"permalink_url\":\"https://soundcloud.com/user-245010469\",\"uri\":\"https://api.soundcloud.com/users/soundcloud:users:608348523\",\"username\":\"Fog
+        Crag Records\",\"permalink\":\"user-245010469\",\"created_at\":\"2019/03/21
+        17:33:19 +0000\",\"last_modified\":\"2019/03/21 22:24:46 +0000\",\"first_name\":null,\"last_name\":null,\"full_name\":\"\",\"city\":null,\"description\":null,\"country\":null,\"track_count\":39,\"public_favorites_count\":0,\"reposts_count\":0,\"followers_count\":0,\"followings_count\":0,\"plan\":\"Free\",\"myspace_name\":null,\"discogs_name\":null,\"website_title\":null,\"website\":null,\"comments_count\":0,\"online\":false,\"likes_count\":0,\"playlist_count\":9,\"subscriptions\":[{\"product\":{\"id\":\"free\",\"name\":\"Free\"}}]},\"permalink_url\":\"https://soundcloud.com/user-245010469/sanctuary-of-the-fogwood\",\"artwork_url\":\"https://i1.sndcdn.com/artworks-cSnKYEvAYZWw7cKE-IhsjUg-large.jpg\",\"stream_url\":\"https://api.soundcloud.com/tracks/soundcloud:tracks:911316427/stream\",\"download_url\":null,\"waveform_url\":\"https://wave.sndcdn.com/BZzWIMTS7AgG_m.png\",\"available_country_codes\":null,\"secret_uri\":null,\"user_favorite\":false,\"user_playback_count\":1,\"playback_count\":86,\"download_count\":0,\"favoritings_count\":0,\"reposts_count\":0,\"downloadable\":false,\"access\":\"playable\",\"policy\":null,\"monetization_model\":null,\"metadata_artist\":null},{\"kind\":\"track\",\"id\":158922041,\"urn\":\"soundcloud:tracks:158922041\",\"created_at\":\"2014/07/16
+        07:01:06 +0000\",\"duration\":128717,\"commentable\":true,\"comment_count\":0,\"sharing\":\"public\",\"tag_list\":\"
+        expression soundscape \\\"spoken word\\\" \\\"the great descent\\\" \\\"the
+        great work\\\" oroskhaos\",\"streamable\":true,\"embeddable_by\":\"all\",\"purchase_url\":null,\"purchase_title\":null,\"genre\":\"spiritual
+        art\",\"title\":\"Oroskhaos - Fivefold Impetus Toward Unity (Part I)\",\"description\":\"Fivefold
+        Impetus Toward Unity (Part I) is an offering of both The Great Descent and
+        a separate greater whole. \\r\\nFivefold Impetus Toward Unity is a piece of
+        five parts, each of which shall be released on consecutive expressions, until
+        upon the fifth, it reaches its whole. It is an exploration of the four principle
+        elements and central spirit that make up the divine five pointed star.\\r\\n\\r\\nhttp://oroskhaos.bandcamp.com/album/the-great-descent\\r\\n\\r\\nwww.facebook.com/oroskhaosjro\",\"label_name\":\"\",\"release\":\"\",\"key_signature\":\"\",\"isrc\":null,\"bpm\":null,\"release_year\":null,\"release_month\":null,\"release_day\":null,\"license\":\"all-rights-reserved\",\"uri\":\"https://api.soundcloud.com/tracks/soundcloud:tracks:158922041\",\"user\":{\"avatar_url\":\"https://i1.sndcdn.com/avatars-If1F0ZzmznkyD7tw-My8i9w-large.jpg\",\"id\":102925212,\"urn\":\"soundcloud:users:102925212\",\"kind\":\"user\",\"permalink_url\":\"https://soundcloud.com/oroskhaos\",\"uri\":\"https://api.soundcloud.com/users/soundcloud:users:102925212\",\"username\":\"Kheir.Mousai\",\"permalink\":\"oroskhaos\",\"created_at\":\"2014/07/03
+        08:38:58 +0000\",\"last_modified\":\"2022/07/09 01:42:31 +0000\",\"first_name\":\"\",\"last_name\":\"\",\"full_name\":\"\",\"city\":\"\",\"description\":\"Nemo.
+        Nihil. Nusquam.\",\"country\":\"Britain (UK)\",\"track_count\":13,\"public_favorites_count\":0,\"reposts_count\":0,\"followers_count\":0,\"followings_count\":0,\"plan\":\"Free\",\"myspace_name\":null,\"discogs_name\":null,\"website_title\":null,\"website\":null,\"comments_count\":0,\"online\":false,\"likes_count\":0,\"playlist_count\":0,\"subscriptions\":[{\"product\":{\"id\":\"free\",\"name\":\"Free\"}}]},\"permalink_url\":\"https://soundcloud.com/oroskhaos/fivefold-impetus-toward-unity-part-i\",\"artwork_url\":\"https://i1.sndcdn.com/artworks-UJzSzqcxNoo1fF7I-VzeDCQ-large.jpg\",\"stream_url\":\"https://api.soundcloud.com/tracks/soundcloud:tracks:158922041/stream\",\"download_url\":null,\"waveform_url\":\"https://wave.sndcdn.com/ZWgqWwmXBdSO_m.png\",\"available_country_codes\":null,\"secret_uri\":null,\"user_favorite\":false,\"user_playback_count\":1,\"playback_count\":266,\"download_count\":0,\"favoritings_count\":13,\"reposts_count\":1,\"downloadable\":false,\"access\":\"playable\",\"policy\":null,\"monetization_model\":null,\"metadata_artist\":null},{\"kind\":\"track\",\"id\":395433366,\"urn\":\"soundcloud:tracks:395433366\",\"created_at\":\"2018/02/06
+        18:31:40 +0000\",\"duration\":215948,\"commentable\":true,\"comment_count\":0,\"sharing\":\"public\",\"tag_list\":\"
+        \",\"streamable\":true,\"embeddable_by\":\"all\",\"purchase_url\":null,\"purchase_title\":null,\"genre\":\"\",\"title\":\"Starting
+        Fires (Rough Draft)\",\"description\":\"\",\"label_name\":null,\"release\":null,\"key_signature\":null,\"isrc\":null,\"bpm\":null,\"release_year\":null,\"release_month\":null,\"release_day\":null,\"license\":\"all-rights-reserved\",\"uri\":\"https://api.soundcloud.com/tracks/soundcloud:tracks:395433366\",\"user\":{\"avatar_url\":\"https://a1.sndcdn.com/images/default_avatar_large.png\",\"id\":375899216,\"urn\":\"soundcloud:users:375899216\",\"kind\":\"user\",\"permalink_url\":\"https://soundcloud.com/thegreatdescent\",\"uri\":\"https://api.soundcloud.com/users/soundcloud:users:375899216\",\"username\":\"The
+        Great Descent\",\"permalink\":\"thegreatdescent\",\"created_at\":\"2018/01/02
+        15:03:47 +0000\",\"last_modified\":\"2018/05/22 15:15:11 +0000\",\"first_name\":\"\",\"last_name\":\"\",\"full_name\":\"\",\"city\":null,\"description\":null,\"country\":null,\"track_count\":4,\"public_favorites_count\":0,\"reposts_count\":0,\"followers_count\":0,\"followings_count\":0,\"plan\":\"Free\",\"myspace_name\":null,\"discogs_name\":null,\"website_title\":null,\"website\":null,\"comments_count\":0,\"online\":false,\"likes_count\":0,\"playlist_count\":0,\"subscriptions\":[{\"product\":{\"id\":\"free\",\"name\":\"Free\"}}]},\"permalink_url\":\"https://soundcloud.com/thegreatdescent/starting-fires-rough-draft\",\"artwork_url\":\"https://i1.sndcdn.com/artworks-000298268223-6pbw7y-large.jpg\",\"stream_url\":\"https://api.soundcloud.com/tracks/soundcloud:tracks:395433366/stream\",\"download_url\":null,\"waveform_url\":\"https://wave.sndcdn.com/hMo3UZ7f0Pqk_m.png\",\"available_country_codes\":null,\"secret_uri\":null,\"user_favorite\":false,\"user_playback_count\":1,\"playback_count\":7,\"download_count\":0,\"favoritings_count\":0,\"reposts_count\":0,\"downloadable\":false,\"access\":\"playable\",\"policy\":null,\"monetization_model\":null,\"metadata_artist\":null},{\"kind\":\"track\",\"id\":395433336,\"urn\":\"soundcloud:tracks:395433336\",\"created_at\":\"2018/02/06
+        18:31:38 +0000\",\"duration\":208816,\"commentable\":true,\"comment_count\":0,\"sharing\":\"public\",\"tag_list\":\"
+        \",\"streamable\":true,\"embeddable_by\":\"all\",\"purchase_url\":null,\"purchase_title\":null,\"genre\":\"\",\"title\":\"Wrecked
+        (Mix1)\",\"description\":\"\",\"label_name\":null,\"release\":null,\"key_signature\":null,\"isrc\":null,\"bpm\":null,\"release_year\":null,\"release_month\":null,\"release_day\":null,\"license\":\"all-rights-reserved\",\"uri\":\"https://api.soundcloud.com/tracks/soundcloud:tracks:395433336\",\"user\":{\"avatar_url\":\"https://a1.sndcdn.com/images/default_avatar_large.png\",\"id\":375899216,\"urn\":\"soundcloud:users:375899216\",\"kind\":\"user\",\"permalink_url\":\"https://soundcloud.com/thegreatdescent\",\"uri\":\"https://api.soundcloud.com/users/soundcloud:users:375899216\",\"username\":\"The
+        Great Descent\",\"permalink\":\"thegreatdescent\",\"created_at\":\"2018/01/02
+        15:03:47 +0000\",\"last_modified\":\"2018/05/22 15:15:11 +0000\",\"first_name\":\"\",\"last_name\":\"\",\"full_name\":\"\",\"city\":null,\"description\":null,\"country\":null,\"track_count\":4,\"public_favorites_count\":0,\"reposts_count\":0,\"followers_count\":0,\"followings_count\":0,\"plan\":\"Free\",\"myspace_name\":null,\"discogs_name\":null,\"website_title\":null,\"website\":null,\"comments_count\":0,\"online\":false,\"likes_count\":0,\"playlist_count\":0,\"subscriptions\":[{\"product\":{\"id\":\"free\",\"name\":\"Free\"}}]},\"permalink_url\":\"https://soundcloud.com/thegreatdescent/wrecked-mix1\",\"artwork_url\":\"https://i1.sndcdn.com/artworks-000298268211-xo4f96-large.jpg\",\"stream_url\":\"https://api.soundcloud.com/tracks/soundcloud:tracks:395433336/stream\",\"download_url\":null,\"waveform_url\":\"https://wave.sndcdn.com/kCOLf0GcES7m_m.png\",\"available_country_codes\":null,\"secret_uri\":null,\"user_favorite\":false,\"user_playback_count\":1,\"playback_count\":10,\"download_count\":0,\"favoritings_count\":0,\"reposts_count\":0,\"downloadable\":false,\"access\":\"playable\",\"policy\":null,\"monetization_model\":null,\"metadata_artist\":null},{\"kind\":\"track\",\"id\":166819249,\"urn\":\"soundcloud:tracks:166819249\",\"created_at\":\"2014/09/08
+        19:38:55 +0000\",\"duration\":242281,\"commentable\":true,\"comment_count\":0,\"sharing\":\"public\",\"tag_list\":\"
+        \",\"streamable\":true,\"embeddable_by\":\"all\",\"purchase_url\":null,\"purchase_title\":null,\"genre\":\"davey
+        descent\",\"title\":\"The Great Descent guitar\",\"description\":\"\",\"label_name\":null,\"release\":null,\"key_signature\":null,\"isrc\":null,\"bpm\":null,\"release_year\":null,\"release_month\":null,\"release_day\":null,\"license\":\"all-rights-reserved\",\"uri\":\"https://api.soundcloud.com/tracks/soundcloud:tracks:166819249\",\"user\":{\"avatar_url\":\"https://a1.sndcdn.com/images/default_avatar_large.png\",\"id\":4054155,\"urn\":\"soundcloud:users:4054155\",\"kind\":\"user\",\"permalink_url\":\"https://soundcloud.com/36_davey\",\"uri\":\"https://api.soundcloud.com/users/soundcloud:users:4054155\",\"username\":\"36_Davey\",\"permalink\":\"36_davey\",\"created_at\":\"2011/04/06
+        23:00:48 +0000\",\"last_modified\":\"2016/04/04 19:54:37 +0000\",\"first_name\":\"Chris\",\"last_name\":\"Scriven\",\"full_name\":\"Chris
+        Scriven\",\"city\":\"Albox?\",\"description\":null,\"country\":\"Spain\",\"track_count\":12,\"public_favorites_count\":0,\"reposts_count\":0,\"followers_count\":0,\"followings_count\":0,\"plan\":\"Free\",\"myspace_name\":null,\"discogs_name\":null,\"website_title\":null,\"website\":null,\"comments_count\":0,\"online\":false,\"likes_count\":0,\"playlist_count\":1,\"subscriptions\":[{\"product\":{\"id\":\"free\",\"name\":\"Free\"}}]},\"permalink_url\":\"https://soundcloud.com/36_davey/the-great-descent-guitar\",\"artwork_url\":null,\"stream_url\":\"https://api.soundcloud.com/tracks/soundcloud:tracks:166819249/stream\",\"download_url\":null,\"waveform_url\":\"https://wave.sndcdn.com/dll4DFFqEajG_m.png\",\"available_country_codes\":null,\"secret_uri\":null,\"user_favorite\":false,\"user_playback_count\":1,\"playback_count\":137,\"download_count\":0,\"favoritings_count\":2,\"reposts_count\":0,\"downloadable\":false,\"access\":\"playable\",\"policy\":null,\"monetization_model\":null,\"metadata_artist\":null}]"
     headers:
-      access-control-allow-headers: ['Accept, Authorization, Content-Type, Origin']
-      access-control-allow-methods: ['GET, PUT, POST, DELETE']
-      access-control-allow-origin: ['*']
-      access-control-expose-headers: [Date]
-      cache-control: ['public, max-age=60, must-revalidate']
-      connection: [keep-alive]
-      content-encoding: [gzip]
-      content-length: ['2834']
-      content-type: [application/json;charset=utf-8]
-      date: ['Fri, 20 Apr 2018 00:13:27 GMT']
-      server: [am/2]
-      via: [1.1 939414900b0e5d33a5f9bf346ea3a331.cloudfront.net (CloudFront)]
-      x-amz-cf-id: [FNSEvMG1qATRx983FRIWRIKvY_8JU9HOf5_XtAc9z3xuUAc0tqwk8Q==]
-      x-cache: [Miss from cloudfront]
-    status: {code: 200, message: OK}
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Via:
+      - 1.1 26856bbf37907bfd2cbcd1e9ea93d96e.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - apW401Sr32Oqk6_999aFc3geNN0kzQJhV8YDDsc-QFcWT7t1_JRz_w==
+      X-Amz-Cf-Pop:
+      - LHR5-P5
+      X-Cache:
+      - Miss from cloudfront
+      cache-control:
+      - public, max-age=60, must-revalidate
+      content-length:
+      - '23911'
+      date:
+      - Fri, 11 Jul 2025 15:40:02 GMT
+      referrer-policy:
+      - no-referrer
+      server:
+      - am/2
+      strict-transport-security:
+      - max-age=63072000; includeSubdomains; preload
+      vary:
+      - Origin
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - DENY
+      x-robots-tag:
+      - noindex
+    status:
+      code: 200
+      message: OK
 version: 1

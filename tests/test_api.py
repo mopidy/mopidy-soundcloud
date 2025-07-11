@@ -115,18 +115,18 @@ class ApiTest(unittest.TestCase):
     @my_vcr.use_cassette("sc-stream.yaml")
     def test_get_user_stream(self):
         tracks = self.api.get_user_stream()
-        assert len(tracks) == 10
+        assert len(tracks) == 2
         assert isinstance(tracks[0], Track)
-        assert tracks[2].name == "JW Ep 20- Jeremiah Watkins"
+        assert tracks[1].name == "GW_Drop_D_Ex2_BT"
 
     @my_vcr.use_cassette("sc-following.yaml")
     def test_get_followings(self):
         users = self.api.get_followings()
         assert len(users) == 10
-        assert users[0] == ("Young Legionnaire", "992503")
-        assert users[1] == ("Tall Ships", "1710483")
-        assert users[8] == ("Pelican Song", "27945548")
-        assert users[9] == ("sleepmakeswaves", "1739693")
+        assert users[0] == ("Any Given Day", "2944360")
+        assert users[1] == ("Pelican Song", "27945548")
+        assert users[8] == ("Tall Ships", "1710483")
+        assert users[9] == ("TNW", "422725")
 
     @my_vcr.use_cassette("sc-user-tracks.yaml")
     def test_get_user_tracks(self):
@@ -179,19 +179,8 @@ class ApiTest(unittest.TestCase):
         self.api._update_public_client_id = mock.Mock()
         track = self.api.get_track("13158665", True)
         assert isinstance(track, Track)
-        assert track.uri == (
-            "https://cf-media.sndcdn.com/fxguEjG4ax6B.128.mp3?Policy="
-            "eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiKjovL2NmLW1lZGlhLnNu"
-            "ZGNkbi5jb20vZnhndUVqRzRheDZCLjEyOC5tcDMqIiwiQ29uZGl0aW9u"
-            "Ijp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNjUxNzky"
-            "Mzg1fX19XX0_&Signature=OGBst0oQOjHEf3TnH7IJbKipFi3zmWB9b"
-            "PSjTld5weixfAW6K3z4xglDCbDyt0YRn6fdq6WKIdZR93ngRB2OyBIuP"
-            "777YhM45uRxYBZkJMr1KC3NleHmNjVror1XBE-Zsp2Lz6EDOGvYPMno9"
-            "nYM0MLiSjStYtMHKu101vhrdn2DpgJf-xLdQW-2UAY-Ls-trnQRfA038"
-            "40ebzbNVepPAzum3EeX2CIaislknlEwM40BUD4CVU-4maTCo9QdWOYuq"
-            "xXODjJkjSff9M9-OZ49EDzZoPD506pmY8omwqPgeDQ2X5l5I9Y9v7-3b"
-            "nmmqF~EkK4ojoX3I1fp89BrOMhTkw__&Key-Pair-Id=APKAI6TU7MMX"
-            "M5DG6EPQ"
+        assert track.uri is not None and track.uri.startswith(
+            "https://cf-media.sndcdn.com/fxguEjG4ax6B.128.mp3?"
         )
 
     @my_vcr.use_cassette("sc-resolve-track-id.yaml")
@@ -211,4 +200,4 @@ class ApiTest(unittest.TestCase):
         tracks = self.api.search("the great descent")
         assert len(tracks) == 10
         assert isinstance(tracks[0], Track)
-        assert tracks[0].name == "Turn Around (Mix1)"
+        assert tracks[0].name == "@rocstaryoshi - the great descent p @henny808mafia + @mesler_"

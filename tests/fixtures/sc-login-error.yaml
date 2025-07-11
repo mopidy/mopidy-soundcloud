@@ -2,19 +2,62 @@ interactions:
 - request:
     body: null
     headers:
-      Accept: ['*/*']
-      Accept-Encoding: ['gzip, deflate']
-      Authorization: [!!python/unicode OAuth 1-fake-token]
-      Connection: [keep-alive]
-      User-Agent: [python-requests/2.11.1]
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      user-agent:
+      - Mopidy-SoundCloud/3.0.2 Mopidy/4.0.0a5.dev17+g9f5d217a CPython/3.13.3
     method: GET
     uri: https://api.soundcloud.com/me
   response:
-    body: {string: !!python/unicode ''}
+    body:
+      string: '{"code":401,"message":"","link":"https://developers.soundcloud.com/docs/api/explorer/open-api","status":"401
+        - Unauthorized","errors":[],"error":null}'
     headers:
-      cache-control: ['private, max-age=0']
-      content-length: ['0']
-      date: ['Thu, 27 Oct 2016 20:34:06 GMT']
-      server: [am/2]
-    status: {code: 401, message: Unauthorized}
+      Cache-Control:
+      - private, max-age=0
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 11 Jul 2025 15:40:02 GMT
+      Server:
+      - envoy
+      Vary:
+      - Origin,Origin
+      Via:
+      - 1.1 d0aa9598a65ac1fc1db7782598afed26.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - RqEP7NWEqIYam238ELXK7-xhT3JaBBejzK6iSvmK-k5FIVT_rmslFQ==
+      X-Amz-Cf-Pop:
+      - LHR5-P5
+      X-Cache:
+      - Error from cloudfront
+      content-length:
+      - '150'
+      referrer-policy:
+      - no-referrer
+      x-content-type-options:
+      - nosniff
+      x-envoy-upstream-service-time:
+      - '12'
+      x-frame-options:
+      - DENY
+      x-ratelimit-limit:
+      - '-1'
+      x-ratelimit-remaining:
+      - '0'
+      x-ratelimit-reset:
+      - '0'
+      x-robots-tag:
+      - noindex
+      x-tyk-trace-id:
+      - 93f3cac23c380f7f8253b42dee03d2e2
+    status:
+      code: 401
+      message: Unauthorized
 version: 1

@@ -2,101 +2,139 @@ interactions:
 - request:
     body: null
     headers:
-      Accept: ['*/*']
-      Accept-Encoding: ['gzip, deflate']
-      Connection: [keep-alive]
-      user-agent: [!!python/unicode 'Mopidy-SoundCloud/2.0.2 Mopidy/2.1.0 CPython/2.7.11+']
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      user-agent:
+      - Mopidy-SoundCloud/3.0.2 Mopidy/4.0.0a5.dev17+g9f5d217a CPython/3.13.3
     method: GET
     uri: https://api.soundcloud.com/me/activities?limit=10
   response:
     body:
-      string: !!binary |
-        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
+      string: '{"collection":[{"type":"playlist","created_at":"2025/07/11 13:01:52
+        +0000","origin":{"duration":122410,"genre":"","release_day":null,"permalink":"shred-example-6","permalink_url":"https://soundcloud.com/guitarworld/sets/shred-example-6","release_month":null,"release_year":null,"description":null,"uri":"https://api.soundcloud.com/playlists/soundcloud:playlists:2049604851","label_name":null,"label_id":null,"label":null,"tag_list":"","track_count":3,"user_id":4648693,"user_urn":"soundcloud:users:4648693","last_modified":"2025/07/11
+        13:02:07 +0000","license":"all-rights-reserved","user":{"avatar_url":"https://i1.sndcdn.com/avatars-SEC9i8y5MGlQzQmy-lhPRTw-large.jpg","id":4648693,"urn":"soundcloud:users:4648693","kind":"user","permalink_url":"https://soundcloud.com/guitarworld","uri":"https://api.soundcloud.com/users/soundcloud:users:4648693","username":"GuitarWorld","permalink":"guitarworld","created_at":"2011/05/11
+        18:18:06 +0000","last_modified":"2025/05/23 17:15:34 +0000","first_name":"Guitar","last_name":"World","full_name":"Guitar
+        World","city":"New York City","description":"","country":"United States","track_count":2082,"public_favorites_count":0,"reposts_count":0,"followers_count":0,"followings_count":0,"plan":"Pro
+        Unlimited","myspace_name":null,"discogs_name":null,"website_title":"GuitarWorld.com","website":"http://www.guitarworld.com/","comments_count":0,"online":false,"likes_count":0,"playlist_count":322,"subscriptions":[{"product":{"id":"creator-pro-unlimited","name":"Pro
+        Unlimited"}}]},"playlist_type":"","type":"","id":2049604851,"urn":"soundcloud:playlists:2049604851","downloadable":null,"likes_count":0,"sharing":"public","created_at":"2025/07/11
+        13:01:52 +0000","release":null,"tags":"","kind":"playlist","title":"Shred
+        Example 6","purchase_title":null,"ean":null,"streamable":true,"embeddable_by":"all","artwork_url":null,"purchase_url":null,"tracks_uri":"https://api.soundcloud.com/playlists/soundcloud:playlists:2049604851/tracks"}},{"type":"playlist","created_at":"2025/07/11
+        13:01:22 +0000","origin":{"duration":70608,"genre":"","release_day":null,"permalink":"shred-example-5","permalink_url":"https://soundcloud.com/guitarworld/sets/shred-example-5","release_month":null,"release_year":null,"description":null,"uri":"https://api.soundcloud.com/playlists/soundcloud:playlists:2049604620","label_name":null,"label_id":null,"label":null,"tag_list":"","track_count":3,"user_id":4648693,"user_urn":"soundcloud:users:4648693","last_modified":"2025/07/11
+        13:01:40 +0000","license":"all-rights-reserved","user":{"avatar_url":"https://i1.sndcdn.com/avatars-SEC9i8y5MGlQzQmy-lhPRTw-large.jpg","id":4648693,"urn":"soundcloud:users:4648693","kind":"user","permalink_url":"https://soundcloud.com/guitarworld","uri":"https://api.soundcloud.com/users/soundcloud:users:4648693","username":"GuitarWorld","permalink":"guitarworld","created_at":"2011/05/11
+        18:18:06 +0000","last_modified":"2025/05/23 17:15:34 +0000","first_name":"Guitar","last_name":"World","full_name":"Guitar
+        World","city":"New York City","description":"","country":"United States","track_count":2082,"public_favorites_count":0,"reposts_count":0,"followers_count":0,"followings_count":0,"plan":"Pro
+        Unlimited","myspace_name":null,"discogs_name":null,"website_title":"GuitarWorld.com","website":"http://www.guitarworld.com/","comments_count":0,"online":false,"likes_count":0,"playlist_count":322,"subscriptions":[{"product":{"id":"creator-pro-unlimited","name":"Pro
+        Unlimited"}}]},"playlist_type":"","type":"","id":2049604620,"urn":"soundcloud:playlists:2049604620","downloadable":null,"likes_count":0,"sharing":"public","created_at":"2025/07/11
+        13:01:22 +0000","release":null,"tags":"","kind":"playlist","title":"Shred
+        Example 5","purchase_title":null,"ean":null,"streamable":true,"embeddable_by":"all","artwork_url":null,"purchase_url":null,"tracks_uri":"https://api.soundcloud.com/playlists/soundcloud:playlists:2049604620/tracks"}},{"type":"playlist","created_at":"2025/07/11
+        12:59:51 +0000","origin":{"duration":79281,"genre":"","release_day":null,"permalink":"shred-example-3","permalink_url":"https://soundcloud.com/guitarworld/sets/shred-example-3","release_month":null,"release_year":null,"description":null,"uri":"https://api.soundcloud.com/playlists/soundcloud:playlists:2049603969","label_name":null,"label_id":null,"label":null,"tag_list":"","track_count":3,"user_id":4648693,"user_urn":"soundcloud:users:4648693","last_modified":"2025/07/11
+        13:00:25 +0000","license":"all-rights-reserved","user":{"avatar_url":"https://i1.sndcdn.com/avatars-SEC9i8y5MGlQzQmy-lhPRTw-large.jpg","id":4648693,"urn":"soundcloud:users:4648693","kind":"user","permalink_url":"https://soundcloud.com/guitarworld","uri":"https://api.soundcloud.com/users/soundcloud:users:4648693","username":"GuitarWorld","permalink":"guitarworld","created_at":"2011/05/11
+        18:18:06 +0000","last_modified":"2025/05/23 17:15:34 +0000","first_name":"Guitar","last_name":"World","full_name":"Guitar
+        World","city":"New York City","description":"","country":"United States","track_count":2082,"public_favorites_count":0,"reposts_count":0,"followers_count":0,"followings_count":0,"plan":"Pro
+        Unlimited","myspace_name":null,"discogs_name":null,"website_title":"GuitarWorld.com","website":"http://www.guitarworld.com/","comments_count":0,"online":false,"likes_count":0,"playlist_count":322,"subscriptions":[{"product":{"id":"creator-pro-unlimited","name":"Pro
+        Unlimited"}}]},"playlist_type":"","type":"","id":2049603969,"urn":"soundcloud:playlists:2049603969","downloadable":null,"likes_count":0,"sharing":"public","created_at":"2025/07/11
+        12:59:51 +0000","release":null,"tags":"","kind":"playlist","title":"Shred
+        Example 3","purchase_title":null,"ean":null,"streamable":true,"embeddable_by":"all","artwork_url":null,"purchase_url":null,"tracks_uri":"https://api.soundcloud.com/playlists/soundcloud:playlists:2049603969/tracks"}},{"type":"playlist","created_at":"2025/07/11
+        12:58:17 +0000","origin":{"duration":75207,"genre":"","release_day":null,"permalink":"shred-example-2","permalink_url":"https://soundcloud.com/guitarworld/sets/shred-example-2","release_month":null,"release_year":null,"description":null,"uri":"https://api.soundcloud.com/playlists/soundcloud:playlists:2049603321","label_name":null,"label_id":null,"label":null,"tag_list":"","track_count":3,"user_id":4648693,"user_urn":"soundcloud:users:4648693","last_modified":"2025/07/11
+        12:59:33 +0000","license":"all-rights-reserved","user":{"avatar_url":"https://i1.sndcdn.com/avatars-SEC9i8y5MGlQzQmy-lhPRTw-large.jpg","id":4648693,"urn":"soundcloud:users:4648693","kind":"user","permalink_url":"https://soundcloud.com/guitarworld","uri":"https://api.soundcloud.com/users/soundcloud:users:4648693","username":"GuitarWorld","permalink":"guitarworld","created_at":"2011/05/11
+        18:18:06 +0000","last_modified":"2025/05/23 17:15:34 +0000","first_name":"Guitar","last_name":"World","full_name":"Guitar
+        World","city":"New York City","description":"","country":"United States","track_count":2082,"public_favorites_count":0,"reposts_count":0,"followers_count":0,"followings_count":0,"plan":"Pro
+        Unlimited","myspace_name":null,"discogs_name":null,"website_title":"GuitarWorld.com","website":"http://www.guitarworld.com/","comments_count":0,"online":false,"likes_count":0,"playlist_count":322,"subscriptions":[{"product":{"id":"creator-pro-unlimited","name":"Pro
+        Unlimited"}}]},"playlist_type":"","type":"","id":2049603321,"urn":"soundcloud:playlists:2049603321","downloadable":null,"likes_count":0,"sharing":"public","created_at":"2025/07/11
+        12:58:17 +0000","release":null,"tags":"","kind":"playlist","title":"Shred
+        Example 2","purchase_title":null,"ean":null,"streamable":true,"embeddable_by":"all","artwork_url":null,"purchase_url":null,"tracks_uri":"https://api.soundcloud.com/playlists/soundcloud:playlists:2049603321/tracks"}},{"type":"playlist","created_at":"2025/07/11
+        12:57:22 +0000","origin":{"duration":73457,"genre":"","release_day":null,"permalink":"shred-example-1","permalink_url":"https://soundcloud.com/guitarworld/sets/shred-example-1","release_month":null,"release_year":null,"description":null,"uri":"https://api.soundcloud.com/playlists/soundcloud:playlists:2049602928","label_name":null,"label_id":null,"label":null,"tag_list":"","track_count":3,"user_id":4648693,"user_urn":"soundcloud:users:4648693","last_modified":"2025/07/11
+        12:57:51 +0000","license":"all-rights-reserved","user":{"avatar_url":"https://i1.sndcdn.com/avatars-SEC9i8y5MGlQzQmy-lhPRTw-large.jpg","id":4648693,"urn":"soundcloud:users:4648693","kind":"user","permalink_url":"https://soundcloud.com/guitarworld","uri":"https://api.soundcloud.com/users/soundcloud:users:4648693","username":"GuitarWorld","permalink":"guitarworld","created_at":"2011/05/11
+        18:18:06 +0000","last_modified":"2025/05/23 17:15:34 +0000","first_name":"Guitar","last_name":"World","full_name":"Guitar
+        World","city":"New York City","description":"","country":"United States","track_count":2082,"public_favorites_count":0,"reposts_count":0,"followers_count":0,"followings_count":0,"plan":"Pro
+        Unlimited","myspace_name":null,"discogs_name":null,"website_title":"GuitarWorld.com","website":"http://www.guitarworld.com/","comments_count":0,"online":false,"likes_count":0,"playlist_count":322,"subscriptions":[{"product":{"id":"creator-pro-unlimited","name":"Pro
+        Unlimited"}}]},"playlist_type":"","type":"","id":2049602928,"urn":"soundcloud:playlists:2049602928","downloadable":null,"likes_count":0,"sharing":"public","created_at":"2025/07/11
+        12:57:22 +0000","release":null,"tags":"","kind":"playlist","title":"Shred
+        Example 1","purchase_title":null,"ean":null,"streamable":true,"embeddable_by":"all","artwork_url":null,"purchase_url":null,"tracks_uri":"https://api.soundcloud.com/playlists/soundcloud:playlists:2049602928/tracks"}},{"type":"playlist","created_at":"2025/07/11
+        10:40:38 +0000","origin":{"duration":500454,"genre":"","release_day":null,"permalink":"shred-patterns","permalink_url":"https://soundcloud.com/guitarworld/sets/shred-patterns","release_month":null,"release_year":null,"description":null,"uri":"https://api.soundcloud.com/playlists/soundcloud:playlists:2049556512","label_name":null,"label_id":null,"label":null,"tag_list":"","track_count":18,"user_id":4648693,"user_urn":"soundcloud:users:4648693","last_modified":"2025/07/11
+        10:40:38 +0000","license":"all-rights-reserved","user":{"avatar_url":"https://i1.sndcdn.com/avatars-SEC9i8y5MGlQzQmy-lhPRTw-large.jpg","id":4648693,"urn":"soundcloud:users:4648693","kind":"user","permalink_url":"https://soundcloud.com/guitarworld","uri":"https://api.soundcloud.com/users/soundcloud:users:4648693","username":"GuitarWorld","permalink":"guitarworld","created_at":"2011/05/11
+        18:18:06 +0000","last_modified":"2025/05/23 17:15:34 +0000","first_name":"Guitar","last_name":"World","full_name":"Guitar
+        World","city":"New York City","description":"","country":"United States","track_count":2082,"public_favorites_count":0,"reposts_count":0,"followers_count":0,"followings_count":0,"plan":"Pro
+        Unlimited","myspace_name":null,"discogs_name":null,"website_title":"GuitarWorld.com","website":"http://www.guitarworld.com/","comments_count":0,"online":false,"likes_count":0,"playlist_count":322,"subscriptions":[{"product":{"id":"creator-pro-unlimited","name":"Pro
+        Unlimited"}}]},"playlist_type":"album","type":"album","id":2049556512,"urn":"soundcloud:playlists:2049556512","downloadable":null,"likes_count":0,"sharing":"public","created_at":"2025/07/11
+        10:40:38 +0000","release":null,"tags":"","kind":"playlist","title":"Shred
+        Patterns","purchase_title":null,"ean":null,"streamable":true,"embeddable_by":"all","artwork_url":null,"purchase_url":null,"tracks_uri":"https://api.soundcloud.com/playlists/soundcloud:playlists:2049556512/tracks"}},{"type":"track","created_at":"2025/07/11
+        10:40:37 +0000","origin":{"kind":"track","id":2128294836,"urn":"soundcloud:tracks:2128294836","created_at":"2025/07/11
+        10:40:37 +0000","duration":22047,"commentable":true,"comment_count":0,"sharing":"public","tag_list":"
+        ","streamable":true,"embeddable_by":"all","purchase_url":null,"purchase_title":null,"genre":"","title":"GW_Shred_Patterns_Ex5","description":"","label_name":"","release":null,"key_signature":null,"isrc":null,"bpm":null,"release_year":null,"release_month":null,"release_day":null,"license":"all-rights-reserved","uri":"https://api.soundcloud.com/tracks/soundcloud:tracks:2128294836","user":{"avatar_url":"https://i1.sndcdn.com/avatars-SEC9i8y5MGlQzQmy-lhPRTw-large.jpg","id":4648693,"urn":"soundcloud:users:4648693","kind":"user","permalink_url":"https://soundcloud.com/guitarworld","uri":"https://api.soundcloud.com/users/soundcloud:users:4648693","username":"GuitarWorld","permalink":"guitarworld","created_at":"2011/05/11
+        18:18:06 +0000","last_modified":"2025/05/23 17:15:34 +0000","first_name":"Guitar","last_name":"World","full_name":"Guitar
+        World","city":"New York City","description":"","country":"United States","track_count":2082,"public_favorites_count":0,"reposts_count":0,"followers_count":0,"followings_count":0,"plan":"Pro
+        Unlimited","myspace_name":null,"discogs_name":null,"website_title":"GuitarWorld.com","website":"http://www.guitarworld.com/","comments_count":0,"online":false,"likes_count":0,"playlist_count":322,"subscriptions":[{"product":{"id":"creator-pro-unlimited","name":"Pro
+        Unlimited"}}]},"permalink_url":"https://soundcloud.com/guitarworld/gw_shred_patterns_ex5-13","artwork_url":null,"stream_url":"https://api.soundcloud.com/tracks/soundcloud:tracks:2128294836/stream","download_url":null,"waveform_url":"https://wave.sndcdn.com/TNCIn7ZHQyCe_m.png","available_country_codes":null,"secret_uri":null,"user_favorite":false,"user_playback_count":1,"playback_count":8,"download_count":0,"favoritings_count":0,"reposts_count":0,"downloadable":false,"access":"playable","policy":null,"monetization_model":null,"metadata_artist":"GuitarWorld"}},{"type":"track","created_at":"2025/07/08
+        13:45:56 +0000","origin":{"kind":"track","id":2126547633,"urn":"soundcloud:tracks:2126547633","created_at":"2025/07/08
+        13:45:56 +0000","duration":25757,"commentable":true,"comment_count":0,"sharing":"public","tag_list":"
+        ","streamable":true,"embeddable_by":"all","purchase_url":null,"purchase_title":null,"genre":"","title":"GW_Drop_D_Ex2_BT","description":"","label_name":"","release":null,"key_signature":null,"isrc":null,"bpm":null,"release_year":null,"release_month":null,"release_day":null,"license":"all-rights-reserved","uri":"https://api.soundcloud.com/tracks/soundcloud:tracks:2126547633","user":{"avatar_url":"https://i1.sndcdn.com/avatars-SEC9i8y5MGlQzQmy-lhPRTw-large.jpg","id":4648693,"urn":"soundcloud:users:4648693","kind":"user","permalink_url":"https://soundcloud.com/guitarworld","uri":"https://api.soundcloud.com/users/soundcloud:users:4648693","username":"GuitarWorld","permalink":"guitarworld","created_at":"2011/05/11
+        18:18:06 +0000","last_modified":"2025/05/23 17:15:34 +0000","first_name":"Guitar","last_name":"World","full_name":"Guitar
+        World","city":"New York City","description":"","country":"United States","track_count":2082,"public_favorites_count":0,"reposts_count":0,"followers_count":0,"followings_count":0,"plan":"Pro
+        Unlimited","myspace_name":null,"discogs_name":null,"website_title":"GuitarWorld.com","website":"http://www.guitarworld.com/","comments_count":0,"online":false,"likes_count":0,"playlist_count":322,"subscriptions":[{"product":{"id":"creator-pro-unlimited","name":"Pro
+        Unlimited"}}]},"permalink_url":"https://soundcloud.com/guitarworld/gw_drop_d_ex2_bt-2","artwork_url":null,"stream_url":"https://api.soundcloud.com/tracks/soundcloud:tracks:2126547633/stream","download_url":null,"waveform_url":"https://wave.sndcdn.com/kjyMmet8boaT_m.png","available_country_codes":null,"secret_uri":null,"user_favorite":false,"user_playback_count":1,"playback_count":5,"download_count":0,"favoritings_count":0,"reposts_count":0,"downloadable":false,"access":"playable","policy":null,"monetization_model":null,"metadata_artist":"GuitarWorld"}},{"type":"playlist","created_at":"2025/07/08
+        13:45:56 +0000","origin":{"duration":224784,"genre":"","release_day":null,"permalink":"drop-d-backing-tracks","permalink_url":"https://soundcloud.com/guitarworld/sets/drop-d-backing-tracks","release_month":null,"release_year":null,"description":null,"uri":"https://api.soundcloud.com/playlists/soundcloud:playlists:2048189064","label_name":null,"label_id":null,"label":null,"tag_list":"","track_count":6,"user_id":4648693,"user_urn":"soundcloud:users:4648693","last_modified":"2025/07/08
+        13:45:56 +0000","license":"all-rights-reserved","user":{"avatar_url":"https://i1.sndcdn.com/avatars-SEC9i8y5MGlQzQmy-lhPRTw-large.jpg","id":4648693,"urn":"soundcloud:users:4648693","kind":"user","permalink_url":"https://soundcloud.com/guitarworld","uri":"https://api.soundcloud.com/users/soundcloud:users:4648693","username":"GuitarWorld","permalink":"guitarworld","created_at":"2011/05/11
+        18:18:06 +0000","last_modified":"2025/05/23 17:15:34 +0000","first_name":"Guitar","last_name":"World","full_name":"Guitar
+        World","city":"New York City","description":"","country":"United States","track_count":2082,"public_favorites_count":0,"reposts_count":0,"followers_count":0,"followings_count":0,"plan":"Pro
+        Unlimited","myspace_name":null,"discogs_name":null,"website_title":"GuitarWorld.com","website":"http://www.guitarworld.com/","comments_count":0,"online":false,"likes_count":0,"playlist_count":322,"subscriptions":[{"product":{"id":"creator-pro-unlimited","name":"Pro
+        Unlimited"}}]},"playlist_type":"album","type":"album","id":2048189064,"urn":"soundcloud:playlists:2048189064","downloadable":null,"likes_count":0,"sharing":"public","created_at":"2025/07/08
+        13:45:56 +0000","release":null,"tags":"","kind":"playlist","title":"Drop D
+        Backing Tracks","purchase_title":null,"ean":null,"streamable":true,"embeddable_by":"all","artwork_url":null,"purchase_url":null,"tracks_uri":"https://api.soundcloud.com/playlists/soundcloud:playlists:2048189064/tracks"}},{"type":"playlist","created_at":"2025/07/08
+        09:07:25 +0000","origin":{"duration":54230,"genre":"","release_day":null,"permalink":"metronome-ex-5","permalink_url":"https://soundcloud.com/guitarworld/sets/metronome-ex-5","release_month":null,"release_year":null,"description":null,"uri":"https://api.soundcloud.com/playlists/soundcloud:playlists:2048104059","label_name":null,"label_id":null,"label":null,"tag_list":"","track_count":2,"user_id":4648693,"user_urn":"soundcloud:users:4648693","last_modified":"2025/07/08
+        09:07:34 +0000","license":"all-rights-reserved","user":{"avatar_url":"https://i1.sndcdn.com/avatars-SEC9i8y5MGlQzQmy-lhPRTw-large.jpg","id":4648693,"urn":"soundcloud:users:4648693","kind":"user","permalink_url":"https://soundcloud.com/guitarworld","uri":"https://api.soundcloud.com/users/soundcloud:users:4648693","username":"GuitarWorld","permalink":"guitarworld","created_at":"2011/05/11
+        18:18:06 +0000","last_modified":"2025/05/23 17:15:34 +0000","first_name":"Guitar","last_name":"World","full_name":"Guitar
+        World","city":"New York City","description":"","country":"United States","track_count":2082,"public_favorites_count":0,"reposts_count":0,"followers_count":0,"followings_count":0,"plan":"Pro
+        Unlimited","myspace_name":null,"discogs_name":null,"website_title":"GuitarWorld.com","website":"http://www.guitarworld.com/","comments_count":0,"online":false,"likes_count":0,"playlist_count":322,"subscriptions":[{"product":{"id":"creator-pro-unlimited","name":"Pro
+        Unlimited"}}]},"playlist_type":"","type":"","id":2048104059,"urn":"soundcloud:playlists:2048104059","downloadable":null,"likes_count":0,"sharing":"public","created_at":"2025/07/08
+        09:07:25 +0000","release":null,"tags":"","kind":"playlist","title":"Metronome
+        Ex 5","purchase_title":null,"ean":null,"streamable":true,"embeddable_by":"all","artwork_url":null,"purchase_url":null,"tracks_uri":"https://api.soundcloud.com/playlists/soundcloud:playlists:2048104059/tracks"}}],"next_href":"https://api.soundcloud.com/me/activities?limit=10&cursor=10","future_href":"https://api.soundcloud.com/me/activities?limit=10"}'
     headers:
-      access-control-allow-headers: ['Accept, Authorization, Content-Type, Origin']
-      access-control-allow-methods: ['GET, PUT, POST, DELETE']
-      access-control-allow-origin: ['*']
-      access-control-expose-headers: [Date]
-      cache-control: ['private, max-age=0, must-revalidate']
-      connection: [keep-alive]
-      content-encoding: [gzip]
-      content-length: ['4079']
-      content-type: [application/json;charset=utf-8]
-      date: ['Tue, 22 May 2018 22:30:35 GMT']
-      server: [am/2]
-      via: [1.1 d887f5d446ae9c64e0365e1b394dac21.cloudfront.net (CloudFront)]
-      x-amz-cf-id: [jHovgDCGONYvabBQO2LbH04Bhus6RuegCPdeOYb9yKRvde6bdYlruw==]
-      x-cache: [Miss from cloudfront]
-    status: {code: 200, message: OK}
+      Cache-Control:
+      - private, max-age=0
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 11 Jul 2025 15:40:00 GMT
+      Server:
+      - envoy
+      Vary:
+      - Origin,Origin
+      Via:
+      - 1.1 82ad7681472568da108f216e5143b582.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - LgGrEbI3A3X0szv7cUy2CGhhtnYCPj6i6MA3ZUIw83abjplgz6jz8w==
+      X-Amz-Cf-Pop:
+      - LHR5-P5
+      X-Cache:
+      - Miss from cloudfront
+      content-length:
+      - '20095'
+      referrer-policy:
+      - no-referrer
+      x-content-type-options:
+      - nosniff
+      x-envoy-upstream-service-time:
+      - '117'
+      x-frame-options:
+      - DENY
+      x-ratelimit-limit:
+      - '-1'
+      x-ratelimit-remaining:
+      - '0'
+      x-ratelimit-reset:
+      - '0'
+      x-robots-tag:
+      - noindex
+      x-tyk-trace-id:
+      - f8dc132d09adf4a6324ba42ba5be7d21
+    status:
+      code: 200
+      message: OK
 version: 1

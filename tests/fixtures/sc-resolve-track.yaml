@@ -2,92 +2,66 @@ interactions:
 - request:
     body: null
     headers:
-      Accept: ['*/*']
-      Accept-Encoding: ['gzip, deflate']
-      Authorization: [!!python/unicode OAuth 1-35204-61921957-55796ebef403996]
-      Connection: [keep-alive]
-      User-Agent: [python-requests/2.11.1]
-    method: GET
-    uri: https://api.soundcloud.com/tracks/38720262.json
-  response:
-    body: {string: !!python/unicode ''}
-    headers:
-      access-control-allow-headers: ['Accept, Authorization, Content-Type, Origin']
-      access-control-allow-methods: ['GET, PUT, POST, DELETE']
-      access-control-allow-origin: ['*']
-      access-control-expose-headers: [Date]
-      cache-control: ['private, max-age=0, must-revalidate', 'private, max-age=0']
-      content-length: ['0']
-      content-type: [application/json; charset=utf-8]
-      date: ['Thu, 27 Oct 2016 20:27:25 GMT']
-      etag: ['"f13acb6314396a2db0a2f95ef0583417"']
-      server: [am/2]
-      status: [200 OK]
-    status: {code: 403, message: Forbidden}
-- request:
-    body: null
-    headers:
-      Accept: ['*/*']
-      Accept-Encoding: ['gzip, deflate']
-      Authorization: [!!python/unicode OAuth 1-35204-61921957-55796ebef403996]
-      Connection: [keep-alive]
-      User-Agent: [python-requests/2.11.1]
-    method: GET
-    uri: https://api.soundcloud.com/tracks/38720262
-  response:
-    body: {string: !!python/unicode ''}
-    headers:
-      access-control-allow-headers: ['Accept, Authorization, Content-Type, Origin']
-      access-control-allow-methods: ['GET, PUT, POST, DELETE']
-      access-control-allow-origin: ['*']
-      access-control-expose-headers: [Date]
-      cache-control: ['private, max-age=0, must-revalidate', 'private, max-age=0']
-      content-length: ['0']
-      content-type: [application/json; charset=utf-8]
-      date: ['Thu, 27 Oct 2016 20:29:23 GMT']
-      etag: ['"f13acb6314396a2db0a2f95ef0583417"']
-      server: [am/2]
-      status: [200 OK]
-    status: {code: 403, message: Forbidden}
-- request:
-    body: null
-    headers:
-      Accept: ['*/*']
-      Accept-Encoding: ['gzip, deflate']
-      Authorization: [!!python/unicode OAuth 1-35204-61921957-55796ebef403996]
-      Connection: [keep-alive]
-      User-Agent: [python-requests/2.11.1]
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      user-agent:
+      - Mopidy-SoundCloud/3.0.2 Mopidy/4.0.0a5.dev17+g9f5d217a CPython/3.13.3
     method: GET
     uri: https://api.soundcloud.com/tracks/13158665
   response:
     body:
-      string: !!binary |
-        H4sIAAAAAAAAAJxVTZObMAz9K4yvDQEHkhJmemg7nZ46PWzvjIId8MbYjG2STXf2v1cOhBD6sW1z
-        wrKe9KQnOc/kIBQjOXEGygNZEIEHmtB1ttmsF6Q0HBxnBTh0WcWURnEaxZuArvPkbZ4mwZsYfwjr
-        LDeFxyab7ZbGdEFYZ8AJrTBcRuMtxtJNw5WDneQkd6bjC2IdRsfIe6GErTnDQNqISiiQRamVQ/fC
-        iu/ogrnTLFkQCdYVjWZiLzjrOSVRvIpoFtAtZsopHTnZGoxQFXq13U6KEk0OqkIK66uxulOslLpj
-        OX6akr8Tba0VDw0vtfFUWm4akEId0LvpVFljsBBc6AQoBTasNVbt8zjsUjOtizc7zpi3FLszokFK
-        9GP6pKQG1nvuQVp0bTF1DZYXnZEkV52Uvsgdl5du9ufRxwnnob214sqMh+GGfBl4BuCCbz3P4MqT
-        cVsa0faiTDMpaMZAhkuOqca4fiwKd2598L4zvqULcuBnlKZS4LobC2FNef0+Csb1tKpd28ySFGcO
-        Zm5rUPd6bmRwvprGAdlrlMcr2aSAhFBgrjxx3+0QnWpnUUucy+NlsDoj8K52rrV5FEErlrcJWOJs
-        RpdSbXQd/mGoSf5M7uZ62JfL3f2MgORPoXX8iDywxT2+7y15j3fBw+TuF4OMy7XB9MEqyddZnqa3
-        5XqNuk9ko4HilFXf/wsUkTPUT3zhCA7MBOPTCbq0iGKqx1xcbOiZxSndJtk6Cx/VftWyUIKp+PKx
-        rcjL8CC0Es47P0AlZkap6GDfwxFldLctuL4zJ+G17ztOV+nYbWhb5Df08sGX8dGXEYivD3/TH4Sj
-        sKv0961h2AWp8dLOsYjhT84LKe8hwnWK22v8SXN9+f+jQPSnRwaMO2lzmC7UCY7cL8FMsNOdYPun
-        qvv0+DmFp82Holm2l+XtX6wZ7vWViHqc7+JM2OztNrs9cKPcCSo4aI1l2at9Nf4ZXC0bLNA5KGtv
-        tMW/7mo0AZOXHwAAAP//AwCnTeIU1AYAAA==
+      string: '{"kind":"track","id":13158665,"urn":"soundcloud:tracks:13158665","created_at":"2011/04/06
+        15:37:43 +0000","duration":18109,"commentable":true,"comment_count":7,"sharing":"public","tag_list":"soundcloud:source=iphone-record
+        ","streamable":true,"embeddable_by":"all","purchase_url":null,"purchase_title":null,"genre":null,"title":"Munching
+        at Tiannas house","description":null,"label_name":null,"release":null,"key_signature":null,"isrc":null,"bpm":null,"release_year":null,"release_month":null,"release_day":null,"license":"all-rights-reserved","uri":"https://api.soundcloud.com/tracks/soundcloud:tracks:13158665","user":{"avatar_url":"https://i1.sndcdn.com/avatars-000004193858-jnf2pd-large.jpg","id":3699101,"urn":"soundcloud:users:3699101","kind":"user","permalink_url":"https://soundcloud.com/alex-stevenson","uri":"https://api.soundcloud.com/users/soundcloud:users:3699101","username":"Alex
+        Stevenson","permalink":"alex-stevenson","created_at":"2011/03/17 09:03:40
+        +0000","last_modified":"2011/06/13 23:58:44 +0000","first_name":"","last_name":"","full_name":"","city":"","description":null,"country":null,"track_count":1,"public_favorites_count":0,"reposts_count":0,"followers_count":0,"followings_count":0,"plan":"Free","myspace_name":null,"discogs_name":null,"website_title":null,"website":null,"comments_count":0,"online":false,"likes_count":0,"playlist_count":0,"subscriptions":[{"product":{"id":"free","name":"Free"}}]},"permalink_url":"https://soundcloud.com/alex-stevenson/munching-at-tiannas-house","artwork_url":null,"stream_url":"https://api.soundcloud.com/tracks/soundcloud:tracks:13158665/stream","download_url":null,"waveform_url":"https://wave.sndcdn.com/fxguEjG4ax6B_m.png","available_country_codes":null,"secret_uri":null,"user_favorite":false,"user_playback_count":1,"playback_count":17378,"download_count":134,"favoritings_count":5,"reposts_count":1,"downloadable":false,"access":"playable","policy":null,"monetization_model":null,"metadata_artist":null}'
     headers:
-      access-control-allow-headers: ['Accept, Authorization, Content-Type, Origin']
-      access-control-allow-methods: ['GET, PUT, POST, DELETE']
-      access-control-allow-origin: ['*']
-      access-control-expose-headers: [Date]
-      cache-control: ['private, max-age=0, must-revalidate']
-      content-encoding: [gzip]
-      content-length: ['766']
-      content-type: [application/json; charset=utf-8]
-      date: ['Thu, 27 Oct 2016 20:31:42 GMT']
-      etag: ['"26aec1a94b637a0f3bbfb2614d7cbd90"']
-      server: [am/2]
-      status: [200 OK]
-    status: {code: 200, message: OK}
+      Cache-Control:
+      - private, max-age=0
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 11 Jul 2025 15:40:02 GMT
+      Server:
+      - envoy
+      Vary:
+      - Origin,Origin
+      Via:
+      - 1.1 146b973c426002086014308f8868bd4c.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - JHP4H8RDqha1qWgaolwQYcNFhknsT_B8sjgLmaloByJp_FR4BDMwOA==
+      X-Amz-Cf-Pop:
+      - LHR5-P5
+      X-Cache:
+      - Miss from cloudfront
+      content-length:
+      - '1977'
+      referrer-policy:
+      - no-referrer
+      x-content-type-options:
+      - nosniff
+      x-envoy-upstream-service-time:
+      - '240'
+      x-frame-options:
+      - DENY
+      x-ratelimit-limit:
+      - '-1'
+      x-ratelimit-remaining:
+      - '0'
+      x-ratelimit-reset:
+      - '0'
+      x-robots-tag:
+      - noindex
+      x-tyk-trace-id:
+      - 7e61f938613b32c31ad9d5252c2617c5
+    status:
+      code: 200
+      message: OK
 version: 1

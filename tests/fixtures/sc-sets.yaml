@@ -2,60 +2,131 @@ interactions:
 - request:
     body: null
     headers:
-      Accept: ['*/*']
-      Accept-Encoding: ['gzip, deflate']
-      Connection: [keep-alive]
-      user-agent: [!!python/unicode 'Mopidy-SoundCloud/2.0.2 Mopidy/2.1.0 CPython/2.7.11+']
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      user-agent:
+      - Mopidy-SoundCloud/3.0.2 Mopidy/4.0.0a5.dev17+g9f5d217a CPython/3.13.3
     method: GET
     uri: https://api.soundcloud.com/me/playlists?limit=10
   response:
     body:
-      string: !!binary |
-        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
+      string: "[{\"duration\":442335,\"genre\":\"\",\"release_day\":null,\"permalink\":\"stuff\",\"permalink_url\":\"https://soundcloud.com/nick-steel-4/sets/stuff\",\"release_month\":null,\"release_year\":null,\"description\":null,\"uri\":\"https://api.soundcloud.com/playlists/soundcloud:playlists:501736827\",\"label_name\":null,\"label_id\":null,\"label\":null,\"tag_list\":\"\",\"track_count\":2,\"user_id\":53562492,\"user_urn\":\"soundcloud:users:53562492\",\"last_modified\":\"2018/04/19
+        23:18:07 +0000\",\"license\":\"all-rights-reserved\",\"user\":{\"avatar_url\":\"https://i1.sndcdn.com/avatars-000049704775-qq8pj8-large.jpg\",\"id\":53562492,\"urn\":\"soundcloud:users:53562492\",\"kind\":\"user\",\"permalink_url\":\"https://soundcloud.com/nick-steel-4\",\"uri\":\"https://api.soundcloud.com/users/soundcloud:users:53562492\",\"username\":\"Nick
+        Steel 3\",\"permalink\":\"nick-steel-4\",\"created_at\":\"2013/08/07 09:18:09
+        +0000\",\"last_modified\":\"2018/05/27 13:30:55 +0000\",\"first_name\":\"Nick\",\"last_name\":\"Steel\",\"full_name\":\"Nick
+        Steel\",\"city\":null,\"description\":null,\"country\":null,\"track_count\":0,\"public_favorites_count\":0,\"reposts_count\":0,\"followers_count\":0,\"followings_count\":0,\"plan\":\"Free\",\"myspace_name\":null,\"discogs_name\":null,\"website_title\":null,\"website\":null,\"comments_count\":0,\"online\":false,\"likes_count\":0,\"playlist_count\":2,\"subscriptions\":[{\"product\":{\"id\":\"free\",\"name\":\"Free\"}}]},\"playlist_type\":\"\",\"type\":\"\",\"id\":501736827,\"urn\":\"soundcloud:playlists:501736827\",\"downloadable\":null,\"likes_count\":0,\"sharing\":\"public\",\"created_at\":\"2018/04/19
+        23:18:07 +0000\",\"release\":null,\"tags\":\"\",\"kind\":\"playlist\",\"title\":\"Stuff\",\"purchase_title\":null,\"ean\":null,\"streamable\":true,\"embeddable_by\":\"all\",\"artwork_url\":null,\"purchase_url\":null,\"tracks_uri\":\"https://api.soundcloud.com/playlists/soundcloud:playlists:501736827/tracks\",\"tracks\":[{\"kind\":\"track\",\"id\":397988637,\"urn\":\"soundcloud:tracks:397988637\",\"created_at\":\"2018/02/11
+        21:59:23 +0000\",\"duration\":206177,\"commentable\":true,\"comment_count\":48,\"sharing\":\"public\",\"tag_list\":\"
+        \",\"streamable\":true,\"embeddable_by\":\"all\",\"purchase_url\":null,\"purchase_title\":null,\"genre\":\"Alternative\",\"title\":\"Thought
+        Contagion\",\"description\":null,\"label_name\":\"Warner Records\",\"release\":null,\"key_signature\":null,\"isrc\":\"GBAHT1800045\",\"bpm\":null,\"release_year\":2018,\"release_month\":2,\"release_day\":15,\"license\":\"all-rights-reserved\",\"uri\":\"https://api.soundcloud.com/tracks/soundcloud:tracks:397988637\",\"user\":{\"avatar_url\":\"https://i1.sndcdn.com/avatars-000016235366-97m7j9-large.jpg\",\"id\":8261905,\"urn\":\"soundcloud:users:8261905\",\"kind\":\"user\",\"permalink_url\":\"https://soundcloud.com/muse\",\"uri\":\"https://api.soundcloud.com/users/soundcloud:users:8261905\",\"username\":\"Muse\",\"permalink\":\"muse\",\"created_at\":\"2011/10/21
+        10:19:06 +0000\",\"last_modified\":\"2020/11/18 17:56:34 +0000\",\"first_name\":\"Muse\",\"last_name\":\"\",\"full_name\":\"Muse\",\"city\":\"\",\"description\":\"\",\"country\":\"Britain
+        (UK)\",\"track_count\":290,\"public_favorites_count\":0,\"reposts_count\":0,\"followers_count\":0,\"followings_count\":0,\"plan\":\"Free\",\"myspace_name\":null,\"discogs_name\":null,\"website_title\":\"Official
+        Website\",\"website\":\"http://muse.mu/\",\"comments_count\":0,\"online\":false,\"likes_count\":0,\"playlist_count\":54,\"subscriptions\":[{\"product\":{\"id\":\"free\",\"name\":\"Free\"}}]},\"permalink_url\":\"https://soundcloud.com/muse/thought-contagion\",\"artwork_url\":\"https://i1.sndcdn.com/artworks-sCwK4AKFZJLW-0-large.jpg\",\"stream_url\":\"https://api.soundcloud.com/tracks/soundcloud:tracks:397988637/stream\",\"download_url\":null,\"waveform_url\":\"https://wave.sndcdn.com/c6kySBVJnTwb_m.png\",\"available_country_codes\":null,\"secret_uri\":null,\"user_favorite\":false,\"user_playback_count\":1,\"playback_count\":236501,\"download_count\":0,\"favoritings_count\":4272,\"reposts_count\":98,\"downloadable\":false,\"access\":\"playable\",\"policy\":null,\"monetization_model\":null,\"metadata_artist\":\"Muse\"},{\"kind\":\"track\",\"id\":54659237,\"urn\":\"soundcloud:tracks:54659237\",\"created_at\":\"2012/07/31
+        01:52:47 +0000\",\"duration\":236158,\"commentable\":true,\"comment_count\":66,\"sharing\":\"public\",\"tag_list\":\"
+        architects uk omega alpha\",\"streamable\":false,\"embeddable_by\":\"all\",\"purchase_url\":\"http://www.itunes.com/architects\",\"purchase_title\":null,\"genre\":\"metal\",\"title\":\"ARCHITECTS
+        UK - Alpha Omega\",\"description\":\"ARCHITECTS UK - Alpha Omega. Taken from
+        the album \\\"Daybreaker\\\", Century Media Records, 2012. \",\"label_name\":\"Century
+        Media\",\"release\":\"8888-2\",\"key_signature\":\"\",\"isrc\":null,\"bpm\":null,\"release_year\":null,\"release_month\":null,\"release_day\":null,\"license\":\"all-rights-reserved\",\"uri\":\"https://api.soundcloud.com/tracks/soundcloud:tracks:54659237\",\"user\":{\"avatar_url\":\"https://i1.sndcdn.com/avatars-000161168175-aedt7o-large.jpg\",\"id\":1268505,\"urn\":\"soundcloud:users:1268505\",\"kind\":\"user\",\"permalink_url\":\"https://soundcloud.com/centurymedia\",\"uri\":\"https://api.soundcloud.com/users/soundcloud:users:1268505\",\"username\":\"Century
+        Media Records\",\"permalink\":\"centurymedia\",\"created_at\":\"2010/07/03
+        00:33:26 +0000\",\"last_modified\":\"2020/11/19 16:25:57 +0000\",\"first_name\":\"\",\"last_name\":\"\",\"full_name\":\"\",\"city\":\"Los
+        Angeles\",\"description\":\"Always at the forefront with an active role in
+        emerging stylistic nuances Century Media has truly shattered the barriers
+        and exemplified diversity in extremes while remaining rooted in the underground
+        but giving bands opportunities outside of the normal means with major league
+        international touring, commercial radio play, and music placement in high-profile
+        films, TV and commercials. Despite all of the years and breakthroughs the
+        company maintains their organic, family feel and business is still being conducted
+        by fans of the music for fans of the music.\",\"country\":\"United States\",\"track_count\":52,\"public_favorites_count\":0,\"reposts_count\":0,\"followers_count\":0,\"followings_count\":0,\"plan\":\"Free\",\"myspace_name\":null,\"discogs_name\":\"Century+Media+Catalog\",\"website_title\":\"centurymedia.com\",\"website\":\"http://www.centurymedia.com\",\"comments_count\":0,\"online\":false,\"likes_count\":0,\"playlist_count\":102,\"subscriptions\":[{\"product\":{\"id\":\"free\",\"name\":\"Free\"}}]},\"permalink_url\":\"https://soundcloud.com/centurymedia/architects-uk-alpha-omega\",\"artwork_url\":\"https://i1.sndcdn.com/artworks-000027612258-t0ttqk-large.jpg\",\"stream_url\":null,\"download_url\":null,\"waveform_url\":\"https://wave.sndcdn.com/T6GE6Biw9gzs_m.png\",\"available_country_codes\":null,\"secret_uri\":null,\"user_favorite\":false,\"user_playback_count\":1,\"playback_count\":167592,\"download_count\":0,\"favoritings_count\":2416,\"reposts_count\":208,\"downloadable\":false,\"access\":\"blocked\",\"policy\":null,\"monetization_model\":null,\"metadata_artist\":null}]},{\"duration\":246827,\"genre\":\"\",\"release_day\":null,\"permalink\":\"pelican\",\"permalink_url\":\"https://soundcloud.com/nick-steel-4/sets/pelican\",\"release_month\":null,\"release_year\":null,\"description\":null,\"uri\":\"https://api.soundcloud.com/playlists/soundcloud:playlists:10961826\",\"label_name\":null,\"label_id\":null,\"label\":null,\"tag_list\":\"\",\"track_count\":1,\"user_id\":53562492,\"user_urn\":\"soundcloud:users:53562492\",\"last_modified\":\"2013/09/24
+        14:12:25 +0000\",\"license\":\"all-rights-reserved\",\"user\":{\"avatar_url\":\"https://i1.sndcdn.com/avatars-000049704775-qq8pj8-large.jpg\",\"id\":53562492,\"urn\":\"soundcloud:users:53562492\",\"kind\":\"user\",\"permalink_url\":\"https://soundcloud.com/nick-steel-4\",\"uri\":\"https://api.soundcloud.com/users/soundcloud:users:53562492\",\"username\":\"Nick
+        Steel 3\",\"permalink\":\"nick-steel-4\",\"created_at\":\"2013/08/07 09:18:09
+        +0000\",\"last_modified\":\"2018/05/27 13:30:55 +0000\",\"first_name\":\"Nick\",\"last_name\":\"Steel\",\"full_name\":\"Nick
+        Steel\",\"city\":null,\"description\":null,\"country\":null,\"track_count\":0,\"public_favorites_count\":0,\"reposts_count\":0,\"followers_count\":0,\"followings_count\":0,\"plan\":\"Free\",\"myspace_name\":null,\"discogs_name\":null,\"website_title\":null,\"website\":null,\"comments_count\":0,\"online\":false,\"likes_count\":0,\"playlist_count\":2,\"subscriptions\":[{\"product\":{\"id\":\"free\",\"name\":\"Free\"}}]},\"playlist_type\":\"\",\"type\":\"\",\"id\":10961826,\"urn\":\"soundcloud:playlists:10961826\",\"downloadable\":null,\"likes_count\":0,\"sharing\":\"public\",\"created_at\":\"2013/09/24
+        14:12:25 +0000\",\"release\":null,\"tags\":\"\",\"kind\":\"playlist\",\"title\":\"Pelican\",\"purchase_title\":null,\"ean\":null,\"streamable\":true,\"embeddable_by\":\"all\",\"artwork_url\":null,\"purchase_url\":null,\"tracks_uri\":\"https://api.soundcloud.com/playlists/soundcloud:playlists:10961826/tracks\",\"tracks\":[{\"kind\":\"track\",\"id\":110937903,\"urn\":\"soundcloud:tracks:110937903\",\"created_at\":\"2013/09/17
+        17:31:09 +0000\",\"duration\":246827,\"commentable\":true,\"comment_count\":21,\"sharing\":\"public\",\"tag_list\":\"
+        \\\"southern lord\\\" metal \\\"post rock\\\" heavy chicago \\\"post everything\\\"
+        pelican\",\"streamable\":true,\"embeddable_by\":\"all\",\"purchase_url\":\"http://pelicansl.bandcamp.com\",\"purchase_title\":null,\"genre\":\"heavy\",\"title\":\"Pelican
+        - The Cliff\",\"description\":\"Taken from the forthcoming LP Forever Becoming,
+        available on October 15th through Southern Lord Recordings.\\r\\nPre-order
+        available at pelicansl.bandcamp.com\\r\\n\\r\\nTour Dates\\r\\n10/17 Brooklyn,
+        NY @ Saint Vitus - http://ticketf.ly/1a4scp9\\r\\n10/18 Brooklyn, NY @ Saint
+        Vitus - http://ticketf.ly/1dpr29P\\r\\n10/19 Boston, MA @ Great Scott - http://bit.ly/1aLiLvT\\r\\n11/1
+        Cleveland, OH @ Peabody's - http://tktwb.tw/17JOBb9\\r\\n11/2 Washington,
+        DC @ DC9 - http://ticketf.ly/17JWkWB\\r\\n11/3 Philadelphia, PA @ First Unitarian
+        Church - http://ticketf.ly/153CI1R\\r\\n11/4 Chapel Hill, NC @ Local 506 -
+        http://bit.ly/13RUG5T\\r\\n11/5 Atlanta, GA @ Masquerade - http://bit.ly/169TCg6\\r\\n11/6
+        Birmingham, AL @ Zydeco - http://ticketf.ly/1dps1Xn\\r\\n11/7 Baton Rouge,
+        LA @ Spanish Moon - http://tktwb.tw/19eijUI\\r\\n11/8 Austin, TX @ Fun Fun
+        Fun Fest - http://bit.ly/17pGO5i\\r\\n11/9 Austin, TX @ Fun Fun Fun Fest -
+        http://bit.ly/17pGO5i\\r\\n11/13 Chicago, IL @ Bottom Lounge - http://tktwb.tw/cGUWVL\",\"label_name\":\"Southern
+        Lord\",\"release\":\"LORD182\",\"key_signature\":\"\",\"isrc\":null,\"bpm\":null,\"release_year\":2013,\"release_month\":10,\"release_day\":14,\"license\":\"all-rights-reserved\",\"uri\":\"https://api.soundcloud.com/tracks/soundcloud:tracks:110937903\",\"user\":{\"avatar_url\":\"https://i1.sndcdn.com/avatars-000134520973-k3ipht-large.jpg\",\"id\":27945548,\"urn\":\"soundcloud:users:27945548\",\"kind\":\"user\",\"permalink_url\":\"https://soundcloud.com/pelican-song\",\"uri\":\"https://api.soundcloud.com/users/soundcloud:users:27945548\",\"username\":\"Pelican
+        Song\",\"permalink\":\"pelican-song\",\"created_at\":\"2012/11/09 19:58:08
+        +0000\",\"last_modified\":\"2024/08/08 11:32:06 +0000\",\"first_name\":\"\",\"last_name\":\"\",\"full_name\":\"\",\"city\":\"Chicago\",\"description\":\"After
+        four years of silence, instrumental metal standard bearers Pelican have come
+        thundering back, with Forever Becoming, an eight-song album destined to be
+        considered one of the most punishingly rewarding albums of the year. \\n\\nBefore
+        their hiatus, the group had laid a sizeable chunk of the groundwork for the
+        instrumental metal scene that\u2019s come into its own in the 13 years since
+        they started playing together. After 2009 the band found itself slightly adrift,
+        and found the day to day struggle of being full-time underground musicians
+        colliding with new families and non-musical careers. Wisely, they didn\u2019t
+        make any rash decisions, and as suits a band known for making dense, meditative
+        sounds they simply patiently figured out how to move past their obstacles.\\n\\nThis
+        reborn Pelican is purer, more focused, and far more assured. Recorded at Electrical
+        Audio in Chicago with engineer Chris Common, and featuring The Swan King guitarist
+        Dallas Thomas (replacing the amicably departed Laurent Schroeder-Lebec) Forever
+        Becoming is an immense, speaker-rattling meditation on the infinite cycle
+        of death and life. It takes a lot of experience and a lot of confidence to
+        attempt a head-on ascent of the biggest, most monolithic theme in art, but
+        Forever Becoming is proof that Pelican has plenty of both, and knows how to
+        wield them.\\n\",\"country\":\"United States\",\"track_count\":25,\"public_favorites_count\":0,\"reposts_count\":0,\"followers_count\":0,\"followings_count\":0,\"plan\":\"Pro
+        Unlimited\",\"myspace_name\":\"pelican\",\"discogs_name\":null,\"website_title\":\"\",\"website\":\"http://pelicansong.com\",\"comments_count\":0,\"online\":false,\"likes_count\":0,\"playlist_count\":3,\"subscriptions\":[{\"product\":{\"id\":\"creator-pro-unlimited\",\"name\":\"Pro
+        Unlimited\"}}]},\"permalink_url\":\"https://soundcloud.com/pelican-song/pelican-the-cliff\",\"artwork_url\":\"https://i1.sndcdn.com/artworks-000058009225-z8ykbg-large.jpg\",\"stream_url\":\"https://api.soundcloud.com/tracks/soundcloud:tracks:110937903/stream\",\"download_url\":null,\"waveform_url\":\"https://wave.sndcdn.com/A6OjJfuPRQlF_m.png\",\"available_country_codes\":null,\"secret_uri\":null,\"user_favorite\":false,\"user_playback_count\":1,\"playback_count\":48141,\"download_count\":0,\"favoritings_count\":507,\"reposts_count\":75,\"downloadable\":false,\"access\":\"playable\",\"policy\":null,\"monetization_model\":null,\"metadata_artist\":null}]}]"
     headers:
-      access-control-allow-headers: ['Accept, Authorization, Content-Type, Origin']
-      access-control-allow-methods: ['GET, PUT, POST, DELETE']
-      access-control-allow-origin: ['*']
-      access-control-expose-headers: [Date]
-      cache-control: ['private, max-age=0, must-revalidate']
-      connection: [keep-alive]
-      content-encoding: [gzip]
-      content-length: ['1593']
-      content-type: [application/json;charset=utf-8]
-      date: ['Tue, 22 May 2018 22:32:59 GMT']
-      etag: ['"79aff5ef0fa126d78a73385142abdf7b"']
-      server: [am/2]
-      status: [200 OK]
-      via: [1.1 69c4fecf3b313b4bea721d0c08afc356.cloudfront.net (CloudFront)]
-      x-amz-cf-id: [tVzLi5XzWOrNu4GrBFe9m98TOUr0mVDMCqSB6nlkrcz7LMnozpL6nQ==]
-      x-cache: [Miss from cloudfront]
-      x-frame-options: [SAMEORIGIN]
-    status: {code: 200, message: OK}
+      Cache-Control:
+      - private, max-age=0
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 11 Jul 2025 15:40:00 GMT
+      Server:
+      - envoy
+      Vary:
+      - Origin,Origin
+      Via:
+      - 1.1 81a723d8ae123d0a22af94ba42db81b4.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - n7bpS32aiDOWTZHl4UG_MV-sQ52LSPHMTxrz8jdJBwt4rYU5JEBwhQ==
+      X-Amz-Cf-Pop:
+      - LHR5-P5
+      X-Cache:
+      - Miss from cloudfront
+      content-length:
+      - '12830'
+      referrer-policy:
+      - no-referrer
+      x-content-type-options:
+      - nosniff
+      x-envoy-upstream-service-time:
+      - '174'
+      x-frame-options:
+      - DENY
+      x-ratelimit-limit:
+      - '-1'
+      x-ratelimit-remaining:
+      - '0'
+      x-ratelimit-reset:
+      - '0'
+      x-robots-tag:
+      - noindex
+      x-tyk-trace-id:
+      - d8b87d8b7e258c82c7fc52d8889f5874
+    status:
+      code: 200
+      message: OK
 version: 1

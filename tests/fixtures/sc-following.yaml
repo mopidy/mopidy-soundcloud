@@ -2,92 +2,141 @@ interactions:
 - request:
     body: null
     headers:
-      Accept: ['*/*']
-      Accept-Encoding: ['gzip, deflate']
-      Connection: [keep-alive]
-      user-agent: [!!python/unicode 'Mopidy-SoundCloud/2.0.2 Mopidy/2.1.0 CPython/2.7.11+']
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      user-agent:
+      - Mopidy-SoundCloud/3.0.2 Mopidy/4.0.0a5.dev17+g9f5d217a CPython/3.13.3
     method: GET
     uri: https://api.soundcloud.com/me/followings?limit=10
   response:
     body:
-      string: !!binary |
-        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
-        k9HYD6HKUee3/wIAAP//AwD+wbFTjSoAAA==
+      string: "{\"collection\":[{\"avatar_url\":\"https://i1.sndcdn.com/avatars-000107783269-jnuu65-large.jpg\",\"id\":2944360,\"urn\":\"soundcloud:users:2944360\",\"kind\":\"user\",\"permalink_url\":\"https://soundcloud.com/anyxgivenxday\",\"uri\":\"https://api.soundcloud.com/users/soundcloud:users:2944360\",\"username\":\"Any
+        Given Day\",\"permalink\":\"anyxgivenxday\",\"created_at\":\"2011/01/30 21:27:21
+        +0000\",\"last_modified\":\"2014/10/07 09:16:09 +0000\",\"first_name\":\"\",\"last_name\":\"\",\"full_name\":\"\",\"city\":\"Gelsenkirchen\",\"description\":\"Categories
+        are part of the business, but now and then they can be just time-consuming.
+        You can claim that ANY GIVEN DAY from Gelsenkirchen, Germany can be related
+        to the sub-genres new age metal, metalcore and deathcore. It's also save to
+        say that their sound unites low tuned, energy loaded, hard-lined heaviness
+        with enthralling melodic parts and an impressing vocal performance. But what
+        you also can do is to describe their style as down-to-earth as the band does
+        and \\\"just leave it with metal.\\\" ANY GIVEN DAY set the very normal, daily
+        madness to music. Rough and unadorned! Straight in your face! Just metal.\",\"country\":\"Germany\",\"track_count\":1,\"public_favorites_count\":1,\"reposts_count\":0,\"followers_count\":27575,\"followings_count\":0,\"plan\":\"Free\",\"myspace_name\":null,\"discogs_name\":null,\"website_title\":null,\"website\":null,\"comments_count\":0,\"online\":false,\"likes_count\":0,\"playlist_count\":0,\"subscriptions\":[{\"product\":{\"id\":\"free\",\"name\":\"Free\"}}]},{\"avatar_url\":\"https://i1.sndcdn.com/avatars-000134520973-k3ipht-large.jpg\",\"id\":27945548,\"urn\":\"soundcloud:users:27945548\",\"kind\":\"user\",\"permalink_url\":\"https://soundcloud.com/pelican-song\",\"uri\":\"https://api.soundcloud.com/users/soundcloud:users:27945548\",\"username\":\"Pelican
+        Song\",\"permalink\":\"pelican-song\",\"created_at\":\"2012/11/09 19:58:08
+        +0000\",\"last_modified\":\"2024/08/08 11:32:06 +0000\",\"first_name\":\"\",\"last_name\":\"\",\"full_name\":\"\",\"city\":\"Chicago\",\"description\":\"After
+        four years of silence, instrumental metal standard bearers Pelican have come
+        thundering back, with Forever Becoming, an eight-song album destined to be
+        considered one of the most punishingly rewarding albums of the year. \\n\\nBefore
+        their hiatus, the group had laid a sizeable chunk of the groundwork for the
+        instrumental metal scene that\u2019s come into its own in the 13 years since
+        they started playing together. After 2009 the band found itself slightly adrift,
+        and found the day to day struggle of being full-time underground musicians
+        colliding with new families and non-musical careers. Wisely, they didn\u2019t
+        make any rash decisions, and as suits a band known for making dense, meditative
+        sounds they simply patiently figured out how to move past their obstacles.\\n\\nThis
+        reborn Pelican is purer, more focused, and far more assured. Recorded at Electrical
+        Audio in Chicago with engineer Chris Common, and featuring The Swan King guitarist
+        Dallas Thomas (replacing the amicably departed Laurent Schroeder-Lebec) Forever
+        Becoming is an immense, speaker-rattling meditation on the infinite cycle
+        of death and life. It takes a lot of experience and a lot of confidence to
+        attempt a head-on ascent of the biggest, most monolithic theme in art, but
+        Forever Becoming is proof that Pelican has plenty of both, and knows how to
+        wield them.\\n\",\"country\":\"United States\",\"track_count\":25,\"public_favorites_count\":3,\"reposts_count\":6,\"followers_count\":2988,\"followings_count\":3,\"plan\":\"Pro
+        Unlimited\",\"myspace_name\":\"pelican\",\"discogs_name\":null,\"website_title\":\"\",\"website\":\"http://pelicansong.com\",\"comments_count\":0,\"online\":false,\"likes_count\":0,\"playlist_count\":3,\"subscriptions\":[{\"product\":{\"id\":\"creator-pro-unlimited\",\"name\":\"Pro
+        Unlimited\"}}]},{\"avatar_url\":\"https://a1.sndcdn.com/images/default_avatar_large.png\",\"id\":1739693,\"urn\":\"soundcloud:users:1739693\",\"kind\":\"user\",\"permalink_url\":\"https://soundcloud.com/sleepmakeswaves\",\"uri\":\"https://api.soundcloud.com/users/soundcloud:users:1739693\",\"username\":\"sleepmakeswaves\",\"permalink\":\"sleepmakeswaves\",\"created_at\":\"2010/09/20
+        00:26:54 +0000\",\"last_modified\":\"2017/06/20 12:23:49 +0000\",\"first_name\":\"Alex\",\"last_name\":\"Wilson\",\"full_name\":\"Alex
+        Wilson\",\"city\":\"Sydney\",\"description\":null,\"country\":\"Australia\",\"track_count\":31,\"public_favorites_count\":0,\"reposts_count\":0,\"followers_count\":2365,\"followings_count\":1,\"plan\":\"Free\",\"myspace_name\":null,\"discogs_name\":null,\"website_title\":null,\"website\":null,\"comments_count\":0,\"online\":false,\"likes_count\":0,\"playlist_count\":5,\"subscriptions\":[{\"product\":{\"id\":\"free\",\"name\":\"Free\"}}]},{\"avatar_url\":\"https://i1.sndcdn.com/avatars-SEC9i8y5MGlQzQmy-lhPRTw-large.jpg\",\"id\":4648693,\"urn\":\"soundcloud:users:4648693\",\"kind\":\"user\",\"permalink_url\":\"https://soundcloud.com/guitarworld\",\"uri\":\"https://api.soundcloud.com/users/soundcloud:users:4648693\",\"username\":\"GuitarWorld\",\"permalink\":\"guitarworld\",\"created_at\":\"2011/05/11
+        18:18:06 +0000\",\"last_modified\":\"2025/05/23 17:15:34 +0000\",\"first_name\":\"Guitar\",\"last_name\":\"World\",\"full_name\":\"Guitar
+        World\",\"city\":\"New York City\",\"description\":\"\",\"country\":\"United
+        States\",\"track_count\":2082,\"public_favorites_count\":15,\"reposts_count\":4,\"followers_count\":71720,\"followings_count\":2,\"plan\":\"Pro
+        Unlimited\",\"myspace_name\":null,\"discogs_name\":null,\"website_title\":\"GuitarWorld.com\",\"website\":\"http://www.guitarworld.com/\",\"comments_count\":0,\"online\":false,\"likes_count\":0,\"playlist_count\":322,\"subscriptions\":[{\"product\":{\"id\":\"creator-pro-unlimited\",\"name\":\"Pro
+        Unlimited\"}}]},{\"avatar_url\":\"https://i1.sndcdn.com/avatars-000637970763-ewtpiq-large.jpg\",\"id\":3299556,\"urn\":\"soundcloud:users:3299556\",\"kind\":\"user\",\"permalink_url\":\"https://soundcloud.com/ishto-juevez\",\"uri\":\"https://api.soundcloud.com/users/soundcloud:users:3299556\",\"username\":\"ishtojuevez\",\"permalink\":\"ishto-juevez\",\"created_at\":\"2011/02/22
+        18:09:35 +0000\",\"last_modified\":\"2020/11/17 05:15:03 +0000\",\"first_name\":\"la
+        mera menganbreya\",\"last_name\":\" CUMBIA swing & LATIN blues\",\"full_name\":\"la
+        mera menganbreya  CUMBIA swing & LATIN blues\",\"city\":\"guatemaya\",\"description\":\"ISHTO
+        JUEVEZ , es un cancionista que empieza viajando, como gitano musical, con
+        una trompeta invisible, cantando en autobuses y mercados de latinoamerica
+        y europa, una jornada aprendizaje e influencia musical, que se convierte en
+        una profesi\xF3n y un camino,que lo lleva por escenarios y eque\xF1os teatros,
+        absorbiendo vida y ritmos en muchos pa\xEDses, \\nabriendo espacio para una
+        poes\xEDa humanitaria y migratoria, en ritmos que saltan y cumbias swingueadas.
+        \ Regresa a casa, despu\xE9s de 10 a\xF1os a dar vida a los 3 \xFAltimos albums,
+        CHAPUZchapin (2013), ELE migrante (2014) y La Fortuna y sus lados B (2016),
+        este ultimo grabado en Los Angeles, co producido con Gaby Moreno.  Ha compartido
+        escena con Caf\xE9 Tacvba, Natalia Lafourcade entre otros. Seleccionado para
+        resentarse en SXSW 2019.\\n\\nsigo escribiendo canciones\\n\\nchapinlandya,
+        mixed races land, guatemaya, im ISHTO JUEVEZ, an americanized indigenous person,
+        with hazzelnuss eyes, like the register dictates... a musician, composer,
+        singer/songwriter, a traveler (this is my song, a mix all the many bread i
+        ate and the streets i walked, the air i breathe, the cultures i injected myself
+        with) i am now, like all of us in this planet under 40, in the process of
+        making a superstar, or maybe its just star dust\\n\\ni am still writing songs\",\"country\":\"Guatemala\",\"track_count\":28,\"public_favorites_count\":43,\"reposts_count\":0,\"followers_count\":1545,\"followings_count\":210,\"plan\":\"Free\",\"myspace_name\":null,\"discogs_name\":null,\"website_title\":\"\",\"website\":\"http://ishtojuevez.bandcamp.com\",\"comments_count\":0,\"online\":false,\"likes_count\":0,\"playlist_count\":3,\"subscriptions\":[{\"product\":{\"id\":\"free\",\"name\":\"Free\"}}]},{\"avatar_url\":\"https://i1.sndcdn.com/avatars-HhSL5agOnyqvAVTU-GymevA-large.jpg\",\"id\":493182402,\"urn\":\"soundcloud:users:493182402\",\"kind\":\"user\",\"permalink_url\":\"https://soundcloud.com/user-359247935\",\"uri\":\"https://api.soundcloud.com/users/soundcloud:users:493182402\",\"username\":\"Nearlymen:
+        An England football podcast\",\"permalink\":\"user-359247935\",\"created_at\":\"2018/08/13
+        23:30:05 +0000\",\"last_modified\":\"2021/03/28 17:59:39 +0000\",\"first_name\":\"\",\"last_name\":\"\",\"full_name\":\"\",\"city\":null,\"description\":\"Over-reaction,
+        lazy analysis and unfounded optimism: it's the England team podcast nobody
+        was asking for, with Sam & Paz.\",\"country\":null,\"track_count\":2,\"public_favorites_count\":1,\"reposts_count\":0,\"followers_count\":4,\"followings_count\":2,\"plan\":\"Free\",\"myspace_name\":null,\"discogs_name\":null,\"website_title\":null,\"website\":null,\"comments_count\":0,\"online\":false,\"likes_count\":0,\"playlist_count\":0,\"subscriptions\":[{\"product\":{\"id\":\"free\",\"name\":\"Free\"}}]},{\"avatar_url\":\"https://i1.sndcdn.com/avatars-000015611647-zwbank-large.jpg\",\"id\":17276731,\"urn\":\"soundcloud:users:17276731\",\"kind\":\"user\",\"permalink_url\":\"https://soundcloud.com/sadegadochi\",\"uri\":\"https://api.soundcloud.com/users/soundcloud:users:17276731\",\"username\":\"sadegadochi\",\"permalink\":\"sadegadochi\",\"created_at\":\"2012/05/21
+        10:08:29 +0000\",\"last_modified\":\"2018/05/01 10:39:26 +0000\",\"first_name\":\"Dochi\",\"last_name\":\"Sadega\",\"full_name\":\"Dochi
+        Sadega\",\"city\":\"Jakarta-Jogja\",\"description\":\"The name, my friend,
+        is Dochi Sadega. Some say i'm nifty, some say i'm not, i'm just a busy capricorn
+        boy. And this is what i do when i'm not with Pee Wee Gaskins. Also known as
+        Kid On A Rocket Ride.\",\"country\":\"Indonesia\",\"track_count\":27,\"public_favorites_count\":2,\"reposts_count\":0,\"followers_count\":35696,\"followings_count\":0,\"plan\":\"Free\",\"myspace_name\":null,\"discogs_name\":null,\"website_title\":\"pee
+        wee gaskins\",\"website\":\"http://www.inheritpoppunk.com\",\"comments_count\":0,\"online\":false,\"likes_count\":0,\"playlist_count\":0,\"subscriptions\":[{\"product\":{\"id\":\"free\",\"name\":\"Free\"}}]},{\"avatar_url\":\"https://i1.sndcdn.com/avatars-000232898451-r63qse-large.jpg\",\"id\":992503,\"urn\":\"soundcloud:users:992503\",\"kind\":\"user\",\"permalink_url\":\"https://soundcloud.com/young-legionnaire\",\"uri\":\"https://api.soundcloud.com/users/soundcloud:users:992503\",\"username\":\"Young
+        Legionnaire\",\"permalink\":\"young-legionnaire\",\"created_at\":\"2010/05/11
+        09:14:13 +0000\",\"last_modified\":\"2020/12/01 06:57:55 +0000\",\"first_name\":\"Young\",\"last_name\":\"Legionnaire\",\"full_name\":\"Young
+        Legionnaire\",\"city\":\"London\",\"description\":null,\"country\":null,\"track_count\":5,\"public_favorites_count\":0,\"reposts_count\":0,\"followers_count\":13497,\"followings_count\":0,\"plan\":\"Free\",\"myspace_name\":null,\"discogs_name\":null,\"website_title\":\"\",\"website\":\"http://www.younglegionnaire.com\",\"comments_count\":0,\"online\":false,\"likes_count\":0,\"playlist_count\":0,\"subscriptions\":[{\"product\":{\"id\":\"free\",\"name\":\"Free\"}}]},{\"avatar_url\":\"https://i1.sndcdn.com/avatars-000141133100-0g48l7-large.jpg\",\"id\":1710483,\"urn\":\"soundcloud:users:1710483\",\"kind\":\"user\",\"permalink_url\":\"https://soundcloud.com/tallships\",\"uri\":\"https://api.soundcloud.com/users/soundcloud:users:1710483\",\"username\":\"Tall
+        Ships\",\"permalink\":\"tallships\",\"created_at\":\"2010/09/15 10:34:02 +0000\",\"last_modified\":\"2017/09/22
+        17:02:29 +0000\",\"first_name\":\"Tall Ships\",\"last_name\":\"\",\"full_name\":\"Tall
+        Ships\",\"city\":\"Brighton\",\"description\":null,\"country\":\"Britain (UK)\",\"track_count\":22,\"public_favorites_count\":1,\"reposts_count\":0,\"followers_count\":2198,\"followings_count\":1,\"plan\":\"Free\",\"myspace_name\":null,\"discogs_name\":null,\"website_title\":null,\"website\":null,\"comments_count\":0,\"online\":false,\"likes_count\":0,\"playlist_count\":3,\"subscriptions\":[{\"product\":{\"id\":\"free\",\"name\":\"Free\"}}]},{\"avatar_url\":\"https://i1.sndcdn.com/avatars-000213907625-kn8vwd-large.jpg\",\"id\":422725,\"urn\":\"soundcloud:users:422725\",\"kind\":\"user\",\"permalink_url\":\"https://soundcloud.com/thenextweb\",\"uri\":\"https://api.soundcloud.com/users/soundcloud:users:422725\",\"username\":\"TNW\",\"permalink\":\"thenextweb\",\"created_at\":\"2009/12/04
+        01:28:43 +0000\",\"last_modified\":\"2019/10/01 00:00:56 +0000\",\"first_name\":\"\",\"last_name\":\"\",\"full_name\":\"\",\"city\":\"Amsterdam\",\"description\":\"This
+        is the Podcast feed for The Next Web. The Next Web is an International network
+        of blogs dedicated to technology, living it and the lifestyle around it. Join
+        us for weekly talks about what's big in tech.\",\"country\":\"Netherlands\",\"track_count\":26,\"public_favorites_count\":2,\"reposts_count\":0,\"followers_count\":182206,\"followings_count\":2,\"plan\":\"Free\",\"myspace_name\":null,\"discogs_name\":null,\"website_title\":\"The
+        Next Web\",\"website\":\"http://thenextweb.com\",\"comments_count\":0,\"online\":false,\"likes_count\":0,\"playlist_count\":0,\"subscriptions\":[{\"product\":{\"id\":\"free\",\"name\":\"Free\"}}]}],\"next_href\":\"https://api.soundcloud.com/me/followings?cursor=1375867131935&page_size=10\"}"
     headers:
-      access-control-allow-headers: ['Accept, Authorization, Content-Type, Origin']
-      access-control-allow-methods: ['GET, PUT, POST, DELETE']
-      access-control-allow-origin: ['*']
-      access-control-expose-headers: [Date]
-      cache-control: ['private, max-age=0, must-revalidate']
-      connection: [keep-alive]
-      content-encoding: [gzip]
-      content-length: ['3559']
-      content-type: [application/json;charset=utf-8]
-      date: ['Tue, 22 May 2018 22:30:35 GMT']
-      server: [am/2]
-      via: [1.1 f76a5f650b7fe2be49bcae6cfe9c8215.cloudfront.net (CloudFront)]
-      x-amz-cf-id: [lj1O0UGgoSQjfDfaGBoQXUv0nv2erwEQh-gW9c-aYAe_1b2paiZEZQ==]
-      x-cache: [Miss from cloudfront]
-    status: {code: 200, message: OK}
+      Cache-Control:
+      - private, max-age=0
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 11 Jul 2025 15:40:00 GMT
+      Server:
+      - envoy
+      Vary:
+      - Origin,Origin
+      Via:
+      - 1.1 47bcaf7a0c0d8a024b9de194d1378816.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - 8xm0WacsmsNdJ1yuI_lm7S-Z9b8rz8tdpjqXa3euP-D1r4Yl56aTEg==
+      X-Amz-Cf-Pop:
+      - LHR5-P5
+      X-Cache:
+      - Miss from cloudfront
+      content-length:
+      - '12614'
+      referrer-policy:
+      - no-referrer
+      x-content-type-options:
+      - nosniff
+      x-envoy-upstream-service-time:
+      - '49'
+      x-frame-options:
+      - DENY
+      x-ratelimit-limit:
+      - '-1'
+      x-ratelimit-remaining:
+      - '0'
+      x-ratelimit-reset:
+      - '0'
+      x-robots-tag:
+      - noindex
+      x-tyk-trace-id:
+      - e219d0fa4c0ae9eae72500643244992a
+    status:
+      code: 200
+      message: OK
 version: 1

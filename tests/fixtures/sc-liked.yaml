@@ -2,67 +2,135 @@ interactions:
 - request:
     body: null
     headers:
-      Accept: ['*/*']
-      Accept-Encoding: ['gzip, deflate']
-      Connection: [keep-alive]
-      user-agent: [!!python/unicode 'Mopidy-SoundCloud/2.0.2 Mopidy/2.1.0 CPython/2.7.11+']
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      user-agent:
+      - Mopidy-SoundCloud/3.0.2 Mopidy/4.0.0a5.dev17+g9f5d217a CPython/3.13.3
     method: GET
     uri: https://api.soundcloud.com/me/favorites?limit=10
   response:
     body:
-      string: !!binary |
-        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
-        n0YZAAA=
+      string: "[{\"kind\":\"track\",\"id\":24414623,\"urn\":\"soundcloud:tracks:24414623\",\"created_at\":\"2011/09/29
+        12:44:24 +0000\",\"duration\":240181,\"commentable\":true,\"comment_count\":0,\"sharing\":\"public\",\"tag_list\":\"
+        tallships bigscarymonsters bloodandbiscuits remix mtbrd\",\"streamable\":true,\"embeddable_by\":\"all\",\"purchase_url\":null,\"purchase_title\":null,\"genre\":\"8bit\",\"title\":\"Words
+        Are Pegs Upon Which We Hang Ideas (MTBRD Remix)\",\"description\":\"A remix
+        by MTBRD (Matt Beard) of the track 'Words are Pegs Upon Which We Hang Our
+        Ideas', which originally featured on the bands debut EP 'Tall Ships'\",\"label_name\":\"\",\"release\":\"\",\"key_signature\":\"\",\"isrc\":null,\"bpm\":null,\"release_year\":null,\"release_month\":null,\"release_day\":null,\"license\":\"all-rights-reserved\",\"uri\":\"https://api.soundcloud.com/tracks/soundcloud:tracks:24414623\",\"user\":{\"avatar_url\":\"https://i1.sndcdn.com/avatars-000141133100-0g48l7-large.jpg\",\"id\":1710483,\"urn\":\"soundcloud:users:1710483\",\"kind\":\"user\",\"permalink_url\":\"https://soundcloud.com/tallships\",\"uri\":\"https://api.soundcloud.com/users/soundcloud:users:1710483\",\"username\":\"Tall
+        Ships\",\"permalink\":\"tallships\",\"created_at\":\"2010/09/15 10:34:02 +0000\",\"last_modified\":\"2017/09/22
+        17:02:29 +0000\",\"first_name\":\"Tall Ships\",\"last_name\":\"\",\"full_name\":\"Tall
+        Ships\",\"city\":\"Brighton\",\"description\":null,\"country\":\"Britain (UK)\",\"track_count\":22,\"public_favorites_count\":0,\"reposts_count\":0,\"followers_count\":0,\"followings_count\":0,\"plan\":\"Free\",\"myspace_name\":null,\"discogs_name\":null,\"website_title\":null,\"website\":null,\"comments_count\":0,\"online\":false,\"likes_count\":0,\"playlist_count\":3,\"subscriptions\":[{\"product\":{\"id\":\"free\",\"name\":\"Free\"}}]},\"permalink_url\":\"https://soundcloud.com/tallships/words-are-pegs-mtbrd-remix\",\"artwork_url\":null,\"stream_url\":\"https://api.soundcloud.com/tracks/soundcloud:tracks:24414623/stream\",\"download_url\":null,\"waveform_url\":\"https://wave.sndcdn.com/sLndpGmxrvBb_m.png\",\"available_country_codes\":null,\"secret_uri\":null,\"user_favorite\":true,\"user_playback_count\":1,\"playback_count\":4090,\"download_count\":0,\"favoritings_count\":47,\"reposts_count\":4,\"downloadable\":false,\"access\":\"playable\",\"policy\":null,\"monetization_model\":null,\"metadata_artist\":null},{\"kind\":\"track\",\"id\":103772559,\"urn\":\"soundcloud:tracks:103772559\",\"created_at\":\"2013/08/02
+        23:23:04 +0000\",\"duration\":333953,\"commentable\":true,\"comment_count\":54,\"sharing\":\"public\",\"tag_list\":\"
+        \\\"heavy metal\\\" \\\"instrumental rock\\\" post-rock epic chicago \\\"Southern
+        Lord\\\" \\\"Mylene Sheath\\\" Pelican \\\"Forever Becoming\\\" \\\"Deny The
+        Absolute\\\"\",\"streamable\":true,\"embeddable_by\":\"all\",\"purchase_url\":\"http://www.mylenesheath.com/products/deny-the-absolute-b-slash-w-the-truce-7\",\"purchase_title\":null,\"genre\":\"Post
+        everything\",\"title\":\"Pelican - Deny The Absolute\",\"description\":\"Taken
+        from the forthcoming 7\\\" on The Mylene Sheath. Available August 20th 2013\\r\\nPre-order
+        available at pelicansl.bandcamp.com\\r\\n\\r\\nTour Dates\\r\\n10/17 Brooklyn,
+        NY @ Saint Vitus - http://ticketf.ly/1a4scp9\\r\\n10/18 Brooklyn, NY @ Saint
+        Vitus - http://ticketf.ly/1dpr29P\\r\\n10/19 Boston, MA @ Great Scott - http://bit.ly/1aLiLvT\\r\\n11/1
+        Cleveland, OH @ Peabody's - http://tktwb.tw/17JOBb9\\r\\n11/2 Washington,
+        DC @ DC9 - http://ticketf.ly/17JWkWB\\r\\n11/3 Philadelphia, PA @ First Unitarian
+        Church - http://ticketf.ly/153CI1R\\r\\n11/4 Chapel Hill, NC @ Local 506 -
+        http://bit.ly/13RUG5T\\r\\n11/5 Atlanta, GA @ Masquerade - http://bit.ly/169TCg6\\r\\n11/6
+        Birmingham, AL @ Zydeco - http://ticketf.ly/1dps1Xn\\r\\n11/7 Baton Rouge,
+        LA @ Spanish Moon - http://tktwb.tw/19eijUI\\r\\n11/8 Austin, TX @ Fun Fun
+        Fun Fest - http://bit.ly/17pGO5i\\r\\n11/9 Austin, TX @ Fun Fun Fun Fest -
+        http://bit.ly/17pGO5i\\r\\n11/13 Chicago, IL @ Bottom Lounge - http://tktwb.tw/cGUWVL\",\"label_name\":\"The
+        Mylene Sheath\",\"release\":\"\",\"key_signature\":\"\",\"isrc\":null,\"bpm\":null,\"release_year\":2013,\"release_month\":8,\"release_day\":20,\"license\":\"all-rights-reserved\",\"uri\":\"https://api.soundcloud.com/tracks/soundcloud:tracks:103772559\",\"user\":{\"avatar_url\":\"https://i1.sndcdn.com/avatars-000134520973-k3ipht-large.jpg\",\"id\":27945548,\"urn\":\"soundcloud:users:27945548\",\"kind\":\"user\",\"permalink_url\":\"https://soundcloud.com/pelican-song\",\"uri\":\"https://api.soundcloud.com/users/soundcloud:users:27945548\",\"username\":\"Pelican
+        Song\",\"permalink\":\"pelican-song\",\"created_at\":\"2012/11/09 19:58:08
+        +0000\",\"last_modified\":\"2024/08/08 11:32:06 +0000\",\"first_name\":\"\",\"last_name\":\"\",\"full_name\":\"\",\"city\":\"Chicago\",\"description\":\"After
+        four years of silence, instrumental metal standard bearers Pelican have come
+        thundering back, with Forever Becoming, an eight-song album destined to be
+        considered one of the most punishingly rewarding albums of the year. \\n\\nBefore
+        their hiatus, the group had laid a sizeable chunk of the groundwork for the
+        instrumental metal scene that\u2019s come into its own in the 13 years since
+        they started playing together. After 2009 the band found itself slightly adrift,
+        and found the day to day struggle of being full-time underground musicians
+        colliding with new families and non-musical careers. Wisely, they didn\u2019t
+        make any rash decisions, and as suits a band known for making dense, meditative
+        sounds they simply patiently figured out how to move past their obstacles.\\n\\nThis
+        reborn Pelican is purer, more focused, and far more assured. Recorded at Electrical
+        Audio in Chicago with engineer Chris Common, and featuring The Swan King guitarist
+        Dallas Thomas (replacing the amicably departed Laurent Schroeder-Lebec) Forever
+        Becoming is an immense, speaker-rattling meditation on the infinite cycle
+        of death and life. It takes a lot of experience and a lot of confidence to
+        attempt a head-on ascent of the biggest, most monolithic theme in art, but
+        Forever Becoming is proof that Pelican has plenty of both, and knows how to
+        wield them.\\n\",\"country\":\"United States\",\"track_count\":25,\"public_favorites_count\":0,\"reposts_count\":0,\"followers_count\":0,\"followings_count\":0,\"plan\":\"Pro
+        Unlimited\",\"myspace_name\":\"pelican\",\"discogs_name\":null,\"website_title\":\"\",\"website\":\"http://pelicansong.com\",\"comments_count\":0,\"online\":false,\"likes_count\":0,\"playlist_count\":3,\"subscriptions\":[{\"product\":{\"id\":\"creator-pro-unlimited\",\"name\":\"Pro
+        Unlimited\"}}]},\"permalink_url\":\"https://soundcloud.com/pelican-song/pelican-deny-the-absolute\",\"artwork_url\":\"https://i1.sndcdn.com/artworks-000054403217-2zpzkc-large.jpg\",\"stream_url\":\"https://api.soundcloud.com/tracks/soundcloud:tracks:103772559/stream\",\"download_url\":null,\"waveform_url\":\"https://wave.sndcdn.com/um2L6iVFJeFI_m.png\",\"available_country_codes\":null,\"secret_uri\":null,\"user_favorite\":true,\"user_playback_count\":1,\"playback_count\":57720,\"download_count\":0,\"favoritings_count\":688,\"reposts_count\":83,\"downloadable\":false,\"access\":\"playable\",\"policy\":null,\"monetization_model\":null,\"metadata_artist\":null},{\"kind\":\"track\",\"id\":100219820,\"urn\":\"soundcloud:tracks:100219820\",\"created_at\":\"2013/07/08
+        21:42:49 +0000\",\"duration\":421525,\"commentable\":true,\"comment_count\":84,\"sharing\":\"public\",\"tag_list\":\"
+        pelican \\\"southern lord\\\" \\\"forever becoming\\\" metal postrock chicago\",\"streamable\":true,\"embeddable_by\":\"all\",\"purchase_url\":\"http://pelicansl.bandcamp.com\",\"purchase_title\":null,\"genre\":\"Post
+        everything\",\"title\":\"Pelican - Immutable Dusk\",\"description\":\"\",\"label_name\":\"Southern
+        Lord\",\"release\":\"LORD182\",\"key_signature\":\"\",\"isrc\":null,\"bpm\":null,\"release_year\":2013,\"release_month\":10,\"release_day\":15,\"license\":\"all-rights-reserved\",\"uri\":\"https://api.soundcloud.com/tracks/soundcloud:tracks:100219820\",\"user\":{\"avatar_url\":\"https://i1.sndcdn.com/avatars-000134520973-k3ipht-large.jpg\",\"id\":27945548,\"urn\":\"soundcloud:users:27945548\",\"kind\":\"user\",\"permalink_url\":\"https://soundcloud.com/pelican-song\",\"uri\":\"https://api.soundcloud.com/users/soundcloud:users:27945548\",\"username\":\"Pelican
+        Song\",\"permalink\":\"pelican-song\",\"created_at\":\"2012/11/09 19:58:08
+        +0000\",\"last_modified\":\"2024/08/08 11:32:06 +0000\",\"first_name\":\"\",\"last_name\":\"\",\"full_name\":\"\",\"city\":\"Chicago\",\"description\":\"After
+        four years of silence, instrumental metal standard bearers Pelican have come
+        thundering back, with Forever Becoming, an eight-song album destined to be
+        considered one of the most punishingly rewarding albums of the year. \\n\\nBefore
+        their hiatus, the group had laid a sizeable chunk of the groundwork for the
+        instrumental metal scene that\u2019s come into its own in the 13 years since
+        they started playing together. After 2009 the band found itself slightly adrift,
+        and found the day to day struggle of being full-time underground musicians
+        colliding with new families and non-musical careers. Wisely, they didn\u2019t
+        make any rash decisions, and as suits a band known for making dense, meditative
+        sounds they simply patiently figured out how to move past their obstacles.\\n\\nThis
+        reborn Pelican is purer, more focused, and far more assured. Recorded at Electrical
+        Audio in Chicago with engineer Chris Common, and featuring The Swan King guitarist
+        Dallas Thomas (replacing the amicably departed Laurent Schroeder-Lebec) Forever
+        Becoming is an immense, speaker-rattling meditation on the infinite cycle
+        of death and life. It takes a lot of experience and a lot of confidence to
+        attempt a head-on ascent of the biggest, most monolithic theme in art, but
+        Forever Becoming is proof that Pelican has plenty of both, and knows how to
+        wield them.\\n\",\"country\":\"United States\",\"track_count\":25,\"public_favorites_count\":0,\"reposts_count\":0,\"followers_count\":0,\"followings_count\":0,\"plan\":\"Pro
+        Unlimited\",\"myspace_name\":\"pelican\",\"discogs_name\":null,\"website_title\":\"\",\"website\":\"http://pelicansong.com\",\"comments_count\":0,\"online\":false,\"likes_count\":0,\"playlist_count\":3,\"subscriptions\":[{\"product\":{\"id\":\"creator-pro-unlimited\",\"name\":\"Pro
+        Unlimited\"}}]},\"permalink_url\":\"https://soundcloud.com/pelican-song/pelican-immutable-dusk\",\"artwork_url\":\"https://i1.sndcdn.com/artworks-000052470429-3rqekf-large.jpg\",\"stream_url\":\"https://api.soundcloud.com/tracks/soundcloud:tracks:100219820/stream\",\"download_url\":null,\"waveform_url\":\"https://wave.sndcdn.com/ESRK0reTO9rf_m.png\",\"available_country_codes\":null,\"secret_uri\":null,\"user_favorite\":true,\"user_playback_count\":1,\"playback_count\":80001,\"download_count\":0,\"favoritings_count\":797,\"reposts_count\":100,\"downloadable\":false,\"access\":\"playable\",\"policy\":null,\"monetization_model\":null,\"metadata_artist\":null}]"
     headers:
-      access-control-allow-headers: ['Accept, Authorization, Content-Type, Origin']
-      access-control-allow-methods: ['GET, PUT, POST, DELETE']
-      access-control-allow-origin: ['*']
-      access-control-expose-headers: [Date]
-      cache-control: ['private, max-age=0, must-revalidate']
-      connection: [keep-alive]
-      content-encoding: [gzip]
-      content-length: ['1943']
-      content-type: [application/json;charset=utf-8]
-      date: ['Fri, 20 Apr 2018 00:13:26 GMT']
-      etag: ['"777a3fc587cfca0661a916a2db4f678b"']
-      server: [am/2]
-      status: [200 OK]
-      via: [1.1 1fcad26913988e10fd175698baa6f474.cloudfront.net (CloudFront)]
-      x-amz-cf-id: [yFEE0naRUjvM9OVjV5XuMpFDLzAN_t8qC2ef-ESKsY3rmp6oLGJhlA==]
-      x-cache: [Miss from cloudfront]
-      x-frame-options: [SAMEORIGIN]
-    status: {code: 200, message: OK}
+      Cache-Control:
+      - private, max-age=0
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 11 Jul 2025 15:40:00 GMT
+      Server:
+      - envoy
+      Vary:
+      - Origin,Origin
+      Via:
+      - 1.1 d0aa9598a65ac1fc1db7782598afed26.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - aLPCR3tQ0O1Sqg_hvlcOA9pqBDxFEahbRHg_R7Rr3jMQvHpZ_R131Q==
+      X-Amz-Cf-Pop:
+      - LHR5-P5
+      X-Cache:
+      - Miss from cloudfront
+      content-length:
+      - '10349'
+      referrer-policy:
+      - no-referrer
+      x-content-type-options:
+      - nosniff
+      x-envoy-upstream-service-time:
+      - '97'
+      x-frame-options:
+      - DENY
+      x-ratelimit-limit:
+      - '-1'
+      x-ratelimit-remaining:
+      - '0'
+      x-ratelimit-reset:
+      - '0'
+      x-robots-tag:
+      - noindex
+      x-tyk-trace-id:
+      - 5d8c041f43f7f801aecc409525d1579c
+    status:
+      code: 200
+      message: OK
 version: 1

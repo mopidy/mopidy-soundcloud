@@ -2,90 +2,159 @@ interactions:
 - request:
     body: null
     headers:
-      Accept: ['*/*']
-      Accept-Encoding: ['gzip, deflate']
-      Connection: [keep-alive]
-      user-agent: [!!python/unicode 'Mopidy-SoundCloud/2.0.2 Mopidy/2.1.0 CPython/2.7.11+']
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      user-agent:
+      - Mopidy-SoundCloud/3.0.2 Mopidy/4.0.0a5.dev17+g9f5d217a CPython/3.13.3
     method: GET
     uri: https://api.soundcloud.com/resolve?url=https://soundcloud.com/yndihalda/sets/dash-and-blast
   response:
     body:
-      string: !!binary |
-        H4sIAAAAAAAAABTJQQrCMBAAwK+UPWtjN7XbFKQ3vyFpEjEQk8BuDlL8uxXmNjuwWGkMC+gLdufu
-        Xlr2cIJUnJVY8hEvkcqLUrbGnv/tUmm+d+WtarKfFFlYjeOEs15diiHLI/qb0UEfkJ5+tmYj2oLz
-        A5npikgYEL4/AAAA//8DAIz95ld8AAAA
+      string: '{"status":"302 - Found", "location":"https://api.soundcloud.com/playlists/soundcloud:playlists:446283"}'
     headers:
-      access-control-allow-headers: ['Accept, Authorization, Content-Type, Origin']
-      access-control-allow-methods: ['GET, PUT, POST, DELETE']
-      access-control-allow-origin: ['*']
-      access-control-expose-headers: [Date]
-      cache-control: [no-cache]
-      connection: [keep-alive]
-      content-encoding: [gzip]
-      content-length: ['138']
-      content-type: [application/json;charset=utf-8]
-      date: ['Tue, 22 May 2018 19:55:23 GMT']
-      location: ['https://api.soundcloud.com/playlists/446283']
-      server: [am/2]
-      status: [302 Found]
-      via: [1.1 8bc6ceb505a42af10a5f7fdd59805ef6.cloudfront.net (CloudFront)]
-      x-amz-cf-id: [-XRt6hwO6GGYkgUG_6HcjKftGcT12xIHR0v2cYVuYpFgKsMsV-PGpQ==]
-      x-cache: [Miss from cloudfront]
-      x-frame-options: [SAMEORIGIN]
-    status: {code: 302, message: Moved Temporarily}
+      Cache-Control:
+      - private, max-age=0
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 11 Jul 2025 15:40:01 GMT
+      Location:
+      - https://api.soundcloud.com/playlists/soundcloud:playlists:446283
+      Server:
+      - envoy
+      Vary:
+      - Origin,Origin
+      Via:
+      - 1.1 9d395a7f2e324cfb528243e92355193c.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - wSE11o5ARfMmrfZxsby2_VaQC3HqAZkMtkbXqnI8o7WXRTRARyFLHg==
+      X-Amz-Cf-Pop:
+      - LHR5-P5
+      X-Cache:
+      - Miss from cloudfront
+      content-length:
+      - '103'
+      referrer-policy:
+      - no-referrer
+      x-content-type-options:
+      - nosniff
+      x-envoy-upstream-service-time:
+      - '48'
+      x-frame-options:
+      - DENY
+      x-ratelimit-limit:
+      - '-1'
+      x-ratelimit-remaining:
+      - '0'
+      x-ratelimit-reset:
+      - '0'
+      x-robots-tag:
+      - noindex
+      x-tyk-trace-id:
+      - 5d35d7a44f4148ac4f14e6f00bc7abe0
+    status:
+      code: 302
+      message: Moved Temporarily
 - request:
     body: null
     headers:
-      Accept: ['*/*']
-      Accept-Encoding: ['gzip, deflate']
-      Connection: [keep-alive]
-      user-agent: [!!python/unicode 'Mopidy-SoundCloud/2.0.2 Mopidy/2.1.0 CPython/2.7.11+']
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      user-agent:
+      - Mopidy-SoundCloud/3.0.2 Mopidy/4.0.0a5.dev17+g9f5d217a CPython/3.13.3
     method: GET
-    uri: https://api.soundcloud.com/playlists/446283
+    uri: https://api.soundcloud.com/playlists/soundcloud:playlists:446283
   response:
     body:
-      string: !!binary |
-        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
+      string: '{"duration":3943833,"genre":"","release_day":1,"permalink":"dash-and-blast","permalink_url":"https://soundcloud.com/yndihalda/sets/dash-and-blast","release_month":1,"release_year":2007,"description":"","uri":"https://api.soundcloud.com/playlists/soundcloud:playlists:446283","label_name":"Big
+        Scary Monsters / Burnt Toast Vinyl / XTAL","label_id":null,"label":null,"tag_list":"","track_count":4,"user_id":2262610,"user_urn":"soundcloud:users:2262610","last_modified":"2015/11/11
+        12:45:49 +0000","license":"all-rights-reserved","user":{"avatar_url":"https://i1.sndcdn.com/avatars-000202858125-s4rf69-large.jpg","id":2262610,"urn":"soundcloud:users:2262610","kind":"user","permalink_url":"https://soundcloud.com/yndihalda","uri":"https://api.soundcloud.com/users/soundcloud:users:2262610","username":"yndi
+        halda","permalink":"yndihalda","created_at":"2010/11/28 12:52:05 +0000","last_modified":"2018/07/24
+        17:48:35 +0000","first_name":"yndi","last_name":"halda","full_name":"yndi
+        halda","city":"everywhere","description":"UK, Malta, USA, Canada dates - autumn
+        2018","country":null,"track_count":7,"public_favorites_count":0,"reposts_count":0,"followers_count":0,"followings_count":0,"plan":"Free","myspace_name":null,"discogs_name":null,"website_title":"happenins","website":"http://www.yndihalda.com","comments_count":0,"online":false,"likes_count":0,"playlist_count":1,"subscriptions":[{"product":{"id":"free","name":"Free"}}]},"playlist_type":"","type":"","id":446283,"urn":"soundcloud:playlists:446283","downloadable":null,"likes_count":200,"sharing":"public","created_at":"2010/11/28
+        12:54:52 +0000","release":null,"tags":"","kind":"playlist","title":"enjoy
+        eternal bliss","purchase_title":null,"ean":"","streamable":true,"embeddable_by":"all","artwork_url":"https://i1.sndcdn.com/artworks-000003283417-7bxhxh-large.jpg","purchase_url":"http://orosarecords.bigcartel.com","tracks_uri":"https://api.soundcloud.com/playlists/soundcloud:playlists:446283/tracks","tracks":[{"kind":"track","id":7470149,"urn":"soundcloud:tracks:7470149","created_at":"2010/11/28
+        12:54:52 +0000","duration":1011715,"commentable":true,"comment_count":16,"sharing":"public","tag_list":"
+        ","streamable":true,"embeddable_by":"all","purchase_url":"http://orosarecords.bigcartel.com","purchase_title":null,"genre":"","title":"01
+        Dash And Blast","description":"","label_name":"","release":"","key_signature":null,"isrc":null,"bpm":null,"release_year":null,"release_month":null,"release_day":null,"license":"all-rights-reserved","uri":"https://api.soundcloud.com/tracks/soundcloud:tracks:7470149","user":{"avatar_url":"https://i1.sndcdn.com/avatars-000202858125-s4rf69-large.jpg","id":2262610,"urn":"soundcloud:users:2262610","kind":"user","permalink_url":"https://soundcloud.com/yndihalda","uri":"https://api.soundcloud.com/users/soundcloud:users:2262610","username":"yndi
+        halda","permalink":"yndihalda","created_at":"2010/11/28 12:52:05 +0000","last_modified":"2018/07/24
+        17:48:35 +0000","first_name":"yndi","last_name":"halda","full_name":"yndi
+        halda","city":"everywhere","description":"UK, Malta, USA, Canada dates - autumn
+        2018","country":null,"track_count":7,"public_favorites_count":0,"reposts_count":0,"followers_count":0,"followings_count":0,"plan":"Free","myspace_name":null,"discogs_name":null,"website_title":"happenins","website":"http://www.yndihalda.com","comments_count":0,"online":false,"likes_count":0,"playlist_count":1,"subscriptions":[{"product":{"id":"free","name":"Free"}}]},"permalink_url":"https://soundcloud.com/yndihalda/01-dash-and-blast","artwork_url":"https://i1.sndcdn.com/artworks-000003283417-7bxhxh-large.jpg","stream_url":"https://api.soundcloud.com/tracks/soundcloud:tracks:7470149/stream","download_url":null,"waveform_url":"https://wave.sndcdn.com/HilSWKFoKskx_m.png","available_country_codes":null,"secret_uri":null,"user_favorite":false,"user_playback_count":1,"playback_count":60562,"download_count":0,"favoritings_count":1062,"reposts_count":164,"downloadable":false,"access":"playable","policy":null,"monetization_model":null,"metadata_artist":null},{"kind":"track","id":7470150,"urn":"soundcloud:tracks:7470150","created_at":"2010/11/28
+        12:54:52 +0000","duration":701680,"commentable":true,"comment_count":10,"sharing":"public","tag_list":"
+        ","streamable":true,"embeddable_by":"all","purchase_url":"http://orosarecords.bandcamp.com","purchase_title":null,"genre":"","title":"02
+        We Flood Empty Lakes","description":"","label_name":"","release":"","key_signature":null,"isrc":null,"bpm":null,"release_year":null,"release_month":null,"release_day":null,"license":"all-rights-reserved","uri":"https://api.soundcloud.com/tracks/soundcloud:tracks:7470150","user":{"avatar_url":"https://i1.sndcdn.com/avatars-000202858125-s4rf69-large.jpg","id":2262610,"urn":"soundcloud:users:2262610","kind":"user","permalink_url":"https://soundcloud.com/yndihalda","uri":"https://api.soundcloud.com/users/soundcloud:users:2262610","username":"yndi
+        halda","permalink":"yndihalda","created_at":"2010/11/28 12:52:05 +0000","last_modified":"2018/07/24
+        17:48:35 +0000","first_name":"yndi","last_name":"halda","full_name":"yndi
+        halda","city":"everywhere","description":"UK, Malta, USA, Canada dates - autumn
+        2018","country":null,"track_count":7,"public_favorites_count":0,"reposts_count":0,"followers_count":0,"followings_count":0,"plan":"Free","myspace_name":null,"discogs_name":null,"website_title":"happenins","website":"http://www.yndihalda.com","comments_count":0,"online":false,"likes_count":0,"playlist_count":1,"subscriptions":[{"product":{"id":"free","name":"Free"}}]},"permalink_url":"https://soundcloud.com/yndihalda/02-we-flood-empty-lakes","artwork_url":"https://i1.sndcdn.com/artworks-000003283417-7bxhxh-large.jpg","stream_url":"https://api.soundcloud.com/tracks/soundcloud:tracks:7470150/stream","download_url":null,"waveform_url":"https://wave.sndcdn.com/zqm1mQgKmnE8_m.png","available_country_codes":null,"secret_uri":null,"user_favorite":false,"user_playback_count":1,"playback_count":33948,"download_count":0,"favoritings_count":578,"reposts_count":111,"downloadable":false,"access":"playable","policy":null,"monetization_model":null,"metadata_artist":null},{"kind":"track","id":232579920,"urn":"soundcloud:tracks:232579920","created_at":"2015/11/11
+        12:44:12 +0000","duration":1178911,"commentable":true,"comment_count":8,"sharing":"public","tag_list":"
+        ","streamable":true,"embeddable_by":"all","purchase_url":null,"purchase_title":null,"genre":"yndi
+        halda","title":"03 A Song For Starlit Beaches","description":"","label_name":null,"release":null,"key_signature":null,"isrc":null,"bpm":null,"release_year":null,"release_month":null,"release_day":null,"license":"all-rights-reserved","uri":"https://api.soundcloud.com/tracks/soundcloud:tracks:232579920","user":{"avatar_url":"https://i1.sndcdn.com/avatars-000202858125-s4rf69-large.jpg","id":2262610,"urn":"soundcloud:users:2262610","kind":"user","permalink_url":"https://soundcloud.com/yndihalda","uri":"https://api.soundcloud.com/users/soundcloud:users:2262610","username":"yndi
+        halda","permalink":"yndihalda","created_at":"2010/11/28 12:52:05 +0000","last_modified":"2018/07/24
+        17:48:35 +0000","first_name":"yndi","last_name":"halda","full_name":"yndi
+        halda","city":"everywhere","description":"UK, Malta, USA, Canada dates - autumn
+        2018","country":null,"track_count":7,"public_favorites_count":0,"reposts_count":0,"followers_count":0,"followings_count":0,"plan":"Free","myspace_name":null,"discogs_name":null,"website_title":"happenins","website":"http://www.yndihalda.com","comments_count":0,"online":false,"likes_count":0,"playlist_count":1,"subscriptions":[{"product":{"id":"free","name":"Free"}}]},"permalink_url":"https://soundcloud.com/yndihalda/03-a-song-for-starlit-beaches","artwork_url":"https://i1.sndcdn.com/artworks-000135789353-p8f849-large.jpg","stream_url":"https://api.soundcloud.com/tracks/soundcloud:tracks:232579920/stream","download_url":null,"waveform_url":"https://wave.sndcdn.com/9HLFxhvuN0CW_m.png","available_country_codes":null,"secret_uri":null,"user_favorite":false,"user_playback_count":1,"playback_count":18063,"download_count":0,"favoritings_count":438,"reposts_count":79,"downloadable":false,"access":"playable","policy":null,"monetization_model":null,"metadata_artist":null},{"kind":"track","id":232579918,"urn":"soundcloud:tracks:232579918","created_at":"2015/11/11
+        12:44:11 +0000","duration":1051527,"commentable":true,"comment_count":36,"sharing":"public","tag_list":"
+        ","streamable":true,"embeddable_by":"all","purchase_url":null,"purchase_title":null,"genre":"yndi
+        halda","title":"04 Illuminate My Heart, My Darling","description":"","label_name":null,"release":null,"key_signature":null,"isrc":null,"bpm":null,"release_year":null,"release_month":null,"release_day":null,"license":"all-rights-reserved","uri":"https://api.soundcloud.com/tracks/soundcloud:tracks:232579918","user":{"avatar_url":"https://i1.sndcdn.com/avatars-000202858125-s4rf69-large.jpg","id":2262610,"urn":"soundcloud:users:2262610","kind":"user","permalink_url":"https://soundcloud.com/yndihalda","uri":"https://api.soundcloud.com/users/soundcloud:users:2262610","username":"yndi
+        halda","permalink":"yndihalda","created_at":"2010/11/28 12:52:05 +0000","last_modified":"2018/07/24
+        17:48:35 +0000","first_name":"yndi","last_name":"halda","full_name":"yndi
+        halda","city":"everywhere","description":"UK, Malta, USA, Canada dates - autumn
+        2018","country":null,"track_count":7,"public_favorites_count":0,"reposts_count":0,"followers_count":0,"followings_count":0,"plan":"Free","myspace_name":null,"discogs_name":null,"website_title":"happenins","website":"http://www.yndihalda.com","comments_count":0,"online":false,"likes_count":0,"playlist_count":1,"subscriptions":[{"product":{"id":"free","name":"Free"}}]},"permalink_url":"https://soundcloud.com/yndihalda/04-illuminate-my-heart-my-darling","artwork_url":"https://i1.sndcdn.com/artworks-000135789352-w02ar7-large.jpg","stream_url":"https://api.soundcloud.com/tracks/soundcloud:tracks:232579918/stream","download_url":null,"waveform_url":"https://wave.sndcdn.com/Hyn11xRu4J7C_m.png","available_country_codes":null,"secret_uri":null,"user_favorite":false,"user_playback_count":1,"playback_count":70064,"download_count":0,"favoritings_count":1967,"reposts_count":214,"downloadable":false,"access":"playable","policy":null,"monetization_model":null,"metadata_artist":null}]}'
     headers:
-      access-control-allow-headers: ['Accept, Authorization, Content-Type, Origin']
-      access-control-allow-methods: ['GET, PUT, POST, DELETE']
-      access-control-allow-origin: ['*']
-      access-control-expose-headers: [Date]
-      cache-control: ['private, max-age=0, must-revalidate']
-      connection: [keep-alive]
-      content-encoding: [gzip]
-      content-length: ['1359']
-      content-type: [application/json;charset=utf-8]
-      date: ['Tue, 22 May 2018 19:55:23 GMT']
-      etag: ['"89b37b085db65b30f5dfaed7755ec429"']
-      server: [am/2]
-      status: [200 OK]
-      via: [1.1 8bc6ceb505a42af10a5f7fdd59805ef6.cloudfront.net (CloudFront)]
-      x-amz-cf-id: [ceXjpjN3UiEcoQSeaNZlV4cAWeMuwY1ForkRzAtIzBTEMgMggFkvjQ==]
-      x-cache: [Miss from cloudfront]
-      x-frame-options: [SAMEORIGIN]
-    status: {code: 200, message: OK}
+      Cache-Control:
+      - private, max-age=0
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 11 Jul 2025 15:40:01 GMT
+      Server:
+      - envoy
+      Vary:
+      - Origin,Origin
+      Via:
+      - 1.1 2fb04ea267d27c1f4e39f86ede52bd10.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - xKeJYt2lxYb4C_vIOJt4t9p3axDw18eH9C7U8P35ls3rktKgSkEpmA==
+      X-Amz-Cf-Pop:
+      - LHR5-P5
+      X-Cache:
+      - Miss from cloudfront
+      content-length:
+      - '10390'
+      referrer-policy:
+      - no-referrer
+      x-content-type-options:
+      - nosniff
+      x-envoy-upstream-service-time:
+      - '238'
+      x-frame-options:
+      - DENY
+      x-ratelimit-limit:
+      - '-1'
+      x-ratelimit-remaining:
+      - '0'
+      x-ratelimit-reset:
+      - '0'
+      x-robots-tag:
+      - noindex
+      x-tyk-trace-id:
+      - d863853798626fa0b6e7cb4fff556eec
+    status:
+      code: 200
+      message: OK
 version: 1
