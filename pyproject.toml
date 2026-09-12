@@ -86,6 +86,7 @@ ignore = [
     "ANN204", # missing-return-type-special-method  # TODO
     "ANN205", # missing-return-type-static-method  # TODO
     "ANN401", # any-type
+    "CPY",    # flake8-copyright
     "D",      # pydocstyle
     "D203",   # one-blank-line-before-class
     "D213",   # multi-line-summary-second-line
