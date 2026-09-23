@@ -8,6 +8,19 @@
 [SoundCloud](https://soundcloud.com/).
 
 
+## Status: Authentication is broken
+
+SoundCloud has changed how apps authenticate. Because of this, the
+authentication page at https://mopidy.com/authenticate no longer gives you a
+working token, and SoundCloud can reject tokens that worked before. Until this
+extension supports SoundCloud's new authentication, you cannot use it with your
+SoundCloud account.
+
+For details, see
+[#138](https://github.com/mopidy/mopidy-soundcloud/issues/138) and
+[#123](https://github.com/mopidy/mopidy-soundcloud/issues/123).
+
+
 ## Maintainer wanted
 
 Mopidy-SoundCloud is currently kept on life support by the Mopidy core
