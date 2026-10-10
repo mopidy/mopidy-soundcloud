@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-import datetime
+import datetime as dt
 import logging
 import re
 import string
@@ -109,12 +109,12 @@ class ThrottlingHttpAdapter(HTTPAdapter):
         self.max_hits = burst_length
         self.hits = 0
         self.rate = burst_length / burst_window
-        self.burst_window = datetime.timedelta(seconds=burst_window)
-        self.total_window = datetime.timedelta(seconds=burst_window + wait_window)
-        self.timestamp = datetime.datetime.min.replace(tzinfo=datetime.UTC)
+        self.burst_window = dt.timedelta(seconds=burst_window)
+        self.total_window = dt.timedelta(seconds=burst_window + wait_window)
+        self.timestamp = dt.datetime.min.replace(tzinfo=dt.UTC)
 
     def _is_too_many_requests(self):
-        now = datetime.datetime.now(tz=datetime.UTC)
+        now = dt.datetime.now(tz=dt.UTC)
         if now < self.timestamp + self.total_window:
             elapsed = now - self.timestamp
             self.hits += 1
